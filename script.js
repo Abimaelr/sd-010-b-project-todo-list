@@ -19,3 +19,10 @@ let input = document.createElement("input");
 input.id = "texto-tarefa";
 maeInput.appendChild(label);
 maeInput.appendChild(input);
+////////////////////////////////////////////////////////////////////////
+
+let maeListaOrdenada = document.getElementById("corpo");
+let listaOrdenada = document.createElement("ol");
+listaOrdenada.id = "lista-tarefas";
+maeListaOrdenada.appendChild(listaOrdenada);
+
