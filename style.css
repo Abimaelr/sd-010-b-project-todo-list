@@ -1,36 +1,36 @@
 * {
-    margin: 0;
-    font-family: 'Lato', sans-serif;
-    font-size: 20px;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
 }
 
 div {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 #main {
-    /* display: flex;
+  /* display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center; */
-    margin: 80px;
-    padding: 30px;
-    border: 3px black solid;
-    border-radius: 20px;
-    height: 500px;
+  margin: 80px;
+  padding: 30px;
+  border: 3px black solid;
+  border-radius: 20px;
+  height: 500px;
 }
 
 header {
-    font-weight: 900;
-    font-size: 2em;
+  font-weight: 900;
+  font-size: 2em;
 }
 
 #funcionamento {
-    font-weight: 300;
-    font-style: italic;
-    font-size: 1.3em;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1.3em;
 }
 
 .selected {
-    background-color: rgb(128,128,128);
+  background-color: rgb(128, 128, 128);
 }
