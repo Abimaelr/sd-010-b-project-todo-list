@@ -16,3 +16,12 @@ body {
 #center-input {
   text-align: center;
 }
+
+#lista-tarefas {
+  margin-top: 30px;
+  text-align: left;
+}
+
+li {
+  line-height: 28px;
+}
