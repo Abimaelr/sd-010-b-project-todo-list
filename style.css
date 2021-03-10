@@ -30,3 +30,7 @@ header {
     font-style: italic;
     font-size: 1.3em;
 }
+
+.selected {
+    background-color: rgb(128,128,128);
+}
