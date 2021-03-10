@@ -7,6 +7,15 @@ header {
 }
 
 #texto-tarefa {
-  padding: 5px 40px;
   border-radius: 5px;
+  padding: 5px 40px;
+}
+
+#criar-tarefa {
+  background-color: black;
+  border-radius: 50px;
+  color: white;
+  font-weight: bold;
+  margin: 0 15px;
+  padding: 5px 10px;
 }
