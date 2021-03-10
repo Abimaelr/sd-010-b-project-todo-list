@@ -9,7 +9,7 @@ const createTask = () => {
   button.addEventListener('click', (create) => {
     let task = document.createElement('li');
     selector('#lista-tarefas').appendChild(task);
-    task.innerText = selector('#texto-tarefa').value;
+    task.innerHTML = selector('#texto-tarefa').value;
     selector('#texto-tarefa').value = '';
     task.addEventListener('click', taskSelected);
     task.addEventListener('dblclick', taskCompleted);
@@ -38,21 +38,27 @@ const clearTask = () => {
   let button = selector('#apaga-tudo');
   button.addEventListener('click', (clear) => {
     for (task of selectorAll('#lista-tarefas li')) {
-        task.parentNode.removeChild(task);
+      task.parentNode.removeChild(task);
     }
-  })
+  });
 };
 // Clear Completed
 const clearCompleted = () => {
-    let button = selector('#remover-finalizados');
-    button.addEventListener('click', (clear) => {
-      for (task of selectorAll('.completed')) {
-          task.parentNode.removeChild(task);
-      }
-    })
-  };
-
-
+  let button = selector('#remover-finalizados');
+  button.addEventListener('click', (clear) => {
+    for (task of selectorAll('.completed')) {
+      task.parentNode.removeChild(task);
+    }
+  });
+};
+// Clear Completed
+const clearSelected = () => {
+  let button = selector('#remover-selecionado');
+  button.addEventListener('click', (clear) => {
+    selected.task.parentNode.removeChild(selected.task)
+  });
+};
+clearSelected();
 clearCompleted();
 clearTask();
 createTask();
