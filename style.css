@@ -19,3 +19,7 @@ header {
   margin: 0 15px;
   padding: 5px 10px;
 }
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}

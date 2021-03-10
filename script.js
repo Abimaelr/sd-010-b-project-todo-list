@@ -18,25 +18,14 @@ window.onload = function defaultBackgroundList() {
   sessionStorage.setItem('colorList', backgroundColorList);
 };
 
-function printActivity() {
-  const item = document.querySelectorAll('#lista-tarefas');
-  for (let index = 0; index < item.length; index += 1) {
-    item[index].addEventListener('click', (event) => {
-      const element = event;
-      element.target.style.backgroundColor = 'rgb(128, 128, 128)';
-    });
-  }
-}
-printActivity();
-
 function SelectActivity() {
   const listItem = document.getElementsByTagName('li');
   list.addEventListener('click', (event) => {
     const element = event;
     for (let index = 0; index < listItem.length; index += 1) {
-      listItem[index].classList.remove('activity.selected');
-      element.target.classList.add('activity.selected');
+      listItem[index].classList.remove('selected');
     }
+    element.target.classList.add('selected');
   });
 }
 SelectActivity();
