@@ -44,6 +44,7 @@ function addLista() {
     let auxOl = document.querySelector('#lista-tarefas');
     let auxLi = document.createElement('li');
     auxLi.innerText = auxInput.value;
+    auxLi.className = 'ncinca ncompleted';
     auxOl.appendChild(auxLi);
     auxInput.value = '';
   }
@@ -53,6 +54,7 @@ let auxClickLi = document.querySelector('#lista-tarefas');
 auxClickLi.addEventListener('click', pintarCinca);
 function pintarCinca(evento) {
   let aux = evento.target;
+  console.log(aux.className);
   if(aux.className !== 'cinca'){
     aux.className = 'cinca';
   } else {
@@ -67,7 +69,7 @@ function dbClick(event) {
   if(aux.className !== 'completed'){
     aux.className = 'completed'
   } else {
-    aux.className = '';
+    aux.className = ' ';
   }
 }
 ////////////////////qqqq
@@ -84,3 +86,10 @@ function apagaLista() {
   let aux = document.querySelector('#lista-tarefas');
   aux.innerHTML = '';
 }
+function addButtonfinalizados() {
+  let aux = document.createElement('button');
+  aux.id = 'remover-finalizados'
+  aux.innerText = 'Limpar Completos';
+  leBoby.appendChild(aux);
+}
+addButtonfinalizados();
