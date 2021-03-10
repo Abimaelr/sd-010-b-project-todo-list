@@ -20,7 +20,7 @@ window.onload = function() {
         buttonSalvar();
     }
 } 
-/* 
+
 function buttonSelecionadosRemover(){
     
     let buttonSelecionado = document.querySelector("#remover-selecionado");
@@ -30,11 +30,6 @@ function buttonSelecionadosRemover(){
         console.log(task);
         task.remove();
     })     
-} */
-
-function apagar(task){
-    console.log(task);
-    task.remove();
 }
 
 function changeBackgroundColor(){
@@ -44,17 +39,18 @@ function changeBackgroundColor(){
     for(let index = 0; index < listArray.length; index++){
         // console.log(document.querySelectorAll(".list-task")[index])
         listArray[index].addEventListener('click', function(event){
+            
             if(event.target.style.backgroundColor !== 'rgb(128, 128, 128)'){
-                event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-               /*  let buttonSelecionado = document.querySelector("#remover-selecionado");
-                buttonSelecionado.addEventListener('click',apagar(listArray[index])) */
+                event.target.classList.add('selected');
+                // console.log(event.target);
+                buttonSelecionadosRemover()
+            
             }
             else{ 
             }
             for(let index1 = 0; index1 < listArray.length; index1++){
-                console.log("aqui")
                 if(listArray[index1] !== event.target){
-                    listArray[index1].style.backgroundColor = 'white';
+                    listArray[index1].classList.remove('selected');
                 }
             }
         })
