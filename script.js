@@ -1,6 +1,6 @@
 const listaTarefas = document.getElementById('lista-tarefas').getElementsByTagName('li');
 
-function clickItem(li) {
+function clickItem() {
   for (let i = 0; i < listaTarefas.length; i +=1) {
     listaTarefas[i].addEventListener('click', function (){
       for (let j = 0; j < listaTarefas.length; j += 1) {
@@ -9,7 +9,7 @@ function clickItem(li) {
         }
       }
       listaTarefas[i].style.backgroundColor = 'rgb(128, 128, 128)';
-    })    
+    })
   }
 }
 
@@ -23,7 +23,7 @@ function dblClickItem(li) {
 
 function clear() {
   for (let i = 0; i < listaTarefas.length; i += 1) {
-    document.getElementById('apaga-tudo').addEventListener('click', function (){
+    document.getElementById('apaga-tudo').addEventListener('click', function () {
       listaTarefas[i].remove();
     })    
   }
@@ -31,7 +31,7 @@ function clear() {
 
 function removeFinalized(){
   for (let i = 0; i < listaTarefas.length; i += 1) {
-    document.getElementById('remover-finalizados').addEventListener('click', function (){
+    document.getElementById('remover-finalizados').addEventListener('click', function () {
       if (listaTarefas[i].className === 'completed') {
         listaTarefas[i].remove();
       }     
@@ -41,7 +41,7 @@ function removeFinalized(){
 
 function removeSelectd() {
   for (let i = 0; i < listaTarefas.length; i += 1) {
-    document.getElementById('remover-selecionado').addEventListener('click', function (){
+    document.getElementById('remover-selecionado').addEventListener('click', function () {
       if (listaTarefas[i].style.backgroundColor === 'rgb(128, 128, 128)') {
         listaTarefas[i].remove();
       }     
@@ -66,3 +66,6 @@ function createTask() {
   })
 }
 createTask();
+clear();
+removeFinalized();
+removeSelectd();
