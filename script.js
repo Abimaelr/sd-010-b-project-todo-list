@@ -63,13 +63,15 @@ const getItemAndAdd = () => {
 // add from localStorage
 
 const getListOnLoad = () => {
-  // got objectEntries from w3, did not know about that
-  const items = Object.entries(JSON.parse(localStorage.getItem('list')));
-
-  for (let index = 0; index < items.length; index += 1) {
-    const text = items[index][1][0];
-    const classNameList = items[index][1][1];
-    addToOl(text, classNameList);
+  // Object entries found in w3
+  if (localStorage.getItem('list')) {
+    const items = Object.entries(JSON.parse(localStorage.getItem('list')));
+    console.log('oi');
+    for (let index = 0; index < items.length; index += 1) {
+      const text = items[index][1][0];
+      const classNameList = items[index][1][1];
+      addToOl(text, classNameList);
+    }
   }
 };
 
@@ -93,13 +95,17 @@ const clearCompletedItems = () => {
 // Save List State Function
 
 const saveListState = () => {
-  const lis = Array.from(document.querySelectorAll('li'));
-  const htmlToSave = {};
-  lis.forEach((li, index) => {
-    htmlToSave[index] = [li.innerText, li.classList];
-  });
-  const lisToSave = JSON.stringify(htmlToSave);
-  localStorage.setItem('list', lisToSave);
+  if (typeof (Storage) !== 'undefined') {
+    const lis = Array.from(document.querySelectorAll('li'));
+    const htmlToSave = {};
+    lis.forEach((li, index) => {
+      htmlToSave[index] = [li.innerText, li.classList];
+    });
+    const lisToSave = JSON.stringify(htmlToSave);
+    localStorage.setItem('list', lisToSave);
+  } else {
+    alert('Browser has not support to this feature');
+  }
 };
 
 //      Add Listeners
@@ -135,6 +141,6 @@ const loadButtons = () => {
 };
 
 window.onload = () => {
-  getListOnLoad();
   loadButtons();
+  getListOnLoad();
 };
