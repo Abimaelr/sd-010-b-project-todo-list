@@ -14,7 +14,7 @@ btn.addEventListener ('click', function(){
 
 function itemSelection (evt){
     clearListClass ();
-    evt.target.className += 'selected';
+    evt.target.classList.add('selected');
 }
 
 function clearListClass (){
@@ -30,19 +30,14 @@ function clearListClass (){
 
 
 function itemCheck(evt){
+    const entrada = evt.target.className.split(" ");
 
-    let entrada = `${evt.target.className}`
-    
-    if(entrada.includes('completed')){
-        entrada.replace('completed','');
-        console.log(entrada)
+    if(entrada.includes('completed')) {
+        evt.target.classList.remove('completed');
     }
     else{
-       entrada += 'completed '
-    }
-    console.log(entrada)
-    evt.target.className = entrada;
-   
+        evt.target.classList.add('completed');
+    }  
 }
 
 list.addEventListener ('dblclick', itemCheck, false)
