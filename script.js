@@ -5,6 +5,7 @@ const tarefas = document.getElementsByClassName("tarefa");
 const input = document.getElementById("texto-tarefa");
 
 
+
 botaoTarefa.addEventListener("click", criarTarefa);
 
 listaMae.addEventListener("click", function(event) {
@@ -31,6 +32,11 @@ function getInputValor() {
     return valor;
 }
 
-function chageColor(index) {
-    tarefas[index].style.backgroundColor = "rgb(128, 128, 128)";
+function chageColor(pos) {
+    for (let index = 0; index < tarefas.length; index+= 1) {
+        if (tarefas[index].style.backgroundColor ===  "rgb(128, 128, 128)") {
+            tarefas[index].style.backgroundColor =  "";
+        }
+    }
+    tarefas[pos].style.backgroundColor = "rgb(128, 128, 128)";
 }
