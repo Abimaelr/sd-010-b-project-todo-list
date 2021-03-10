@@ -39,10 +39,22 @@ addOl();
 let auxButton = document.querySelector('#criar-tarefa');
 auxButton.addEventListener('click', addLista);
 function addLista() {
-  let auxOl = document.querySelector('#lista-tarefas');
-  let auxLi = document.createElement('li');
   let auxInput = document.querySelector('#texto-tarefa');
-  auxLi.innerText = auxInput.value;
-  auxOl.appendChild(auxLi);
-  auxInput.value = '';
+    if(auxInput.value !== '') {
+    let auxOl = document.querySelector('#lista-tarefas');
+    let auxLi = document.createElement('li');
+    auxLi.innerText = auxInput.value;
+    auxOl.appendChild(auxLi);
+    auxInput.value = '';
+  }
+}
+let auxClickLi = document.querySelector('#lista-tarefas');
+auxClickLi.addEventListener('click', pintarCinca);
+function pintarCinca(evento) {
+  let aux = evento.target;
+  if(aux.style.backgroundColor !== 'rgb(128, 128, 128'){
+    aux.style.backgroundColor = 'rgb(128, 128, 128';
+  } else {
+    aux.style.color = 'white';
+  }
 }
