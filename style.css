@@ -1,12 +1,12 @@
 body {
-background-color: rgb(206, 206, 53);
-padding: 10px;
+  background-color: rgb(206, 206, 53);
+  padding: 10px;
 }
 
 main {
   background-color: rgb(151, 136, 151);
   border: 50px;
-  border-radius:  30px;
+  border-radius: 30px;
 }
 
 header {
@@ -23,3 +23,35 @@ section {
 footer {
   margin-bottom: 20px;
 }
+
+#texto-tarefa {
+  border-radius:4px;
+  display:inline-block;
+  font-family:Verdana;
+  font-size:13px;
+  padding:3px 5px;
+  text-decoration:none;
+}
+
+.btnAdd {
+  border:1px solid #25692A;
+  border-radius:4px;
+  display:inline-block;
+  cursor:pointer;
+  font-family:Verdana;
+  font-size:13px;
+  padding:4px 6px;
+  text-decoration:none;
+  } 
+
+.btnAdd {
+  border-color:#46a7f5;
+  background:linear-gradient(to bottom, #86c6f8 5%, #46a7f5 100%);
+  box-shadow:inset 0px 1px 0px 0px #d7ecfd;
+  color:#000;
+  text-shadow:0px 1px 0px #528009;  
+  }
+
+.btnAdd:hover {
+  background:linear-gradient(to bottom, #46a7f5 5%, #86c6f8 100%);
+  }
