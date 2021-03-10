@@ -54,25 +54,42 @@ window.onload = function () {
     }
 
 // BOTÃO REMOVER FINALIZADOS
+    // let remover = document.querySelector('#remover-finalizados');
+    // remover.addEventListener('click', removerFinalizados);
+    // function removerFinalizados() {
+    //     let ol = document.querySelectorAll('#lista-tarefas li');
+    //     let orderedList = document.querySelector('#lista-tarefas');
+    //     let size = ol.length;
+    //     for(let i = 0; i < ol.length; i++){
+    //         let classes = ol[i].classList;
+    //         let count = 0;
+    //         for(let index = 0; index < ol[i].classList.length; index++){
+    //             if(classes[index] == 'completed'){
+    //                 count++;
+    //             }
+    //         }
+    //         if(count > 0){
+    //             orderedList.removeChild(orderedList.childNodes[i]);
+    //             i--;
+    //         }
+    //     }
+    // }
+
     let remover = document.querySelector('#remover-finalizados');
     remover.addEventListener('click', removerFinalizados);
     function removerFinalizados() {
-        let ol = document.querySelectorAll('#lista-tarefas li');
-        let orderedList = document.querySelector('#lista-tarefas');
-        for(let i = 0; i < ol.length; i++){
-            let classes = ol[i].classList;
-            let count = 0;
-            for(let index = 0; index < ol[i].classList.length; index++){
-                if(classes[index] == 'completed'){
-                    count++;
-                }
-            }
-            if(count > 0){
-                orderedList.removeChild(orderedList.childNodes[i]);
+        let ol = document.querySelectorAll('#lista-tarefas');
+        let t = true;
+        while(t){
+            let item = document.querySelector('.completed');
+            if(item == null){
+            t = false;
+            }else{
+            item.parentNode.removeChild(item);
             }
         }
+        
     }
-
 
 
 
