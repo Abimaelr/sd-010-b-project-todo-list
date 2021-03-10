@@ -49,3 +49,15 @@ function overline () {
 }
 
 overline();
+
+function clear() {
+const cleanButton = document.getElementById('apaga-tudo');
+cleanButton.addEventListener('click', function () {
+  const list = document.getElementById('lista-tarefas');
+  while (list.firstChild) {
+    list.removeChild(list.lastChild);
+  }
+});
+}
+
+clear();
