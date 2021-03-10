@@ -30,9 +30,9 @@ function criarTarefa(){
 	botaoTarefa.addEventListener('click',function(event){
 		const itemLista = document.getElementById('texto-tarefa');
 		let itemTarefa = document.createElement('li');
-		itemTarefa.innerText = itemLista.innerText
+		itemTarefa.innerText = itemLista.value;
 		olId.appendChild(itemTarefa);
-		itemLista.innerText = " "
+		itemLista.value = " ";
 
 	})
 }
