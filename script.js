@@ -17,6 +17,7 @@ const save = document.getElementById('salvar-tarefas')
 
 const cima = document.getElementById('mover-cima')
 const baixo = document.getElementById('mover-baixo')
+const rmv = document.getElementById('remover-selecionado')
 
 
 let tamanho = 0;
@@ -170,6 +171,14 @@ finalizados.addEventListener('click', function(){
 
     selected.innerText = bufferT;
     selected.className = bufferC;
+
+
+    atualizarTasks ();
+ })
+
+ rmv.addEventListener('click', function(){
+    const selected = document.querySelector('.selected');
+    selected.remove();
 
 
     atualizarTasks ();
