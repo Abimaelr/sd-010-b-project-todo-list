@@ -7,10 +7,14 @@ ol{
     margin-top: 2%;
 }
 
-#apaga-tudo, #remover-finalizados{
+#apaga-tudo, #remover-finalizados, #remover-selecionado{
     margin-left: 2%;
 }
 
 #salvar-tarefa{
     margin-top: 1%;
+}
+
+.selected{
+    background-color: rgb(128, 128, 128);
 }

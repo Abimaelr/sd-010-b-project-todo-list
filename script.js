@@ -22,6 +22,17 @@ window.onload = function() {
     }
 }
 
+function buttonSelecionadosRemover(){
+    
+    let buttonSelecionado = document.querySelector("#remover-selecionado");
+
+    buttonSelecionado.addEventListener('click', function(){
+        let task = document.querySelector('.selected');
+        console.log(task);
+        task.remove();
+    })     
+}
+
 function changeBackgroundColor(){
 
     let listArray = document.querySelector("ol").childNodes;
@@ -29,15 +40,18 @@ function changeBackgroundColor(){
     for(let index = 0; index < listArray.length; index++){
         // console.log(document.querySelectorAll(".list-task")[index])
         listArray[index].addEventListener('click', function(event){
+            
             if(event.target.style.backgroundColor !== 'rgb(128, 128, 128)'){
-                event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+                event.target.classList.add('selected');
+                // console.log(event.target);
+                buttonSelecionadosRemover()
+            
             }
             else{ 
             }
             for(let index1 = 0; index1 < listArray.length; index1++){
-                console.log("aqui")
                 if(listArray[index1] !== event.target){
-                    listArray[index1].style.backgroundColor = 'white';
+                    listArray[index1].classList.remove('selected');
                 }
             }
         })
@@ -48,7 +62,7 @@ function buttonFinalizados(){
     
     let buttonApaga = document.querySelector("#remover-finalizados");
     let listArray = document.querySelectorAll(".completed");
-    console.log(listArray);
+    // console.log(listArray);
 
     buttonApaga.addEventListener('click', function(event){
         for(let index = 0; index < listArray.length; index++){
@@ -64,14 +78,14 @@ function riscaTask(){
 
     for(let index = 0; index < listArray.length; index++){
         listArray[index].addEventListener('dblclick', function(event){
-            console.log(event.target);
-            console.log(event.target.className);
-            if(event.target.className !== 'completed'){
-                event.target.classList.add('completed');
-                buttonFinalizados(); 
+            // console.log(event.target);
+            // console.log(event.target.className);
+            if(event.target.classList.contains('completed')){
+                event.target.classList.remove('completed');
             }
             else{ 
-                event.target.classList.remove('completed');
+                event.target.classList.add('completed');
+                buttonFinalizados(); 
             }
         })
     }  
@@ -120,6 +134,7 @@ createTaskButton.addEventListener("click", function(){
         buttonApaga();
         buttonFinalizados();  
         buttonSalvar();
+        buttonSelecionadosRemover();
     }
     
 })
