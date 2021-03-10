@@ -30,11 +30,17 @@ eraseBtn.addEventListener('click', () => {
 
 const rmCompletedBtn = document.getElementById('remover-finalizados');
 rmCompletedBtn.addEventListener('click', () => {
-  const allLis = document.getElementsByTagName('li');
-  for (let i = 0; i < allLis.length; i += 1) {
-    if (allLis[i].className.includes('completed')) {
-      allLis[i].parentElement.removeChild(allLis[i]);
-    }
+  // utilizei o forEach nessa situação após consultar o stackoverflow
+  // link: https://stackoverflow.com/questions/44984867/javascript-remove-elements-by-class-name/44984940
+  document.querySelectorAll('.completed').forEach((a) => {
+    a.remove();
+  });
+});
+
+const input = document.querySelector('input');
+input.addEventListener('keypress', (evt) => {
+  if (evt.keyCode === 13) {
+    document.getElementById('criar-tarefa').click();
   }
 });
 createNewTask();
