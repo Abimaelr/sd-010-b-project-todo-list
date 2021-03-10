@@ -1,7 +1,7 @@
 const selected = {};
 
-let selector = (id) => document.querySelector(id);
-let selectorAll = (id) => document.querySelectorAll(id);
+const selector = (id) => document.querySelector(id);
+const selectorAll = (id) => document.querySelectorAll(id);
 
 // Create Task
 const createTask = () => {
@@ -42,6 +42,17 @@ const clearTask = () => {
     }
   })
 };
+// Clear Completed
+const clearCompleted = () => {
+    let button = selector('#remover-finalizados');
+    button.addEventListener('click', (clear) => {
+      for (task of selectorAll('.completed')) {
+          task.parentNode.removeChild(task);
+      }
+    })
+  };
 
+
+clearCompleted();
 clearTask();
 createTask();
