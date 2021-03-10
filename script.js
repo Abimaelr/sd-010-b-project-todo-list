@@ -16,14 +16,21 @@ function selectTask() {
   taskList.addEventListener('click', (event) => {
     const taskItems = document.querySelectorAll('.tarefa');
     for (let i = 0; i < taskItems.length; i += 1) {
-      taskItems[i].style.backgroundColor = '';
+      taskItems[i].classList.remove('selected');
     }
 
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    event.target.classList.add('selected');
+  });
+}
+
+function doneTask() {
+  taskList.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
   });
 }
 
 window.onload = () => {
   addTask();
   selectTask();
+  doneTask();
 };
