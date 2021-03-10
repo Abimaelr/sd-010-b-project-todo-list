@@ -4,3 +4,20 @@
   box-sizing: border-box;
 }
 
+header {
+  text-align: center;
+  margin: 25px;
+}
+
+.container {
+  text-align: center;
+}
+
+.input-text {
+  margin: 25px;
+}
+
+#lista-tarefas {
+  list-style: decimal inside;
+  margin: 25px;
+}
