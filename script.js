@@ -1,4 +1,4 @@
-//Crio a função do botão "Enviar", apagando o conteúdo da caixa de input e criando um item na lista de tarefas com o valor que o usuario digitou
+//Crio a função do botão "Enviar", apagando o conteúdo da caixa de input e criando um item na lista de tarefas com o valor que o usuario digitou.
 let tarefa = document.getElementById("texto-tarefa");
 let enviar = document.getElementById("criar-tarefa");
 
@@ -6,9 +6,11 @@ enviar.addEventListener("click", adicionaNaListaEApaga);
 
 function adicionaNaListaEApaga() {
     let li = document.createElement("li");
-    li.innerHTML = tarefa.value;
-    document.getElementById("lista-tarefas").appendChild(li);
-    tarefa.value = "";
+    if (tarefa.value != "") {
+        li.innerHTML = tarefa.value;
+        document.getElementById("lista-tarefas").appendChild(li);
+        tarefa.value = "";
+    }
 }
 
 /*   
@@ -23,10 +25,10 @@ function adicionaNaListaEApaga() {
 var lista = document.getElementById("lista-tarefas");
 lista.addEventListener("click", atribuiClasseSelected);
 
-function atribuiClasseSelected(element) {
+function atribuiClasseSelected(entradaDaFuncao) {
     apagaClasse();
-    if (element.target.tagName == "LI") {
-        element.target.className = "selected";
+    if (entradaDaFuncao.target.tagName == "LI") {
+        entradaDaFuncao.target.classList.add("selected");
     }
 }
 
@@ -36,4 +38,15 @@ function apagaClasse() {
     for (i=0; i<itens.length; i++) {
         itens[i].classList.remove("selected");
     } 
+}
+
+//Faço com que, ao ser clicado duas vezes, um item verifique se já está riscado. Se estiver, tira o risco, do contrário, risca o item.
+lista.addEventListener("dblclick", riscaItem);
+
+function riscaItem(entradaDaFuncao) {
+    if (entradaDaFuncao.target.className == "completed selected") {
+        entradaDaFuncao.target.classList.remove("completed");
+    } else {
+        entradaDaFuncao.target.classList.add("completed");
+    }
 }
