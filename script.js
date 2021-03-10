@@ -41,8 +41,17 @@ window.onload = function () {
         
         console.log(li.classList);
         console.log(liEmQuestao.target);
-    }
+}
 
+// BOTÃO APAGAR
+    let apagar = document.querySelector('#apaga-tudo');
+    apagar.addEventListener('click', apagarLista);
+    function apagarLista() {
+        let ol = document.querySelector('#lista-tarefas')
+        while (ol.firstChild) {
+            ol.removeChild(ol.lastChild);
+          }
+    }
 
 
 
