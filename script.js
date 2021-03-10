@@ -7,6 +7,10 @@ function addSelectedClass(item, selecClass) {
   item.classList.add(selecClass);
 }
 
+function toggleCompletedClass(item, completClass) {
+  item.classList.toggle(completClass);
+}
+
 function addEvent(item, event, addFunction) {
   item.addEventListener(event, addFunction);
 }
@@ -23,6 +27,9 @@ function addItemToList() {
   item.innerText = input.value;
   addEvent(item, 'click', () => {
     addSelectedClass(item, 'selected');
+  });
+  addEvent(item, 'dblclick', () => {
+    toggleCompletedClass(item, 'completed');
   });
   list.appendChild(item);
 }
