@@ -13,3 +13,8 @@ headerP.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
 const input = document.createElement('input');
 bodyChilds.appendChild(input);
 input.id = 'texto-tarefa';
+
+// requisito 4
+const olTasks = document.createElement('ol');
+bodyChilds.appendChild(olTasks);
+olTasks.id = 'lista-tarefas';
