@@ -1,5 +1,6 @@
 const button = document.querySelector('#criar-tarefa');
 const lista = document.querySelector('#lista-tarefas');
+const tarefa = document.getElementsByTagName('li');
 
 function criarLista() {
   const caixaTexto = document.querySelector('#texto-tarefa');
@@ -14,7 +15,6 @@ function criarLista() {
 criarLista();
 
 function clicarLista() {
-  const tarefa = document.getElementsByTagName('li');
   lista.addEventListener('click', function (event) {
     for (let index = 0; index < tarefa.length; index += 1) {
       tarefa[index].classList.remove('listaClicada');
@@ -32,3 +32,16 @@ function tarefaCompleta() {
 }
 
 tarefaCompleta();
+
+function apagaCompletada() {
+  const buttonApaga = document.querySelector('#apaga-tudo');
+  buttonApaga.addEventListener('click', function (){
+    for (let index = 0; index < tarefa.length; index += 1){
+      if (tarefa[index].className.includes('completed')){
+        lista.removeChild(tarefa[index]);
+      }
+    }
+  })
+}
+
+apagaCompletada();
