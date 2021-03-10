@@ -52,8 +52,8 @@ buttonDeleteTasks.addEventListener('click', deleteTasks);
 /* Removendo tarefas finalizadas */
 function deleteTasksEnded() {
   let tasks = document.getElementsByClassName('completed');
-  for (let index = 0; index < tasks.length; index += 1) {
-    taskList.removeChild(tasks[index]);
+  for (let index = 0; index <= tasks.length; index += 1) {
+    taskList.removeChild(document.getElementsByClassName('completed')[0]);
   }
 }
 
