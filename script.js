@@ -1,20 +1,22 @@
 const inputField = document.getElementById('texto-tarefa');
 const list = document.getElementById('lista-tarefas');
 const btn = document.getElementById('criar-tarefa');
+const apagar = document.getElementById('apaga-tudo');
+const finalizados = document.getElementById('remover-finalizados');
 
 btn.addEventListener ('click', function(){
     const listItem = document.createElement('li');
     listItem.innerText = inputField.value;
-    listItem.className = 'li'
+    listItem.className = 'li '
     inputField.value = "";
     list.appendChild(listItem);
 })
 
 function itemSelection (evt){
     clearListClass ();
-    evt.target.className += ' selected';
+    evt.target.className += 'selected';
 }
-let opa 
+
 function clearListClass (){
     //limpar os outros Itens
     const listItem = document.querySelectorAll('.li')
@@ -28,16 +30,31 @@ function clearListClass (){
 
 
 function itemCheck(evt){
-    const obj = evt.target.className;
-    const classes = obj.split(' ')
 
-  
-    if(classes.includes('completed')){
-        obj.replace('completed','');
-    } 
-    else 
-        evt.target.className += ' completed'
+    let entrada = `${evt.target.className}`
+    
+    if(entrada.includes('completed')){
+        entrada.replace('completed','');
+        console.log(entrada)
+    }
+    else{
+       entrada += 'completed '
+    }
+    console.log(entrada)
+    evt.target.className = entrada;
+   
 }
 
 list.addEventListener ('dblclick', itemCheck, false)
 list.addEventListener ('click', itemSelection, false)
+
+apagar.addEventListener('click', function(){
+   while(list.lastElementChild != 'null') list.lastChild.remove();
+})
+
+finalizados.addEventListener('click', function(){
+    let finalizados = document.querySelectorAll('.completed');
+    for (let index = 0; index < finalizados.length; index += 1){
+        finalizados[index].remove();
+    }
+ })
