@@ -20,7 +20,7 @@ let listaAfazeres = document.getElementsByTagName("li")
 
 listaTarefas.addEventListener("click", pintaFundoLi)
 
-function pintaFundoLi (elemento){
+function pintaFundoLi (elemento){      //Acessei o blog de David Walsh para compreender melhor o uso da delegação de um evento ao elemento que o acionou utilizando a propagação bubbling.
    
     
     let numeroDeLi = listaTarefas.childNodes.length;
@@ -51,7 +51,7 @@ function apagaTudo(){
     let listaAfazeres = document.getElementsByTagName("li")
     let numeroDeLi = listaTarefas.childNodes.length;
     
-    for(i=numeroDeLi;i>=0;i--){
+    for(i=numeroDeLi;i <numeroDeLi;i++){
         if(listaAfazeres[i]!== undefined && listaAfazeres.length>0){
         listaAfazeres[i].remove();
         }
