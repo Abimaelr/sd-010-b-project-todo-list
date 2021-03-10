@@ -86,7 +86,7 @@ footer {
   border: 1px solid;
   border-color: rgb(22, 115, 192);
   border-radius: 4px;
-  background: linear-gradient(to bottom , rgb(66, 134, 185) 5% , rgb(22, 115, 192) 100%);
+  background: linear-gradient(to bottom , rgb(66 , 134 , 185) 5% , rgb(22 , 115 , 192) 100%);
   box-shadow: inset 1px rgb(215 , 236 , 253);
   display: inline-block;
   cursor: pointer;
@@ -99,5 +99,25 @@ footer {
 }
 
 .btnCmp:hover {
-  background: linear-gradient(to bottom , rgb(22, 115, 192) 5% , rgb(66, 134, 185) 100%);
+  background: linear-gradient(to bottom , rgb(22 , 115 , 192) 5% , rgb(66 , 134 , 185) 100%);
+}
+
+.btnSav {
+  border: 1px solid;
+  border-color: rgb(27 , 151 , 10);
+  border-radius: 4px;
+  background: linear-gradient(to bottom , rgb(100, 173, 90) 5% , rgb(27 , 151 , 10) 100%);
+  box-shadow: inset 1px rgb(215 , 236 , 253);
+  display: inline-block;
+  cursor: pointer;
+  font-family: Verdana;
+  font-size: 16px;
+  padding: 4px 6px;
+  text-decoration: none;
+  color: black;
+  margin-left: 10px;
+}
+
+.btnSav:hover {
+  background: linear-gradient(to bottom , rgb(27 , 151 , 10) 5% , rgb(100 , 173 , 90) 100%);
 }

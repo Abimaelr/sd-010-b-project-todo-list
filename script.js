@@ -1,6 +1,7 @@
 const criarBtnAdicionar = document.createElement('button');
 const criarBtnDelete = document.createElement('button');
 const criarBtnCompleto = document.createElement('button');
+const criarBtnSalva = document.createElement('button');
 const txtTarefa = document.querySelector('#texto-tarefa');
 const ordLista = document.querySelector('#lista-tarefas');
 const sectionInput = document.querySelector('#section-input');
@@ -29,6 +30,14 @@ function criarBotaoCompleto() {
   criarBtnCompleto.className = 'btnCmp';
   criarBtnCompleto.innerText = 'Remover Completos';
   sectionBtn.appendChild(criarBtnCompleto);
+}
+
+// função cria botao de salvar
+function criarBotaoSalvar() {
+  criarBtnSalva.id = 'salvar-tarefas';
+  criarBtnSalva.className = 'btnSav';
+  criarBtnSalva.innerText = 'Salvar Tarefas';
+  sectionBtn.appendChild(criarBtnSalva);
 }
 
 // função que cria os itens na lista
@@ -110,4 +119,5 @@ window.onload = function () {
   criarBotaoAdd();
   criarBotaoDelete();
   criarBotaoCompleto();
+  criarBotaoSalvar();
 };
