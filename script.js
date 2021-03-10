@@ -69,3 +69,15 @@ buttonClearAll.addEventListener('click', function () {
     document.getElementsByTagName('ol')[0].removeChild((tasks[counter]));
   }
 });
+
+// requisito 11
+const buttonClearComplete = document.createElement('button');
+bodyChilds.appendChild(buttonClearComplete);
+buttonClearComplete.id = 'remover-finalizados';
+buttonClearComplete.innerText = 'remover finalizados';
+buttonClearComplete.addEventListener('click', function () {
+  const complete = document.querySelectorAll('.completed');
+  for (let counter = complete.length - 1; counter >=0; counter -= 1) {
+    document.getElementsByTagName('ol')[0].removeChild(complete[counter]);
+  }
+});
