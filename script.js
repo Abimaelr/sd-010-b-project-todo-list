@@ -7,8 +7,14 @@ const inputTodo = document.querySelector('#texto-tarefa');
 const btnDeleteAll = document.querySelector('#apaga-tudo');
 const btnDeleteFinished = document.querySelector('#remover-finalizados');
 const btnDeleteSelects = document.querySelector('#remover-selecionado');
+const btnSaveTask = document.querySelector('#salvar-tarefas');
 const childs = olList.children;
 const bgColor = 'rgb(128, 128, 128)';
+
+window.onload = () => {
+  const todos = localStorage.getItem('todos');
+  if (todos) olList.innerHTML = todos;
+};
 
 // add to-dos
 
@@ -113,3 +119,11 @@ const deleteSelectTodos = () => {
 };
 
 btnDeleteSelects.addEventListener('click', deleteSelectTodos);
+
+// save to-dos
+
+const saveTask = () => {
+  localStorage.setItem('todos', olList.innerHTML);
+};
+
+btnSaveTask.addEventListener('click', saveTask);
