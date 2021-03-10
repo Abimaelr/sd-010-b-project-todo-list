@@ -17,3 +17,7 @@ header {
 #funcionamento {
   font-family: 'Courier New', Courier, monospace;
 }
+
+.completed {
+  text-decoration: line-through;
+}
