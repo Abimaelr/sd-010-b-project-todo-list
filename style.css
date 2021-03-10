@@ -1,6 +1,11 @@
 #texto-tarefa{
     display: inline-block;
 }
+
 #criar-tarefa{
     display: inline-block;
+}
+
+.selected{
+    background-color: rgb(128, 128, 128);
 }
