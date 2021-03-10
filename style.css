@@ -38,4 +38,5 @@ header {
 
 .completed {
   text-decoration: line-through solid black;
+  background-color: transparent;
 }

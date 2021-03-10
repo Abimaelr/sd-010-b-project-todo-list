@@ -2,7 +2,8 @@
 const btnTaskCreation = document.getElementById('criar-tarefa');
 const btnClearAll = document.getElementById('apaga-tudo');
 const btnClearCompleted = document.getElementById('remover-finalizados');
-const taskList = document.getElementById('lista-tarefas');
+const btnSaveTaskList = document.getElementById('salvar-tarefas');
+cosnt taskList = document.getElementById('lista-tarefas');
 let tasks = document.querySelectorAll('li');
 
 // Selecionar um item da lista
@@ -69,3 +70,17 @@ function clearCompleted() {
 }
 
 btnClearCompleted.addEventListener('click', clearCompleted);
+
+// Salvar lista
+
+function saveTaskList() {
+  const listHTML = taskList.innerHTML;
+  localStorage.setItem('taskList', listHTML);
+  console.log(localStorage);
+}
+
+btnSaveTaskList.addEventListener('click', saveTaskList);
+
+if(localStorage.getItem('taskList')) {
+  taskList.innerHTML = localStorage.getItem('taskList');
+}
