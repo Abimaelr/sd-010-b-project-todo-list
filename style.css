@@ -9,6 +9,10 @@ header {
   margin: 25px;
 }
 
+button {
+  cursor: pointer;
+}
+
 .container {
   text-align: center;
 }
@@ -20,6 +24,10 @@ header {
 #lista-tarefas {
   list-style: decimal inside;
   margin: 25px;
+}
+
+.list {
+  cursor: pointer;
 }
 
 .selected {
