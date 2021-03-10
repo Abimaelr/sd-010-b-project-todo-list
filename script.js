@@ -1,3 +1,5 @@
+const dadElement = document.body;
+
 // Criando a tag HEADER com o conteudo de H1 com o titulo
 const header = document.createElement('header');
 document.body.append(header);
@@ -10,3 +12,8 @@ const textSection = document.createElement('p');
 textSection.id = 'funcionamento';
 textSection.innerHTML = 'Clique duas vezes em um item para marcá-lo como completo';
 document.body.append(textSection);
+
+// Criando um input 
+const inputText = document.createElement('input');
+inputText.id = 'texto-tarefa';
+dadElement.appendChild(inputText);
