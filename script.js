@@ -11,11 +11,15 @@ function createTasks() {
 createTasksBtn.addEventListener('click', createTasks);
 
 toDoList.addEventListener('click', (event) => {
-  const element = event;
-  if (document.querySelector('.selected') === null) {
-    element.target.className = 'selected';
-  } else {
-    document.querySelector('.selected').removeAttribute('class');
-    element.target.className = 'selected';
+  const element = event.target;
+  const liArray = toDoList.children;
+  for (let index = 0; index < liArray.length; index += 1) {
+    const liArrayItem = liArray[index];
+    if (liArrayItem.style.backgroundColor === 'rgb(128, 128, 128)') {
+      liArrayItem.style.backgroundColor = '';
+    }
+  }
+  if (element.style.backgroundColor === '') {
+    element.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 }, false);
