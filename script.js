@@ -35,4 +35,17 @@ function backgroundReset () {
   }
 }
 
-backgroundReset ();
+backgroundReset();
+
+function overline () {
+  const list = document.getElementById('lista-tarefas');
+  list.addEventListener('dblclick', function (event) {
+    if(event.target.className === 'completed') {
+      event.target.className = '';
+    } else {
+      event.target.className = 'completed';
+    }
+  });
+}
+
+overline();
