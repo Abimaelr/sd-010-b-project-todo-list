@@ -75,8 +75,29 @@ footer {
   padding: 4px 6px;
   text-decoration: none;
   color: black;
+  margin-left: 10px;
 }
 
 .btnDel:hover {
   background: linear-gradient(to bottom, rgb(246 , 31, 14) 5%, rgb(252 , 168, 161) 100%);
+}
+
+.btnCmp {
+  border: 1px solid;
+  border-color: rgb(22, 115, 192);
+  border-radius: 4px;
+  background: linear-gradient(to bottom , rgb(66, 134, 185) 5% , rgb(22, 115, 192) 100%);
+  box-shadow: inset 0px 1px 0px 0px rgb(215 , 236 , 253);
+  display: inline-block;
+  cursor: pointer;
+  font-family: Verdana;
+  font-size: 16px;
+  padding: 4px 6px;
+  text-decoration: none;
+  color: black;
+  margin-left: 10px;
+}
+
+.btnCmp:hover {
+  background: linear-gradient(to bottom , rgb(22, 115, 192) 5% , rgb(66, 134, 185) 100%);
 }

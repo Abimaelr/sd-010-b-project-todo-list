@@ -1,5 +1,6 @@
 const criarBtnAdicionar = document.createElement('button');
 const criarBtnDelete = document.createElement('button');
+const criarBtnCompleto = document.createElement('button');
 const txtTarefa = document.querySelector('#texto-tarefa');
 const ordLista = document.querySelector('#lista-tarefas');
 const sectionInput = document.querySelector('#section-input');
@@ -14,11 +15,20 @@ function criarBotaoAdd() {
   sectionInput.appendChild(criarBtnAdicionar);
 }
 
+// função cria botao de limpar
 function criarBotaoDelete() {
   criarBtnDelete.id = 'apaga-tudo';
   criarBtnDelete.className = 'btnDel';
   criarBtnDelete.innerText = 'Limpar';
   sectionBtn.appendChild(criarBtnDelete);
+}
+
+// função cria botao de limpar completos
+function criarBotaoCompleto() {
+  criarBtnCompleto.id = 'remover-finalizados';
+  criarBtnCompleto.className = 'btnCmp';
+  criarBtnCompleto.innerText = 'Remover Completos';
+  sectionBtn.appendChild(criarBtnCompleto);
 }
 
 // função que cria os itens na lista
@@ -87,4 +97,5 @@ criarBtnDelete.addEventListener('click', () => limparLista(ordLista));
 window.onload = function () {
   criarBotaoAdd();
   criarBotaoDelete();
+  criarBotaoCompleto();
 };
