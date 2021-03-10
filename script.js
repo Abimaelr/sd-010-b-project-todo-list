@@ -52,9 +52,14 @@ const auxButton = document.querySelector('#criar-tarefa');
 auxButton.addEventListener('click', addLista);
 /* /////////////////// */
 function pintarCinca(evento) {
+  const auxCompleted = document.querySelectorAll('.cinca');
   const aux = evento.target;
   const auxSalveCin = aux.className.split(' ')[0];
   const auxSalve = aux.className.split(' ')[1];
+  for (let i = 0; i < auxCompleted.length; i += 1) {
+    console.log(auxCompleted[i]);
+    auxCompleted[i].className = `ncinca ${auxSalve}`;
+  }
   if (aux.className !== auxSalveCin) {
     aux.className = `cinca ${auxSalve}`;
   } else {
@@ -111,7 +116,6 @@ addButtonRemoveFinalizados();
 
 function removeFinalizados() {
   const aux = document.querySelectorAll('.completed');
-  console.log(aux);
   for (let i = 0; i < aux.length; i += 1) {
     console.log(aux[i]);
     aux[i].remove();
