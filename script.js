@@ -2,6 +2,7 @@ const criarBtnAdicionar = document.createElement('button');
 const txtTarefa = document.querySelector('#texto-tarefa');
 const ordLista = document.querySelector('#lista-tarefas');
 const sectionInput = document.querySelector('#section-input');
+const getItem = document.getElementsByClassName('item-lista');
 
 // função cria botao adicionar os itens na lista
 function criarButao() {
@@ -18,6 +19,9 @@ function criarTarefa() {
   criarLi.setAttribute('class', 'item-lista');
   ordLista.appendChild(criarLi);
   txtTarefa.value = '';
+}
+
+function pintarLinha() {
 }
 
 // evento ao clicar no botao "adicionar" insere um item na lista.
