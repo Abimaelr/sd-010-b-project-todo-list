@@ -76,12 +76,24 @@ function itemCompleto(evento) {
   riscar();
 }
 
+// função limpa lista
 function limparLista(pai) {
   while (pai.firstChild) {
     pai.removeChild(pai.lastChild);
   }
 }
 
+// função limpa completos
+function LimparCompletos() {
+  const itensCompletos = ordLista.children;
+  for (let index = 0; index < itensCompletos.length; index += 1) {
+    if (itensCompletos[index].className === 'completed') {
+      ordLista.removeChild(itensCompletos[index]);
+    }
+  }
+}
+
+// EVENTOS
 // evento ao clicar no botao "adicionar" insere um item na lista.
 criarBtnAdicionar.addEventListener('click', criarTarefa);
 
@@ -93,6 +105,8 @@ ordLista.addEventListener('click', selecionaLinha);
 
 // evento do botao limpar
 criarBtnDelete.addEventListener('click', () => limparLista(ordLista));
+
+criarBtnCompleto.addEventListener('click', LimparCompletos);
 
 window.onload = function () {
   criarBotaoAdd();
