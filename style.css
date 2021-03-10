@@ -85,7 +85,8 @@ body {
 .completed {
   text-decoration: line-through solid black;
 }
-/* 
+
+/*
 .completed.selected {
   text-decoration: line-through solid rgb(236 , 236 , 236);
 } */
