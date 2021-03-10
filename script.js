@@ -38,6 +38,14 @@ const taskSelect = (e) => {
 
 olList.addEventListener('click', taskSelect);
 
+// completed to-dos
+
+const taskCompleted = (e) => {
+  e.target.classList.toggle('completed');
+};
+
+olList.addEventListener('dblclick', taskCompleted);
+
 // moveUp to-dos
 
 const moveUp = () => {
