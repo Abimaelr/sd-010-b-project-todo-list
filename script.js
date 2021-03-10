@@ -2,6 +2,8 @@
 const btnTaskCreation = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 let tasks = document.querySelectorAll('li');
+const completedElement = document.querySelector('.completed');
+
 
 // Selecionar um item da lista
 
@@ -18,13 +20,12 @@ function selectedTask() {
 // Selecionar um item da lista
 
 function completedTask() {
-  const selectedElement = document.querySelector('.completed');
-  if (selectedElement === null) {
+  if (completedElement === null) {
     this.className = 'completed';
   } else if (this.classList.contains('completed')) {
-    selectedElement.classList.remove('completed');
+    this.className = '';
   } else {
-    selectedElement.classList.remove('completed');
+    completedElement.classList.remove('completed');
     this.className = 'completed';
   }
 }
