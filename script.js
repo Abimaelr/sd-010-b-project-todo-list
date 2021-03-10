@@ -28,7 +28,7 @@ function buttonSelecionadosRemover(){
     let task = document.querySelector('.selected');
 
     buttonSelecionado.addEventListener('click', function(){
-        console.log(task);
+        // console.log(task);
         task.remove();
     })     
 }
@@ -44,7 +44,7 @@ function changeBackgroundColor(){
             if(event.target.style.backgroundColor !== 'rgb(128, 128, 128)'){
                 event.target.style.backgroundColor = 'rgb(128, 128, 128)';
                 event.target.classList.add('selected');
-                console.log(event.target);
+                // console.log(event.target);
                 buttonSelecionadosRemover()
             
             }
@@ -108,7 +108,7 @@ function buttonApaga(){
 
 function buttonSalvar(){
     
-    let buttonrSalvar = document.querySelector("#salvar-tarefa");
+    let buttonrSalvar = document.querySelector("#salvar-tarefas");
     let listArray = document.querySelector("ol").childNodes;
 
     
