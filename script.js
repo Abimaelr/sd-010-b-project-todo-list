@@ -17,7 +17,11 @@ addTaskToDo();
 
 function selectableTasks(toSelect) {
   toSelect.addEventListener("click", function () {
-    console.log("Clicado");
+    let lastSelected = document.querySelector(".selected");
+    if(lastSelected != null){
+      lastSelected.style.backgroundColor = "#dfd9d7";
+      lastSelected.className = lastSelected.className.replace(" selected", "");
+    }
     toSelect.style.backgroundColor = "rgb(128, 128, 128)";
     toSelect.className += " selected";
   });      
