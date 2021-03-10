@@ -15,13 +15,11 @@ function selectedTask() {
     selectedElement.classList.remove('selected');
     this.classList.add('selected');
   }
-  
 }
 
 // Selecionar um item da lista
 
 function completedTask() {
-  const completedElement = document.querySelector('.completed');
   if (this.classList.contains('completed')) {
     this.className = '';
   } else {
