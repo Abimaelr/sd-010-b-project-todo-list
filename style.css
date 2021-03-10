@@ -6,3 +6,7 @@ header {
 ol {
   list-style-position: inside;
 }
+
+.selected {
+  background-color: gray;
+}
