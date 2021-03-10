@@ -1,3 +1,8 @@
+let flag = true;
+function riskCompleted(evt) {
+  evt.target.className = flag ? 'completed' : '';
+  flag = !flag;
+}
 function createNewTask() {
   const newTaskBtn = document.getElementById('criar-tarefa');
   const tasksList = document.getElementById('lista-tarefas');
@@ -13,7 +18,9 @@ function createNewTask() {
       }
       event.target.style.backgroundColor = 'rgb(128, 128, 128)';
     });
+    newTask.addEventListener('dblclick', riskCompleted);
     taskText.value = '';
   });
 }
+
 createNewTask();
