@@ -15,6 +15,9 @@ const apagar = document.getElementById('apaga-tudo');
 const finalizados = document.getElementById('remover-finalizados');
 const save = document.getElementById('salvar-tarefas')
 
+const cima = document.getElementById('mover-cima')
+const baixo = document.getElementById('mover-baixo')
+
 
 let tamanho = 0;
 
@@ -128,4 +131,46 @@ finalizados.addEventListener('click', function(){
  save.addEventListener('click', function(){
     atualizarTasks ();
     localStorage.setItem('toDo', JSON.stringify(tasks))
+ })
+
+ cima.addEventListener('click', function(){
+  
+    const selected = document.querySelector('.selected');
+    let cima = selected.previousElementSibling;
+
+    if(cima == null) return;
+
+    let bufferT = cima.innerText;
+    let bufferC = cima.className;
+
+
+    cima.innerText = selected.innerText;
+    cima.className = selected.className;
+
+    selected.innerText = bufferT;
+    selected.className = bufferC;
+
+
+    atualizarTasks ();
+  
+ })
+
+ baixo.addEventListener('click', function(){
+    const selected = document.querySelector('.selected');
+    let baixo = selected.nextElementSibling;
+
+    if(baixo == null) return;
+
+    let bufferT = baixo.innerText;
+    let bufferC = baixo.className;
+
+
+    baixo.innerText = selected.innerText;
+    baixo.className = selected.className;
+
+    selected.innerText = bufferT;
+    selected.className = bufferC;
+
+
+    atualizarTasks ();
  })
