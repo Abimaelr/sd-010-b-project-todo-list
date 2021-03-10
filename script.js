@@ -2,7 +2,7 @@ const listaTarefas = document.getElementById('lista-tarefas').getElementsByTagNa
 
 function clickItem() {
   for (let i = 0; i < listaTarefas.length; i +=1) {
-    listaTarefas[i].addEventListener('click', function (){
+    listaTarefas[i].addEventListener('click', function () {
       for (let j = 0; j < listaTarefas.length; j += 1) {
         if (listaTarefas[j].style.backgroundColor === 'rgb(128, 128, 128)') {
           listaTarefas[j].style.backgroundColor = 'white';
@@ -16,13 +16,14 @@ function clickItem() {
 function dblClickItem() {
   for (let i = 0; i < listaTarefas.length; i += 1) {
     listaTarefas[i].addEventListener('dblclick', function () {
+      console.log(listaTarefas[i]);
       if (listaTarefas[i].className === 'completed') {
-        listaTarefas[i].className = '';
+        listaTarefas[i].classList.remove('completed');
       } else {
         listaTarefas[i].className = 'completed';
-      }
-    })  
-  }  
+      }     
+    })
+  }
 }
 
 function clear() {
