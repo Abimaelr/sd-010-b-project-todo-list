@@ -45,3 +45,13 @@ function removeTodaLista() {
 }
 const botaoApagaTudo = document.querySelector('#apaga-tudo');
 botaoApagaTudo.addEventListener('click', removeTodaLista);
+
+function removeFinalizados() {
+  const listaPai = document.querySelector('ol');
+  const tarefasFinalizadas = document.querySelectorAll('.completed');
+  for (let index = 0; index < tarefasFinalizadas.length; index += 1) {
+    listaPai.removeChild(tarefasFinalizadas[index]);
+  }
+}
+const botaoApagaFinalizados = document.querySelector('#remover-finalizados');
+botaoApagaFinalizados.addEventListener('click', removeFinalizados);
