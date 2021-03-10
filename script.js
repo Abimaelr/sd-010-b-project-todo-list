@@ -26,9 +26,9 @@ dadElement.appendChild(listOrder);
 //
 function assignment() {
   const listItem = document.createElement('li');
-  listItem.className = 'item';
   listItem.innerText = inputText.value;
   listOrder.appendChild(listItem);
+  listItem.className = 'item';
   inputText.value = '';
 }
 
@@ -38,11 +38,9 @@ bt1.addEventListener('click', assignment);
 dadElement.insertBefore(bt1, listOrder);
 
 //
-function liCatcher() {
-  const tag = document.querySelector('ol');
-  tag.addEventListener('click', function evento(event) {
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  });
+function liCatcher(event) {
+  const eventClick = event.target;
+  eventClick.classList.toggle('selected');
 }
 
-liCatcher();
+listOrder.addEventListener('click', liCatcher);
