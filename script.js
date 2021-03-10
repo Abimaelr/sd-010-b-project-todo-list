@@ -31,7 +31,7 @@ tasks.addEventListener('click', function (event) {
   for (let index = 0; index < tasks.childNodes.length; index += 1) {
     list[index].classList.remove('selected');
   }
-  if (event.target.tagName == 'LI') {
+  if (event.target.tagName === 'LI') {
     event.target.className = 'selected';
   }
 });
