@@ -1,6 +1,7 @@
 
 const botaoTarefa = document.getElementById("criar-tarefa");
 const botaoLimpa = document.getElementById("apaga-tudo");
+const botaoLimpaEnd = document.getElementById("remover-finalizados");
 const listaMae = document.getElementById("lista-tarefas");
 const tarefas = document.getElementsByClassName("tarefa");
 const input = document.getElementById("texto-tarefa");
@@ -10,6 +11,8 @@ const input = document.getElementById("texto-tarefa");
 botaoTarefa.addEventListener("click", criarTarefa);
 
 botaoLimpa.addEventListener("click", clearList);
+
+botaoLimpaEnd.addEventListener("click", clearListEnd);
 
 listaMae.addEventListener("click", function(event) {
     index = event.target.id
@@ -62,3 +65,11 @@ function selecionar(pos) {
 function clearList() {
     listaMae.innerHTML = "";
 }
+
+function clearListEnd() {
+     for (let index = 0; index < tarefas.length; index++) {
+         if (tarefas[index].classList.contains("completed")) {
+            listaMae.removeChild(tarefas[index]);   
+         }        
+     }
+}    
