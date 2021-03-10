@@ -2,7 +2,9 @@
 const addItemBtn = document.querySelector('#criar-tarefa');
 const itemText = document.querySelector('#texto-tarefa');
 const OlElement = document.querySelector('#lista-tarefas');
-// functions to Listeners
+const clearBtn = document.querySelector('#apaga-tudo');
+
+//          functions to Listeners
 
 // Add selected class to clicked item
 
@@ -42,17 +44,29 @@ const getItemAndAdd = () => {
   itemText.value = '';
 };
 
-// Add Listeners
+// Clear All items from list
+
+const clearAll = () => {
+  OlElement.innerHTML = '';
+};
+
+//      Add Listeners
 
 // Add addItem button listener
 const setAddBtn = () => {
   addItemBtn.addEventListener('click', getItemAndAdd);
 };
 
+// Add ClearAll Button Listener
+const setClearBtn = () => {
+  clearBtn.addEventListener('click', clearAll);
+};
+
 // all buttons
 
 const loadButtons = () => {
   setAddBtn();
+  setClearBtn();
 };
 
 window.onload = () => {
