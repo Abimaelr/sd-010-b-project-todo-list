@@ -33,27 +33,28 @@ function tarefaCompleta() {
 
 tarefaCompleta();
 
-function apagaTarefas(){
-  const buttonApagaTudo = document.querySelector('#apaga-tudo');
-  buttonApagaTudo.addEventListener('click', function (){
-    let lis = document.querySelectorAll('li');
-    for(let li of lis){
-      lista.removeChild(li);
-    }
-  })
-}
-
-apagaTarefas();
-
 function apagaCompletada() {
   const buttonApaga = document.querySelector('#remover-finalizados');
   buttonApaga.addEventListener('click', function () {
-    for (let index = 0; index < tarefa.length; index += 1) {
-      if (tarefa[index].className.includes('completed')) {
-        lista.removeChild(tarefa[index]);
+    let list = document.querySelectorAll('li')
+    for (let index of list) {
+      if (index.className.includes('completed')) {
+        lista.removeChild(index);
       }
     }
   });
 }
 
 apagaCompletada();
+
+function apagaTarefas() {
+  const buttonApagaTudo = document.querySelector('#apaga-tudo');
+  buttonApagaTudo.addEventListener('click', function () {
+    let lis = document.querySelectorAll('li');
+    for (let li of lis) {
+      lista.removeChild(li);
+    } 
+  });
+}
+
+apagaTarefas();
