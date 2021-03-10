@@ -22,5 +22,9 @@ function createNewTask() {
     taskText.value = '';
   });
 }
-
+const eraseBtn = document.getElementById('apaga-tudo');
+eraseBtn.addEventListener('click', () => {
+  const tasksList = document.getElementById('lista-tarefas');
+  tasksList.innerHTML = '';
+});
 createNewTask();
