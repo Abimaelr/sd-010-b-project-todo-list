@@ -1,4 +1,8 @@
 window.onload = function () {
+  let recoveredButton = null;
+  let recoveredInput = null;
+  let recoveredOl = null;
+
   startAplication();
 
   function createHeader() {
@@ -22,8 +26,9 @@ window.onload = function () {
 
     // Criando uma paragrafo elemento <p> dentro da section
     const elementP = document.createElement('p');
-    elementP.id = "funcionamento";
-    elementP.innerText = "Clique duas vezes em um item para marcá-lo como completo";
+    elementP.id = 'funcionamento';
+    elementP.innerText =
+      'Clique duas vezes em um item para marcá-lo como completo';
     element.appendChild(elementP);
   }
 
@@ -35,8 +40,10 @@ window.onload = function () {
 
     // Criando uma paragrafo elemento <p> dentro da section
     const elementInput = document.createElement('input');
-    elementInput.id = "texto-tarefa";
+    elementInput.id = 'texto-tarefa';
     element.appendChild(elementInput);
+
+    recoveredInput = elementInput;
   }
 
   function createOrdenedList() {
@@ -47,9 +54,33 @@ window.onload = function () {
 
     // Criando uma Lista Ordenada <OL> dentro da section
     const element = document.createElement('ol');
-    element.id = "lista-tarefas";
+    element.id = 'lista-tarefas';
     elementSection.appendChild(element);
+    recoveredOl = document.getElementById('lista-tarefas');
+
+    // Etapa 05 - Criando o botão Criar Tarefa
+    // Criando um Botão <button> dentro da section
+    const elementButton = document.createElement('button');
+    elementButton.id = 'criar-tarefa';
+    elementButton.innerText = 'Criar Tarefa';
+    elementSection.appendChild(elementButton);
+
+    recoveredButton = document.getElementById('criar-tarefa');
   }
+
+  function addItem(props) {
+    const elementItem = document.createElement('li');
+    elementItem.id = 'item';
+    elementItem.innerText = props.value;
+    recoveredOl.appendChild(elementItem);
+    return true;
+  }
+
+  recoveredButton.addEventListener('click', function () {    
+    if (addItem(recoveredInput)) {
+      recoveredInput.value = '';
+    }
+  });
 
   function startAplication() {
     createHeader();
