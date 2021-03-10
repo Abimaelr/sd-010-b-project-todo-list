@@ -32,8 +32,8 @@ const reset = document.getElementById('apaga-tudo');
 let listaTarefas = document.getElementById('lista-tarefas')
 function removeTask() {
 
-  for (let index = li.length; index >=  0; index -= 1) {
-    listaTarefas.lastChild.remove();
+  for (let index = li.length; index >=  1; index -= 1) {
+    listaTarefas.removeChild(li[0]);
   }
 
 }
