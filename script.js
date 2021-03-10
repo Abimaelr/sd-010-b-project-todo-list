@@ -22,3 +22,16 @@ dadElement.appendChild(inputText);
 const listOrder = document.createElement('ol');
 listOrder.id = 'lista-tarefa';
 dadElement.appendChild(listOrder);
+
+//
+function assignment() {
+  const listItem = document.createElement('li');
+  listItem.innerText = inputText.value;
+  listOrder.appendChild(listItem);
+  inputText.value = '';
+}
+
+const bt1 = document.createElement('button');
+bt1.id = 'criar-tarefa';
+bt1.addEventListener('click', assignment);
+dadElement.insertBefore(bt1, listOrder);
