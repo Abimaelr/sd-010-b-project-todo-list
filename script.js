@@ -1,4 +1,5 @@
 let buttonCriarTarefa = document.getElementById('criar-tarefa');
+const buttonDeleteTasks = document.getElementById('apaga-tudo');
 let taskList = document.getElementById('lista-tarefas');
 
 function addEventClickInTask(task) {
@@ -39,3 +40,10 @@ function changeColorTask(element) {
 }
 
 buttonCriarTarefa.addEventListener('click', addTaskInList);
+
+function deleteTasks() {
+  taskList.innerHTML = '';
+}
+
+/* Evento para deletar todas as tarefas */
+buttonDeleteTasks.addEventListener('click', deleteTasks);
