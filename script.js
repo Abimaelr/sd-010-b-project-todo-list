@@ -33,26 +33,21 @@ function changeColor(){
 changeColor();
 
 
-/* function colorList (){
-    let addlist = document.querySelector('#lista-tarefas');
-    addlist.addEventListener("click", function(event){
-        event.target.classList.add(".cinza");
-    })
+/* Pontos importantes sobre este requisito:
 
-}
-colorList();   */
+* Crie uma classe CSS com o nome "completed" e defina a propriedade "text-decoration" com o valor "line-through".
 
-//Função remover background
-/* function removeBrackground(){
-    let addlist = document.getElementById('lista-tarefas');
-    addlist.addEventListener("click", function(event){
-        if(addlist.hasAttribute('rgb(128, 128, 128)')){
-            addlist.removeAttribute('rgb(128, 128, 128)');
-        } else {
-            
+* Utilize a classe CSS "completed" para adicionar o efeito de letra tachada (riscada) às tarefas finalizadas. */
+
+function riscaList(){
+    let addList = document.querySelector('#lista-tarefas');
+    addList.addEventListener("dblclick", function(event){
+        let elementRiscado = document.querySelector(".completed"); 
+        if(elementRiscado){
+            elementRiscado.classList.remove('completed');
+        } else{
+            event.target.classList.add('completed'); 
         }
     })
-    
 }
-
-removeBrackground();  */
+riscaList(); 
