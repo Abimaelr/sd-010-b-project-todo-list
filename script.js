@@ -73,6 +73,7 @@ window.onload = function () {
   function addItem(props) {
     const elementItem = document.createElement('li');
     elementItem.id = 'item';
+    elementItem.className = 'opened';
     elementItem.innerText = props.value;
     elementItem.style.background = 'rgb(255, 255, 255)';
     recoveredOl.appendChild(elementItem);
@@ -96,6 +97,16 @@ window.onload = function () {
   selectElement.addEventListener('click', function (props) {
     defaultBackgroundItems();
     props.target.style.background = 'rgb(128, 128, 128)';
+  });
+
+  selectElement.addEventListener('dblclick', function (props) {
+    if (props.target.classList.value === "opened") {
+        props.target.classList.remove('opened');
+        props.target.classList.add('completed');           
+    } else {
+       props.target.classList.remove('completed');
+        props.target.classList.add('opened');   
+    }
   });
 
   function startAplication() {
