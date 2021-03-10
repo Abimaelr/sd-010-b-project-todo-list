@@ -1,7 +1,23 @@
+let taskList = document.getElementById('lista-tarefas');
+function localStorageTaskList(tasksObject) {
+  for (let key in tasksObject) {
+    taskItem = document.createElement('li');
+    taskItem.innerText = tasksObject[key][0];
+    taskItem.className = tasksObject[key][1];
+    taskItem.style.backgroundColor = tasksObject[key][2];
+    taskList.appendChild(taskItem);
+    addEventClickInTask(taskItem);
+  }
+}
+if(localStorage.getItem('tasks')) {
+  localStorageTaskList(JSON.parse(localStorage.getItem('tasks')));
+}
+
+
 let buttonCriarTarefa = document.getElementById('criar-tarefa');
 const buttonDeleteTasks = document.getElementById('apaga-tudo');
 const buttonDeleteTasksEnded = document.getElementById('remover-finalizados');
-let taskList = document.getElementById('lista-tarefas');
+const buttonSaveTasks = document.getElementById('salvar-tarefas');
 
 function addEventClickInTask(task) {
     task.addEventListener('click', changeColorTask)
@@ -57,4 +73,23 @@ function deleteTasksEnded() {
   }
 }
 
-buttonDeleteTasksEnded.addEventListener('click', deleteTasksEnded)
+buttonDeleteTasksEnded.addEventListener('click', deleteTasksEnded);
+
+/* Exercício 12: */
+function saveTasks() {
+  let tasks = document.getElementsByTagName('li');
+  let tasksArray = [];
+  let tasksObject = {};
+  for (let task of tasks) {
+    tasksArray.push([task.innerText, task.className, task.style.backgroundColor]);
+  }
+
+  for (let index in tasksArray) {
+    tasksObject[index] = tasksArray[index]
+  }
+  localStorage.setItem('tasks', JSON.stringify(tasksObject));
+  alert('Suas tarefas foram salvas com sucesso!!!');
+}
+buttonSaveTasks.addEventListener('click', saveTasks)
+
+
