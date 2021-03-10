@@ -1,3 +1,14 @@
+window.onload = function () {
+  if ( localStorage.length !== 0){
+    for (let index = 0; index < localStorage.length / 2; index += 1){
+      const li = document.createElement('li');
+      lista.appendChild(li);
+      li.innerHTML = localStorage.getItem(index);
+      li.className = localStorage.getItem('classe' + index);
+    }
+  }
+}
+
 const button = document.querySelector('#criar-tarefa');
 const lista = document.querySelector('#lista-tarefas');
 const tarefa = document.getElementsByTagName('li');
@@ -54,7 +65,20 @@ function apagaTarefas() {
     for (let li of lis) {
       lista.removeChild(li);
     } 
+    localStorage.clear()
   });
 }
 
 apagaTarefas();
+
+function salvaTarefa() {
+  const buttonSalva = document.querySelector('#salvar-tarefas');
+  buttonSalva.addEventListener('click', function (){
+    for (let index = 0; index < tarefa.length; index += 1){
+      localStorage.setItem(index, tarefa[index].innerHTML);
+      localStorage.setItem('classe' + index, tarefa[index].className);
+    }
+  })
+}
+
+salvaTarefa();
