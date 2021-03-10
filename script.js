@@ -12,5 +12,10 @@ createTasksBtn.addEventListener('click', createTasks);
 
 toDoList.addEventListener('click', (event) => {
   const element = event;
-  element.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  if (document.querySelector('.selected') === null) {
+    element.target.className = 'selected';
+  } else {
+    document.querySelector('.selected').removeAttribute('class');
+    element.target.className = 'selected';
+  }
 }, false);
