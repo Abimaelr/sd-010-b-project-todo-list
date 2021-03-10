@@ -1,23 +1,5 @@
 const listaTarefas = document.getElementById('lista-tarefas').getElementsByTagName('li');
 
-function createTask() {
-  const button = document.getElementById('criar-tarefa');
-  const ol = document.getElementById('lista-tarefas');
-  const input = document.getElementById('texto-tarefa');
-  button.addEventListener('click', function creatLi() {
-    const li = document.createElement('li');
-    li.innerText = input.value;
-    ol.appendChild(li);
-    input.value = '';
-    li.addEventListener('click', clickItem, false);
-    li.addEventListener('dblclick', dblClickItem, false);
-    clear();
-    removeFinalized();
-    removeSelectd();
-  })
-}
-createTask();
-
 function clickItem(li) {
   for (let i = 0; i < listaTarefas.length; i +=1) {
     listaTarefas[i].addEventListener('click', function (){
@@ -66,3 +48,21 @@ function removeSelectd() {
     })    
   }
 }
+
+function createTask() {
+  const button = document.getElementById('criar-tarefa');
+  const ol = document.getElementById('lista-tarefas');
+  const input = document.getElementById('texto-tarefa');
+  button.addEventListener('click', function creatLi() {
+    const li = document.createElement('li');
+    li.innerText = input.value;
+    ol.appendChild(li);
+    input.value = '';
+    li.addEventListener('click', clickItem, false);
+    li.addEventListener('dblclick', dblClickItem, false);
+    clear();
+    removeFinalized();
+    removeSelectd();
+  })
+}
+createTask();
