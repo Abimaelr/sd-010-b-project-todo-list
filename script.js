@@ -30,6 +30,7 @@ function criarTarefa(){
 	botaoTarefa.addEventListener('click',function(event){
 		const itemLista = document.getElementById('texto-tarefa');
 		let itemTarefa = document.createElement('li');
+		itemTarefa.classList.add('item-lista-tarefa');
 		itemTarefa.innerText = itemLista.value;
 		olId.appendChild(itemTarefa);
 		itemLista.value = "";
@@ -37,3 +38,11 @@ function criarTarefa(){
 	})
 }
 criarTarefa();
+
+function alteraCor(){
+	let listaOrdenada = document.querySelector('#lista-tarefas');
+	listaOrdenada.addEventListener('click',function(event){
+		event.target.style.backgroundColor = "rgb(128, 128, 128)"
+	})
+}
+alteraCor()
