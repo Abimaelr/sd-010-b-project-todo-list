@@ -72,4 +72,7 @@ function clearListEnd() {
             listaMae.removeChild(tarefas[index]);   
          }        
      }
+     for (let index = 0; index < tarefas.length; index++) {
+             tarefas[index].id = index + 1;
+    }
 }    
