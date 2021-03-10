@@ -48,24 +48,39 @@ function addLista() {
     auxInput.value = '';
   }
 }
+///////////////////
 let auxClickLi = document.querySelector('#lista-tarefas');
 auxClickLi.addEventListener('click', pintarCinca);
 function pintarCinca(evento) {
   let aux = evento.target;
-  if(aux.style.backgroundColor !== 'rgb(128, 128, 128'){
-    aux.style.backgroundColor = 'rgb(128, 128, 128';
+  if(aux.className !== 'cinca'){
+    aux.className = 'cinca';
   } else {
-    aux.style.color = 'white';
+    aux.className = '';
   }
 }
 let auxClickLi1 = document.querySelector('#lista-tarefas');
 auxClickLi1.addEventListener('dblclick', dbClick);
 function dbClick(event) {
   let aux = event.target;
+
   if(aux.className !== 'completed'){
     aux.className = 'completed'
   } else {
     aux.className = '';
   }
-  
+}
+////////////////////qqqq
+function addButtonClear() {
+  let aux = document.createElement('button');
+  aux.id = 'apaga-tudo';
+  aux.innerText = 'Limpar Lista'
+  leBoby.appendChild(aux);
+}
+addButtonClear();
+let auxButtonClear = document.querySelector('#apaga-tudo');
+auxButtonClear.addEventListener('click', apagaLista);
+function apagaLista() {
+  let aux = document.querySelector('#lista-tarefas');
+  aux.innerHTML = '';
 }
