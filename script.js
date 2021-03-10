@@ -8,9 +8,8 @@ let tasks = document.querySelectorAll('li');
 function selectedTask() {
   const selectedElement = document.querySelector('.selected');
   if (selectedElement === null) {
-    this.classList.add('selected');  
+    this.classList.add('selected');
   } else {
-    const selectedElement = document.querySelector('.selected');
     selectedElement.classList.remove('selected');
     this.classList.add('selected');
   }
