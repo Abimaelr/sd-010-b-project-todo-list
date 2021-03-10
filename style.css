@@ -1,0 +1,8 @@
+#criar-tarefa {
+  background-color:antiquewhite;
+  border-radius: 5px;
+  padding: 3px;
+}
+#criar-tarefa:hover {
+  background-color: aquamarine;
+}

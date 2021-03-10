@@ -1,5 +1,5 @@
 const createBtn = document.getElementById('criar-tarefa');
-const taskList = document.getElementById('lista-tarefa');
+const taskList = document.getElementById('lista-tarefas');
 const caixaTexto = document.getElementById('texto-tarefa');
 createBtn.innerHTML = 'Criar tarefa';
 function clickCreateList () {
