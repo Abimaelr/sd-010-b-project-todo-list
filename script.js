@@ -20,14 +20,15 @@ body.appendChild(list);
 //cria botão pra adicionar tarefa
 const criaBotao = document.createElement('button');
 criaBotao.id = 'criar-tarefa';
+criaBotao.innerText = "Adiciona Tarefa";
 writeItem.appendChild(criaBotao);
 
 //função pra adicionar tarefa
-function criarTarefa(){
+function criarTarefa() {
 	const botaoTarefa = document.getElementById('criar-tarefa');
 	const olId = document.getElementById('lista-tarefas');
-	
-	botaoTarefa.addEventListener('click',function(event){
+
+	botaoTarefa.addEventListener('click', function (event) {
 		const itemLista = document.getElementById('texto-tarefa');
 		let itemTarefa = document.createElement('li');
 		itemTarefa.classList.add('item-lista-tarefa');
@@ -39,10 +40,15 @@ function criarTarefa(){
 }
 criarTarefa();
 
-function alteraCor(){
+function alteraCor() {
 	let listaOrdenada = document.querySelector('#lista-tarefas');
-	listaOrdenada.addEventListener('click',function(event){
-		event.target.style.backgroundColor = "rgb(128, 128, 128)"
+	listaOrdenada.addEventListener('click', function (event) {
+		let itemCinza = document.querySelector('.corCinza')
+		if (itemCinza){
+			itemCinza.classList.remove('corCinza');
+		}
+		event.target.classList.add('corCinza')
 	})
 }
 alteraCor()
+
