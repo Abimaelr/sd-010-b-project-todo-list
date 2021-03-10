@@ -18,3 +18,14 @@ input.id = 'texto-tarefa';
 const olTasks = document.createElement('ol');
 bodyChilds.appendChild(olTasks);
 olTasks.id = 'lista-tarefas';
+
+// requisito 5
+const buttonIl = document.createElement('button');
+bodyChilds.appendChild(buttonIl);
+buttonIl.id = 'criar-tarefa';
+buttonIl.innerText = 'Adicionar Tarefa';
+buttonIl.addEventListener('click', function () {
+  olTasks.appendChild(document.createElement('li'));
+  olTasks.lastChild.innerText = input.value;
+  input.value = '';
+});
