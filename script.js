@@ -27,8 +27,21 @@ window.onload = function () {
     element.appendChild(elementP);
   }
 
+  function createInput() {
+    // Etapa 03 - Adicione um input com o id="texto-tarefa" onde a pessoa usuária poderá digitar o nome do item que deseja adicionar à lista
+    // Criando uma section para guardar o input
+    const element = document.createElement('section');
+    document.body.appendChild(element);
+
+    // Criando uma paragrafo elemento <p> dentro da section
+    const elementInput = document.createElement('input');
+    elementInput.id = "texto-tarefa";
+    element.appendChild(elementInput);
+  }
+
   function startAplication() {
     createHeader();
     createInstructions();
+    createInput();
   }
 };
