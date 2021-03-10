@@ -29,17 +29,17 @@ function pintaFundoLi (elemento){
         listaAfazeres[i].classList.remove("selected")
     }
     if (elemento.target.tagName == "LI"){
-        elemento.target.className = "selected"
+        elemento.target.classList.add("selected")
     }
 }
 
 listaTarefas.addEventListener("dblclick", completaTarefa)
 
 function completaTarefa (elemento){
-    if(elemento.target.className !== "completed"){
-        elemento.target.classList.add("completed")
-    } else {
-       
+    if(elemento.target.className == "completed" || elemento.target.className == "completed selected"){
         elemento.target.classList.remove("completed")
+    } else {
+        elemento.target.classList.add("completed")
+        
     }
 }
