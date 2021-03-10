@@ -4,10 +4,9 @@ createTaskButton = document.querySelector("#criar-tarefa");
 inputTask = document.querySelector("#texto-tarefa");
 listTask = document.querySelector("#lista-tarefas");
  
-/* window.onload = function() {
-    let listArrayStorage = JSON.parse(sessionStorage.getItem("listArrayStorage"));
-    // console.log(listArrayStorage);
-    if(sessionStorage.getItem("listArrayStorage") !== 'undefined'){
+window.onload = function() {
+    let listArrayStorage = JSON.parse(localStorage.getItem("listArrayStorage"));
+    if(listArrayStorage !== null){
         
         for(let index = 0; index < listArrayStorage.length; index++){
             let li = document.createElement('li');
@@ -20,7 +19,7 @@ listTask = document.querySelector("#lista-tarefas");
         buttonFinalizados();  
         buttonSalvar();
     }
-} */
+} 
 
 function buttonSelecionadosRemover(){
     
@@ -115,7 +114,7 @@ function buttonSalvar(){
         for(let index = 0; index < listArray.length; index++){
             array.push(listArray[index].innerHTML)
         }
-        sessionStorage.setItem('listArrayStorage', JSON.stringify(array));
+        localStorage.setItem('listArrayStorage', JSON.stringify(array));
     })     
 }
 
