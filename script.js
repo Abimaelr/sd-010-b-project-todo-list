@@ -1,9 +1,8 @@
 // Constantes Gerais
 const btnTaskCreation = document.getElementById('criar-tarefa');
+const btnClearAll = document.getElementById('apaga-tudo');
 const taskList = document.getElementById('lista-tarefas');
 let tasks = document.querySelectorAll('li');
-const completedElement = document.querySelector('.completed');
-
 
 // Selecionar um item da lista
 
@@ -20,6 +19,7 @@ function selectedTask() {
 // Selecionar um item da lista
 
 function completedTask() {
+  const completedElement = document.querySelector('.completed');
   if (completedElement === null) {
     this.className = 'completed';
   } else if (this.classList.contains('completed')) {
@@ -50,3 +50,11 @@ function taskCreation() {
 }
 
 btnTaskCreation.addEventListener('click', taskCreation);
+
+// Apagar lista
+
+function clearAll() {
+  taskList.innerHTML = '';
+}
+
+btnClearAll.addEventListener('click', clearAll);
