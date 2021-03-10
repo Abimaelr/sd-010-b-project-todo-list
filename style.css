@@ -1,7 +1,24 @@
 body {
-  background-color: #008b8b;
+  background-color: darkcyan;
 }
 
 #central {
+  margin: 30px;
+  padding: 10px;
   background-color: white;
+}
+
+#criar-tarefa {
+
+  width: 165px;
+  height: 30px;
+  background-color: #0066b8;
+  padding: 9px;
+  border: none;
+  color: white;
+}
+
+#texto-tarefa {
+  height: 25px;
+
 }
