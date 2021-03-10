@@ -5,6 +5,7 @@ const botaoLimpaEnd = document.getElementById("remover-finalizados");
 const listaMae = document.getElementById("lista-tarefas");
 const tarefas = document.getElementsByClassName("tarefa");
 const input = document.getElementById("texto-tarefa");
+const completados = document.getElementsByClassName("completed");
 
 // let selectedElement = 0;
 
@@ -67,11 +68,10 @@ function clearList() {
 }
 
 function clearListEnd() {
-     for (let index = 0; index < tarefas.length; index++) {
-         if (tarefas[index].classList.contains("completed")) {
-            listaMae.removeChild(tarefas[index]);   
-         }        
+     for (let index = (completados.length - 1); index >= 0; index--) {
+         completados[index].remove();
      }
+     
      for (let index = 0; index < tarefas.length; index++) {
              tarefas[index].id = index + 1;
     }
