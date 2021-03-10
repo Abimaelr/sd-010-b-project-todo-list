@@ -1,15 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
+.completed {
+  text-decoration: line-through;
 }
-
-body {}
-
-h1 {}
-
-p {}
-
-ol {
-  display: block;
-}
-

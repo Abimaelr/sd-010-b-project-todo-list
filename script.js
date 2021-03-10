@@ -11,7 +11,7 @@ const botaoAdicionar = document.querySelector('#criar-tarefa');
 botaoAdicionar.addEventListener('click', criaItemLista);
 
 function removeSelected(elemento) {
-  let tagItem = elemento;
+  const tagItem = elemento;
   for (let index = 0; index < elemento.length; index += 1) {
     tagItem[index].style.backgroundColor = 'white';
     tagItem[index].classList.remove('selected');
@@ -25,4 +25,22 @@ lista.addEventListener('click', (event) => {
   itemSelecionado.target.style.backgroundColor = 'rgb(128, 128, 128)';
   itemSelecionado.target.classList.add('selected');
   console.log(itemSelecionado);
+});
+
+
+function removeCompleted(elemento) {
+  const tagItem = elemento;
+  for (let index = 0; index < elemento.length; index += 1) {
+    tagItem[index].style.backgroundColor = 'white';
+    tagItem[index].classList.remove('selected');
+  }
+}
+
+lista.addEventListener('dblclick', (event) => {
+  const itemSelecionado = event.target;
+  if (itemSelecionado.classList.contains('completed')) {
+    itemSelecionado.classList.remove('completed');
+  } else {
+    itemSelecionado.classList.add('completed');
+  }
 });
