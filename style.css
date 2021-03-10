@@ -1,9 +1,7 @@
-body{
-background-color: #008B8B;
-
+body {
+  background-color: #008b8b;
 }
-#central{
-background-color: white;
-border-radius: 5%;
 
+#central {
+  background-color: white;
 }
