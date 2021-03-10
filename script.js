@@ -8,20 +8,34 @@ function setColor(event) {
   tarefa.classList.add('cinza');
 }
 
+function setRiscado(event){
+  const tarefa = event.target;
+  const listClasses = tarefa.classList;
+  const tamanhoListaClasses = listClasses.length;
+
+ if(tamanhoListaClasses == 3){
+
+  tarefa.classList.remove('completed');
+ }else{
+
+  
+  tarefa.classList.add('completed');
+}
+
+}
+
 function criarTarefa() {
   const pai = document.getElementById('lista-tarefas');
   const tarefa = document.getElementById('texto-tarefa').value;
   if (tarefa === '') {
     alert('Você deve incluir uma tarefa!');
   } else {
-
     const li = document.createElement('li');
     li.className = 'tarefa';
     li.innerHTML = tarefa;
     pai.appendChild(li);
     li.addEventListener('click', setColor);
-    //li.addEventListener('dblclick', setRiscado);
+    li.addEventListener('dblclick', setRiscado);
     document.getElementById('texto-tarefa').value = '';
-
   }
 }
