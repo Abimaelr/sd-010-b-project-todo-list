@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text" href="style.css">
   <title>To Do List</title>
 </head>
 
@@ -13,13 +14,15 @@
     <h1>Minha Lista de Tarefas</h1>
   </header>
   <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+  <div>
+    <input id="texto-tarefa" type="text">
 
-  <input id="texto-tarefa" type="text">
+    <ol id="lista-tarefas"></ol>
+    <button id="criar-tarefa" type="submit">Adicionar</button>
+  </div>
 
-  <ol id="lista-tarefas"></ol>
 
-  <button id="criar-tarefa" type="submit"></button>
-
+  <script src="script.js"></script>
 </body>
 
 </html>
