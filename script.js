@@ -25,21 +25,28 @@ button.addEventListener('click', function () {
 });
 
 // Fonte: (PR do Vinicius Bodra) https://github.com/tryber/sd-010-b-project-todo-list/pull/33/files
-const tasks = document.getElementById('lista-tarefas');
-const list = document.getElementsByTagName('li');
-tasks.addEventListener('click', function (event) {
-  for (let index = 0; index < tasks.childNodes.length; index += 1) {
-    list[index].classList.remove('selected');
-  }
-  if (event.target.tagName === 'LI') {
-    event.target.className = 'selected';
-  }
-});
+function selectTask() {
+  const tasks = document.getElementById('lista-tarefas');
+  const list = document.getElementsByTagName('li');
+  tasks.addEventListener('click', function (event) {
+    for (let index = 0; index < tasks.childNodes.length; index += 1) {
+      list[index].classList.remove('selected');
+    }
+    if (event.target.tagName === 'LI') {
+      event.target.className = 'selected';
+    }
+  });
+}
+function completeTask() {
+  const tasks2 = document.getElementById('lista-tarefas');
+  tasks2.addEventListener('dblclick', function (event2) {
+    if (event2.target.className !== 'completed' || event2.target.className !== 'selected completed') {
+      event2.target.classList.add('completed');
+    } else {
+      event2.target.classList.remove('completed');  
+    }
+  });
+}
 
-tasks.addEventListener('dblclick', function (event) {
-  if (event.target.className == 'completed' || event.target.className == 'completed selected') {
-    event.target.classList.remove('completed');
-  } else {
-    event.target.classList.add('completed');
-  }
-});
+selectTask();
+completeTask();
