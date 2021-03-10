@@ -1,10 +1,12 @@
 function criarTarefa() {
-    let pegaTarefa = document.getElementById("texto-tarefa").value;
+    let pegaTextoTarefa = document.getElementById("texto-tarefa").value;
     let pegaLista = document.getElementById("lista-tarefas");
     let criarItemDaLista = document.createElement("li");
-    criarItemDaLista.innerText = pegaTarefa;
-    console.log(pegaTarefa);
+    criarItemDaLista.innerText = pegaTextoTarefa;
+
     pegaLista.appendChild(criarItemDaLista);
-    pegaTarefa.value = ''
+    let pegaTarefa = document.getElementById("texto-tarefa");
+    pegaTarefa.value = ""
     console.log(pegaTarefa);
+    
 }
