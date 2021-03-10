@@ -7,6 +7,10 @@ ol {
   list-style-position: inside;
 }
 
+button {
+  margin: 0 5px;
+}
+
 .selected {
   background-color: gray;
 }

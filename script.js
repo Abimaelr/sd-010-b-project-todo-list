@@ -7,14 +7,6 @@ function addSelectedClass(element, selecClass) {
   element.target.classList.add(selecClass);
 }
 
-/* function toggleCompletedClass(item, completClass) {
-  item.classList.toggle(completClass);
-}
-
-function addEvent(item, action, addFunction) {
-  item.addEventListener(action, addFunction);
-} */
-
 function cleanInput() {
   const input = document.getElementById('texto-tarefa');
   input.value = '';
@@ -34,12 +26,16 @@ function addItemToList() {
   list.appendChild(item);
 }
 
-function addButtonClick() {
-  const button = document.getElementById('criar-tarefa');
-  button.addEventListener('click', () => {
-    addItemToList();
-    cleanInput();
-  });
+function addButtonClick(elementId, clickFunction) {
+  const button = document.getElementById(elementId);
+  button.addEventListener('click', clickFunction);
 }
 
-addButtonClick();
+addButtonClick('criar-tarefa', () => {
+  addItemToList();
+  cleanInput();
+});
+
+addButtonClick('apaga-tudo', () => {
+
+});
