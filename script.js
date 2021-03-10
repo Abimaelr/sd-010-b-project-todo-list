@@ -23,3 +23,12 @@ toDoList.addEventListener('click', (event) => {
     element.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 }, false);
+
+toDoList.addEventListener('dblclick', (event) => {
+  const element = event.target;
+  if (element.classList.value === 'completed') {
+    element.classList.remove('completed');
+  } else {
+    element.className = 'completed';
+  }
+}, false);
