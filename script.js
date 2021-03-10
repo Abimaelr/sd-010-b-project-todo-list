@@ -41,10 +41,10 @@ function criarTarefa() {
 criarTarefa();
 
 function alteraCor() {
-	let listaOrdenada = document.querySelector('#lista-tarefas');
+	const listaOrdenada = document.querySelector('#lista-tarefas');
 	listaOrdenada.addEventListener('click', function (event) {
 		let itemCinza = document.querySelector('.corCinza')
-		if (itemCinza){
+		if (itemCinza) {
 			itemCinza.classList.remove('corCinza');
 		}
 		event.target.classList.add('corCinza')
@@ -52,3 +52,17 @@ function alteraCor() {
 }
 alteraCor()
 
+function riscar() {
+	const listaOrdenada = document.querySelector('#lista-tarefas');
+	listaOrdenada.addEventListener('dblclick', function (event) {
+		let itemRiscado = document.querySelector('.completed')
+
+		if (event.target.classList.contains('completed')) {
+			event.target.classList.remove('completed');
+
+		} else {
+			event.target.classList.add('completed')
+		}
+	})
+}
+riscar();
