@@ -1,15 +1,14 @@
-function addSelectedClass(item, classes) {
-
-  const selectedClass = 'selected';
+function addSelectedClass(item, selecClass) {
+  const selectedClass = selecClass;
   const selected = document.querySelector(`.${selectedClass}`);
   if (selected !== null) {
     selected.classList.remove(selectedClass);
   }
-  item.classList.add(classes);
+  item.classList.add(selecClass);
 }
 
-function addClickEvent(item, addFunction) {
-  item.addEventListener('click', addFunction);
+function addEvent(item, event, addFunction) {
+  item.addEventListener(event, addFunction);
 }
 
 function cleanInput() {
@@ -22,7 +21,7 @@ function addItemToList() {
   const item = document.createElement('li');
   const input = document.getElementById('texto-tarefa');
   item.innerText = input.value;
-  addClickEvent(item, () => {
+  addEvent(item, 'click', () => {
     addSelectedClass(item, 'selected');
   });
   list.appendChild(item);
