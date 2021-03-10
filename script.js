@@ -1,43 +1,23 @@
 const leBoby = document.querySelector('body');
-const leOl = document.querySelector('#lista-tarefas');
 
-function addHeader() {
-  const aux = document.createElement('header');
-  aux.innerText = 'Minha Lista de Tarefas';
+function addButtons(tag, tId, tInner) {
+  const aux = document.createElement(tag);
+  aux.id = tId;
+  aux.innerText = tInner;
   leBoby.appendChild(aux);
 }
-addHeader();
 
-function addP() {
-  const aux = document.createElement('p');
-  aux.id = 'funcionamento';
-  aux.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
-  leBoby.appendChild(aux);
-}
-addP();
-
-function addInput() {
-  const aux = document.createElement('input');
-  aux.id = 'texto-tarefa';
-  leBoby.appendChild(aux);
-}
-addInput();
-
-function addButton() {
-  const aux = document.createElement('button');
-  aux.id = 'criar-tarefa';
-  aux.innerText = 'Adicionar';
-  leBoby.appendChild(aux);
-}
-addButton();
-
-function addOl() {
-  const aux = document.createElement('ol');
-  aux.id = 'lista-tarefas';
-  leBoby.appendChild(aux);
-}
-addOl();
-
+addButtons('header', '', 'Minha Lista de Tarefas');
+addButtons('p', 'funcionamento', 'Clique duas vezes em um item para marcá-lo como completo');
+addButtons('input', 'texto-tarefa', '');
+addButtons('button', 'criar-tarefa', 'Adicionar');
+addButtons('ol', 'lista-tarefas', '');
+addButtons('button', 'remover-selecionado', 'remover selecionado');
+addButtons('button', 'mover-cima', 'mover-baixo');
+addButtons('button', 'mover-cima', 'mover-baixo');
+addButtons('button', 'remover-finalizados', 'Limpar Completos');
+addButtons('button', 'apaga-tudo', 'Limpar Lista');
+addButtons('button', 'salvar-tarefas', 'Salvar Lista');
 function addLista() {
   const auxInput = document.querySelector('#texto-tarefa');
   if (auxInput.value !== '') {
@@ -70,8 +50,8 @@ function pintarCinca(evento) {
     aux.className = `ncinca ${auxSalve}`;
   }
 }
-const auxClickLi = document.querySelector('#lista-tarefas');
-auxClickLi.addEventListener('click', pintarCinca);
+const leOl = document.querySelector('#lista-tarefas');
+leOl.addEventListener('click', pintarCinca);
 
 function dbClick(event) {
   const aux = event.target;
@@ -83,16 +63,7 @@ function dbClick(event) {
     aux.className = `${auxSalve} ncompleted`;
   }
 }
-const auxClickLi1 = document.querySelector('#lista-tarefas');
-auxClickLi1.addEventListener('dblclick', dbClick);
-/* ////////////////////qqqq */
-function addButtonClear() {
-  const aux = document.createElement('button');
-  aux.id = 'apaga-tudo';
-  aux.innerText = 'Limpar Lista';
-  leBoby.appendChild(aux);
-}
-addButtonClear();
+leOl.addEventListener('dblclick', dbClick);
 
 function apagaLista() {
   const aux = document.querySelector('#lista-tarefas');
@@ -101,32 +72,13 @@ function apagaLista() {
 const auxButtonClear = document.querySelector('#apaga-tudo');
 auxButtonClear.addEventListener('click', apagaLista);
 
-function addButtonfinalizados() {
-  const aux = document.createElement('button');
-  aux.id = 'remover-finalizados';
-  aux.innerText = 'Limpar Completos';
-  leBoby.appendChild(aux);
-}
-addButtonfinalizados();
-
-function addButtonSalvar() {
-  const aux = document.createElement('button');
-  aux.id = 'salvar-tarefas';
-  aux.innerText = 'Salvar Lista';
-  leBoby.appendChild(aux);
-}
-addButtonSalvar();
-
 function removeFinalizados() {
   const aux = document.querySelectorAll('.completed');
   for (let i = 0; i < aux.length; i += 1) {
     aux[i].remove();
   }
 }
-const auxRemoveFinalizados = document.querySelector('#remover-finalizados');
-auxRemoveFinalizados.addEventListener('click', removeFinalizados);
-const auxSalvar = document.querySelector('#salvar-tarefas');
-auxSalvar.addEventListener('click', salvarDados);
+
 function salvarDados() {
   const auxLi = document.querySelectorAll('li');
   const aux = [];
@@ -135,6 +87,12 @@ function salvarDados() {
   }
   localStorage.setItem('ListaSalva', JSON.stringify(aux));
 }
+
+const auxRemoveFinalizados = document.querySelector('#remover-finalizados');
+auxRemoveFinalizados.addEventListener('click', removeFinalizados);
+const auxSalvar = document.querySelector('#salvar-tarefas');
+auxSalvar.addEventListener('click', salvarDados);
+
 if (localStorage.ListaSalva) {
   const aux = JSON.parse(localStorage.getItem('ListaSalva'));
   for (let i = 0; i < aux.length; i += 1) {
