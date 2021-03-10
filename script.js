@@ -86,7 +86,7 @@ function limparLista(pai) {
 // função limpa completos
 function LimparCompletos() {
   const itensCompletos = document.getElementsByClassName('completed');
-  while (itensCompletos.length > 0) {
+  for (let index = 0; index < itensCompletos.length; index = 0) {
     itensCompletos[0].parentNode.removeChild(itensCompletos[0]);
   }
 }
