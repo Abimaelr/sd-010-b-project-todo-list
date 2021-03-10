@@ -8,28 +8,16 @@ function addTask() {
   let li = document.createElement("li");
   li.classList.add("tasks")
   li.innerHTML = input.value;
-  //console.log(li)
   ol.appendChild(li);
   tasks(); 
-  clearInput();
-  // colorTasks();
-  
+  clearInput();  
 }
 
 function clearInput() {
   input.value = '';
 }
 
-/* function colorTasks() {
-  let tasks = document.querySelector(".tasks");
-  tasks.addEventListener("click", function() {
-    tasks.style.backgroundColor = "rgb(128,128,128)";
-    console.log(tasks)
-  })  
-} */
-
-
-function tasks(event) {
+function tasks() {
   let tasks = document.querySelectorAll(".tasks");
   for (index = 0; index < tasks.length; index+=1) {
     tasks[index].addEventListener("click", colorTask);  
@@ -37,12 +25,19 @@ function tasks(event) {
 }
 
 function colorTask(event) {
-  event.target.style.backgroundColor = "rgb(128,128,128)"
+  let selectColor = document.querySelector(".selected")
+  console.log(selectColor)
+  if (selectColor === null) {
+    event.target.classList.add("selected")  
+  } else {
+    selectColor.classList.remove("selected")
+    selectColor.style.backgroundColor = '';
+    event.target.classList.add("selected")
+  }
+  let selectColor2 = document.querySelector(".selected")
+  selectColor2.style.backgroundColor = "rgb(128,128,128)" 
+  
 }
-
-
-
-
 
 
 
