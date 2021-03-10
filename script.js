@@ -35,3 +35,11 @@ tasks.addEventListener('click', function (event) {
     event.target.className = 'selected';
   }
 });
+
+tasks.addEventListener('dblclick', function (event) {
+  if (event.target.className == 'completed' || event.target.className == 'completed selected') {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+});
