@@ -17,7 +17,12 @@ document.addEventListener("click", function (event) {
     document.getElementById("lista-tarefas").appendChild(newLi);
     document.getElementById("texto-tarefa").value = ""
   }
-  if (event.target.classList.contains("item-lista") && !event.target.classList.contains("rgb-cinza")) {
+  if (event.target.classList.contains("item-lista")) {
+    if(document.querySelectorAll(".rgb-cinza").length === 0) {
+      event.target.className = "item-lista rgb-cinza"
+    } if (document.querySelectorAll(".rgb-cinza").length !== 0) {
+      document.querySelectorAll(".rgb-cinza")[0].className = "item-lista";
       event.target.className = "item-lista rgb-cinza"
     }
+  }  
 })
