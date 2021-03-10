@@ -58,3 +58,14 @@ function pintarCinca(evento) {
     aux.style.color = 'white';
   }
 }
+let auxClickLi1 = document.querySelector('#lista-tarefas');
+auxClickLi1.addEventListener('dblclick', dbClick);
+function dbClick(event) {
+  let aux = event.target;
+  if(aux.className !== 'completed'){
+    aux.className = 'completed'
+  } else {
+    aux.className = '';
+  }
+  
+}
