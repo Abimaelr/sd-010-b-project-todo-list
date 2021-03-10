@@ -3,8 +3,15 @@ const btnTaskCreation = document.getElementById('criar-tarefa');
 const btnClearAll = document.getElementById('apaga-tudo');
 const btnClearCompleted = document.getElementById('remover-finalizados');
 const btnSaveTaskList = document.getElementById('salvar-tarefas');
+const btnMoveUp = document.getElementById('mover-cima');
+const btnMoveDown = document.getElementById('mover-baixo');
+const btnClearSelected = document.getElementById('remover-selecionado');
 const taskList = document.getElementById('lista-tarefas');
 let tasks = document.querySelectorAll('li');
+
+console.log(btnMoveDown);
+console.log(btnMoveUp);
+console.log(btnClearSelected);
 
 // Selecionar um item da lista
 
@@ -70,6 +77,15 @@ function clearCompleted() {
 }
 
 btnClearCompleted.addEventListener('click', clearCompleted);
+
+// Apagar somente item selecionado
+
+function clearSelected() {
+  const selectedElement = document.querySelector('.selected');
+  selectedElement.remove();
+}
+
+btnClearSelected.addEventListener('click', clearSelected);
 
 // Salvar lista
 
