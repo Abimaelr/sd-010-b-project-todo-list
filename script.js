@@ -12,3 +12,10 @@ paragrafo.innerText = "Clique duas vezes em um item para marcá-lo como completo
 maeParagrafo.appendChild(paragrafo);
 ////////////////////////////////////////////////////////////////////
 
+let maeInput = document.getElementById("corpo");
+let label = document.createElement("label");
+label.innerText = "Digite o item";
+let input = document.createElement("input");
+input.id = "texto-tarefa";
+maeInput.appendChild(label);
+maeInput.appendChild(input);
