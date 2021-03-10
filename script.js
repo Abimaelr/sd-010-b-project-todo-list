@@ -12,4 +12,4 @@ headerP.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
 // requisito 3
 const input = document.createElement('input');
 bodyChilds.appendChild(input);
-input.id = 'texto-tarefa'
+input.id = 'texto-tarefa';
