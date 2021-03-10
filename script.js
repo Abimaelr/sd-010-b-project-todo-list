@@ -31,12 +31,18 @@ function selectableTasks(task) {
 function doubleClick(task) {
   task.addEventListener("dblclick", function () {
     if(task.className.match(/completed/)) {
-      console.log("task riscada");
       task.className = task.className.replace(" completed", "");
     } else {
       task.className += " completed";
-    }
-    // console.log("duploClique");
-    
+    }    
   });
 }
+
+function dellTasks(){
+  let buttonDellAll = document.querySelector("#apaga-tudo");
+  buttonDellAll.addEventListener("click", function () {
+    ThetoDoList.innerHTML = "";
+  });
+}
+
+dellTasks();

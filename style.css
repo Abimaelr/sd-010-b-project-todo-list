@@ -21,3 +21,16 @@ header {
 .completed {
   text-decoration: line-through;
 }
+
+#apaga-tudo {
+  padding: 5px;
+  background-color: #E13636;
+  border: 2px solid black;
+  color: white;
+  border-radius: 10px;
+}
+
+#apaga-tudo:hover {
+  background-color: #a02323;
+  color: rgb(138, 138, 138);
+}
