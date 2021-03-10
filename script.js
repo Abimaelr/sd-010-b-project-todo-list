@@ -4,14 +4,15 @@ const taskText = document.querySelector("#texto-tarefa");
 
 function addTaskToDo() {
   buttonAdd.addEventListener("click", function () {
-    mkTask(taskText.value);
+    mkTask(taskText.value, "");
     taskText.value = "";
   });
 }
 
-function mkTask(text) {
+function mkTask(text, saved) {
   const taskToDo =  document.createElement("li");
-  taskToDo.className = "taskToDo";
+  taskToDo.className = "taskToDo" + saved;
+  console.log(saved);
   taskToDo.innerText = text;
   selectableTasks(taskToDo);
   doubleClick(taskToDo);
@@ -90,7 +91,7 @@ function loadTasks() {
   }
   if((toLoadTasks != undefined) && (sizeArrayTask != 0)){
     for (let toLoad = 0; toLoad < toLoadTasks.length; toLoad++) {
-      mkTask(toLoadTasks[toLoad]);
+      mkTask(toLoadTasks[toLoad], " taskSaved");
     } 
   } else {
     console.log("Vasio")
