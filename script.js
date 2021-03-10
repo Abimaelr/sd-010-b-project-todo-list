@@ -38,6 +38,17 @@ function cleanList() {
   }
 }
 
+function removeCompletedItems() {
+  const list = document.getElementById('lista-tarefas');
+  const listChildren = document.getElementById('lista-tarefas').children;
+  const completedClass = 'completed';
+  for (let index = (listChildren.length - 1); index >= 0; index -= 1) {
+    if (listChildren[index].classList.contains(completedClass)) {
+      list.removeChild(listChildren[index]);
+    }
+  }
+}
+
 addButtonClick('criar-tarefa', () => {
   addItemToList();
   cleanInput();
@@ -45,4 +56,8 @@ addButtonClick('criar-tarefa', () => {
 
 addButtonClick('apaga-tudo', () => {
   cleanList();
+});
+
+addButtonClick('remover-finalizados', () => {
+  removeCompletedItems();
 });
