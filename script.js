@@ -1,3 +1,5 @@
+function (addEventListener)
+
 function criaItemLista() {
   const texto = document.querySelector('#texto-tarefa');
   const lista = document.querySelector('#lista-tarefas');
@@ -9,3 +11,4 @@ function criaItemLista() {
 }
 const botaoAdicionar = document.querySelector('#criar-tarefa');
 botaoAdicionar.addEventListener('click', criaItemLista);
+a
