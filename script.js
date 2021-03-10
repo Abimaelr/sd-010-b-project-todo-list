@@ -2,7 +2,7 @@ const dadElement = document.body;
 
 // Criando a tag HEADER com o conteudo de H1 com o titulo
 const header = document.createElement('header');
-document.body.append(header);
+dadElement.append(header);
 const title = document.createElement('h1');
 title.innerHTML = 'Minha Lista de Tarefas';
 header.append(title);
@@ -11,9 +11,14 @@ header.append(title);
 const textSection = document.createElement('p');
 textSection.id = 'funcionamento';
 textSection.innerHTML = 'Clique duas vezes em um item para marcá-lo como completo';
-document.body.append(textSection);
+dadElement.append(textSection);
 
-// Criando um input 
+// Criando um input
 const inputText = document.createElement('input');
 inputText.id = 'texto-tarefa';
 dadElement.appendChild(inputText);
+
+// Criando lista ordenada
+const listOrder = document.createElement('ol');
+listOrder.id = 'lista-tarefa';
+dadElement.appendChild(listOrder);
