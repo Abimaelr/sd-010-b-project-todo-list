@@ -14,7 +14,15 @@ function addTaskInList() {
   addEventClickInTask(task);
 }
 
+function colorNone() {
+    let tasks = document.getElementsByTagName('li');
+    for (let task of tasks) {
+        task.style.backgroundColor = '';
+    }
+}
+
 function changeColorTask(element) {
+  colorNone();
   element.target.style.backgroundColor = 'rgb(128,128,128)';
 }
 
