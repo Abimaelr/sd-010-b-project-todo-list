@@ -20,7 +20,8 @@ function clearInput() {
 function tasks() {
   let tasks = document.querySelectorAll(".tasks");
   for (index = 0; index < tasks.length; index+=1) {
-    tasks[index].addEventListener("click", colorTask);  
+    tasks[index].addEventListener("click", colorTask); 
+    tasks[index].addEventListener("dblclick", textDecoration); 
   }  
 }
 
@@ -40,15 +41,17 @@ function tasks() {
 
 function colorTask(event) {
   let selectColor = document.querySelector(".colorGray")
-  console.log(selectColor)
   if(selectColor) {
     selectColor.classList.remove("colorGray")
     event.target.classList.add("colorGray")
-    console.log(selectColor)
   } else {
     event.target.classList.add("colorGray")
   }
 } 
+
+function textDecoration(event) {  
+  event.target.classList.toggle("completed")
+}
 
 
 
