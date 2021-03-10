@@ -43,9 +43,16 @@ function itemCheck(evt){
 list.addEventListener ('dblclick', itemCheck, false)
 list.addEventListener ('click', itemSelection, false)
 
-apagar.addEventListener('click', function(){
-   while(list.lastElementChild != 'null') list.lastChild.remove();
-})
+apagar.addEventListener('click', eraseList)
+
+function eraseList(){
+    if(list.lastElementChild == null) {
+        return;
+    }
+   while(list.lastElementChild != null) {
+       list.lastChild.remove();
+   }
+}
 
 finalizados.addEventListener('click', function(){
     let finalizados = document.querySelectorAll('.completed');
