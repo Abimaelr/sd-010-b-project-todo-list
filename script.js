@@ -44,7 +44,7 @@ function addLista() {
     let auxOl = document.querySelector('#lista-tarefas');
     let auxLi = document.createElement('li');
     auxLi.innerText = auxInput.value;
-    auxLi.className = 'ncinca ncompleted';
+    //auxLi.className = 'ncinca ncompleted';
     auxOl.appendChild(auxLi);
     auxInput.value = '';
   }
@@ -54,7 +54,6 @@ let auxClickLi = document.querySelector('#lista-tarefas');
 auxClickLi.addEventListener('click', pintarCinca);
 function pintarCinca(evento) {
   let aux = evento.target;
-  console.log(aux.className);
   if(aux.className !== 'cinca'){
     aux.className = 'cinca';
   } else {
@@ -79,6 +78,7 @@ function addButtonClear() {
   aux.innerText = 'Limpar Lista'
   leBoby.appendChild(aux);
 }
+
 addButtonClear();
 let auxButtonClear = document.querySelector('#apaga-tudo');
 auxButtonClear.addEventListener('click', apagaLista);
@@ -86,10 +86,30 @@ function apagaLista() {
   let aux = document.querySelector('#lista-tarefas');
   aux.innerHTML = '';
 }
+
 function addButtonfinalizados() {
   let aux = document.createElement('button');
   aux.id = 'remover-finalizados'
   aux.innerText = 'Limpar Completos';
   leBoby.appendChild(aux);
 }
+
 addButtonfinalizados();
+function addButtonRemoveFinalizados() {
+  let aux = document.createElement('button');
+  aux.id = 'salvar-tarefas'
+  aux.innerText = 'Salvar Lista';
+  leBoby.appendChild(aux);
+}
+addButtonRemoveFinalizados();
+let auxRemoveFinalizados = document.querySelector('#remover-finalizados');
+auxRemoveFinalizados.addEventListener('click', removeFinalizados);
+
+function removeFinalizados() {
+  let aux = document.querySelectorAll('.completed');
+  console.log(aux);
+  for (let i = 0; i < aux.length; i += 1) {
+    console.log(aux[i]);
+    aux[i].remove();
+  }
+}
