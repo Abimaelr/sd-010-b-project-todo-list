@@ -39,9 +39,22 @@ window.onload = function () {
     element.appendChild(elementInput);
   }
 
+  function createOrdenedList() {
+    // Etapa 04 - Adicione uma lista ordenada de tarefas com o id="lista-tarefas"
+    // Criando uma section para guardar a OL
+    const elementSection = document.createElement('section');
+    document.body.appendChild(elementSection);
+
+    // Criando uma Lista Ordenada <OL> dentro da section
+    const element = document.createElement('ol');
+    element.id = "lista-tarefas";
+    elementSection.appendChild(element);
+  }
+
   function startAplication() {
     createHeader();
     createInstructions();
     createInput();
+    createOrdenedList();
   }
 };
