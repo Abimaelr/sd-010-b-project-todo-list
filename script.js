@@ -1,5 +1,6 @@
 let buttonCriarTarefa = document.getElementById('criar-tarefa');
 const buttonDeleteTasks = document.getElementById('apaga-tudo');
+const buttonDeleteTasksEnded = document.getElementById('remover-finalizados');
 let taskList = document.getElementById('lista-tarefas');
 
 function addEventClickInTask(task) {
@@ -47,3 +48,13 @@ function deleteTasks() {
 
 /* Evento para deletar todas as tarefas */
 buttonDeleteTasks.addEventListener('click', deleteTasks);
+
+/* Removendo tarefas finalizadas */
+function deleteTasksEnded() {
+  let tasks = document.getElementsByClassName('completed');
+  for (let index = 0; index < tasks.length; index += 1) {
+    taskList.removeChild(tasks[index]);
+  }
+}
+
+buttonDeleteTasksEnded.addEventListener('click', deleteTasksEnded)
