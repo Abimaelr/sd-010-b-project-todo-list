@@ -4,6 +4,7 @@ const btnMoveUp = document.querySelector('#mover-cima');
 const btnMoveDown = document.querySelector('#mover-baixo');
 const btnAddTodo = document.querySelector('#criar-tarefa');
 const inputTodo = document.querySelector('#texto-tarefa');
+const btnDeleteAll = document.querySelector('#apaga-tudo');
 const childs = olList.children;
 const bgColor = 'rgb(128, 128, 128)';
 
@@ -72,3 +73,14 @@ const moveDown = () => {
 };
 
 btnMoveDown.addEventListener('click', moveDown);
+
+// delete All to-dos
+
+const deleteAllTodos = () => {
+  const tasks = document.querySelectorAll('.task');
+  for (let i = 0; i < tasks.length; i += 1) {
+    olList.removeChild(tasks[i]);
+  }
+};
+
+btnDeleteAll.addEventListener('click', deleteAllTodos);
