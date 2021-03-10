@@ -1,6 +1,7 @@
 let inputTask = document.getElementById('texto-tarefa');
 let orderedList = document.getElementById('lista-tarefas');
 let buttonCreateTask = document.getElementById('criar-tarefa');
+let buttonCleanList = document.getElementById('apaga-tudo')
 
 buttonCreateTask.addEventListener('click', function () {
   let task = document.createElement('li')
@@ -31,3 +32,11 @@ function scratchTask() {
     })
 }
 scratchTask();
+
+
+function cleanList(){
+    buttonCleanList.addEventListener('click', function(){
+        orderedList.textContent = '';
+    })
+}
+cleanList();
