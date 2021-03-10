@@ -20,7 +20,7 @@ dadElement.appendChild(inputText);
 
 // Criando lista ordenada
 const listOrder = document.createElement('ol');
-listOrder.id = 'lista-tarefa';
+listOrder.id = 'lista-tarefas';
 dadElement.appendChild(listOrder);
 
 //
