@@ -21,20 +21,11 @@ const lista = document.getElementById('lista-tarefas');
 lista.addEventListener('click', (event) => {
   const itens = document.querySelector('ol').children;
   removeSelected(itens);
-  const itemSelecionado = event;
-  itemSelecionado.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  itemSelecionado.target.classList.add('selected');
+  const itemSelecionado = event.target;
+  itemSelecionado.style.backgroundColor = 'rgb(128, 128, 128)';
+  itemSelecionado.classList.add('selected');
   console.log(itemSelecionado);
 });
-
-
-function removeCompleted(elemento) {
-  const tagItem = elemento;
-  for (let index = 0; index < elemento.length; index += 1) {
-    tagItem[index].style.backgroundColor = 'white';
-    tagItem[index].classList.remove('selected');
-  }
-}
 
 lista.addEventListener('dblclick', (event) => {
   const itemSelecionado = event.target;
@@ -44,3 +35,13 @@ lista.addEventListener('dblclick', (event) => {
     itemSelecionado.classList.add('completed');
   }
 });
+
+function removeTodaLista() {
+  const listaPai = document.querySelector('ol');
+  const tarefas = document.querySelectorAll('li');
+  for (let index = 0; index < tarefas.length; index += 1) {
+    listaPai.removeChild(tarefas[index]);
+  }
+}
+const botaoApagaTudo = document.querySelector('#apaga-tudo');
+botaoApagaTudo.addEventListener('click', removeTodaLista);
