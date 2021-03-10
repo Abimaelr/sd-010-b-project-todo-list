@@ -25,12 +25,12 @@ footer {
 }
 
 #texto-tarefa {
-  border-radius:4px;
-  display:inline-block;
-  font-family:Verdana;
-  font-size:13px;
-  padding:3px 5px;
-  text-decoration:none;
+  border-radius: 4px;
+  display: inline-block;
+  font-family: Verdana;
+  font-size: 13px;
+  padding: 3px 5px;
+  text-decoration: none;
 }
 
 .btnAdd {
@@ -45,9 +45,9 @@ footer {
   font-size: 13px;
   padding: 4px 6px;
   text-decoration: none;
-  color: #000;
+  color: black;
   text-shadow: 0px 1px 0px #528009;
-} 
+}
 
 .btnAdd:hover {
   background: linear-gradient(to bottom, #46a7f5 5%, #86c6f8 100%);

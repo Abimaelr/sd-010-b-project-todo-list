@@ -22,10 +22,22 @@ function criarTarefa() {
 }
 
 function pintarLinha() {
+  for (let index = 0; index < getItem.length; index += 1) {
+    if (getItem[index].id === 'selected') {
+      getItem[index].style.backgroundColor = 'rgb(128, 128, 128)';
+    }
+  }
+}
+
+function selecionaLinha(li) {
+  li.target.id = 'selected';
+  pintarLinha();
 }
 
 // evento ao clicar no botao "adicionar" insere um item na lista.
 criarBtnAdicionar.addEventListener('click', criarTarefa);
+
+ordLista.addEventListener('click', selecionaLinha);
 
 window.onload = function () {
   criarButao();
