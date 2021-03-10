@@ -1,8 +1,9 @@
 // Elements
 const addItemBtn = document.querySelector('#criar-tarefa');
 const itemText = document.querySelector('#texto-tarefa');
-const OlElement = document.querySelector('#lista-tarefas');
+const olElement = document.querySelector('#lista-tarefas');
 const clearBtn = document.querySelector('#apaga-tudo');
+const clearCompletedBtn = document.querySelector('#remover-finalizados');
 
 //          functions to Listeners
 
@@ -35,7 +36,7 @@ const addToOl = (text) => {
   li.innerText = text;
   li.addEventListener('click', () => selectItem(li));
   li.addEventListener('dblclick', () => completeItem(li));
-  OlElement.appendChild(li);
+  olElement.appendChild(li);
 };
 
 const getItemAndAdd = () => {
@@ -47,7 +48,18 @@ const getItemAndAdd = () => {
 // Clear All items from list
 
 const clearAll = () => {
-  OlElement.innerHTML = '';
+  olElement.innerHTML = '';
+};
+
+// Clear Completed Items from list
+
+const clearCompletedItems = () => {
+  const completedItems = Array.from(document.querySelectorAll('.completed'));
+
+  // forgot how to remove specific elements, so i found the remove child in stackoveflow
+  completedItems.forEach((element) => {
+    olElement.removeChild(element);
+  });
 };
 
 //      Add Listeners
@@ -62,11 +74,17 @@ const setClearBtn = () => {
   clearBtn.addEventListener('click', clearAll);
 };
 
+// add Clear Completed Item from list button listener
+const setClearCompletedBtn = () => {
+  clearCompletedBtn.addEventListener('click', clearCompletedItems);
+};
+
 // all buttons
 
 const loadButtons = () => {
   setAddBtn();
   setClearBtn();
+  setClearCompletedBtn();
 };
 
 window.onload = () => {
