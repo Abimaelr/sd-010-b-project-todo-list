@@ -51,13 +51,27 @@ function overline () {
 overline();
 
 function clear() {
-const cleanButton = document.getElementById('apaga-tudo');
-cleanButton.addEventListener('click', function () {
-  const list = document.getElementById('lista-tarefas');
-  while (list.firstChild) {
-    list.removeChild(list.lastChild);
-  }
-});
+ const cleanButton = document.getElementById('apaga-tudo');
+ cleanButton.addEventListener('click', function () {
+    const list = document.getElementById('lista-tarefas');
+    while (list.firstChild) {
+      list.removeChild(list.lastChild);
+    }
+  });
 }
 
 clear();
+
+function removeCompleted() {
+  const classCompleted = document.getElementsByClassName('completed');
+  const cleanCompleted = document.getElementById('remover-finalizados');
+  cleanCompleted.addEventListener('click', function () {
+      while (classCompleted.length > 0){
+      classCompleted[0].parentNode.removeChild(classCompleted[0])
+      }
+  })
+}
+
+removeCompleted();
+
+
