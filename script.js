@@ -16,4 +16,5 @@ document.addEventListener("click", function (event) {
     document.getElementById("lista-tarefas").appendChild(newLi);
     document.getElementById("texto-tarefa").value = ""
   }
+  //Acabei fazendo o Requisito 6 junto com o 5 ;)
 })
