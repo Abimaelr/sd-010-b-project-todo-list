@@ -1,6 +1,7 @@
 let flag = true;
 function riskCompleted(evt) {
-  evt.target.className = flag ? 'completed' : '';
+  const tgt = evt.target;
+  tgt.className = flag ? 'completed' : '';
   flag = !flag;
 }
 function createNewTask() {
@@ -16,7 +17,8 @@ function createNewTask() {
       for (let i = 0; i < allLis.length; i += 1) {
         allLis[i].style.backgroundColor = 'white';
       }
-      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+      const tgt = event.target;
+      tgt.style.backgroundColor = 'rgb(128, 128, 128)';
     });
     newTask.addEventListener('dblclick', riskCompleted);
     taskText.value = '';
