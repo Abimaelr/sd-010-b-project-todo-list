@@ -12,6 +12,8 @@ function createTask() {
     li.addEventListener('click', clickItem, false);
     li.addEventListener('dblclick', dblClickItem, false);
     clear();
+    removeFinalized();
+    removeSelectd();
   })
 }
 createTask();
@@ -41,6 +43,26 @@ function clear() {
   for (let i = 0; i < listaTarefas.length; i += 1) {
     document.getElementById('apaga-tudo').addEventListener('click', function (){
       listaTarefas[i].remove();
+    })    
+  }
+}
+
+function removeFinalized(){
+  for (let i = 0; i < listaTarefas.length; i += 1) {
+    document.getElementById('remover-finalizados').addEventListener('click', function (){
+      if (listaTarefas[i].className === 'completed') {
+        listaTarefas[i].remove();
+      }     
+    })    
+  }
+}
+
+function removeSelectd() {
+  for (let i = 0; i < listaTarefas.length; i += 1) {
+    document.getElementById('remover-selecionado').addEventListener('click', function (){
+      if (listaTarefas[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+        listaTarefas[i].remove();
+      }     
     })    
   }
 }
