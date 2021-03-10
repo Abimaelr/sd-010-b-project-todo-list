@@ -26,11 +26,8 @@ function clicarLista() {
 clicarLista();
 
 function tarefaCompleta() {
-  const tarefa = document.getElementsByTagName('li');
   lista.addEventListener('dblclick', function (event) {
-    for (let index = 0; index < tarefa.length; index += 1) {
-      event.target.classList.toggle('completed');
-    }
+    event.target.classList.toggle('completed');
   });
 }
 
