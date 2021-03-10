@@ -29,3 +29,11 @@ buttonIl.addEventListener('click', function () {
   olTasks.lastChild.innerText = input.value;
   input.value = '';
 });
+
+/* requisito 6
+??????? */
+
+// requisito 7
+olTasks.addEventListener('click', function (event) {
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+});
