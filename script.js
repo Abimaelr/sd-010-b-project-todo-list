@@ -1,7 +1,8 @@
 let inputTask = document.getElementById('texto-tarefa');
 let orderedList = document.getElementById('lista-tarefas');
 let buttonCreateTask = document.getElementById('criar-tarefa');
-let buttonCleanList = document.getElementById('apaga-tudo')
+let buttonCleanList = document.getElementById('apaga-tudo');
+let buttonRemoveFinishedTasks = document.getElementById('remover-finalizados');
 
 buttonCreateTask.addEventListener('click', function () {
   let task = document.createElement('li')
@@ -40,3 +41,16 @@ function cleanList(){
     })
 }
 cleanList();
+
+function removeFinishedTasks(){
+    buttonRemoveFinishedTasks.addEventListener('click', function(event){
+        let CompletedTasks = document.getElementById('lista-tarefas');
+        for (i = CompletedTasks.children.length - 1; i >= 0; i -= 1){
+            let task = CompletedTasks.children[i]
+            if (task.className === "completed") {
+                CompletedTasks.removeChild(CompletedTasks.children[i])
+            }
+        }
+    })
+}
+removeFinishedTasks();
