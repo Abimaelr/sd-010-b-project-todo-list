@@ -9,12 +9,14 @@ function createTask() {
     li.innerText = input.value;
     ol.appendChild(li);
     input.value = '';
-    li.addEventListener('click', clickItem())
+    li.addEventListener('click', clickItem, false);
+    li.addEventListener('dblclick', dblClickItem, false);
+    clear();
   })
 }
 createTask();
 
-function clickItem() {
+function clickItem(li) {
   for (let i = 0; i < listaTarefas.length; i +=1) {
     listaTarefas[i].addEventListener('click', function (){
       for (let j = 0; j < listaTarefas.length; j += 1) {
@@ -23,6 +25,22 @@ function clickItem() {
         }
       }
       listaTarefas[i].style.backgroundColor = 'rgb(128, 128, 128)';
+    })    
+  }
+}
+
+function dblClickItem(li) {
+  if (li.target.className === 'completed') {
+    li.target.className = '';
+  } else {
+    li.target.className = 'completed';
+  }
+}
+
+function clear() {
+  for (let i = 0; i < listaTarefas.length; i += 1) {
+    document.getElementById('apaga-tudo').addEventListener('click', function (){
+      listaTarefas[i].remove();
     })    
   }
 }
