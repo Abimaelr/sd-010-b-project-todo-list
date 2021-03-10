@@ -1,5 +1,6 @@
 
 const botaoTarefa = document.getElementById("criar-tarefa");
+const botaoLimpa = document.getElementById("apaga-tudo");
 const listaMae = document.getElementById("lista-tarefas");
 const tarefas = document.getElementsByClassName("tarefa");
 const input = document.getElementById("texto-tarefa");
@@ -7,6 +8,8 @@ const input = document.getElementById("texto-tarefa");
 // let selectedElement = 0;
 
 botaoTarefa.addEventListener("click", criarTarefa);
+
+botaoLimpa.addEventListener("click", clearList);
 
 listaMae.addEventListener("click", function(event) {
     index = event.target.id
@@ -54,4 +57,8 @@ function selecionar(pos) {
     } else {
         tarefas[pos].classList.add("completed");
     }
+}
+
+function clearList() {
+    listaMae.innerHTML = "";
 }
