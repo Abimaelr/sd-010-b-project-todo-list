@@ -46,7 +46,8 @@ botaoRemoveFinalizados.addEventListener('click', function () {
 });
 
 const botaoSalvar = document.querySelector('#salvar-tarefas');
-botaoSalvar.addEventListener('click', function () {  
+botaoSalvar.addEventListener('click', function () {
+  const tarefas = document.getElementsByTagName('li');
   const itens = [];
   if (tarefas !== null) {
     for (let index = 0; index < tarefas.length; index += 1) {
@@ -54,16 +55,16 @@ botaoSalvar.addEventListener('click', function () {
     }
     localStorage.setItem('todoList', JSON.stringify(itens));
   }
-})
+});
 
 function recuperaItens() {
   const recupera = JSON.parse(localStorage.getItem('todoList'));
   if (recupera !== null) {
     for (let index = 0; index < recupera.length; index += 1) {
-      let itemRecupera = document.createElement('li');
+      const itemRecupera = document.createElement('li');
       itemRecupera.innerHTML = recupera[index];
       selecionaItem.appendChild(itemRecupera);
-    }    
+    }
   }
 }
 
