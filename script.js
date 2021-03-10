@@ -5,6 +5,7 @@ const btnMoveDown = document.querySelector('#mover-baixo');
 const btnAddTodo = document.querySelector('#criar-tarefa');
 const inputTodo = document.querySelector('#texto-tarefa');
 const btnDeleteAll = document.querySelector('#apaga-tudo');
+const btnDeleteFinished = document.querySelector('#remover-finalizados');
 const childs = olList.children;
 const bgColor = 'rgb(128, 128, 128)';
 
@@ -84,3 +85,16 @@ const deleteAllTodos = () => {
 };
 
 btnDeleteAll.addEventListener('click', deleteAllTodos);
+
+// delete finished to-dos
+
+const deleteFinishedTodos = () => {
+  const tasks = document.querySelectorAll('.task');
+  for (let i = 0; i < tasks.length; i += 1) {
+    if (tasks[i].classList.contains('completed')) {
+      olList.removeChild(tasks[i]);
+    }
+  }
+};
+
+btnDeleteFinished.addEventListener('click', deleteFinishedTodos);
