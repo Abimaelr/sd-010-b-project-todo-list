@@ -21,3 +21,7 @@ header {
   list-style: decimal inside;
   margin: 25px;
 }
+
+.selected {
+  background-color: rgb(128,128,128);
+}
