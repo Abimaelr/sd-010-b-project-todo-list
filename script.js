@@ -138,7 +138,7 @@ finalizados.addEventListener('click', function(){
   
     const selected = document.querySelector('.selected');
     let cima = selected.previousElementSibling;
-
+    if(selected == null) return;
     if(cima == null) return;
 
     let bufferT = cima.innerText;
@@ -161,7 +161,7 @@ finalizados.addEventListener('click', function(){
     let baixo = selected.nextElementSibling;
 
     if(baixo == null) return;
-
+    if(selected == null) return;
     let bufferT = baixo.innerText;
     let bufferC = baixo.className;
 
