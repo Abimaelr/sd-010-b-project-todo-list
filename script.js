@@ -15,6 +15,20 @@ function selectedTask() {
   }
 }
 
+// Selecionar um item da lista
+
+function completedTask() {
+  const selectedElement = document.querySelector('.completed');
+  if (selectedElement === null) {
+    this.className = 'completed';
+  } else if (this.classList.contains('completed')) {
+    selectedElement.classList.remove('completed');
+  } else {
+    selectedElement.classList.remove('completed');
+    this.className = 'completed';
+  }
+}
+
 // Criação de nova tarefa
 
 function taskCreation() {
@@ -29,6 +43,7 @@ function taskCreation() {
     tasks = document.querySelectorAll('li');
     for (let i = 0; i < tasks.length; i += 1) {
       tasks[i].addEventListener('click', selectedTask);
+      tasks[i].addEventListener('dblclick', completedTask);
     }
   }
 }
