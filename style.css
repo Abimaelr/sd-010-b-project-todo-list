@@ -34,6 +34,10 @@ footer {
   margin-bottom: 20px;
 }
 
+#selected {
+  background-color: rgb(128 , 128 , 128);
+}
+
 #texto-tarefa {
   border-radius: 4px;
   display: inline-block;

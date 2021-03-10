@@ -49,19 +49,24 @@ function criarTarefa() {
 }
 
 // função para pintar o background
-function pintarLinha() {
-  for (let index = 0; index < getItem.length; index += 1) {
-    if (getItem[index].id === 'selected') {
-      getItem[index].style.backgroundColor = 'rgb(128, 128, 128)';
-    }
-  }
-}
+// function pintarLinha() {
+//   for (let index = 0; index < getItem.length; index += 1) {
+//     if (getItem[index].id === 'selected') {
+//       getItem[index].style.backgroundColor = 'rgb(128, 128, 128)';
+//     }
+//   }
+// }
 
 // função para selecionar com 1 click o item a ser pintado
 function selecionaLinha(event) {
-  const unit = event.target;
-  unit.id = 'selected';
-  pintarLinha();
+  const selector = document.querySelector('#selected');
+  if (selector) {
+    selector.removeAttribute = ('id');
+    event.target.id = 'selected';
+  } else {
+    event.target.id = 'selected';
+  }
+//  pintarLinha();
 }
 
 // riscando
