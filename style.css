@@ -25,12 +25,25 @@ header {
 #apaga-tudo {
   padding: 5px;
   background-color: #E13636;
-  border: 2px solid black;
+  border: 1px solid black;
   color: white;
   border-radius: 10px;
+  margin: 0 20px;
 }
 
 #apaga-tudo:hover {
   background-color: #a02323;
-  color: rgb(138, 138, 138);
+}
+
+#remover-finalizados {
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 0 20px;
+  background-color: #37A231;
+  color: white;  
+}
+
+#remover-finalizados:hover {
+  background-color: #20661c;
 }

@@ -16,29 +16,29 @@ function addTaskToDo() {
 
 addTaskToDo();
 
-function selectableTasks(task) {
-  task.addEventListener("click", function () {
+function selectableTasks(taskSelec) {
+  taskSelec.addEventListener("click", function () {
     let lastSelected = document.querySelector(".selected");
     if(lastSelected != null){
       lastSelected.style.backgroundColor = "#dfd9d7";
       lastSelected.className = lastSelected.className.replace(" selected", "");
     }
-    task.style.backgroundColor = "rgb(128, 128, 128)";
-    task.className += " selected";
+    taskSelec.style.backgroundColor = "rgb(128, 128, 128)";
+    taskSelec.className += " selected";
   });      
 }
 
-function doubleClick(task) {
-  task.addEventListener("dblclick", function () {
-    if(task.className.match(/completed/)) {
-      task.className = task.className.replace(" completed", "");
+function doubleClick(taskDb) {
+  taskDb.addEventListener("dblclick", function () {
+    if(taskDb.className.match(/completed/)) {
+      taskDb.className = taskDb.className.replace(" completed", "");
     } else {
-      task.className += " completed";
+      taskDb.className += " completed";
     }    
   });
 }
 
-function dellTasks(){
+function dellTasks() {
   let buttonDellAll = document.querySelector("#apaga-tudo");
   buttonDellAll.addEventListener("click", function () {
     ThetoDoList.innerHTML = "";
@@ -46,3 +46,17 @@ function dellTasks(){
 }
 
 dellTasks();
+
+function dellDone() {
+  let buttonDellDone = document.querySelector("#remover-finalizados");
+  buttonDellDone.addEventListener("click", function () {
+    let tasksDone = document.querySelectorAll(".completed");
+    const totalDone = tasksDone.length;
+    for (let task = 0; task < totalDone; task++) {
+      ThetoDoList.removeChild(tasksDone[task]);    
+    }
+  });
+
+}
+
+dellDone();
