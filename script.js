@@ -50,15 +50,18 @@ olTasks.addEventListener('click', function (event) {
 
 // requisito 9
 olTasks.addEventListener('dblclick', function (event) {
-  event.target.classList.toggle('completed');
-/*   if (event.target.classList.item(1) === 'completed') {
+  const taskComplete = document.getElementsByClassName('completed');
+  event.target.classList.toggle('completed')
+  if (event.target.classList.contains('completed')) {
     event.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
-  } else if(event.target.classList.item(1) !== 'completed') {
-    event.target.style.textDecoration = 'none';
-  } */
+  } else {
+    event.target.classList.remove('completed');
+    event.target.style.textDecoration = 'initial';
+  }
 })
 
 
+/* 
 // requisito 10
 const buttonClearAll = document.createElement('button');
 bodyChilds.appendChild(buttonClearAll);
@@ -69,4 +72,4 @@ buttonClearAll.addEventListener('click', function () {
   for (let counter = tasks.length - 1; counter < tasks.length; counter -= 1) {
     document.getElementsByTagName('ol')[0].removeChild((tasks[counter]));
   }
-});
+}); */
