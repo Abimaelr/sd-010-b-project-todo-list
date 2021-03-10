@@ -6,6 +6,7 @@ const btnAddTodo = document.querySelector('#criar-tarefa');
 const inputTodo = document.querySelector('#texto-tarefa');
 const btnDeleteAll = document.querySelector('#apaga-tudo');
 const btnDeleteFinished = document.querySelector('#remover-finalizados');
+const btnDeleteSelects = document.querySelector('#remover-selecionado');
 const childs = olList.children;
 const bgColor = 'rgb(128, 128, 128)';
 
@@ -98,3 +99,17 @@ const deleteFinishedTodos = () => {
 };
 
 btnDeleteFinished.addEventListener('click', deleteFinishedTodos);
+
+// delete select to-dos
+
+const deleteSelectTodos = () => {
+  for (let i = 0; i < childs.length; i += 1) {
+    if (
+      childs[i].nodeName === 'LI' && childs[i].style.backgroundColor === bgColor
+    ) {
+      olList.removeChild(childs[i]);
+    }
+  }
+};
+
+btnDeleteSelects.addEventListener('click', deleteSelectTodos);
