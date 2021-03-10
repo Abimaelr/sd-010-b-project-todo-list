@@ -1,5 +1,5 @@
 window.onload = function () {
-// Botão add tarefa
+// Botão add tarefa, add event listener na lista
     const adicionar = document.querySelector('#criar-tarefa');
     adicionar.addEventListener('click', addTarefa);
     function addTarefa(){
@@ -10,6 +10,7 @@ window.onload = function () {
         ol.appendChild(li);
         document.querySelector('input').value = '';
         li.addEventListener('click', listaSelect);
+        li.addEventListener('dblclick', listaRisca);
     }
 
 // Item lista selecionado
@@ -21,7 +22,26 @@ window.onload = function () {
         }
         target.classList.add('selected');
     }
+// Item lista riscar
+    function listaRisca(liEmQuestao) {
+        let li = liEmQuestao.target;
+        let index = 0;
+        let size = li.classList.length;
+        for(let i = 0; i < size; i++){
+        if(li.classList[i] == 'completed'){
+            index++;
+        }
+    }
 
+    if(index == 0){
+        li.classList.add('completed');
+    }else{
+        li.classList.remove('completed');
+    }
+        
+        console.log(li.classList);
+        console.log(liEmQuestao.target);
+    }
 
 
 
