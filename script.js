@@ -29,8 +29,8 @@ function pintarLinha() {
   }
 }
 
-function selecionaLinha(li) {
-  li.target.id = 'selected';
+function selecionaLinha(event) {
+  event.target.id = 'selected';
   pintarLinha();
 }
 
