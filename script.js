@@ -41,7 +41,7 @@ rmCompletedBtn.addEventListener('click', () => {
 
 const input = document.querySelector('input');
 input.addEventListener('keypress', (evt) => {
-  if (evt.keyCode === 13) {
+  if (evt.code === 'Enter') {
     document.getElementById('criar-tarefa').click();
   }
 });
