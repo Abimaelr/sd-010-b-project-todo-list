@@ -11,7 +11,6 @@ let tasks = document.querySelectorAll('li');
 
 console.log(btnMoveDown);
 console.log(btnMoveUp);
-console.log(btnClearSelected);
 
 // Selecionar um item da lista
 
@@ -25,7 +24,7 @@ function selectedTask() {
   }
 }
 
-// Selecionar um item da lista
+// Completar um item da lista
 
 function completedTask() {
   if (this.classList.contains('completed')) {
@@ -100,3 +99,27 @@ btnSaveTaskList.addEventListener('click', saveTaskList);
 if (localStorage.getItem('taskList')) {
   taskList.innerHTML = localStorage.getItem('taskList');
 }
+
+// Mover para cima
+
+function moveUp() {
+  const selectedElement = document.querySelector('.selected');
+  // if (selectedElement !== null) {
+  if (selectedElement.previousElementSibling !== null) {
+    taskList.insertBefore(selectedElement, selectedElement.previousElementSibling);
+  }
+  // }
+}
+
+btnMoveUp.addEventListener('click', moveUp);
+
+// Mover para baixo
+
+function moveDown() {
+  const selectedElement = document.querySelector('.selected');
+  if (selectedElement.nextElementSibling !== null) {
+    taskList.insertBefore(selectedElement.nextElementSibling, selectedElement);
+  }
+}
+
+btnMoveDown.addEventListener('click', moveDown);
