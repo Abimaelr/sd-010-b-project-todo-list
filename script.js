@@ -6,7 +6,8 @@ function saveTask() {
   saveButton.addEventListener('click', () => {
     const createListItem = document.createElement('li');
     createListItem.innerText = task.value;
-    list.appendChild(createListItem)          
+    list.appendChild(createListItem);            
+    task.value = '';
   })
 }
 saveTask();
