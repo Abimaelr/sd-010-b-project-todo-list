@@ -10,11 +10,14 @@ function createOl () {
 document.addEventListener("click", function (event) {
   if (event.target.id === "criar-tarefa") {
     let newLi = document.createElement("LI");
+    newLi.setAttribute("class", "item-lista")
     let textInput = document.getElementById("texto-tarefa").value;
     let textLi = document.createTextNode(textInput);
     newLi.appendChild(textLi);
     document.getElementById("lista-tarefas").appendChild(newLi);
     document.getElementById("texto-tarefa").value = ""
   }
-  //Acabei fazendo o Requisito 6 junto com o 5 ;)
+  if (event.target.classList.contains("item-lista") && !event.target.classList.contains("rgb-cinza")) {
+      event.target.className = "item-lista rgb-cinza"
+    }
 })

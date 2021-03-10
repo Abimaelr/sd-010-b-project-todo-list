@@ -25,3 +25,7 @@ body {
 li {
   line-height: 28px;
 }
+
+.rgb-cinza {
+  background-color: rgb(128, 128, 128);
+}
