@@ -14,6 +14,7 @@ function save() {
   orderedlist.appendChild(createListItem);
   task.value = '';  
   select(); 
+  completed(); 
 }
 
 function select() {
@@ -26,6 +27,22 @@ function select() {
     });
   }
 }
+
+function completed(){
+  for (let i = 0; i < listItem.length; i += 1) {
+    listItem[i].addEventListener('dblclick', () => {  
+      if (listItem[i].classList.contains('completed') == true) {
+        listItem[i].classList.remove('completed'); 
+        console.log('oi')     
+      } else {
+        listItem[i].classList.add('completed');      
+        console.log('ola')     
+      }
+    });
+  }
+}
+
+
 
 
 
