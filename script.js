@@ -64,8 +64,8 @@ bodyChilds.appendChild(buttonClearAll);
 buttonClearAll.id = 'apaga-tudo'
 buttonClearAll.innerText = 'Limpar Tudo';
 buttonClearAll.addEventListener('click', function () {
-  const tasks = document.getElementsByClassName('task')
-  for (let counter = tasks.length - 1; counter < tasks.length; counter -= 1) {
+  const tasks = document.querySelectorAll('.task');
+  for (let counter = tasks.length - 1; counter >= 0; counter -= 1) {
     document.getElementsByTagName('ol')[0].removeChild((tasks[counter]));
   }
 });
