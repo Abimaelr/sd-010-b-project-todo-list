@@ -2,6 +2,7 @@
 const botaoTarefa = document.getElementById("criar-tarefa");
 const botaoLimpa = document.getElementById("apaga-tudo");
 const botaoLimpaEnd = document.getElementById("remover-finalizados");
+const botaoSalvar = document.getElementById("salvar-tarefas");
 const listaMae = document.getElementById("lista-tarefas");
 const tarefas = document.getElementsByClassName("tarefa");
 const input = document.getElementById("texto-tarefa");
@@ -9,11 +10,15 @@ const completados = document.getElementsByClassName("completed");
 
 // let selectedElement = 0;
 
+openSave();
+
 botaoTarefa.addEventListener("click", criarTarefa);
 
 botaoLimpa.addEventListener("click", clearList);
 
 botaoLimpaEnd.addEventListener("click", clearListEnd);
+
+botaoSalvar.addEventListener("click", save);
 
 listaMae.addEventListener("click", function(event) {
     index = event.target.id
@@ -75,4 +80,13 @@ function clearListEnd() {
      for (let index = 0; index < tarefas.length; index++) {
              tarefas[index].id = index + 1;
     }
-}    
+}
+
+function save() {
+    let lista = listaMae.innerHTML;
+    localStorage.setItem("lista-tarefas-salva", lista);
+}
+
+function openSave() {
+    listaMae.innerHTML = localStorage.getItem("lista-tarefas-salva");
+}
