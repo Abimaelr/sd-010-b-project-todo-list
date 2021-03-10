@@ -1,0 +1,25 @@
+body {
+background-color: rgb(206, 206, 53);
+padding: 10px;
+}
+
+main {
+  background-color: rgb(151, 136, 151);
+  border: 50px;
+  border-radius:  30px;
+}
+
+header {
+  padding: 10px;
+  margin-left: 20px;
+}
+
+section {
+  padding: 10px;
+  margin-left: 20px;
+  padding-bottom: 40px;
+}
+
+footer {
+  margin-bottom: 20px;
+}
