@@ -10,12 +10,16 @@ body {
 }
 
 header {
-  font-size: xx-large;
-  
+  font-size: xxx-large;  
+}
+
+li {
+  font-size: 1.3em;
 }
 
 #funcionamento {
   font-family: 'Courier New', Courier, monospace;
+  font-size: larger;
 }
 
 .completed {
@@ -27,7 +31,7 @@ header {
   background-color: #E13636;
   border: 1px solid black;
   color: white;
-  border-radius: 10px;
+  border-radius: 4px;
   margin: 0 20px;
 }
 
@@ -38,12 +42,25 @@ header {
 #remover-finalizados {
   padding: 5px;
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 4px;
   margin: 0 20px;
-  background-color: #37A231;
+  background-color: #ccc23a;
   color: white;  
 }
 
 #remover-finalizados:hover {
-  background-color: #20661c;
+  background-color: #837d25;
+}
+
+#salvar-tarefas {
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin: 0 20px;
+  background-color: #3bbb35;
+  color: white;
+}
+
+#salvar-tarefas:hover {
+  background-color: #226e1e;
 }
