@@ -33,7 +33,17 @@ buttonIl.addEventListener('click', function () {
 /* requisito 6
 ??????? */
 
-// requisito 7
+// requisito 7 & requisito 8
+const getGrayElement = document.getElementsByClassName('GrayElement');
 olTasks.addEventListener('click', function (event) {
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  if (getGrayElement.length !== 1) {
+    event.target.className = 'GrayElement';
+    getGrayElement[0].style.backgroundColor = 'rgb(128, 128, 128)';
+  }
+  getGrayElement[0].style.backgroundColor = 'white';
+  getGrayElement[0].className = '';
+  event.target.className = 'GrayElement';
+  getGrayElement[0].style.backgroundColor = 'rgb(128, 128, 128)';
 });
+
+// requisito 9
