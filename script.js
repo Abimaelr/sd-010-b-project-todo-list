@@ -46,7 +46,7 @@ lista.addEventListener("dblclick", riscaItem);
 function riscaItem(entradaDaFuncao) {
     if (entradaDaFuncao.target.className == "completed selected") {
         entradaDaFuncao.target.classList.remove("completed");
-    } else {
+    } else if (entradaDaFuncao.target.tagName == "LI") {
         entradaDaFuncao.target.classList.add("completed");
     }
 }
