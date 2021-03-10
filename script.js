@@ -2,6 +2,7 @@ window.onload = function () {
   let recoveredButton = null;
   let recoveredInput = null;
   let recoveredOl = null;
+  let recoveredOlAll = null;
 
   startAplication();
 
@@ -57,6 +58,7 @@ window.onload = function () {
     element.id = 'lista-tarefas';
     elementSection.appendChild(element);
     recoveredOl = document.getElementById('lista-tarefas');
+    recoveredOlAll = document.querySelector('#lista-tarefas');
 
     // Etapa 05 - Criando o botão Criar Tarefa
     // Criando um Botão <button> dentro da section
@@ -64,7 +66,6 @@ window.onload = function () {
     elementButton.id = 'criar-tarefa';
     elementButton.innerText = 'Criar Tarefa';
     elementSection.appendChild(elementButton);
-
     recoveredButton = document.getElementById('criar-tarefa');
   }
 
@@ -72,6 +73,7 @@ window.onload = function () {
     const elementItem = document.createElement('li');
     elementItem.id = 'item';
     elementItem.innerText = props.value;
+    elementItem.style.background = 'rgb(255, 255, 255)';
     recoveredOl.appendChild(elementItem);
     return true;
   }
@@ -80,6 +82,10 @@ window.onload = function () {
     if (addItem(recoveredInput)) {
       recoveredInput.value = '';
     }
+  });
+
+  recoveredOlAll.addEventListener('click', function (props) {    
+    props.target.style.background = 'rgb(128, 128, 128)';
   });
 
   function startAplication() {
