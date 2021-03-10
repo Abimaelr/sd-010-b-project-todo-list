@@ -85,11 +85,9 @@ function limparLista(pai) {
 
 // função limpa completos
 function LimparCompletos() {
-  const itensCompletos = ordLista.children;
-  for (let index = 0; index < itensCompletos.length; index += 1) {
-    if (itensCompletos[index].className === 'completed') {
-      ordLista.removeChild(itensCompletos[index]);
-    }
+  const itensCompletos = document.getElementsByClassName('completed');
+  while (itensCompletos.length > 0) {
+    itensCompletos[0].parentNode.removeChild(itensCompletos[0]);
   }
 }
 
