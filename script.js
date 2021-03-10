@@ -22,9 +22,16 @@ button.addEventListener('click', function () {
     taskList.appendChild(newTask);
     text.value = '';
   }
-})
+});
 
-
-
-
-
+// Fonte: (PR do Vinicius Bodra) https://github.com/tryber/sd-010-b-project-todo-list/pull/33/files
+const tasks = document.getElementById('lista-tarefas');
+const list = document.getElementsByTagName('li');
+tasks.addEventListener('click', function (event) {
+  for (let index = 0; index < tasks.childNodes.length; index += 1) {
+    list[index].classList.remove('selected');
+  }
+  if (event.target.tagName == 'LI') {
+    event.target.className = 'selected';
+  }
+});

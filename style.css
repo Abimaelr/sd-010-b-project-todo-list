@@ -4,6 +4,10 @@ header {
 
 #criar-tarefa {
   margin-left: 8px;
-  background-color: rgb(62, 196, 196);
+  background-color: rgb(62 , 196 , 196);
   color: white;
+}
+
+.selected {
+  color: rgb(128,128,128);
 }
