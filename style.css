@@ -4,8 +4,13 @@
 
 ol{
     width: 20%;
+    margin-top: 2%;
 }
 
 #apaga-tudo, #remover-finalizados{
     margin-left: 2%;
+}
+
+#salvar-tarefa{
+    margin-top: 1%;
 }

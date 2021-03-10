@@ -3,7 +3,24 @@
 createTaskButton = document.querySelector("#criar-tarefa");
 inputTask = document.querySelector("#texto-tarefa");
 listTask = document.querySelector("#lista-tarefas");
-
+ 
+window.onload = function() {
+    let listArrayStorage = JSON.parse(sessionStorage.getItem("listArrayStorage"));
+    // console.log(listArrayStorage);
+    if(sessionStorage.getItem("listArrayStorage") !== 'undefined'){
+        
+        for(let index = 0; index < listArrayStorage.length; index++){
+            let li = document.createElement('li');
+            li.innerHTML = listArrayStorage[index];
+            listTask.appendChild(li);
+        }
+        changeBackgroundColor();
+        riscaTask();
+        buttonApaga();
+        buttonFinalizados();  
+        buttonSalvar();
+    }
+}
 
 function changeBackgroundColor(){
 
@@ -11,7 +28,6 @@ function changeBackgroundColor(){
 
     for(let index = 0; index < listArray.length; index++){
         // console.log(document.querySelectorAll(".list-task")[index])
-
         listArray[index].addEventListener('click', function(event){
             if(event.target.style.backgroundColor !== 'rgb(128, 128, 128)'){
                 event.target.style.backgroundColor = 'rgb(128, 128, 128)';
@@ -51,7 +67,7 @@ function riscaTask(){
             console.log(event.target);
             console.log(event.target.className);
             if(event.target.className !== 'completed'){
-                event.target.className = 'completed';
+                event.target.classList.add('completed');
                 buttonFinalizados(); 
             }
             else{ 
@@ -74,6 +90,20 @@ function buttonApaga(){
      })     
 }
 
+function buttonSalvar(){
+    
+    let buttonrSalvar = document.querySelector("#salvar-tarefa");
+    let listArray = document.querySelector("ol").childNodes;
+
+    
+    buttonrSalvar.addEventListener('click', function(event){
+        let array = []
+        for(let index = 0; index < listArray.length; index++){
+            array.push(listArray[index].innerHTML)
+        }
+        sessionStorage.setItem('listArrayStorage', JSON.stringify(array));
+    })     
+}
 
 
 createTaskButton.addEventListener("click", function(){
@@ -89,6 +119,10 @@ createTaskButton.addEventListener("click", function(){
         riscaTask();
         buttonApaga();
         buttonFinalizados();  
+        buttonSalvar();
     }
     
 })
+
+
+
