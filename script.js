@@ -15,7 +15,15 @@ function botaoAdd(){
 botaoAdd(); 
 
 function limpaInput(){
-    document.getElementById('texto-tarefa').value = '';
-   
+    document.getElementById('texto-tarefa').value = ''; 
 }
+
+function colorList (){
+    let addlist = document.getElementById('lista-tarefas');
+    addlist.addEventListener("click", function(event){
+        event.target.style.background = 'rgb(128, 128, 128)';
+    })
+}
+
+colorList(); 
 
