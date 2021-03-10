@@ -16,7 +16,7 @@ header {
 }
 
 h1 {
-margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 p {
@@ -51,7 +51,7 @@ footer {
   box-shadow: inset 1px rgb(215 , 236 , 253);
   display: inline-block;
   cursor: pointer;
-  font-family: Verdana;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 16px;
   padding: 4px 6px;
   text-decoration: none;
@@ -66,11 +66,11 @@ footer {
   border: 1px solid;
   border-color: rgb(246 , 31 , 14);
   border-radius: 4px;
-  background: linear-gradient(to bottom , rgb(252 , 169 , 161) 5%, rgb(246 , 31 , 14) 100%);
+  background: linear-gradient(to bottom , rgb(252 , 169 , 161) 5% , rgb(246 , 31 , 14) 100%);
   box-shadow: inset 1px rgb(215 , 236 , 253);
   display: inline-block;
   cursor: pointer;
-  font-family: Verdana;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 16px;
   padding: 4px 6px;
   text-decoration: none;
@@ -79,18 +79,18 @@ footer {
 }
 
 .btnDel:hover {
-  background: linear-gradient(to bottom , rgb(246 , 31, 14) 5%, rgb(252 , 168, 161) 100%);
+  background: linear-gradient(to bottom , rgb(246 , 31 , 14) 5% , rgb(252 , 168 , 161) 100%);
 }
 
 .btnCmp {
   border: 1px solid;
-  border-color: rgb(22, 115, 192);
+  border-color: rgb(22 , 115 , 192);
   border-radius: 4px;
   background: linear-gradient(to bottom , rgb(66 , 134 , 185) 5% , rgb(22 , 115 , 192) 100%);
   box-shadow: inset 1px rgb(215 , 236 , 253);
   display: inline-block;
   cursor: pointer;
-  font-family: Verdana;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 16px;
   padding: 4px 6px;
   text-decoration: none;
@@ -106,11 +106,11 @@ footer {
   border: 1px solid;
   border-color: rgb(27 , 151 , 10);
   border-radius: 4px;
-  background: linear-gradient(to bottom , rgb(100, 173, 90) 5% , rgb(27 , 151 , 10) 100%);
+  background: linear-gradient(to bottom , rgb(100 , 173 , 90) 5% , rgb(27 , 151 , 10) 100%);
   box-shadow: inset 1px rgb(215 , 236 , 253);
   display: inline-block;
   cursor: pointer;
-  font-family: Verdana;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 16px;
   padding: 4px 6px;
   text-decoration: none;
