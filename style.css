@@ -51,3 +51,22 @@ footer {
 .btnAdd:hover {
   background: linear-gradient(to bottom , rgb(70 , 167 , 245) 5% , rgb(134 , 198 , 248) 100%);
 }
+
+.btnDel {
+  border: 1px solid;
+  border-color: rgb(246 , 31 , 14);
+  border-radius: 4px;
+  background: linear-gradient(to bottom, rgb(252 , 169 , 161) 5%, rgb(246 , 31 , 14) 100%);
+  box-shadow: inset 0px 1px 0px 0px rgb(215 , 236 , 253);
+  display: inline-block;
+  cursor: pointer;
+  font-family: Verdana;
+  font-size: 13px;
+  padding: 4px 6px;
+  text-decoration: none;
+  color: black;
+}
+
+.btnDel:hover {
+  background: linear-gradient(to bottom, rgb(246 , 31, 14) 5%, rgb(252 , 168, 161) 100%);
+}
