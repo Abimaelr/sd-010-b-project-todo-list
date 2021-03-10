@@ -1,8 +1,9 @@
 window.onload = function () {
-  let recoveredButton = null;
+  let addTask = null;
   let recoveredInput = null;
   let recoveredOl = null;
-  let recoveredOlAll = null;
+  let selectElement = null;
+  let allTasks = null;
 
   startAplication();
 
@@ -58,7 +59,7 @@ window.onload = function () {
     element.id = 'lista-tarefas';
     elementSection.appendChild(element);
     recoveredOl = document.getElementById('lista-tarefas');
-    recoveredOlAll = document.querySelector('#lista-tarefas');
+    selectElement = document.querySelector('#lista-tarefas');
 
     // Etapa 05 - Criando o botão Criar Tarefa
     // Criando um Botão <button> dentro da section
@@ -66,7 +67,7 @@ window.onload = function () {
     elementButton.id = 'criar-tarefa';
     elementButton.innerText = 'Criar Tarefa';
     elementSection.appendChild(elementButton);
-    recoveredButton = document.getElementById('criar-tarefa');
+    addTask = document.getElementById('criar-tarefa');
   }
 
   function addItem(props) {
@@ -78,13 +79,22 @@ window.onload = function () {
     return true;
   }
 
-  recoveredButton.addEventListener('click', function () {    
+  function defaultBackgroundItems() {
+    allTasks = document.querySelectorAll('#item');
+    for (let index = 0; index < allTasks.length; index++) {
+      allTasks[index].style.backgroundColor = 'white';
+    }
+    return allTasks;
+  }
+
+  addTask.addEventListener('click', function () {
     if (addItem(recoveredInput)) {
       recoveredInput.value = '';
     }
   });
 
-  recoveredOlAll.addEventListener('click', function (props) {    
+  selectElement.addEventListener('click', function (props) {
+    defaultBackgroundItems();
     props.target.style.background = 'rgb(128, 128, 128)';
   });
 
