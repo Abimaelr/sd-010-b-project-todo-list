@@ -26,6 +26,7 @@ dadElement.appendChild(listOrder);
 //
 function assignment() {
   const listItem = document.createElement('li');
+  listItem.className = 'item';
   listItem.innerText = inputText.value;
   listOrder.appendChild(listItem);
   inputText.value = '';
@@ -35,3 +36,13 @@ const bt1 = document.createElement('button');
 bt1.id = 'criar-tarefa';
 bt1.addEventListener('click', assignment);
 dadElement.insertBefore(bt1, listOrder);
+
+//
+function liCatcher() {
+  const tag = document.querySelector('ol');
+  tag.addEventListener('click', function evento(event) {
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  });
+}
+
+liCatcher();
