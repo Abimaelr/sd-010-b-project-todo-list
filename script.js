@@ -27,4 +27,14 @@ eraseBtn.addEventListener('click', () => {
   const tasksList = document.getElementById('lista-tarefas');
   tasksList.innerHTML = '';
 });
+
+const rmCompletedBtn = document.getElementById('remover-finalizados');
+rmCompletedBtn.addEventListener('click', () => {
+  const allLis = document.getElementsByTagName('li');
+  for (let i = 0; i < allLis.length; i += 1) {
+    if (allLis[i].className.includes('completed')) {
+      allLis[i].parentElement.removeChild(allLis[i]);
+    }
+  }
+});
 createNewTask();
