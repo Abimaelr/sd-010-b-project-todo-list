@@ -4,13 +4,20 @@ const listaMae = document.getElementById("lista-tarefas");
 const tarefas = document.getElementsByClassName("tarefa");
 const input = document.getElementById("texto-tarefa");
 
-
+// let selectedElement = 0;
 
 botaoTarefa.addEventListener("click", criarTarefa);
 
 listaMae.addEventListener("click", function(event) {
     index = event.target.id
+    // selectedElement = index;
     chageColor(index - 1);
+})
+
+listaMae.addEventListener("dblclick", function(event) {
+    index = event.target.id
+    // selectedElement = index;
+    selecionar(index - 1);
 })
 
 
@@ -39,4 +46,12 @@ function chageColor(pos) {
         }
     }
     tarefas[pos].style.backgroundColor = "rgb(128, 128, 128)";
+}
+
+function selecionar(pos) {
+    if (tarefas[pos].classList.contains("completed")) {
+        tarefas[pos].classList.remove("completed");
+    } else {
+        tarefas[pos].classList.add("completed");
+    }
 }
