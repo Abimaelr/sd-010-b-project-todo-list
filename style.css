@@ -2,3 +2,7 @@ button {
   width: 70px;
   height: 30px;
 }
+
+.completed {
+  text-decoration: overline;
+}
