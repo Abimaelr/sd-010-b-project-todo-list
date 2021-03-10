@@ -17,7 +17,13 @@ listaDeTarefas();
 function coloreFundo(){
   const tag = document.querySelector('ol');
   tag.addEventListener('click', function(evento){
-    evento.target.style.backgroundColor = 'rgb(128,128,128)' 
+    let selecionado = document.querySelector('.selected');
+    if(selecionado){
+    selecionado.classList.remove('selected');
+    }
+    evento.target.classList.add('selected');
+    
   })
 }
 coloreFundo();
+
