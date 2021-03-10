@@ -1,19 +1,19 @@
-function addSelectedClass(item, selecClass) {
+function addSelectedClass(element, selecClass) {
   const selectedClass = selecClass;
   const selected = document.querySelector(`.${selectedClass}`);
   if (selected !== null) {
     selected.classList.remove(selectedClass);
   }
-  item.classList.add(selecClass);
+  element.target.classList.add(selecClass);
 }
 
-function toggleCompletedClass(item, completClass) {
+/* function toggleCompletedClass(item, completClass) {
   item.classList.toggle(completClass);
 }
 
-function addEvent(item, event, addFunction) {
-  item.addEventListener(event, addFunction);
-}
+function addEvent(item, action, addFunction) {
+  item.addEventListener(action, addFunction);
+} */
 
 function cleanInput() {
   const input = document.getElementById('texto-tarefa');
@@ -25,11 +25,11 @@ function addItemToList() {
   const item = document.createElement('li');
   const input = document.getElementById('texto-tarefa');
   item.innerText = input.value;
-  addEvent(item, 'click', () => {
-    addSelectedClass(item, 'selected');
+  item.addEventListener('click', (element) => {
+    addSelectedClass(element, 'selected');
   });
-  addEvent(item, 'dblclick', () => {
-    toggleCompletedClass(item, 'completed');
+  item.addEventListener('dblclick', (element) => {
+    element.target.classList.toggle('completed');
   });
   list.appendChild(item);
 }
