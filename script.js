@@ -1,3 +1,4 @@
+
 const bodyChilds = document.body;
 // requisito 1
 bodyChilds.appendChild(document.createElement('header'));
@@ -27,6 +28,7 @@ buttonIl.innerText = 'Adicionar Tarefa';
 buttonIl.addEventListener('click', function () {
   olTasks.appendChild(document.createElement('li'));
   olTasks.lastChild.innerText = input.value;
+  olTasks.lastChild.classList.add('task');
   input.value = '';
 });
 
@@ -37,13 +39,34 @@ buttonIl.addEventListener('click', function () {
 const getGrayElement = document.getElementsByClassName('GrayElement');
 olTasks.addEventListener('click', function (event) {
   if (getGrayElement.length !== 1) {
-    event.target.className = 'GrayElement';
+    event.target.classList.add('GrayElement');
     getGrayElement[0].style.backgroundColor = 'rgb(128, 128, 128)';
   }
   getGrayElement[0].style.backgroundColor = 'white';
-  getGrayElement[0].className = '';
-  event.target.className = 'GrayElement';
+  getGrayElement[0].classList.remove('GrayElement');
+  event.target.classList.add('GrayElement');
   getGrayElement[0].style.backgroundColor = 'rgb(128, 128, 128)';
 });
 
 // requisito 9
+olTasks.addEventListener('dblclick', function (event) {
+  event.target.classList.toggle('completed');
+/*   if (event.target.classList.item(1) === 'completed') {
+    event.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+  } else if(event.target.classList.item(1) !== 'completed') {
+    event.target.style.textDecoration = 'none';
+  } */
+})
+
+
+// requisito 10
+const buttonClearAll = document.createElement('button');
+bodyChilds.appendChild(buttonClearAll);
+buttonClearAll.id = 'apaga-tudo'
+buttonClearAll.innerText = 'Limpar Tudo';
+buttonClearAll.addEventListener('click', function () {
+  const tasks = document.getElementsByClassName('task')
+  for (let counter = tasks.length - 1; counter < tasks.length; counter -= 1) {
+    document.getElementsByTagName('ol')[0].removeChild((tasks[counter]));
+  }
+});
