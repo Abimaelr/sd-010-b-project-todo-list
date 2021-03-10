@@ -7,3 +7,7 @@
   height: 20px;
   border-radius: 5px;
 }
+
+.colorGray {
+  background-color: rgb(128, 128, 128);
+}

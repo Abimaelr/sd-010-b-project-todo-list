@@ -24,7 +24,7 @@ function tasks() {
   }  
 }
 
-function colorTask(event) {
+/* function colorTask(event) {
   let selectColor = document.querySelector(".selected")
   console.log(selectColor)
   if (selectColor === null) {
@@ -36,8 +36,19 @@ function colorTask(event) {
   }
   let selectColor2 = document.querySelector(".selected")
   selectColor2.style.backgroundColor = "rgb(128,128,128)" 
-  
-}
+} */
+
+function colorTask(event) {
+  let selectColor = document.querySelector(".colorGray")
+  console.log(selectColor)
+  if(selectColor) {
+    selectColor.classList.remove("colorGray")
+    event.target.classList.add("colorGray")
+    console.log(selectColor)
+  } else {
+    event.target.classList.add("colorGray")
+  }
+} 
 
 
 
