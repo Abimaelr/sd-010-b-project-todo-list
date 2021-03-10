@@ -51,21 +51,23 @@ function addLista() {
 const auxButton = document.querySelector('#criar-tarefa');
 auxButton.addEventListener('click', addLista);
 /* /////////////////// */
+function clearCompleted() {
+  const aux = document.querySelectorAll('li');
+  for (let i = 0; i < aux.length; i += 1) {
+    const auxSalveCom = aux[i].className.split(' ')[1];
+    aux[i].className = `ncinca ${auxSalveCom}`;
+  }
+}
 function pintarCinca(evento) {
-  const auxCompleted = document.querySelectorAll('.cinca');
   const aux = evento.target;
   const auxSalveCin = aux.className.split(' ')[0];
   const auxSalve = aux.className.split(' ')[1];
-  for (let i = 0; i < auxCompleted.length; i += 1) {
-    console.log(auxCompleted[i]);
-    auxCompleted[i].className = `ncinca ${auxSalve}`;
-  }
+  clearCompleted();
   if (aux.className !== auxSalveCin) {
     aux.className = `cinca ${auxSalve}`;
   } else {
     aux.className = `ncinca ${auxSalve}`;
   }
-  console.log(aux.className.split(' ')[1]);
 }
 const auxClickLi = document.querySelector('#lista-tarefas');
 auxClickLi.addEventListener('click', pintarCinca);
@@ -117,7 +119,6 @@ addButtonRemoveFinalizados();
 function removeFinalizados() {
   const aux = document.querySelectorAll('.completed');
   for (let i = 0; i < aux.length; i += 1) {
-    console.log(aux[i]);
     aux[i].remove();
   }
 }
