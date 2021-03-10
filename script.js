@@ -6,6 +6,9 @@ function createNewTask() {
     const newTask = document.createElement('li');
     newTask.innerText = taskText.value;
     tasksList.appendChild(newTask);
+    newTask.addEventListener('click', (event) => {
+      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    });
     taskText.value = '';
   });
 }
