@@ -6,3 +6,6 @@
 #criar-tarefa:hover {
   background-color: aquamarine;
 }
+.selecionada {
+  background-color: rgb(128, 128, 128);
+}
