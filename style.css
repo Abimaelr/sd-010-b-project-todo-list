@@ -19,10 +19,16 @@ body {
 
 #texto-tarefa {
   height: 25px;
-
 }
 
-.cinza{
+.cinza {
+  background-color: rgb(128, 128, 128);
+}
 
-  background-color: rgb(128, 128,128);
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+.tarefa{
+background-color: rgb(255, 255, 255);
+
 }
