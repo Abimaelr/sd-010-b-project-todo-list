@@ -5,6 +5,7 @@ window.onload = function () {
   let recoveredOl = null;
   let selectElement = null;
   let allTasks = null;
+  let removeCompleted = null;
 
   startAplication();
 
@@ -77,6 +78,14 @@ window.onload = function () {
     elementButtonClear.innerText = 'Apaga Tudo';
     elementSection.appendChild(elementButtonClear);
     clearAll = document.getElementById('apaga-tudo');
+
+    // Etapa 10 - Criando o botão Limpar Tarefas
+    // Criando um Botão <button> dentro da section
+    const elementRemoveCompleted = document.createElement('button');
+    elementRemoveCompleted.id = 'remover-finalizados';
+    elementRemoveCompleted.innerText = 'Remover Finalizados';
+    elementSection.appendChild(elementRemoveCompleted);
+    removeCompleted = document.getElementById('remover-finalizados');
   }
 
   function addItem(props) {
@@ -100,6 +109,15 @@ window.onload = function () {
   addTask.addEventListener('click', function () {
     if (addItem(recoveredInput)) {
       recoveredInput.value = '';
+    }
+  });
+
+  removeCompleted.addEventListener('click', function () {
+    allTasks = document.querySelectorAll('#item');
+    for (let index = 0; index < allTasks.length; index++) {
+        if (allTasks[index].classList.value === "completed") {
+            allTasks[index].parentNode.removeChild(allTasks[index]);            
+        }
     }
   });
 
