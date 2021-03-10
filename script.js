@@ -3,6 +3,18 @@ let taskList = document.getElementById('lista-tarefas');
 
 function addEventClickInTask(task) {
     task.addEventListener('click', changeColorTask)
+    task.addEventListener('dblclick', lineThrough)
+}
+ var booLineThrough = true;
+function lineThrough(element) {
+  colorNone();
+  if (booLineThrough) {
+    element.target.className = 'completed';
+    booLineThrough = false;
+  } else {
+    element.target.className = '';
+    booLineThrough = true;
+  }
 }
 
 function addTaskInList() {
