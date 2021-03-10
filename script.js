@@ -51,12 +51,8 @@ function apagaTudo(){
     let listaAfazeres = document.getElementsByTagName("li")
     let numeroDeLi = listaTarefas.childNodes.length;
     
-    for(i=numeroDeLi;i <numeroDeLi;i++){
-        if(listaAfazeres[i]!== undefined && listaAfazeres.length>0){
-        listaAfazeres[i].remove();
-        }
-        
-
+    for(i=0;i<numeroDeLi;i++){
+        listaAfazeres[0].remove();
     }
     
 }
