@@ -11,7 +11,6 @@ buttonCreateTask.addEventListener('click', function () {
 
 function changeListItemColor() {
   orderedList.addEventListener('click', function (event) {
-      console.log(orderedList.children.length)
       for (i = 0; i < orderedList.children.length; i += 1) {
         orderedList.children[i].style.backgroundColor = '';
       }
@@ -19,3 +18,16 @@ function changeListItemColor() {
   })
 }
 changeListItemColor();
+
+function scratchTask() {
+
+    orderedList.addEventListener('dblclick', function (event){
+        if (event.target.className === 'completed'){
+            event.target.className = ""
+        } else {
+            event.target.className = "completed"
+        }
+
+    })
+}
+scratchTask();
