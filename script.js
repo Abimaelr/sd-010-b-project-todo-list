@@ -13,12 +13,16 @@ function clickItem() {
   }
 }
 
-function dblClickItem(li) {
-  if (li.target.className === 'completed') {
-    li.target.className = '';
-  } else {
-    li.target.className = 'completed';
-  }
+function dblClickItem() {
+  for (let i = 0; i < listaTarefas.length; i += 1) {
+    listaTarefas[i].addEventListener('dblclick', function () {
+      if (listaTarefas[i].className === 'completed') {
+        listaTarefas[i].className = '';
+      } else {
+        listaTarefas[i].className = 'completed';
+      }
+    })  
+  }  
 }
 
 function clear() {
@@ -58,14 +62,11 @@ function createTask() {
     li.innerText = input.value;
     ol.appendChild(li);
     input.value = '';
-    li.addEventListener('click', clickItem, false);
-    li.addEventListener('dblclick', dblClickItem, false);
+    clickItem();
+    dblClickItem();
     clear();
     removeFinalized();
     removeSelectd();
   })
 }
 createTask();
-clear();
-removeFinalized();
-removeSelectd();
