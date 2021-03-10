@@ -12,21 +12,35 @@ function adicionaTarefa() {
       alert('ERROR: Informe a tarefa a ser adicionada!');
     }
   });
-};
+}
 adicionaTarefa();
 
 const selecionaItem = document.querySelector('#lista-tarefas');
-selecionaItem.addEventListener("click", function (event) {
-  const evento = event.target;
-  const tarefas = document.getElementsByTagName('li');
+const tarefas = document.getElementsByTagName('li');
+selecionaItem.addEventListener('click', function (event) {
+  const evento = event.target;  
   for (let index = 0; index < tarefas.length; index += 1) {
     tarefas[index].style.backgroundColor = '';
-  };
+  }
   evento.style.backgroundColor = 'rgb(128, 128, 128)';
+});
+
+selecionaItem.addEventListener('dblclick', function (event) {
+  const evento = event.target;
+  evento.classList.toggle('completed');
+});
+
+const botaoApaga = document.querySelector ('#apaga-tudo');
+botaoApaga.addEventListener ('click', function () {
+  selecionaItem.innerText = '';
 })
 
-const tarefas = document.getElementsByTagName('li');
-selecionaItem.addEventListener("dblclick", function (event) {
-  const evento = event.target;
-  evento.classList.toggle ('completed');  
+const botaoRemove = document.querySelector ('#remover-finalizados');
+botaoRemove.addEventListener ('click', function () {
+  for (index = 0; index < tarefas.length; index += 1) {
+    if (tarefas[index].classList.contains('completed')) {
+      selecionaItem.removeChild(tarefas[index]);
+      index -= 1;
+    }
+  }
 })
