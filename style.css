@@ -1,0 +1,12 @@
+header {
+  padding: 30px;
+}
+
+.input-section {
+  padding: 15px 30px;
+}
+
+#texto-tarefa {
+  padding: 5px 40px;
+  border-radius: 5px;
+}
