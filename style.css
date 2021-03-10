@@ -1,0 +1,19 @@
+html {
+  background-color: #6d7577;
+}
+
+body {
+  margin: 20px;
+  background-color: #dfd9d7;
+  padding: 20px;
+  border-radius: 7px;
+}
+
+header {
+  font-size: xx-large;
+  
+}
+
+#funcionamento {
+  font-family: 'Courier New', Courier, monospace;
+}
