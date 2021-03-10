@@ -9,10 +9,9 @@ body {
 }
 
 #criar-tarefa {
-
   width: 165px;
   height: 30px;
-  background-color:teal;
+  background-color: teal;
   padding: 9px;
   border: none;
   color: white;
@@ -21,4 +20,9 @@ body {
 #texto-tarefa {
   height: 25px;
 
+}
+
+.cinza{
+
+  background-color: rgb(128, 128,128);
 }
