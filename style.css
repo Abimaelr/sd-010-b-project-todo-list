@@ -1,3 +1,7 @@
+.tarefa {
+  width: fit-content;
+}
+
 .selected {
   background-color: grey;
 }

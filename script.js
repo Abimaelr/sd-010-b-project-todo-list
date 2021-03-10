@@ -5,78 +5,123 @@ const deleteTasksButton = document.querySelector('#apaga-tudo');
 const removeDoneTasksButton = document.querySelector('#remover-finalizados');
 const storage = localStorage;
 const saveTaskButton = document.querySelector('#salvar-tarefas');
+const taskUpButton = document.querySelector('#mover-cima');
+const taskDownButton = document.querySelector('#mover-baixo');
+const removeSelectedTaskButton = document.querySelector('#remover-selecionado');
 
-// Adicionando uma tarefa a lista de tarefas
-function addTask() {
-  createTaskButton.addEventListener('click', () => {
-    const listItem = document.createElement('li');
-    listItem.innerHTML = taskInput.value;
-    listItem.className = 'tarefa';
-    listItem.addEventListener('click', () => { // Selecionando uma tarefa
-      const taskItems = document.querySelectorAll('.tarefa');
-      for (let i = 0; i < taskItems.length; i += 1) {
-        taskItems[i].classList.remove('selected');
-      }
-
-      listItem.classList.add('selected');
-    });
-    listItem.addEventListener('dblclick', () => { // Marcando uma tarefa que já foi realizada
-      listItem.classList.toggle('completed');
-    });
-    taskList.appendChild(listItem);
-    taskInput.value = '';
-  });
+// Seleciona uma tarefa
+function selectTask(event) {
+  const taskItems = document.querySelectorAll('.tarefa');
+  for (let i = 0; i < taskItems.length; i += 1) {
+    taskItems[i].classList.remove('selected');
+  }
+  event.target.classList.add('selected');
 }
 
-// Deletando toda a lista de tarefas
-function clearTasks() {
-  deleteTasksButton.addEventListener('click', () => {
-    taskList.innerHTML = '';
-  });
+// Marca como feita a tarefa
+function doneTask(event) {
+  event.target.classList.toggle('completed');
 }
 
-// Deletando as tarefas já realizadas da lista
+// Cria o elemento a ser adicionado a lista
+function createTaskElement(text, classes) {
+  const taskElement = document.createElement('li');
+  taskElement.innerHTML = text;
+  if (!taskElement.innerHTML) return alert('Tarefa em branco');
+  taskElement.className = classes;
+  taskElement.addEventListener('click', selectTask);
+  taskElement.addEventListener('dblclick', doneTask);
+  return taskElement;
+}
+
+// Adiciona uma tarefa a lista de tarefas
+function addTask(text, classes) {
+  const listItem = createTaskElement(text, classes);
+  if (listItem) taskList.appendChild(listItem);
+  taskInput.value = '';
+}
+
+// Deleta tarefa selecionada
+function removeSelectedTask() {
+  const selected = document.querySelector('.selected');
+  if (selected) taskList.removeChild(selected);
+}
+
+// Deleta toda a lista de tarefas
+function clearTaskList() {
+  taskList.innerHTML = '';
+}
+
+// Deleta as tarefas já realizadas da lista
 function removeDoneTasks() {
-  removeDoneTasksButton.addEventListener('click', () => {
-    const done = [];
-    taskList.childNodes.forEach((child) => {
-      if (child.classList.contains('completed')) done.push(child);
-    });
-    for (let i = 0; i < done.length; i += 1) {
-      taskList.removeChild(done[i]);
-    }
+  const done = [];
+  taskList.childNodes.forEach((child) => {
+    if (child.classList.contains('completed')) done.push(child);
   });
+  for (let i = 0; i < done.length; i += 1) {
+    taskList.removeChild(done[i]);
+  }
 }
 
+// Sobe na lista a tarefa seleciona
+function moveTaskUp() {
+  const selected = document.querySelector('.selected');
+  if (selected && selected.previousSibling) {
+    const upper = selected.previousSibling;
+    taskList.removeChild(upper);
+    selected.insertAdjacentElement('afterend', upper);
+  }
+}
+
+// Desce na lista a tarefa seleciona
+function moveTaskDown() {
+  const selected = document.querySelector('.selected');
+  if (selected && selected.nextElementSibling) {
+    const lower = selected.nextElementSibling;
+    taskList.removeChild(lower);
+    selected.insertAdjacentElement('beforebegin', lower);
+  }
+}
+
+// Salva tarefas da lista no storage
 function saveTasks() {
-  saveTaskButton.addEventListener('click', () => {
-    const arrTasks = [];
-    const tasks = document.querySelectorAll('.tarefa');
-    tasks.forEach((task) => {
-      const properties = {
-        text: task.innerText,
-        classes: task.className,
-      };
-      arrTasks.push(properties);
-    });
-    storage.setItem('tasks', JSON.stringify(arrTasks));
+  const arrTasks = [];
+  const tasks = document.querySelectorAll('.tarefa');
+  tasks.forEach((task) => {
+    const properties = {
+      text: task.innerText,
+      classes: task.className,
+    };
+    arrTasks.push(properties);
   });
+  storage.setItem('tasks', JSON.stringify(arrTasks));
 }
 
+// Carrega tarefas salvas no storage e adiciona a lista
 function loadTasks() {
   const tasks = JSON.parse(storage.getItem('tasks'));
+  if (!tasks) return;
   for (let i = 0; i < tasks.length; i += 1) {
-    const task = document.createElement('li');
-    task.innerHTML = tasks[i].text;
-    task.className = tasks[i].classes;
-    taskList.appendChild(task);
+    addTask(tasks[i].text, tasks[i].classes);
   }
 }
 
 window.onload = () => {
-  addTask();
-  clearTasks();
-  removeDoneTasks();
   loadTasks();
-  saveTasks();
+
+  removeSelectedTaskButton.addEventListener('click', removeSelectedTask);
+
+  createTaskButton.addEventListener('click', () => {
+    addTask(taskInput.value, 'tarefa');
+  });
+
+  deleteTasksButton.addEventListener('click', clearTaskList);
+
+  removeDoneTasksButton.addEventListener('click', removeDoneTasks);
+
+  taskUpButton.addEventListener('click', moveTaskUp);
+
+  taskDownButton.addEventListener('click', moveTaskDown);
+
+  saveTaskButton.addEventListener('click', saveTasks);
 };
