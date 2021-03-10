@@ -1,4 +1,5 @@
 const leBoby = document.querySelector('body');
+const leOl = document.querySelector('#lista-tarefas');
 
 function addHeader() {
   const aux = document.createElement('header');
@@ -108,13 +109,13 @@ function addButtonfinalizados() {
 }
 addButtonfinalizados();
 
-function addButtonRemoveFinalizados() {
+function addButtonSalvar() {
   const aux = document.createElement('button');
   aux.id = 'salvar-tarefas';
   aux.innerText = 'Salvar Lista';
   leBoby.appendChild(aux);
 }
-addButtonRemoveFinalizados();
+addButtonSalvar();
 
 function removeFinalizados() {
   const aux = document.querySelectorAll('.completed');
@@ -124,3 +125,22 @@ function removeFinalizados() {
 }
 const auxRemoveFinalizados = document.querySelector('#remover-finalizados');
 auxRemoveFinalizados.addEventListener('click', removeFinalizados);
+const auxSalvar = document.querySelector('#salvar-tarefas');
+auxSalvar.addEventListener('click', salvarDados);
+function salvarDados() {
+  const auxLi = document.querySelectorAll('li');
+  const aux = [];
+  for (let i = 0; i < auxLi.length; i += 1) {
+    aux[i] = auxLi[i].innerText;
+  }
+  localStorage.setItem('ListaSalva', JSON.stringify(aux));
+}
+if (localStorage.ListaSalva) {
+  const aux = JSON.parse(localStorage.getItem('ListaSalva'));
+  for (let i = 0; i < aux.length; i += 1) {
+    const ol = document.querySelector('#lista-tarefas');
+    const auxRecupera = document.createElement('li');
+    auxRecupera.innerHTML = aux[i];
+    ol.appendChild(auxRecupera);
+  }
+}
