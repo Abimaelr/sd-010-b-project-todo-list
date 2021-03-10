@@ -33,3 +33,13 @@ function pintaFundoLi (elemento){
     }
 }
 
+listaTarefas.addEventListener("dblclick", completaTarefa)
+
+function completaTarefa (elemento){
+    if(elemento.target.className !== "completed"){
+        elemento.target.classList.add("completed")
+    } else {
+       
+        elemento.target.classList.remove("completed")
+    }
+}
