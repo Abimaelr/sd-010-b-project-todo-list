@@ -12,9 +12,9 @@ const addToOl = (text) => {
 };
 
 const getItemAndAdd = () => {
-  let { value } = itemText;
+  const { value } = itemText;
   addToOl(value);
-  value = '';
+  itemText.value = '';
 };
 
 // Add Listeners
