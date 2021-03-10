@@ -5,6 +5,7 @@ const OlElement = document.querySelector('#lista-tarefas');
 // functions to Listeners
 
 // Add selected class to clicked item
+
 const selectItem = (item) => {
   const selectedElement = document.querySelector('.selected');
   if (selectedElement) {
@@ -15,6 +16,15 @@ const selectItem = (item) => {
   }
 };
 
+const completeItem = (item) => {
+  const { classList } = item;
+  if (classList.contains('completed')) {
+    classList.remove('completed');
+  } else {
+    classList.add('completed');
+  }
+};
+
 // add
 
 // Add Item
@@ -22,6 +32,7 @@ const addToOl = (text) => {
   const li = document.createElement('li');
   li.innerText = text;
   li.addEventListener('click', () => selectItem(li));
+  li.addEventListener('dblclick', () => completeItem(li));
   OlElement.appendChild(li);
 };
 
