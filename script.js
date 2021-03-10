@@ -43,3 +43,20 @@ function completaTarefa (elemento){
         
     }
 }
+
+let clearAll = document.getElementById("apaga-tudo");
+clearAll.addEventListener("click", apagaTudo)
+
+function apagaTudo(){
+    let listaAfazeres = document.getElementsByTagName("li")
+    let numeroDeLi = listaTarefas.childNodes.length;
+    
+    for(i=numeroDeLi;i>=0;i--){
+        if(listaAfazeres[i]!== undefined && listaAfazeres.length>0){
+        listaAfazeres[i].remove();
+        }
+        
+
+    }
+    
+}
