@@ -1,10 +1,11 @@
-function addClass(item, classes) {
-  if (Array.isArray(classes)) {
-    item.classList.add(...classes);
+function addSelectedClass(item, classes) {
+
+  const selectedClass = 'selected';
+  const selected = document.querySelector(`.${selectedClass}`);
+  if (selected !== null) {
+    selected.classList.remove(selectedClass);
   }
-  if (typeof classes === 'string') {
-    item.classList.add(classes);
-  }
+  item.classList.add(classes);
 }
 
 function addClickEvent(item, addFunction) {
@@ -22,7 +23,7 @@ function addItemToList() {
   const input = document.getElementById('texto-tarefa');
   item.innerText = input.value;
   addClickEvent(item, () => {
-    addClass(item, 'selected');
+    addSelectedClass(item, 'selected');
   });
   list.appendChild(item);
 }
