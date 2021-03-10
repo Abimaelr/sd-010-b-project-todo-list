@@ -1,5 +1,6 @@
 window.onload = function () {
   let addTask = null;
+  let clearAll = null;
   let recoveredInput = null;
   let recoveredOl = null;
   let selectElement = null;
@@ -68,6 +69,14 @@ window.onload = function () {
     elementButton.innerText = 'Criar Tarefa';
     elementSection.appendChild(elementButton);
     addTask = document.getElementById('criar-tarefa');
+
+    // Etapa 10 - Criando o botão Limpar Tarefas
+    // Criando um Botão <button> dentro da section
+    const elementButtonClear = document.createElement('button');
+    elementButtonClear.id = 'apaga-tudo';
+    elementButtonClear.innerText = 'Apaga Tudo';
+    elementSection.appendChild(elementButtonClear);
+    clearAll = document.getElementById('apaga-tudo');
   }
 
   function addItem(props) {
@@ -91,6 +100,13 @@ window.onload = function () {
   addTask.addEventListener('click', function () {
     if (addItem(recoveredInput)) {
       recoveredInput.value = '';
+    }
+  });
+
+  clearAll.addEventListener('click', function () {
+    allTasks = document.querySelectorAll('#item');
+    for (let index = 0; index < allTasks.length; index++) {
+      allTasks[index].parentNode.removeChild(allTasks[index]);
     }
   });
 
