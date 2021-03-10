@@ -4,19 +4,24 @@ const itemText = document.querySelector('#texto-tarefa');
 const OlElement = document.querySelector('#lista-tarefas');
 // functions to Listeners
 
+// Add selected class to clicked item
+const selectItem = (item) => {
+  const selectedElement = document.querySelector('.selected');
+  if (selectedElement) {
+    selectedElement.classList.remove('selected');
+    item.classList.add('selected');
+  } else {
+    item.classList.add('selected');
+  }
+};
+
+// add
+
 // Add Item
 const addToOl = (text) => {
   const li = document.createElement('li');
   li.innerText = text;
-  li.addEventListener('click', () => {
-    const selectedElement = document.querySelector('.selected');
-    if (selectedElement) {
-      selectedElement.classList.remove('selected');
-      li.classList.add('selected');
-    } else {
-      li.classList.add('selected');
-    }
-  });
+  li.addEventListener('click', () => selectItem(li));
   OlElement.appendChild(li);
 };
 
