@@ -1,4 +1,3 @@
-
 const bodyChilds = document.body;
 // requisito 1
 bodyChilds.appendChild(document.createElement('header'));
@@ -50,18 +49,15 @@ olTasks.addEventListener('click', function (event) {
 
 // requisito 9
 olTasks.addEventListener('dblclick', function (event) {
-  const taskComplete = document.getElementsByClassName('completed');
-  event.target.classList.toggle('completed')
+  event.target.classList.toggle('completed');
   if (event.target.classList.contains('completed')) {
     event.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
   } else {
     event.target.classList.remove('completed');
     event.target.style.textDecoration = 'initial';
   }
-})
+});
 
-
-/* 
 // requisito 10
 const buttonClearAll = document.createElement('button');
 bodyChilds.appendChild(buttonClearAll);
@@ -72,4 +68,4 @@ buttonClearAll.addEventListener('click', function () {
   for (let counter = tasks.length - 1; counter < tasks.length; counter -= 1) {
     document.getElementsByTagName('ol')[0].removeChild((tasks[counter]));
   }
-}); */
+});
