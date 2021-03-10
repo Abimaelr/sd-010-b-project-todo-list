@@ -31,11 +31,18 @@ function addButtonClick(elementId, clickFunction) {
   button.addEventListener('click', clickFunction);
 }
 
+function cleanList() {
+  const list = document.getElementById('lista-tarefas');
+  while (list.childNodes.length > 0) {
+    list.removeChild(list.lastChild);
+  }
+}
+
 addButtonClick('criar-tarefa', () => {
   addItemToList();
   cleanInput();
 });
 
 addButtonClick('apaga-tudo', () => {
-
+  cleanList();
 });
