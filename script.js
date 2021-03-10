@@ -56,6 +56,7 @@ function adicionaItem (){
     if (pegaValorInput.value == ""){
        alert("ERRO 404")
     }
+    pegaValorInput.value = "";
 
     adicionaOl.appendChild(lista)
   }
