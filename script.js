@@ -32,7 +32,7 @@ function criarTarefa(){
 		let itemTarefa = document.createElement('li');
 		itemTarefa.innerText = itemLista.value;
 		olId.appendChild(itemTarefa);
-		itemLista.value = " ";
+		itemLista.value = "";
 
 	})
 }
