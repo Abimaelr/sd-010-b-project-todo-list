@@ -41,3 +41,15 @@ function apagarTarefas() {
     pai.removeChild(pai.firstChild);
   }
 }
+
+function removerFinalizados() {
+// Refencia tirada de: http://devfuria.com.br/javascript/dom-remove-child/#:~:text=O%20m%C3%A9todo%20removeChild()%20remove,filho%20que%20deve%20ser%20removido.
+  const listaTarefas = document.querySelectorAll('li')
+  const pai = document.getElementById('lista-tarefas');
+  let classes = [];
+   for (let i = 0; i < listaTarefas.length; i += 1) {
+    if (listaTarefas[i].classList.contains("completed") == true) {
+      pai.removeChild(listaTarefas[i]);
+    }
+  }
+}

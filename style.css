@@ -29,12 +29,11 @@ body {
   text-decoration: line-through solid black;
 }
 
-.bnt-funcion{
-  width: 120px;
+.bnt-funcion {
+  margin-right: 5px;
   height: 30px;
   background-color: teal;
   padding: 9px;
   border: none;
   color: white;
-
 }
