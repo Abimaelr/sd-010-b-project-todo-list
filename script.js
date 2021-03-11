@@ -146,7 +146,9 @@ taskDown();
 function removeSelectd() {
   const buttonDellSected = document.querySelector('#remover-selecionado');
   buttonDellSected.addEventListener('click', function () {
-    ThetoDoList.removeChild(ThetoDoList.childNodes[howSelected()]);
+    if(howSelected() != null){
+      ThetoDoList.removeChild(ThetoDoList.childNodes[howSelected()]);
+    }
   });
 }
 
