@@ -164,10 +164,10 @@ window.onload = function () {
   });
 
   moveElementUp.addEventListener('click', function () {
-    let item = verifyClickedItem();
+    let item = verifyClickedItemUp();
     if (item !== null) {
       recoveredOl.insertBefore(item,item.previousElementSibling);
-      atualizaStorage(); 
+      atualizaStorage();
     }
   });
 
@@ -182,6 +182,20 @@ window.onload = function () {
       }
     }
   });
+
+  function verifyClickedItemUp() {
+    allTasks = document.querySelectorAll('#item');
+    let retorno = null;
+    for (let index = 0; index < allTasks.length; index++) {
+       if (allTasks[index].className === "opened itemSelected" || allTasks[index].className === "completed itemSelected") {          
+            if (index > 0 && index <= (allTasks.length)) {
+                retorno = allTasks[index];
+                break;
+            }
+       }
+    }
+    return retorno;
+  }
 
   function verifyClickedItem() {
     allTasks = document.querySelectorAll('#item');
