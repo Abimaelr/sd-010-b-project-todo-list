@@ -45,6 +45,7 @@ footer {
 
 .btnAdd {
   border: 1px solid;
+  font-weight: bold;
   border-color: rgb(70 , 167 , 245);
   border-radius: 10px;
   background: linear-gradient(rgb(134 , 198 , 248) 5% , rgb(70 , 167 , 245) 100%);
@@ -64,6 +65,8 @@ footer {
 
 .btnDel {
   border: 1px solid;
+  font-style: oblique;
+  font-weight: bolder;
   border-color: rgb(246 , 31 , 14);
   border-radius: 4px;
   background: linear-gradient(rgb(252 , 169 , 161) 5% , rgb(246 , 31 , 14) 100%);
@@ -84,6 +87,7 @@ footer {
 
 .btnCmp {
   border: 1px solid;
+  font-weight: bolder;
   border-color: rgb(22 , 115 , 192);
   border-radius: 4px;
   background: linear-gradient(rgb(66 , 134 , 185) 5% , rgb(22 , 115 , 192) 100%);
@@ -104,6 +108,7 @@ footer {
 
 .btnSav {
   border: 1px solid;
+  font-weight: bolder;
   border-color: rgb(27 , 151 , 10);
   border-radius: 4px;
   background: linear-gradient(rgb(100 , 173 , 90) 5% , rgb(27 , 151 , 10) 100%);
@@ -124,6 +129,7 @@ footer {
 
 .btnUp {
   border: 1px solid;
+  font-weight: bolder;
   border-color: rgb(150 , 75, 14);
   border-radius: 4px;
   background: linear-gradient(rgb(78, 40, 8) 5% , rgb(150 , 75 , 14) 100%);
@@ -131,7 +137,7 @@ footer {
   display: inline-block;
   cursor: pointer;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   padding: 4px 6px;
   text-decoration: none;
   color: black;
@@ -144,6 +150,7 @@ footer {
 
 .btnDown {
   border: 1px solid;
+  font-weight: bolder;
   border-color: rgb(150 , 75 , 14);
   border-radius: 4px;
   background: linear-gradient(rgb(78, 40, 8) 5% , rgb(150 , 75 , 14) 100%);
@@ -151,7 +158,7 @@ footer {
   display: inline-block;
   cursor: pointer;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   padding: 4px 6px;
   text-decoration: none;
   color: black;
@@ -164,6 +171,7 @@ footer {
 
 .btnRmv {
   border: 1px solid;
+  font-weight: bolder;
   border-color: rgb(246 , 31 , 14);
   border-radius: 4px;
   background: linear-gradient(rgb(252 , 169 , 161) 5% , rgb(246 , 31 , 14) 100%);
@@ -171,7 +179,7 @@ footer {
   display: inline-block;
   cursor: pointer;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   padding: 4px 6px;
   text-decoration: none;
   color: black;

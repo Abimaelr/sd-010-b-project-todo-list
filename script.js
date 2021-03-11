@@ -47,7 +47,7 @@ function criarBotaoSalvar() {
 function criarBotaoUp() {
   criarBtnUp.id = 'subir-tarefa';
   criarBtnUp.className = 'btnUp';
-  criarBtnUp.innerText = 'Up';
+  criarBtnUp.innerText = '▲';
   sectionBtn.appendChild(criarBtnUp);
 }
 
@@ -55,7 +55,7 @@ function criarBotaoUp() {
 function criarBotaoDown() {
   criarBtnDown.id = 'descer-tarefa';
   criarBtnDown.className = 'btnDown';
-  criarBtnDown.innerText = 'Down';
+  criarBtnDown.innerText = '▼';
   sectionBtn.appendChild(criarBtnDown);
 }
 
@@ -63,7 +63,7 @@ function criarBotaoDown() {
 function criarBotaoRemove() {
   criarBtnRemove.id = 'remover-tarefa';
   criarBtnRemove.className = 'btnRmv';
-  criarBtnRemove.innerText = 'X';
+  criarBtnRemove.innerText = '✘';
   sectionBtn.appendChild(criarBtnRemove);
 }
 
