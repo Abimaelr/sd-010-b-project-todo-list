@@ -19,9 +19,12 @@ function addTask(taskTodo) {
     taskEl.classList.add('list');
     taskEl.innerText = taskText;
     orderedlist.appendChild(taskEl)
-
-   
-
+    taskEl.addEventListener('click', () => {     
+      for (let i = 0; i < listItem.length; i += 1) {        
+        listItem[i].classList.remove('selected');
+      }
+       taskEl.classList.add('selected');
+    });
   }
   task.value = '';
 }
