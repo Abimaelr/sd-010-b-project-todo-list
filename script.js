@@ -21,8 +21,8 @@ cinza.addEventListener('click', function (event) {
 
 let cinza3 = document.getElementById('lista-tarefas');
 cinza3.addEventListener('dblclick', function (event) {
-  
-    if (event.target.classList.contains('completed')) {
+
+  if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
   } else {
     event.target.classList.add('completed');
@@ -33,19 +33,19 @@ document.getElementById('apaga-tudo').addEventListener('click', apagar);
 
 function apagar() {
   let listaOrde = document.getElementById("lista-tarefas");
-    while (listaOrde.firstChild) {
-        listaOrde.removeChild(listaOrde.firstChild);
-    }
+  while (listaOrde.firstChild) {
+    listaOrde.removeChild(listaOrde.firstChild);
   }
+}
 // https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild me ajudou no apagar tudo
 document.getElementById('remover-finalizados').addEventListener('click', apagarSelecionado);
 
 function apagarSelecionado() {
-    let listaOrde = document.getElementById("lista-tarefas");
-    let listona = document.querySelectorAll('.completed');
-    for (let key in listona) {
-   if (listona[key].classList.contains('completed')) {
-       listaOrde.removeChild(listaOrde.childNodes[key])
-   }
-}
+  let listaOrde = document.getElementById("lista-tarefas");
+  let listona = document.querySelectorAll('.completed');
+  for (let key = 0; key < listona.length; key += 1) {
+    if (listona[key].classList.contains('completed')) {
+      listaOrde.removeChild(listona[key]);
+    }
+  }
 }
