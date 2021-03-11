@@ -16,14 +16,9 @@ window.onload = function() {
                 li.className = 'completed'
             } 
             listTask.appendChild(li);
+            changeBackgroundColor(li);
+            riscaTask(li);
         }
-        changeBackgroundColor();
-        riscaTask();
-        buttonApaga();
-        buttonFinalizados();  
-        buttonSalvar();
-        buttonSelecionadosRemover();
-
     }
 } 
  
@@ -102,7 +97,7 @@ function buttonSalvar(){
     let buttonrSalvar = document.querySelector("#salvar-tarefas");
     
     buttonrSalvar.addEventListener('click', function(event){
-        let listArray = document.querySelector("li");
+        let listArray = document.querySelectorAll("li");
         let array = []
         let arrayClasses = []
         for(let index = 0; index < listArray.length; index++){
