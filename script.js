@@ -24,23 +24,32 @@ listOrder.id = 'lista-tarefas';
 dadElement.appendChild(listOrder);
 
 //
+function liCatcher(element, event) {
+  const eventClick = event;
+  const selected = document.querySelector(`.${eventClick}`);
+  if (selected !== null) {
+    selected.classList.remove(eventClick);
+  }
+  element.target.classList.add(event);
+}
+
+//
 function assignment() {
   const listItem = document.createElement('li');
   listItem.innerText = inputText.value;
   listOrder.appendChild(listItem);
   listItem.className = 'item';
   inputText.value = '';
+  listItem.addEventListener('click', (element) => {
+    liCatcher(element, 'selected');
+  });
+  listItem.addEventListener('dblclick', (element) => {
+    element.target.classList.toggle('completed');
+  });
 }
 
 const bt1 = document.createElement('button');
 bt1.id = 'criar-tarefa';
+bt1.innerText = 'add';
 bt1.addEventListener('click', assignment);
 dadElement.insertBefore(bt1, listOrder);
-
-//
-function liCatcher(event) {
-  const eventClick = event.target;
-  eventClick.classList.toggle('selected');
-}
-
-listOrder.addEventListener('click', liCatcher);
