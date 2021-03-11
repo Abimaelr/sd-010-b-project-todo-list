@@ -1,10 +1,19 @@
-function createTask() {
-  document.getElementById('criar-tarefa').addEventListener('click', function() {
-    let tarefa = document.createElement('li'), listaTarefa = document.getElementById('lista-tarefas');
-    tarefa.innerText = document.getElementById('texto-tarefa').value;
-    listaTarefa.appendChild(tarefa);
-    document.getElementById('texto-tarefa').value = '';
-  })
-}
+const botaoCriarTarefa = document.getElementById('criar-tarefa');
 
-createTask();
+botaoCriarTarefa.addEventListener('click', function createTask() {
+  const tarefa = document.createElement('li')
+  const listaTarefa = document.getElementById('lista-tarefas');
+  tarefa.innerText = document.getElementById('texto-tarefa').value;
+  tarefa.className = 'tasks';
+  listaTarefa.appendChild(tarefa);
+  document.getElementById('texto-tarefa').value = '';
+})
+
+document.getElementById('lista-tarefas').addEventListener('click', function selectTask(event) {
+  if(event.target.className == 'tasks') {
+    for(let index = 0; index < document.getElementsByClassName('tasks').length; index += 1) {
+      document.getElementsByClassName('tasks')[index].className = 'tasks';
+    }
+    event.target.className += ' selected';
+  }
+})
