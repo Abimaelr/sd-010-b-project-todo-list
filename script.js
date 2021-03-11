@@ -9,9 +9,6 @@ const btnClearSelected = document.getElementById('remover-selecionado');
 const taskList = document.getElementById('lista-tarefas');
 let tasks = document.querySelectorAll('li');
 
-console.log(btnMoveDown);
-console.log(btnMoveUp);
-
 // Selecionar um item da lista
 
 function selectedTask() {
@@ -33,6 +30,18 @@ function completedTask() {
     this.className = 'completed';
   }
 }
+// Funcionamento da seleção e finalização das tarefas
+
+function tasksProperties() {
+  tasks = document.querySelectorAll('li');
+  for (let i = 0; i < tasks.length; i += 1) {
+    tasks[i].addEventListener('click', selectedTask);
+    tasks[i].addEventListener('dblclick', completedTask);
+    tasks[i].addEventListener('mousedown', (e) => { e.preventDefault(); }, false);
+  }
+}
+
+window.onload = tasksProperties;
 
 // Criação de nova tarefa
 // Referencia: https://stackoverflow.com/questions/880512/prevent-text-selection-after-double-click
@@ -46,12 +55,7 @@ function taskCreation() {
     listItem.innerText = input;
     taskList.appendChild(listItem);
     document.getElementById('texto-tarefa').value = '';
-    tasks = document.querySelectorAll('li');
-    for (let i = 0; i < tasks.length; i += 1) {
-      tasks[i].addEventListener('click', selectedTask);
-      tasks[i].addEventListener('dblclick', completedTask);
-      tasks[i].addEventListener('mousedown', (e) => { e.preventDefault(); }, false);
-    }
+    tasksProperties();
   }
 }
 
