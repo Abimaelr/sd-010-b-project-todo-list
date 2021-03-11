@@ -3,6 +3,7 @@ const botaoTarefa = document.getElementById("criar-tarefa");
 const botaoLimpa = document.getElementById("apaga-tudo");
 const botaoLimpaEnd = document.getElementById("remover-finalizados");
 const botaoSalvar = document.getElementById("salvar-tarefas");
+const botaoLimpaSelecionado = document.getElementById("remover-selecionado");
 const listaMae = document.getElementById("lista-tarefas");
 const tarefas = document.getElementsByClassName("tarefa");
 const input = document.getElementById("texto-tarefa");
@@ -19,6 +20,8 @@ botaoLimpa.addEventListener("click", clearList);
 botaoLimpaEnd.addEventListener("click", clearListEnd);
 
 botaoSalvar.addEventListener("click", save);
+
+botaoLimpaSelecionado.addEventListener("click", deleteSelected);
 
 listaMae.addEventListener("click", function(event) {
     index = event.target.id
@@ -70,6 +73,7 @@ function selecionar(pos) {
 
 function clearList() {
     listaMae.innerHTML = "";
+    localStorage.clear();
 }
 
 function clearListEnd() {
@@ -89,4 +93,12 @@ function save() {
 
 function openSave() {
     listaMae.innerHTML = localStorage.getItem("lista-tarefas-salva");
+}
+
+function deleteSelected() {
+    for (let index = 0; index < tarefas.length; index+= 1) {
+        if (tarefas[index].style.backgroundColor ===  "rgb(128, 128, 128)") {
+            tarefas[index].remove();
+        }
+    }
 }
