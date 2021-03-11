@@ -27,6 +27,7 @@ function addTask() {
 
 function removeAllTasks() {
   taskList.innerHTML = '';
+  localStorage.clear();
 }
 
 function removeCompletedTasks() {
@@ -39,6 +40,40 @@ function removeCompletedTasks() {
   }
 }
 
+function saveTasksList() {
+  const tasks = document.getElementsByClassName('task');
+  let items = [];
+  let classes = [];
+  for (let i = 0; i < tasks.length; i += 1) {
+    items.push(tasks[i].innerHTML);
+    classes.push(tasks[i].className);
+    console.log(tasks[i].className);
+    localStorage.setItem('tasks', JSON.stringify(items));
+    localStorage.setItem('classes', JSON.stringify(classes)); // https://stackoverflow.com/questions/58422340/trying-to-save-all-generated-li-elements-to-local-storage-using-javascript
+  }
+}
+
+function addList(storedTask, classTask) {
+  const task = document.createElement('li');
+  task.className = classTask;
+  task.innerHTML = storedTask;
+  taskList.appendChild(task);
+  task.addEventListener('click', taskSelect);
+  task.addEventListener('dblclick', taskCompleted);
+}
+
+function init() {
+  const storedTask = JSON.parse(localStorage.getItem('tasks'));
+  const storedClass = JSON.parse(localStorage.getItem('classes'));
+  if (storedTask) {
+    for (let i = 0; i < storedTask.length; i++) {
+      addList(storedTask[i], storedClass[i]);
+    }
+  }
+  
+}
+init();
+
 const btnAdd = document.getElementById('criar-tarefa');
 btnAdd.addEventListener('click', addTask);
 
@@ -47,3 +82,6 @@ btnRmvAll.addEventListener('click', removeAllTasks);
 
 const btnRmvCompleted = document.getElementById('remover-finalizados');
 btnRmvCompleted.addEventListener('click', removeCompletedTasks);
+
+const btnSave = document.getElementById('salvar-tarefas');
+btnSave.addEventListener('click', saveTasksList);
