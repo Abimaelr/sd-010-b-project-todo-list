@@ -3,6 +3,7 @@ let tarefa = document.getElementById("texto-tarefa");
 let enviar = document.getElementById("criar-tarefa");
 
 enviar.addEventListener("click", adicionaNaListaEApaga);
+tarefa.addEventListener("keydown", adicionaNaListaEApagaEnter)
 
 function adicionaNaListaEApaga() {
     let li = document.createElement("li");
@@ -12,6 +13,16 @@ function adicionaNaListaEApaga() {
         tarefa.value = "";
     }
 }
+
+//Source: https://stackoverflow.com/questions/155188/trigger-a-button-click-with-javascript-on-the-enter-key-in-a-text-box
+function adicionaNaListaEApagaEnter(entradaDaFuncao) {
+    let teclaPressionada = entradaDaFuncao.keyCode || entradaDaFuncao.which;
+    if (teclaPressionada == 13) {
+        adicionaNaListaEApaga();
+    }
+    }
+    
+
 
 /*   
     Acessei o repositório de Ana Luiza Machado Salgado, onde compreendi a ideia de adicionar uma classe ao invés do backgroundColor direto.
