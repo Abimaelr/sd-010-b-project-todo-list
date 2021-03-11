@@ -163,31 +163,38 @@ window.onload = function () {
     atualizaStorage();
   });
 
-  moveElementUp.addEventListener('click', function (props) {
-    if (props != null) {
-    const selectedElement = document.querySelector('.itemSelected');
-      if (selectedElement.previousElementSibling !== null) {
-        recoveredOl.insertBefore(
-          selectedElement,
-          selectedElement.previousElementSibling
-        );
-      }
-      atualizaStorage(); 
-    }
-  });
-
-  moveElementDown.addEventListener('click', function (props) {
-    if (props != null) {
-    const selectedElement = document.querySelector('.itemSelected');
-      if (selectedElement.nextElementSibling !== null) {
-        recoveredOl.insertBefore(
-          selectedElement.nextElementSibling,
-          selectedElement
-        );
-      }
+  moveElementUp.addEventListener('click', function () {
+    let item = verifyClickedItem();
+    if (item !== null) {
+      recoveredOl.insertBefore(item,item.previousElementSibling);
       atualizaStorage();
     }
   });
+
+  moveElementDown.addEventListener('click', function () {
+    let item = verifyClickedItem();
+    if (item != null) {
+      try {
+        recoveredOl.insertBefore(item.nextElementSibling,item);
+        atualizaStorage();
+      } catch (error) {
+          
+      }
+    }
+  });
+
+  function verifyClickedItem() {
+    allTasks = document.querySelectorAll('#item');
+    let retorno = null;
+    for (let index = 0; index < allTasks.length; index++) {
+       if (allTasks[index].className === "opened itemSelected" || allTasks[index].className === "completed itemSelected") {
+          retorno = allTasks[index];
+          break;
+       }
+    }
+    return retorno;
+  }
+
 
   clearAll.addEventListener('click', function () {
     allTasks = document.querySelectorAll('#item');
