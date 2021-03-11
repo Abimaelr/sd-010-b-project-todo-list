@@ -1,3 +1,5 @@
+const listaTarefas = 'lista-tarefas';
+
 function addSelectedClass(element, selecClass) {
   const selectedClass = selecClass;
   const selected = document.querySelector(`.${selectedClass}`);
@@ -13,7 +15,7 @@ function cleanInput() {
 }
 
 function addItemToList() {
-  const list = document.getElementById('lista-tarefas');
+  const list = document.getElementById(listaTarefas);
   const item = document.createElement('li');
   const input = document.getElementById('texto-tarefa');
   item.innerText = input.value;
@@ -32,15 +34,15 @@ function addButtonClick(elementId, clickFunction) {
 }
 
 function cleanList() {
-  const list = document.getElementById('lista-tarefas');
+  const list = document.getElementById(listaTarefas);
   while (list.childNodes.length > 0) {
     list.removeChild(list.lastChild);
   }
 }
 
 function removeCompletedItems() {
-  const list = document.getElementById('lista-tarefas');
-  const listChildren = document.getElementById('lista-tarefas').children;
+  const list = document.getElementById(listaTarefas);
+  const listChildren = list.children;
   const completedClass = 'completed';
   for (let index = (listChildren.length - 1); index >= 0; index -= 1) {
     if (listChildren[index].classList.contains(completedClass)) {
@@ -49,15 +51,36 @@ function removeCompletedItems() {
   }
 }
 
-addButtonClick('criar-tarefa', () => {
-  addItemToList();
-  cleanInput();
-});
+function saveList() {
+  const list = document.getElementById('lista-tarefas');
+  const listChildren = list.innerHTML;
+  localStorage.setItem('savedList', listChildren);
+}
 
-addButtonClick('apaga-tudo', () => {
-  cleanList();
-});
+function returnList() {
+  const content = localStorage.getItem('savedList').trim();
+  if (content !== '') {
+    const list = document.getElementById('lista-tarefas');
+    list.innerHTML = content;
+  }
+}
 
-addButtonClick('remover-finalizados', () => {
-  removeCompletedItems();
-});
+window.onload = () => {
+  returnList();
+  addButtonClick('criar-tarefa', () => {
+    addItemToList();
+    cleanInput();
+  });
+
+  addButtonClick('apaga-tudo', () => {
+    cleanList();
+  });
+
+  addButtonClick('remover-finalizados', () => {
+    removeCompletedItems();
+  });
+
+  addButtonClick('salvar-tarefas', () => {
+    saveList();
+  });
+};
