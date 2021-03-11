@@ -1,5 +1,3 @@
-
-
 window.onload = function () {
   let addButton = document.getElementById('criar-tarefa');
 
@@ -14,8 +12,10 @@ window.onload = function () {
 
     newTask.appendChild(textTask);
     newTask.setAttribute('class', 'task');
+    newTask.addEventListener('click', taskColor);
+    taskList.appendChild(newTask);
 
-    taskList.appendChild(newTask)
+    cleanText();
   }
 
   function getText () {
@@ -24,7 +24,21 @@ window.onload = function () {
     return text;
   }
 
-  listenClick();
-}
+  function cleanText () {
+    document.getElementById('texto-tarefa').value = '';
+  }
 
- 
+  function taskColor(event) {
+    let taskItem = event.target;
+    let taskItens = document.querySelectorAll('li');
+    for (let index = 0; index < taskItens.length; index++) {
+      taskItens[index].classList.remove('li-selected');
+    }
+    taskItem.classList.add('li-selected');
+  }
+
+
+
+  listenClick();
+
+}
