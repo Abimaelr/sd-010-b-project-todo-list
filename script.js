@@ -26,3 +26,9 @@ document.getElementById('lista-tarefas').addEventListener('dblclick', function c
     }
   }
 })
+
+document.getElementById('apaga-tudo').addEventListener('click', function eraseList() {
+  while(document.getElementById('lista-tarefas').firstElementChild) {
+      document.getElementById('lista-tarefas').removeChild(document.getElementById('lista-tarefas').firstElementChild);
+  }
+})
