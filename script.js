@@ -32,7 +32,6 @@ function buttonSelecionadosRemover(){
     let buttonSelecionado = document.querySelector("#remover-selecionado");
 
     buttonSelecionado.addEventListener('click', function(){
-        // let task = document.querySelector('.selected');
         eventX.remove();
     })     
 }
@@ -77,20 +76,17 @@ function buttonFinalizados(){
 }
 
 function riscaTask(){
-    
     let listArray = document.querySelector("ol").childNodes;
-
     for(let index = 0; index < listArray.length; index++){
         listArray[index].addEventListener('dblclick', function(event){
-            
-            if(event.target.classList.contains('completed')){
-                event.target.classList.remove('completed');
-                event.target.classList.add('notcompleted');
-                
+            console.log(event.target);
+            console.log(event.target.className);
+            if(event.target.className !== 'completed'){
+                event.target.classList.add('completed');
+                buttonFinalizados(); 
             }
             else{ 
-                event.target.classList.add('completed');
-                event.target.classList.remove('notcompleted');
+                event.target.classList.remove('completed');
             }
         })
     }  
@@ -113,7 +109,6 @@ function buttonSalvar(){
     
     let buttonrSalvar = document.querySelector("#salvar-tarefas");
     let listArray = document.querySelector("ol").childNodes;
-
     
     buttonrSalvar.addEventListener('click', function(event){
         let array = []
@@ -140,7 +135,7 @@ createTaskButton.addEventListener("click", function(){
     else{
         let li = document.createElement('li');
         li.innerHTML = inputTask.value;
-        li.className = 'notcompleted'
+        // li.className = 'notcompleted';
         listTask.appendChild(li);
         inputTask.value = '';
         changeBackgroundColor();
