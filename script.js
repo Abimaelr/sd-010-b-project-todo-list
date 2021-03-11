@@ -1,6 +1,3 @@
-const salvarLista = document.querySelector('#lista-tarefas');
-salvarLista.innerHTML = localStorage.getItem('list');
-
 function criaItemLista() {
   const texto = document.querySelector('#texto-tarefa');
   const lista = document.querySelector('#lista-tarefas');
@@ -58,9 +55,11 @@ function removeFinalizados() {
 const botaoApagaFinalizados = document.querySelector('#remover-finalizados');
 botaoApagaFinalizados.addEventListener('click', removeFinalizados);
 
+const salvarLista = document.querySelector('#lista-tarefas');
+salvarLista.innerHTML = localStorage.getItem('list');
+
 function salvarTarefa() {
   localStorage.setItem('list', salvarLista.innerHTML);
 }
-
 const salvar = document.querySelector('#salvar-tarefas');
 salvar.addEventListener('click', salvarTarefa);
