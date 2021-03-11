@@ -16,7 +16,6 @@ if(localStorage.getItem('tasks')) {
 
 let buttonCriarTarefa = document.getElementById('criar-tarefa');
 const buttonDeleteTasks = document.getElementById('apaga-tudo');
-const buttonDeleteTasksEnded = document.getElementById('remover-finalizados');
 const buttonSaveTasks = document.getElementById('salvar-tarefas');
 const buttonMoveTaskUp = document.getElementById('mover-cima');
 const buttonMoveTaskDn = document.getElementById('mover-baixo');
@@ -64,6 +63,7 @@ function deleteTasks() {
   taskList.innerHTML = '';
 }
 
+const buttonDeleteTasksEnded = document.getElementById('remover-finalizados');
 /* Evento para deletar todas as tarefas */
 buttonDeleteTasks.addEventListener('click', deleteTasks);
 
@@ -94,7 +94,6 @@ function saveTasks() {
     tasksObject[index] = tasksArray[index]
   }
   localStorage.setItem('tasks', JSON.stringify(tasksObject));
-  alert('Suas tarefas foram salvas com sucesso!!!');
 }
 buttonSaveTasks.addEventListener('click', saveTasks)
 
