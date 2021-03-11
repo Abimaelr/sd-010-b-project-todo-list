@@ -58,3 +58,19 @@ function clearList(){
     
 }
 clearList();  
+
+//Bot]ao Limpar Completados; 
+ function clearCompleted(){
+    let buttonLimpar = document.getElementById("remover-finalizados");
+    
+    buttonLimpar.addEventListener("click", buttonCompleted)
+}
+clearCompleted();
+
+function buttonCompleted(){
+    let itemCompleted = document.querySelector(".completed");
+    if (itemCompleted.parentNode) {
+        itemCompleted.parentNode.removeChild(itemCompleted);
+        // Removendo um elemento específico sem precisar especificar seu pai
+    }
+}
