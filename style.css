@@ -1,3 +1,19 @@
 .selectedItem {
-    background-color: rgb(128, 128, 128);
+  background-color: rgb(128, 128, 128);
+}
+
+/* the next 2 'ol li' code blocks are from https://stackoverflow.com/questions/27833314/how-strike-through-a-bullet-in-list */
+/* hides the bullets list */
+ol li {
+  list-style-type: none;
+  counter-increment: item;
+}
+
+/* adds the bullet into string */
+ol li::before {
+  content: counter(item) ". ";
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
