@@ -9,7 +9,7 @@ const btnMoveDown = document.querySelector("#mover-baixo");
 const btnSave = document.querySelector("#salvar-tarefas");
 
 const  creatTask = () => {
- addButton.addEventListener('click',function(){
+ addButton.addEventListener('click',() => {
  let createElementLi = document.createElement('li');
  addTaskStyle(createElementLi);
 
@@ -25,7 +25,7 @@ const addTaskStyle = (createElementLi) => {
 
 
 const addSelectedTask =() => {
-listOl.addEventListener('click', function(event) {
+listOl.addEventListener('click', (event) => {
 let selectedTask = document.querySelector('.selected');
   if(selectedTask && event.target.classList.contains('task') ){
   selectedTask.classList.remove('selected');
