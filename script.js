@@ -11,7 +11,7 @@ buton.addEventListener('click', function(){
 
 for (let i = 0; i < clickList.length; i++) {
 clickList[i].addEventListener('click', function() {
-  event.target.style.color = 'rgb(128, 128, 128)';
-  console.log('teste');
+
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 });
 }
