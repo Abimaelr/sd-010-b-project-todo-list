@@ -136,8 +136,10 @@ finalizados.addEventListener('click', function(){
 
  cima.addEventListener('click', function(){
   
-    const selected = document.querySelector('.selected');
+    const selected = document.querySelector('.selected') != null ? document.querySelector('.selected') : 'null'
     let cima = selected.previousElementSibling;
+    
+    if(selected == null) return;
     if(selected == null) return;
     if(cima == null) return;
 
@@ -157,9 +159,10 @@ finalizados.addEventListener('click', function(){
  })
 
  baixo.addEventListener('click', function(){
-    const selected = document.querySelector('.selected');
-    let baixo = selected.nextElementSibling;
+    const selected = document.querySelector('.selected') != null ? document.querySelector('.selected') : 'null'
 
+    let baixo = selected.nextElementSibling;
+    if(selected == null) return;
     if(baixo == null) return;
     if(selected == null) return;
     let bufferT = baixo.innerText;
