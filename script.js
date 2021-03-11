@@ -22,7 +22,7 @@ selecionaItem.addEventListener('click', function (event) {
   for (let index = 0; index < tarefas.length; index += 1) {
     tarefas[index].style.backgroundColor = '';
   }
-  evento.style.backgroundColor = 'rgb(128, 128, 128)';
+  evento.style.backgroundColor = 'rgb(128, 128, 128)';  
 });
 
 selecionaItem.addEventListener('dblclick', function (event) {
@@ -35,8 +35,7 @@ botaoApaga.addEventListener('click', function () {
   for (let index = 0; index < tarefas.length; index += 1) {
     selecionaItem.removeChild(tarefas[index]);
     index -= 1;
-  }
-  localStorage.clear();
+  }  
 });
 
 const botaoRemoveFinalizados = document.querySelector('#remover-finalizados');
@@ -45,30 +44,38 @@ botaoRemoveFinalizados.addEventListener('click', function () {
     if (tarefas[index].classList.contains('completed')) {
       selecionaItem.removeChild(tarefas[index]);
       index -= 1;
-    }    
+    }
   }
 });
 
 const botaoSalvar = document.querySelector('#salvar-tarefas');
 botaoSalvar.addEventListener('click', function () {
-  const tarefas = document.getElementsByTagName('li'); 
+  const tarefas = document.getElementsByTagName('li');
   const itens = [];
+  const classe = [];
+  let toDoList = {
+    itens,
+    classe,
+  }
   if (tarefas !== null) {
     for (let index = 0; index < tarefas.length; index += 1) {
       itens.push(tarefas[index].innerHTML);
+      classe.push(tarefas[index].classList.contains('completed'));
     }
-    localStorage.setItem('todoList', JSON.stringify(itens));
-    itens.push(tarefas[index].classList.contains('completed'));
+    localStorage.setItem('todoList', JSON.stringify(toDoList));    
   }
 });
 
-function recuperaItens() {  
+function recuperaItens() {
   const selecionaItem = document.querySelector('ol');
   const recupera = JSON.parse(localStorage.getItem('todoList'));
   if (recupera !== null) {
-    for (let index = 0; index < recupera.length; index += 1) {
+    for (let index = 0; index < recupera.itens.length; index += 1) {
       const itemRecupera = document.createElement('li');
-      itemRecupera.innerHTML = recupera[index];
+      itemRecupera.innerHTML = recupera.itens[index];
+      if (recupera.classe[index] === true) {
+        itemRecupera.classList.add('completed');
+      }
       selecionaItem.appendChild(itemRecupera);
     }
   }
