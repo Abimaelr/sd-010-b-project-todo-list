@@ -57,11 +57,25 @@ function saveList() {
   localStorage.setItem('savedList', listChildren);
 }
 
+function addEventListenerToReturned(returned) {
+  const item = returned.children;
+  for (let index = 0; index < item.length; index += 1) {
+    item[index].addEventListener('click', (element) => {
+      addSelectedClass(element, 'selected');
+    });
+    item[index].addEventListener('dblclick', (element) => {
+      element.target.classList.toggle('completed');
+    });
+  }
+}
+
 function returnList() {
-  const content = localStorage.getItem('savedList').trim();
+  const saved = localStorage.getItem('savedList');
+  const content = (saved) ? saved.trim() : saved;
   if (content !== '') {
-    const list = document.getElementById('lista-tarefas');
+    const list = document.getElementById(listaTarefas);
     list.innerHTML = content;
+    addEventListenerToReturned(list);
   }
 }
 
