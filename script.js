@@ -25,6 +25,10 @@ botaoSalvar.addEventListener("click", save);
 
 botaoLimpaSelecionado.addEventListener("click", deleteSelected);
 
+botaoCima.addEventListener("click", toUp);
+
+botaoBaixo.addEventListener("click", toDown);
+
 listaMae.addEventListener("click", function(event) {
     index = event.target.id
     // selectedElement = index;
