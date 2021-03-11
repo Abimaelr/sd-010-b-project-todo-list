@@ -16,24 +16,44 @@ botaoEnviar();
 
 function selectedClass() {
   const pai = document.getElementById('lista-tarefas');
-  
+
   pai.addEventListener('click', function(event) {
     const filho = document.getElementsByClassName('item');
     
     for (i = 0; i < filho.length; i += 1) {
-      if(filho[i].className !== 'item') {
+      if (filho[i].className !== 'item') {
         filho[i].className = 'item';
-        filho[i].style.backgroundColor = 'white'
+        filho[i].style.backgroundColor = 'white';
       }
-       event.target.className = 'item selected';
-   
-    }     
-    
+      event.target.className = 'item selected';
+      }     
+
     let batata = document.getElementsByClassName('item selected')[0];
-    batata.style.backgroundColor = 'rgb(128, 128, 128)'
+    batata.style.backgroundColor = 'rgb(128, 128, 128)';
   })
 }
 selectedClass()
+
+function completedClass() {
+  const pai = document.getElementById('lista-tarefas');
+
+  pai.addEventListener('dblclick', function(event) {
+    const filho = document.getElementsByClassName('item');
+    
+    for (i = 0; i < filho.length; i += 1) {
+      if (filho[i].className !== 'item') {
+        filho[i].className = 'item';
+        filho[i].style.backgroundColor = 'white';
+      }
+      event.target.className = 'item selected completed';
+      }     
+
+    let batata = document.getElementsByClassName('item selected completed')[0];
+    batata.style.backgroundColor = 'rgb(128, 128, 128)';
+  })
+}
+completedClass()
+
 
 
 
