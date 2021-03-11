@@ -83,7 +83,7 @@ buttonClearComplete.addEventListener('click', function () {
   }
 });
 
-/* // requisito 12
+// requisito 12
 const buttonSave = document.createElement('button');
 buttonSave.innerText = 'Salvar Tarefas';
 bodyChilds.appendChild(buttonSave);
@@ -94,36 +94,13 @@ buttonSave.addEventListener('click', function () {
     olTasks.removeChild((tasks[x]));
   }
   olTasks.appendChild
-}) */
+});
 
-// requisito 13
-
-//criando seta para cima
-const upButton = document.createElement('button');
-bodyChilds.appendChild(upButton);
-upButton.innerHTML = "^";
-upButton.id = 'mover-cima';
-//funçao mandar pra cima
-upButton.addEventListener('click', function (event) {
-  let descendo = document.getElementsByClassName('GrayElement')[0].previousElementSibling;
-  let subindo = document.getElementsByClassName('GrayElement')[0];
-  let genericVar = (descendo.innerHTML);
-  //move o gray
-  document.getElementsByClassName('GrayElement')[0].style.backgroundColor = 'initial';
-  subindo.classList.remove('GrayElement');
-  descendo.classList.add('GrayElement');
-  document.getElementsByClassName('GrayElement')[0].style.backgroundColor = 'rgb(128, 128, 128)';
-  //move strike
-  document.getElementsByClassName('completed')[0].style.textDecoration = 'initial';
-  subindo.classList.remove('completed');
-  descendo.classList.add('completed');
-  document.getElementsByClassName('completed')[0].style.textDecoration = 'line-through solid rgb(0, 0, 0)';
-  descendo.innerHTML = ((subindo.innerHTML));
-  subindo.innerHTML = ((genericVar));
+//requisito 14
+const clearSelected = document.createElement('button');
+bodyChilds.appendChild(clearSelected);
+clearSelected.id ='remover-selecionado';
+clearSelected.innerText = 'Remover Selecionado';
+clearSelected.addEventListener('click', function () {
+  olTasks.removeChild(getGrayElement[0]);
 })
-
-
-const downButton = document.createElement('button');
-bodyChilds.appendChild(downButton);
-downButton.innerHTML = "down";
-downButton.id = 'mover-baixo';
