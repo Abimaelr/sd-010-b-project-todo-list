@@ -62,6 +62,17 @@ function selectTask() {
   });
 }
 
+const delSelButton = document.createElement('button');
+delSelButton.id = 'remover-selecionado';
+delSelButton.innerHTML = 'Apagar selecionado';
+document.body.appendChild(delSelButton);
+delSelButton.addEventListener('click', function () {
+  const selectTasks = document.querySelectorAll('.selected');
+  for (let index = 0; index < selectTasks.length; index += 1) {
+    selectTasks[index].parentNode.removeChild(selectTasks[index]);
+  }
+});
+
 function completeTask() {
   const tasks2 = document.getElementById('lista-tarefas');
   tasks2.addEventListener('dblclick', function (event2) {
@@ -73,6 +84,14 @@ function completeTask() {
     }
   });
 }
+
+const saveButton = document.createElement('button');
+saveButton.id = 'salvar-tarefas';
+saveButton.innerHTML = 'Salvar tarefas';
+document.body.appendChild(saveButton);
+saveButton.addEventListener('click', function (event) {
+  localStorage.setItem('taskList', document.getElementById('lista-tarefas').innerHTML);
+});
 
 selectTask();
 completeTask();
