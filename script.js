@@ -80,17 +80,21 @@ function returnList() {
 
 function moveSelectedUp() {
   const selected = document.querySelector('.selected');
-  const previous = selected.previousElementSibling;
-  if (previous !== null) {
-    previous.before(selected);
+  if (selected !== null) {
+    const previous = selected.previousElementSibling;
+    if (previous !== null) {
+      previous.before(selected);
+    }
   }
 }
 
 function moveSelectedDown() {
   const selected = document.querySelector('.selected');
-  const next = selected.nextElementSibling;
-  if (next !== null) {
-    next.after(selected);
+  if (selected !== null) {
+    const next = selected.nextElementSibling;
+    if (next !== null) {
+      next.after(selected);
+    }
   }
 }
 
