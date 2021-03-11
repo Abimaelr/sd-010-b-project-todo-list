@@ -22,7 +22,7 @@ function adicionaNaListaEApaga() {
 */
 
 //Seleciono o elemento da minha lista (não dos itens) e determino um event listener para que ao ser clicada, ela mude a classe do elemento que foi o gatilho da ativação do evento.
-var lista = document.getElementById("lista-tarefas");
+let lista = document.getElementById("lista-tarefas");
 lista.addEventListener("click", atribuiClasseSelected);
 
 function atribuiClasseSelected(entradaDaFuncao) {
@@ -48,5 +48,17 @@ function riscaItem(entradaDaFuncao) {
         entradaDaFuncao.target.classList.remove("completed");
     } else if (entradaDaFuncao.target.tagName == "LI") {
         entradaDaFuncao.target.classList.add("completed");
+    }
+}
+
+//Crio a função do botão que apaga todos os itens da lista
+let botao = document.getElementById("apaga-tudo");
+botao.addEventListener("click", apagaTudo);
+
+function apagaTudo() {
+    let itens = document.getElementsByTagName("li");
+    let numeroDeItens = itens.length;
+    for (i=0; i<numeroDeItens; i++) {
+        itens[0].remove();
     }
 }
