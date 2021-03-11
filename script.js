@@ -22,8 +22,8 @@ function changeColorItem() {
   const getOl = document.querySelector('#lista-tarefas');
   getOl.addEventListener('click', function (event) {
     let getLi = document.querySelector('.selected');
-    if (getLi !== null) {
-      document.querySelector('.selected').classList.remove('selected');
+    if (getLi != null) {
+      getLi.classList.remove('selected');
     }
     event.target.classList.add('selected');
   });
