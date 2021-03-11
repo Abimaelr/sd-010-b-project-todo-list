@@ -1,0 +1,17 @@
+* {
+  font-family:fantasy ;
+}
+
+header {
+  margin: 15px;
+}
+
+#funcionamento {
+ 
+  margin: 10px;
+}
+
+#texto-tarefa {
+  display: flex;
+  margin-left: 10px;
+}
