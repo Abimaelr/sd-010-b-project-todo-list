@@ -8,3 +8,9 @@ function createTask(event) {
 }
 
 inputField.addEventListener('change', createTask);
+
+function taskOrdener() {
+  task.sort();
+}
+
+taskOrdener();
