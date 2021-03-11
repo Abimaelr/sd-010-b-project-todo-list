@@ -60,6 +60,7 @@ function removeCompletos(){
   for (let i = 0; i < tarefaFinalizada.length; i += 1) {
     if(tarefaFinalizada[i].classList.contains('completed')){
       lista.removeChild(tarefaFinalizada[i]);
+      i -= 1;
     }
   }
 }
