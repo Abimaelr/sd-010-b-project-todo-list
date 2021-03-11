@@ -11,13 +11,14 @@ function createListItem() {
 }
 
 function createBgColor(cgColor) {
+  const aux = cgColor;
   const listColor = document.querySelectorAll('ol li');
 
   for (let index = 0; index < listColor.length; index += 1) {
     listColor[index].style.backgroundColor = 'rgb(256, 256, 256)';
   }
 
-  cgColor.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  aux.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
 function TheListener() {
