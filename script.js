@@ -1,7 +1,9 @@
 const list = document.querySelector('#lista-tarefas');
 const button = document.querySelector('#criar-tarefa');
 const input = document.querySelector('#texto-tarefa');
-const delButton = document.querySelector('#apaga-tudo');
+const delAllButton = document.querySelector('#apaga-tudo');
+const delDoneButton = document.querySelector('#remover-finalizados');
+// const delDonn = document.querySelectorAll('')
 
 // add a task to the Task List
 // I took this IF idea from Bruno Afonso's PR: https://github.com/tryber/sd-010-b-project-todo-list/blob/brunoAffonso-project-tod-list/script.js
@@ -43,12 +45,26 @@ function doneNotDone() {
   }
 }
 
+// clears the whole task list
 // I took this innerHTML idea from https://medium.com/front-end-weekly/remove-all-children-of-the-node-in-javascript-968ad8f120eb
 function deleteALL() {
-  delButton.addEventListener('click', function () {
-    console.log(list.innerHTML);
+  delAllButton.addEventListener('click', function () {
     list.innerHTML = '';
   });
 }
 
 deleteALL();
+
+// deletes only done tasks
+function deleteDoneTasks() {
+  delDoneButton.addEventListener('click', function () {
+    const doneTasks = document.querySelectorAll('.completed');
+    console.log(doneTasks);
+    for (let i = 0; i < doneTasks.length; i++) {
+      doneTasks[i].remove();
+    }
+    console.log(doneTasks);
+  });
+}
+
+deleteDoneTasks();
