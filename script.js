@@ -3,10 +3,12 @@ window.onload = function () {
     let addButton = document.getElementById('criar-tarefa');
     let deleteButton = document.getElementById('apaga-tudo');
     let removeButton = document.getElementById('remover-finalizados');
+    let saveButton = document.getElementById('salvar-tarefas');
 
     addButton.addEventListener('click', addTask);
     deleteButton.addEventListener('click', deleteAll);
     removeButton.addEventListener('click', removeEnd);
+    saveButton.addEventListener('click', saveTasks);
   }
 
   function addTask () {
@@ -68,5 +70,33 @@ window.onload = function () {
     }
   }
 
+  function saveTasks () {
+    let taskItems = document.getElementsByTagName('li');
+    let arrayTasks = [];
+    if (taskItems != null) {
+      for (let index = 0; index < taskItems.length; index++) {
+        arrayTasks.push(taskItems[index].innerHTML);
+      }
+      localStorage.setItem('taskStorage', JSON.stringify(arrayTasks));
+    }
+  }
+
+  function restoreTasks() {
+    let restore = JSON.parse(localStorage.getItem('taskStorage'));
+    let taskList = document.getElementById('lista-tarefas');
+
+    if (restore != null) {
+      for (let index = 0; index < restore.length; index++) {
+        let restoredTask = document.createElement("li");
+        restoredTask.innerHTML = restore[index];
+        restoredTask.setAttribute('class', 'task');
+        restoredTask.addEventListener('click', taskColor);
+        restoredTask.addEventListener('dblclick', taskThrough);
+        taskList.appendChild(restoredTask);
+      }
+    }
+  }
+
   listenClick();
+  restoreTasks();
 }
