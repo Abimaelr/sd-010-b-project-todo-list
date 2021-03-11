@@ -22,7 +22,7 @@ selecionaItem.addEventListener('click', function (event) {
   for (let index = 0; index < tarefas.length; index += 1) {
     tarefas[index].style.backgroundColor = '';
   }
-  evento.style.backgroundColor = 'rgb(128, 128, 128)';  
+  evento.style.backgroundColor = 'rgb(128, 128, 128)';
 });
 
 selecionaItem.addEventListener('dblclick', function (event) {
@@ -35,7 +35,7 @@ botaoApaga.addEventListener('click', function () {
   for (let index = 0; index < tarefas.length; index += 1) {
     selecionaItem.removeChild(tarefas[index]);
     index -= 1;
-  }  
+  }
 });
 
 const botaoRemoveFinalizados = document.querySelector('#remover-finalizados');
@@ -50,24 +50,22 @@ botaoRemoveFinalizados.addEventListener('click', function () {
 
 const botaoSalvar = document.querySelector('#salvar-tarefas');
 botaoSalvar.addEventListener('click', function () {
-  const tarefas = document.getElementsByTagName('li');
   const itens = [];
   const classe = [];
-  let toDoList = {
+  const toDoList = {
     itens,
     classe,
-  }
+  };
   if (tarefas !== null) {
     for (let index = 0; index < tarefas.length; index += 1) {
       itens.push(tarefas[index].innerHTML);
       classe.push(tarefas[index].classList.contains('completed'));
     }
-    localStorage.setItem('todoList', JSON.stringify(toDoList));    
+    localStorage.setItem('todoList', JSON.stringify(toDoList));
   }
 });
 
 function recuperaItens() {
-  const selecionaItem = document.querySelector('ol');
   const recupera = JSON.parse(localStorage.getItem('todoList'));
   if (recupera !== null) {
     for (let index = 0; index < recupera.itens.length; index += 1) {
@@ -91,3 +89,27 @@ botaoRemoveSelecionado.addEventListener('click', function () {
 });
 
 recuperaItens();
+
+// questões abaixo resolvidas após thread iniciada pelo Henrique Zózimo, com explicações nos plantões
+// outerHTML: https://developer.mozilla.org/pt-BR/docs/Web/API/Element/outerHTML
+const moveUp = document.getElementById('mover-cima');
+moveUp.addEventListener('click', function () {
+  for (let index = 0; index < tarefas.length; index += 1) {
+    if ((index !== 0) && (tarefas[index].style.backgroundColor === 'rgb(128, 128, 128)')) {
+      const temp = tarefas[index].outerHTML;
+      tarefas[index].outerHTML = tarefas[index - 1].outerHTML;
+      tarefas[index - 1].outerHTML = temp;
+    }
+  }
+});
+
+const moveDown = document.getElementById('mover-baixo');
+moveDown.addEventListener('click', function () {
+  for (let index = tarefas.length -1; index >= 0; index -= 1) {
+    if ((index !== (tarefas.length - 1)) && (tarefas[index].style.backgroundColor === 'rgb(128, 128, 128)')) {
+        const temp = tarefas[index].outerHTML;
+        tarefas[index].outerHTML = tarefas[index + 1].outerHTML;
+        tarefas[index + 1].outerHTML = temp;      
+    }
+  }
+});
