@@ -55,13 +55,8 @@ function clearTaskList() {
 
 // Deleta as tarefas já realizadas da lista
 function removeDoneTasks() {
-  const done = [];
-  taskList.childNodes.forEach((child) => {
-    if (child.classList.contains('completed')) done.push(child);
-  });
-  for (let i = 0; i < done.length; i += 1) {
-    taskList.removeChild(done[i]);
-  }
+  const done = document.querySelectorAll('.completed');
+  for (let i = 0; i < done.length; i += 1) taskList.removeChild(done[i]);
 }
 
 // Sobe na lista a tarefa seleciona
