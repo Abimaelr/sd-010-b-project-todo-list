@@ -11,15 +11,26 @@ button.addEventListener('click', function() {
     lista.appendChild(linha);
     linha.innerText = input.value;
     input.value = '';
+    linhaLista();
 })
 //colorir a linha que clicar
 function mudaCor(event) {
   event.target.classList.add('corDeFundo');
 }
 
-function linhaLista() {
-  for (let i = 0; i < clickList.length; i += 1) {
-    clickList[i].addEventListener('click', mudaCor);
+function removeCor() {
+  let linhasLista = document.querySelectorAll('li'); 
+  for (let j = 0; j < linhasLista.length; j += 1) {
+    if (linhasLista[j].className = 'corDeFundo'){
+      linhasLista[j].classList.remove('corDeFundo')
+    }
   }
 }
-linhaLista
+
+function linhaLista() {
+  for (let i = 0; i < clickList.length; i += 1) {
+    clickList[i].addEventListener('click', removeCor);
+    clickList[i].addEventListener('click', mudaCor);
+    
+  }
+}
