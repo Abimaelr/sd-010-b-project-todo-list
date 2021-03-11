@@ -1,3 +1,13 @@
+// function renderItem(item) {
+//   // Adicionando uma div com o item e a quantidade na div .items
+//   const taskList = document.getElementById('lista-tarefas');
+//   const teste = document.createElement('li');
+
+//   taskList.appendChild(teste);
+
+//   teste.append(item);
+// }
+
 function completedTask(event) {
   const compTask = event.target;
   if (compTask.classList.contains('completed')) {
@@ -11,7 +21,9 @@ function completedTask(event) {
 function createTask() {
   const button = document.getElementById('criar-tarefa');
   const taskList = document.getElementById('lista-tarefas');
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
+  // eslint-disable-next-line max-lines-per-function
   button.addEventListener('click', () => {
     const item = document.createElement('li');
     const input = document.getElementById('texto-tarefa');
@@ -19,6 +31,10 @@ function createTask() {
     taskList.appendChild(item);
 
     input.value = '';
+
+    const storageTasks = document.querySelector('li').innerHTML;
+    favorites.push(storageTasks);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
 
     item.addEventListener('click', (event) => {
       const allLis = document.getElementsByTagName('li');
@@ -31,6 +47,10 @@ function createTask() {
 
     item.addEventListener('dblclick', completedTask);
   });
+  // const tasks = JSON.parse(localStorage.getItem('favorites'));
+
+  // // Para cada item do array, é renderizado no html
+  // tasks.forEach((item) => renderItem(item));
 }
 
 createTask();
@@ -56,3 +76,18 @@ function removeAllCompletedTasks() {
 }
 
 removeAllCompletedTasks();
+
+function removeSelectedtask() {
+  const buttonRemoveSelected = document.getElementById('remover-selecionado');
+
+  buttonRemoveSelected.addEventListener('click', () => {
+    const lisSelected = document.querySelectorAll('li');
+    lisSelected.forEach((e) => {
+      if (e.style.backgroundColor === 'rgb(128, 128, 128)') {
+        e.remove();
+      }
+    });
+  });
+}
+
+removeSelectedtask();
