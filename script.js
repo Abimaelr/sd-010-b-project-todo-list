@@ -29,7 +29,12 @@ cinza3.addEventListener('dblclick', function (event) {
   }
 })
 
+document.getElementById('apaga-tudo').addEventListener('click', apagar);
 
-// for (let index = 0; index < palet.length; index += 1) {
-//     palet[index].addEventListener('click', function (event) {
-//       document.getElementsByClassName('selected')[0].classList.remove('selected');
+function apagar() {
+  let listaOrde = document.getElementById("lista-tarefas");
+    while (listaOrde.firstChild) {
+        listaOrde.removeChild(listaOrde.firstChild);
+    }
+  }
+// https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild me ajudou no apagar tudo
