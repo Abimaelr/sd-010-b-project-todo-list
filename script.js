@@ -1,5 +1,21 @@
 const taskList = document.getElementById('lista-tarefas');
 
+function saveTasksList() {
+  const tasks = document.getElementsByClassName('task');
+  const items = [];
+  const classes = [];
+  if (tasks.length > 0) {
+    for (let i = 0; i < tasks.length; i += 1) {
+      items.push(tasks[i].innerHTML);
+      classes.push(tasks[i].className);
+      localStorage.setItem('tasks', JSON.stringify(items));
+      localStorage.setItem('classes', JSON.stringify(classes)); // https://stackoverflow.com/questions/58422340/trying-to-save-all-generated-li-elements-to-local-storage-using-javascript
+    }
+  } else {
+    localStorage.clear();
+  }
+}
+
 function taskSelect(e) {
   const taskSelected = document.querySelector('.selected');
   if (taskSelected) {
@@ -24,23 +40,6 @@ function addTask() {
     task.addEventListener('click', taskSelect);
     task.addEventListener('dblclick', taskCompleted);
     newTask.value = '';
-  }
-}
-
-function saveTasksList() {
-  const tasks = document.getElementsByClassName('task');
-  const items = [];
-  const classes = [];
-  if (tasks.length > 0) {
-    
-    for (let i = 0; i < tasks.length; i += 1) {
-      items.push(tasks[i].innerHTML);
-      classes.push(tasks[i].className);
-      localStorage.setItem('tasks', JSON.stringify(items));
-      localStorage.setItem('classes', JSON.stringify(classes)); // https://stackoverflow.com/questions/58422340/trying-to-save-all-generated-li-elements-to-local-storage-using-javascript
-    }
-  } else {
-    localStorage.clear();
   }
 }
 
