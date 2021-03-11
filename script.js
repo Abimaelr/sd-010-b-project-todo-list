@@ -79,6 +79,7 @@ function deleteTasksEnded() {
     document.getElementsByClassName('completed')[0].remove();
     deleteTasksEnded();
   }
+  saveTasks();
 }
 buttonDeleteTasksEnded.addEventListener('click', deleteTasksEnded);
 /* Exercício 12: */
