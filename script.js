@@ -23,8 +23,10 @@ function vaiPraLista() {
   paiDaLista.appendChild(li);
   tamanhoDaLista=document.querySelectorAll('.lista')
   for (let cont = 0; cont < tamanhoDaLista.length; cont += 1) {
-    tamanhoDaLista[cont].addEventListener('click',function () {
-      this.className = 'lista grey';
+    tamanhoDaLista[cont].addEventListener('click',function() {
+      let apagaACor = document.querySelectorAll('.grey')
+      if (apagaACor.length!==[]){apagaACor.classList.remove('grey')}
+      this.classList.add('grey');
    });
   }
 }
