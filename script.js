@@ -81,19 +81,23 @@ window.onload = function () {
     //Funções
     function movCim () {
         let mov = document.querySelector('.selected');
-        let cim = mov.previousElementSibling;
-        let parent = document.querySelector('#lista-tarefas');
-        if(cim != null){
-            cim.before(mov);
+        if(mov != null){
+            let cim = mov.previousElementSibling;
+            let parent = document.querySelector('#lista-tarefas');
+            if(cim != null){
+                cim.before(mov);
+            }
         }
     }
     
     function movBai () {
         let mov = document.querySelector('.selected');
-        let bai = mov.nextElementSibling;
-        let parent = document.querySelector('#lista-tarefas');
-        if(bai != null){
-            bai.after(mov);
+        if(mov != null){
+            let bai = mov.nextElementSibling;
+            let parent = document.querySelector('#lista-tarefas');
+            if(bai != null){
+                bai.after(mov);
+            }
         }
     }
 
