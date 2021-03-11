@@ -7,7 +7,7 @@ function addNewItemList() {
     if (getInputField.value.length > 0) {
       const newLi = document.createElement('li');
       newLi.innerText = getInputField.value;
-      newLi.className = 'selected';
+      //  newLi.className = 'selected';
       getOl.appendChild(newLi);
       getInputField.value = '';
     } else {
@@ -20,6 +20,7 @@ addNewItemList();
 
 function changeColorItem() {
   const getOl = document.querySelector('#lista-tarefas');
+
   getOl.addEventListener('click', function (event) {
     let getLi = document.querySelector('.selected');
     if (getLi != null) {
