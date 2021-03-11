@@ -31,6 +31,12 @@ document.addEventListener("click", function (event) {
     for (let i = 0; i < childNumbers; i += 1) {
       dad.removeChild(dad.lastElementChild)
     }
+  }
+  if (event.target.id === "remover-finalizados") {
+    let listCompleted = document.querySelectorAll(".completed");
+    for (let i = 0; i < listCompleted.length; i += 1) {
+      listCompleted[i].remove()
+    }
   }  
 })
 
