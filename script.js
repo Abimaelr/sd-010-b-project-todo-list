@@ -7,7 +7,8 @@ window.onload = function () {
   let allTasks = null;
   let removeCompleted = null;
   let saveTasks = null;
-  let tasksLocalStorage = null;
+  let moveElementUp = null;
+  let moveElementDown = null;
 
   startAplication();
 
@@ -63,11 +64,11 @@ window.onload = function () {
     element.id = 'lista-tarefas';
     elementSection.appendChild(element);
     recoveredOl = document.getElementById('lista-tarefas');
-    selectElement = document.querySelector('#lista-tarefas');   
+    selectElement = document.querySelector('#lista-tarefas');
 
-    if(localStorage.getItem('tasks')){
-        recoveredOl.innerHTML = localStorage.getItem('tasks');
-    }    
+    if (localStorage.getItem('tasks')) {
+      recoveredOl.innerHTML = localStorage.getItem('tasks');
+    }
 
     // Etapa 05 - Criando o botão Criar Tarefa
     // Criando um Botão <button> dentro da section
@@ -100,6 +101,20 @@ window.onload = function () {
     elementSalvarTarefas.innerText = 'Salvar Tarefas';
     elementSection.appendChild(elementSalvarTarefas);
     saveTasks = document.getElementById('salvar-tarefas');
+
+    // Etapa 12 - Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
+    // Criando um Botão <button> dentro da section
+    const elementButtonUp = document.createElement('button');
+    elementButtonUp.id = 'mover-cima';
+    elementButtonUp.innerText = 'Mover Cima';
+    elementSection.appendChild(elementButtonUp);
+    moveElementUp = document.getElementById('mover-cima');
+
+    const elementButtonDown = document.createElement('button');
+    elementButtonDown.id = 'mover-baixo';
+    elementButtonDown.innerText = 'Mover Baixo';
+    elementSection.appendChild(elementButtonDown);
+    moveElementDown = document.getElementById('mover-baixo');
   }
 
   function addItem(props) {
@@ -120,10 +135,13 @@ window.onload = function () {
     return allTasks;
   }
 
-    function atualizaStorage(){
-        localStorage.removeItem('tasks');
-        localStorage.setItem("tasks", document.getElementById('lista-tarefas').innerHTML);
-    }
+  function atualizaStorage() {
+    localStorage.removeItem('tasks');
+    localStorage.setItem(
+      'tasks',
+      document.getElementById('lista-tarefas').innerHTML
+    );
+  }
 
   addTask.addEventListener('click', function () {
     if (addItem(recoveredInput)) {
@@ -142,7 +160,29 @@ window.onload = function () {
     atualizaStorage();
   });
 
-  clearAll.addEventListener('click', function () {    
+  moveElementUp.addEventListener('click', function () {
+    const selectedElement = document.querySelector('.itemSelected');
+    if (selectedElement.previousElementSibling !== null) {
+      recoveredOl.insertBefore(
+        selectedElement,
+        selectedElement.previousElementSibling
+      );
+    }
+    atualizaStorage();
+  });
+
+  moveElementDown.addEventListener('click', function () {
+    const selectedElement = document.querySelector('.itemSelected');
+    if (selectedElement.nextElementSibling !== null) {
+      recoveredOl.insertBefore(
+        selectedElement.nextElementSibling,
+        selectedElement
+      );
+    }
+    atualizaStorage();
+  });
+
+  clearAll.addEventListener('click', function () {
     allTasks = document.querySelectorAll('#item');
     for (let index = 0; index < allTasks.length; index++) {
       allTasks[index].parentNode.removeChild(allTasks[index]);
@@ -150,24 +190,44 @@ window.onload = function () {
     atualizaStorage();
   });
 
+  function unselctItem(props) {
+    allTasks = document.querySelectorAll('#item');
+    for (let index = 0; index < allTasks.length; index++) {
+      if (allTasks[index] != props) {
+        if (allTasks[index].className === 'opened itemSelected') {
+          allTasks[index].className = 'opened';
+        } else if (allTasks[index].className === 'completed itemSelected') {
+          allTasks[index].className = 'completed';
+        }
+      }
+    }
+  }
+
   selectElement.addEventListener('click', function (props) {
     defaultBackgroundItems();
     props.target.style.background = 'rgb(128, 128, 128)';
+    if (props.target.className === 'completed') {
+      props.target.className = 'completed itemSelected';
+    } else if (props.target.className === 'opened') {
+      props.target.className = 'opened itemSelected';
+    }
+    unselctItem(props.target);
   });
 
   saveTasks.addEventListener('click', function () {
-      alert("Itens Salvos");
-      localStorage.setItem("tasks", document.getElementById('lista-tarefas').innerHTML);
-      atualizaStorage();
+    alert('Itens Salvos');
+    localStorage.setItem(
+      'tasks',
+      document.getElementById('lista-tarefas').innerHTML
+    );
+    atualizaStorage();
   });
 
   selectElement.addEventListener('dblclick', function (props) {
-    if (props.target.classList.value === 'opened') {
-      props.target.classList.remove('opened');
-      props.target.classList.add('completed');
+    if (props.target.classList.value === 'opened itemSelected' || props.target.classList.value === 'opened') {
+      props.target.classList = 'completed itemSelected';
     } else {
-      props.target.classList.remove('completed');
-      props.target.classList.add('opened');
+      props.target.classList = 'opened itemSelected';
     }
     atualizaStorage();
   });
