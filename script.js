@@ -1,7 +1,10 @@
-/* texto-tarefa.addEventListener('')
+const inputField = document.getElementById('texto-tarefa');
+const list = document.getElementById('lista-tarefas');
+const btn = document.getElementById('criar-tarefa');
 
-function getInputValue() {
-  let value = document.getElementById("texto-tarefa").value;
-  alert(value);
-}
-*/
+btn.addEventListener('click', () => {
+  const listItem = document.createElement('li');
+  listItem.innerText = inputField.value;
+  inputField.value = '';
+  list.appendChild(listItem);
+});
