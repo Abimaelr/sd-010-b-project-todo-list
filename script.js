@@ -83,10 +83,12 @@ function riscaTask(){
             // console.log(event.target.className);
             if(event.target.classList.contains('completed')){
                 event.target.classList.remove('completed');
+                event.target.classList.add('notcompleted');
                 buttonFinalizados(); 
             }
             else{ 
                 event.target.classList.add('completed');
+                event.target.classList.remove('notcompleted');
                 buttonFinalizados(); 
             }
         })
@@ -129,6 +131,7 @@ createTaskButton.addEventListener("click", function(){
     else{
         let li = document.createElement('li');
         li.innerHTML = inputTask.value;
+        li.className = 'notcompleted'
         listTask.appendChild(li);
         inputTask.value = '';
         changeBackgroundColor();
