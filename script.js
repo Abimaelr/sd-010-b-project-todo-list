@@ -3,6 +3,7 @@ let orderedList = document.getElementById('lista-tarefas');
 let buttonCreateTask = document.getElementById('criar-tarefa');
 let buttonCleanList = document.getElementById('apaga-tudo');
 let buttonRemoveFinishedTasks = document.getElementById('remover-finalizados');
+let buttonSaveTasks = document.getElementById('salvar-tarefas')
 
 function createTask() {
   buttonCreateTask.addEventListener('click', () => {
@@ -10,7 +11,6 @@ function createTask() {
     task.innerHTML = inputTask.value;
     inputTask.value = '';
     orderedList.appendChild(task);
-    SetLocalStorage(orderedList, task);
   })
 }
 createTask();
@@ -56,8 +56,33 @@ function removeFinishedTasks() {
 }
 removeFinishedTasks();
 
-function SetLocalStorage(a, b) {
-  buttonCreateTask.addEventListener('click', function () {
-    localStorage.setItem(a, b)
+function SetLocalStorage() { // função baseada na solução do colega Gustavo Cerqueira
+  buttonSaveTasks.addEventListener('click', function () {
+    const allListItems = document.getElementsByTagName('li');
+    storedList = [];
+    for (let item of allListItems) {
+      const storedItem = {
+        text: item.innerHTML,
+        class: item.className,
+      }
+      storedList.push(storedItem);
+      localStorage.setItem('task', JSON.stringify(storedList));
+    }
   })
 }
+SetLocalStorage();
+
+function getLocalStorage() {
+  function loadTask(paramTask, paramClass) {
+      let newTask = document.createElement('li')
+      newTask.innerHTML = paramTask;
+      newTask.className = paramClass;
+      orderedList.appendChild(newTask);
+}
+
+  storedTasks = JSON.parse(localStorage.getItem('task'));
+  for (let i in storedTasks) {
+    loadTask(storedTasks[i].text, storedTasks[i].class);
+  }
+}
+getLocalStorage();
