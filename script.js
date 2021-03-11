@@ -44,12 +44,12 @@ function cleanList() {
   }
 }
 
-function removeCompletedItems() {
+function removeSpecificItems(itemClass) {
   const list = document.getElementById(listaTarefas);
   const listChildren = list.children;
-  const completedClass = 'completed';
+  const specificClass = itemClass;
   for (let index = (listChildren.length - 1); index >= 0; index -= 1) {
-    if (listChildren[index].classList.contains(completedClass)) {
+    if (listChildren[index].classList.contains(specificClass)) {
       list.removeChild(listChildren[index]);
     }
   }
@@ -112,7 +112,7 @@ addButtonClick('apaga-tudo', () => {
 });
 
 addButtonClick('remover-finalizados', () => {
-  removeCompletedItems();
+  removeSpecificItems('completed');
 });
 
 addButtonClick('salvar-tarefas', () => {
@@ -125,4 +125,8 @@ addButtonClick('mover-cima', () => {
 
 addButtonClick('mover-baixo', () => {
   moveSelectedDown();
+});
+
+addButtonClick('remover-selecionado', () => {
+  removeSpecificItems('selected');
 });
