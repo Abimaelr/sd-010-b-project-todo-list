@@ -1,3 +1,5 @@
+
+
 //paragrafo com ID e texto
 const paragrafo = document.createElement('p');
 paragrafo.innerText = "Clique duas vezes em um item para marcá-lo como completo";
@@ -32,7 +34,7 @@ writeItem.appendChild(criaLimpar);
 //cria botão remover finalizados
 const removeFinalizados = document.createElement('button');
 removeFinalizados.id = 'remover-finalizados';
-removeFinalizados.innerText = "Finalizado";
+removeFinalizados.innerText = "Limpa Finalizados";
 writeItem.appendChild(removeFinalizados);
 
 //cria botão salvar tarefas
@@ -40,6 +42,16 @@ const salvarTarefa = document.createElement('button');
 salvarTarefa.id = 'salvar-tarefas';
 salvarTarefa.innerText = "Salvar";
 writeItem.appendChild(salvarTarefa);
+
+
+function pegarLista() {
+	const list = document.querySelector('ol');
+	let teste = localStorage.getItem('chave-salvar')
+	if (teste !== '') {
+		list.innerHTML = (localStorage.getItem('chave-salvar'));
+	}
+}
+pegarLista();
 
 
 //função pra adicionar tarefa
@@ -110,10 +122,12 @@ limpaFinalizado();
 function salvarLista() {
 	const salvarTarefa = document.querySelector('#salvar-tarefas');
 	salvarTarefa.addEventListener('click', function (event) {
-		const salvar = document.querySelectorAll('li');
-		for (i = 0; i < salvar.length; i += 1) {
-			localStorage.salvar[i];
-		}
+		const salvar = document.querySelector('ol').innerHTML;
+
+		localStorage.setItem('chave-salvar', salvar);
+
+
 	})
 }
 salvarLista();
+
