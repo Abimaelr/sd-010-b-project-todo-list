@@ -24,17 +24,78 @@ h1 {
   text-align: center;
 }
 
+#funcionamento {
+  margin-bottom: 13px;
 
-main {
+}
+
+.buttons_container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttons_container:first-child {
+  margin-left: 10px;
+}
+
+button {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+img {
+  width: 26px;
+}
+
+.normal-btn {
+  color: white;
+  border-radius: 6px;
+  text-shadow: 0 1px 1px rgba(0 , 0 , 0 , 0.2);
+  background: rgb(202 , 60 , 60);
+  padding: 4px 8px;
+}
+
+#salvar-tarefas {
+  margin-right: 10px;
+  background: rgb(28 , 184 , 65);
+}
+
+#criar-tarefa {
+  background: rgb(66 , 184 , 221);
+}
+
+.note {
   background: url('http://i.stack.imgur.com/ynxjD.png') repeat-y;
   width: 52vw;
-  min-width: 40vh;
+  max-height: 80vh;
   margin: auto;
   font: normal 14px verdana;
   line-height: 25px;
   padding: 2px 10px;
   box-shadow: inset -1px -1px 2px rgba(0 , 0 , 0 , 0.2),
     5px 10px 5px rgba(0 , 0 , 0 , 0.2);
+  overflow-x: auto;
+}
+
+.input_container {
+  width: 100%;
+  margin: 22px 0 0;
+  text-align: center;
+}
+
+.input_container input {
+  width: 30vw;
+  margin: auto;
+  background-color: rgba(252 , 251 , 214 , 255);
+  border: 1px solid black;
+}
+
+li {
+  margin-left: 72px;
 }
 
 .note-container {
@@ -48,4 +109,13 @@ main {
 
 .completed {
   text-decoration: line-through;
+}
+
+
+@media ( max-width : 1440px ) {
+
+  .note {
+    width: 65vw;
+  }
+
 }

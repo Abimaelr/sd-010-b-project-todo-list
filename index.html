@@ -19,16 +19,32 @@
       </p>
     </header>
     <div class="note-container">
-      <main>
-        <input id="texto-tarefa" type="text" />
-        <button id="criar-tarefa">Adicionar</button>
-        <div>
-          <button id="remover-selecionado">remove Selected</button>
-          <button id="mover-cima">subir</button>
-          <button id="mover-baixo">descer</button>
-          <button id="remover-finalizados">Limpar Completos</button>
-          <button id="apaga-tudo">Limpar Lista</button>
-          <button id="salvar-tarefas">Salvar</button>
+      <main class="note">
+        <div class="buttons_container">
+          <button id="remover-selecionado">
+            <img
+              src="./images/icons8-excluir.svg"
+              alt="excluir item selecionado"
+            />
+          </button>
+          <button id="mover-cima">
+            <img
+              src="./images/icons8-esquerda-e-acima-2-50.png"
+              alt="move selected up"
+            />
+          </button>
+          <button id="mover-baixo">
+            <img src="./images/down.png" alt="move selected down" />
+          </button>
+          <button class="normal-btn" id="remover-finalizados">
+            Limpar Completos
+          </button>
+          <button class="normal-btn" id="apaga-tudo">Limpar Lista</button>
+          <button class="normal-btn" id="salvar-tarefas">Salvar</button>
+        </div>
+        <div class="input_container">
+          <input id="texto-tarefa" type="text" />
+          <button class="normal-btn" id="criar-tarefa">Adicionar</button>
         </div>
         <section>
           <ol id="lista-tarefas"></ol>
