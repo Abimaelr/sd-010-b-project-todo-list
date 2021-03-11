@@ -16,7 +16,12 @@ document.getElementById('lista-tarefas').addEventListener('click', function sele
 
 document.getElementById('lista-tarefas').addEventListener('dblclick', function completedTask(event) {
   if(event.target.className.includes('tasks')) {
+    if(event.target.className.includes('completed')) {
+    event.target.classList.remove('completed');
+    }
+    else {
     event.target.className += ' completed';
+    }
   }
 })
 
