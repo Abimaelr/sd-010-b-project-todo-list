@@ -13,6 +13,6 @@ document.addEventListener('click', (event) => {
     for (let i = 0; i < tarefas.length; i += 1) {
       tarefas[i].style.backgroundColor = null;
     }
-    event.target.style.backgroundColor = "rgb(128, 128, 128)"
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 });
