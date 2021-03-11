@@ -14,12 +14,12 @@ function taskCompleted(e) {
 
 function addTask() {
   const newTask = document.getElementById('texto-tarefa');
-  if (newTask.value !== '') {    
+  if (newTask.value !== '') {
     const task = document.createElement('li');
     task.className = 'task';
     task.innerHTML = newTask.value;
     taskList.appendChild(task);
-    // task.addEventListener('click', taskSelect);
+    task.addEventListener('click', taskSelect);
     task.addEventListener('dblclick', taskCompleted);
     newTask.value = '';
   }
@@ -31,7 +31,7 @@ function removeAllTasks() {
 
 function removeCompletedTasks() {
   const completedTasks = document.getElementsByClassName('completed');
-  for (let i = 0; i < completedTasks.length; i++) {
+  for (let i = 0; i < completedTasks.length; i += 1) {
     completedTasks[i].remove();
   }
   if (completedTasks.length > 0) {
