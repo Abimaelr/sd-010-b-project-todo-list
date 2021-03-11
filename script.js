@@ -11,6 +11,18 @@ const taskList = document.createElement('ol');
 taskList.id = 'lista-tarefas';
 document.body.appendChild(taskList);
 
+
+const eraseButton = document.createElement('button');
+eraseButton.id = 'apaga-tudo';
+eraseButton.innerHTML = 'Limpar lista';
+document.body.appendChild(eraseButton);
+eraseButton.addEventListener('click', function () {
+  const tasks = document.querySelectorAll('#listItem');  
+  for (let index = 0; index < tasks.length; index +=1) {
+    tasks[index].parentNode.removeChild(tasks[index]);
+  }
+})
+
 const button = document.createElement('button');
 button.id = 'criar-tarefa';
 button.innerHTML = 'Adicionar';
@@ -19,6 +31,7 @@ button.addEventListener('click', function () {
   if (text.value !== '') { // Fonte: https://pt.stackoverflow.com/questions/21860/como-pegar-input-usando-html-e-javascript
     const newTask = document.createElement('li');
     newTask.innerHTML = text.value;
+    newTask.id = 'listItem';
     taskList.appendChild(newTask);
     text.value = '';
   }
