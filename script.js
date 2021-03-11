@@ -39,6 +39,7 @@ function addTask(text, classes) {
   const listItem = createTaskElement(text, classes);
   if (listItem) taskList.appendChild(listItem);
   taskInput.value = '';
+  taskInput.focus();
 }
 
 // Deleta tarefa selecionada
@@ -108,20 +109,20 @@ function loadTasks() {
 
 window.onload = () => {
   loadTasks();
-
-  removeSelectedTaskButton.addEventListener('click', removeSelectedTask);
-
+  saveTaskButton.addEventListener('click', saveTasks);
+  taskInput.addEventListener('keyup', (event) => {
+    if (event.key === 'Enter') addTask(taskInput.value, 'tarefa');
+  });
   createTaskButton.addEventListener('click', () => {
     addTask(taskInput.value, 'tarefa');
   });
-
-  deleteTasksButton.addEventListener('click', clearTaskList);
-
-  removeDoneTasksButton.addEventListener('click', removeDoneTasks);
-
+  window.addEventListener('keyup', (event) => {
+    if (event.key === 'ArrowUp') moveTaskUp();
+    if (event.key === 'ArrowDown') moveTaskDown();
+  });
   taskUpButton.addEventListener('click', moveTaskUp);
-
   taskDownButton.addEventListener('click', moveTaskDown);
-
-  saveTaskButton.addEventListener('click', saveTasks);
+  removeSelectedTaskButton.addEventListener('click', removeSelectedTask);
+  deleteTasksButton.addEventListener('click', clearTaskList);
+  removeDoneTasksButton.addEventListener('click', removeDoneTasks);
 };
