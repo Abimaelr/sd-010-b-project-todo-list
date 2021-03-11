@@ -28,11 +28,11 @@ header {
   text-decoration: line-through solid rgb(0, 0, 0);
 }
 
-#apaga-tudo {
+#apaga-tudo, #remover-finalizados {
   background-color: black;
   border-radius: 50px;
   color: white;
   font-weight: 600;
-  margin: 30px;
+  margin: 80px 10px 0 30px;
   padding: 2px 5px;
 }
