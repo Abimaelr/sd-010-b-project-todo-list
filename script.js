@@ -35,8 +35,6 @@ function backgroundReset () {
   }
 }
 
-backgroundReset();
-
 function overline () {
   const list = document.getElementById('lista-tarefas');
   list.addEventListener('dblclick', function (event) {
@@ -78,7 +76,7 @@ function save() {
   const buttonSave = document.getElementById('salvar-tarefas');
   buttonSave.addEventListener('click', function () {
     const lista = document.getElementsByTagName('ol');
-      localStorage.setItem('listaObjects',JSON.stringify(lista[0].outerHTML));
+      localStorage.setItem('listaObjects',JSON.stringify(lista[0].innerHTML));
   });
 }
 
@@ -86,10 +84,11 @@ save();
 
 function initialize() {
   let list = document.getElementsByTagName('ol')[0];
-  list.outerHTML = (localStorage.getItem('listaObjects'));
+  list.innerHTML = JSON.parse(localStorage.getItem('listaObjects'));
+  backgroundReset();
 }
 
-// initialize ();
+initialize ();
 
 function acima() {
   const btnacima = document.getElementById('mover-cima');
