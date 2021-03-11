@@ -104,7 +104,7 @@ loadTasks();
 function taskUp() {
   const buttonUp = document.querySelector("#mover-cima");
   buttonUp.addEventListener("click", function () {
-    if(howSelected() != 0){
+    if(howSelected() != 0 && howSelected() != null){
       reordering("up", howSelected());
     }
   });
@@ -113,7 +113,7 @@ function taskUp() {
 function taskDown() {
   const buttonUp = document.querySelector("#mover-baixo");
   buttonUp.addEventListener("click", function () {
-    if(howSelected() != (ThetoDoList.childNodes.length - 1)){
+    if(howSelected() != (ThetoDoList.childNodes.length - 1) && howSelected() != null){
       reordering("Down", howSelected());
     }
   });
@@ -130,7 +130,7 @@ function reordering(position, select) {
 }
 
 function howSelected() {
-  let select
+  let select = null;
   for (let task = 0; task < ThetoDoList.childNodes.length; task++) {
     if (ThetoDoList.childNodes[task].className.match(/selected/)) {
       select = task;
