@@ -12,9 +12,9 @@ function clickCreateList () {
 }
 createBtn.addEventListener('click', clickCreateList);
 taskList.addEventListener('click', function (event) {
-  const select = document.querySelectorAll('.selecionada');
+  const select = document.getElementsByClassName('selecionada');
   if (select.length !== 0) {
-    select[0].className = "listItem";
+    select[0].classList.remove('selecionada');
     event.target.classList.add('selecionada');
   }
   if (select.length === 0 ) {
@@ -22,11 +22,12 @@ taskList.addEventListener('click', function (event) {
   }
 })
 taskList.addEventListener('dblclick', function (event) {
-  const completed = document.querySelectorAll('.completed');
-  if (event.target.classList.contains('completed')) {
+  const completed = document.getElementsByClassName('completed');
+  if (!event.target.classList.contains('completed')) {
     event.target.classList.add('completed');
   }
-  if (event.target.classList.contains('completed')) {
+  else if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
   }
-})
+}
+)
