@@ -2,7 +2,7 @@ const task = document.getElementById('texto-tarefa');
 const saveButton = document.getElementById('criar-tarefa');
 const orderedlist = document.getElementById('lista-tarefas'); 
 const deleteAll = document.getElementById('apaga-tudo');
-const deleteComplete = document.getElementById('remover-finalizados')
+const deleteCompleted = document.getElementById('remover-finalizados')
 const listItem = document.getElementsByTagName('li');
 
 saveButton.addEventListener('click', () => {
@@ -11,6 +11,10 @@ saveButton.addEventListener('click', () => {
 
 deleteAll.addEventListener('click', () => {
   removeAll();
+});
+
+deleteCompleted.addEventListener('click', () => {
+  removeTodo();
 });
 
 function addTask() {
@@ -34,5 +38,13 @@ function addTask() {
 function removeAll() {
   while (orderedlist.firstChild) {
     orderedlist.removeChild(orderedlist.lastChild)
+  }
+}
+
+function removeTodo() {
+  for (let i = 0; i < listItem.length; i++) {        
+    if(listItem[i].classList.contains('completed')){
+      listItem[i].remove();
+    }
   }
 }
