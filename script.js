@@ -1,6 +1,7 @@
 const createTasksBtn = document.getElementById('criar-tarefa');
 const toDoList = document.getElementById('lista-tarefas');
 const taskInput = document.getElementById('texto-tarefa');
+const deleteAllTasks = document.getElementById('apaga-tudo');
 
 function createTasks() {
   const toDoListItem = document.createElement('li');
@@ -11,17 +12,6 @@ function createTasks() {
 createTasksBtn.addEventListener('click', createTasks);
 
 toDoList.addEventListener('click', (event) => {
-  /* const element = event.target;
-  const liArray = toDoList.children;
-  for (let index = 0; index < liArray.length; index += 1) {
-    const liArrayItem = liArray[index];
-    if (liArrayItem.style.backgroundColor === 'rgb(128, 128, 128)') {
-      liArrayItem.style.backgroundColor = '';
-    }
-  }
-  if (element.style.backgroundColor === '') {
-    element.style.backgroundColor = 'rgb(128, 128, 128)';
-  } */
   const element = event.target;
   const selectedItem = document.querySelector('.selected');
   if (selectedItem) selectedItem.classList.remove('selected');
@@ -36,3 +26,5 @@ toDoList.addEventListener('dblclick', (event) => {
     element.classList.add('completed');
   }
 }, false);
+
+deleteAllTasks.addEventListener('click', () => { toDoList.innerHTML = ''; }, false);
