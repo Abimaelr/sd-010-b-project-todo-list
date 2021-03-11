@@ -26,7 +26,7 @@ eraseButton.addEventListener('click', function () {
 const button = document.createElement('button');
 button.id = 'criar-tarefa';
 button.innerHTML = 'Adicionar';
-document.body.insertBefore(button, text.nextSibling);
+document.body.insertBefore(button, text.nextSibling); // Fonte: https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
 button.addEventListener('click', function () {
   if (text.value !== '') { // Fonte: https://pt.stackoverflow.com/questions/21860/como-pegar-input-usando-html-e-javascript
     const newTask = document.createElement('li');
@@ -41,11 +41,13 @@ function selectTask() {
   const tasks = document.getElementById('lista-tarefas');
   const list = document.getElementsByTagName('li');
   tasks.addEventListener('click', function (event) {
-    for (let index = 0; index < tasks.childNodes.length; index += 1) {
-      list[index].classList.remove('selected');
-    }
-    if (event.target.tagName === 'LI') {
-      event.target.className = 'selected';
+    if (event.target.classList.value !== 'completed'){
+      for (let index = 0; index < tasks.childNodes.length; index += 1) {
+        list[index].classList.remove('selected');
+      }
+      if (event.target.tagName === 'LI') {
+        event.target.className = 'selected';
+      }
     }
   });
 }
@@ -53,10 +55,12 @@ function selectTask() {
 function completeTask() {
   const tasks2 = document.getElementById('lista-tarefas');
   tasks2.addEventListener('dblclick', function (event2) {
-    if (event2.target.className !== 'completed' || event2.target.className !== 'selected completed') {
+    if (event2.target.classList.value !== 'completed') {
       event2.target.classList.add('completed');
+      event2.target.classList.remove('selected');  
     } else {
-      event2.target.classList.remove('completed');  
+      event2.target.classList.remove('completed');
+      event2.target.classList.add('selected');
     }
   });
 }
