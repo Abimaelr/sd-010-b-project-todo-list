@@ -40,8 +40,8 @@ function completeActivity() {
 completeActivity();
 
 function cleanList() {
-  clearButton.addEventListener('click', function () {
+  clearButton.addEventListener('click', () => {
     list.innerHTML = '';
-  })
+  });
 }
 cleanList();
