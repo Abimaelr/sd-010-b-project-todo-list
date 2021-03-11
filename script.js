@@ -26,13 +26,13 @@ function coloreFundo() {
 }
 coloreFundo();
 
-function riscaTarefa() {
+function tarefaCompleta() {
   const tarefas = document.querySelector('#lista-tarefas'); 
   tarefas.addEventListener('dblclick', function(evento){
     evento.target.classList.toggle('completed'); // adiciona e remove a classe quando há o dblclick
   });
 }
-riscaTarefa();
+tarefaCompleta();
 
 const botaoApagaTudo = document.querySelector('#apaga-tudo')
 botaoApagaTudo.innerHTML = 'Limpar Lista'
@@ -49,3 +49,19 @@ function apagaItensDaLista(){
 }
 apagaItensDaLista();
 
+
+// Requisito 11 - Remove os itens com a classe completed
+const botaoRemoveCompletos = document.querySelector('#remover-finalizados');
+  botaoRemoveCompletos.innerHTML = 'Limpar Completos';
+
+function removeCompletos(){
+  const lista = document.querySelector('#lista-tarefas')
+  const tarefaFinalizada = document.getElementsByTagName('li');
+  for (let i = 0; i < tarefaFinalizada.length; i += 1) {
+    if(tarefaFinalizada[i].classList.contains('completed')){
+      lista.removeChild(tarefaFinalizada[i]);
+    }
+  }
+}
+botaoRemoveCompletos.addEventListener('click', removeCompletos);
+  
