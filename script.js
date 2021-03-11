@@ -6,6 +6,8 @@ window.onload = function () {
   let selectElement = null;
   let allTasks = null;
   let removeCompleted = null;
+  let saveTasks = null;
+  let tasksLocalStorage = null;
 
   startAplication();
 
@@ -61,7 +63,11 @@ window.onload = function () {
     element.id = 'lista-tarefas';
     elementSection.appendChild(element);
     recoveredOl = document.getElementById('lista-tarefas');
-    selectElement = document.querySelector('#lista-tarefas');
+    selectElement = document.querySelector('#lista-tarefas');   
+
+    if(localStorage.getItem('tasks')){
+        recoveredOl.innerHTML = localStorage.getItem('tasks');
+    }    
 
     // Etapa 05 - Criando o botão Criar Tarefa
     // Criando um Botão <button> dentro da section
@@ -71,7 +77,7 @@ window.onload = function () {
     elementSection.appendChild(elementButton);
     addTask = document.getElementById('criar-tarefa');
 
-    // Etapa 10 - Criando o botão Limpar Tarefas
+    // Etapa 10 - Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista
     // Criando um Botão <button> dentro da section
     const elementButtonClear = document.createElement('button');
     elementButtonClear.id = 'apaga-tudo';
@@ -79,13 +85,21 @@ window.onload = function () {
     elementSection.appendChild(elementButtonClear);
     clearAll = document.getElementById('apaga-tudo');
 
-    // Etapa 10 - Criando o botão Limpar Tarefas
+    // Etapa 11 - Adicione um botão com id="remover-finalizados" que quando clicado remove somente os elementos finalizados da sua lista
     // Criando um Botão <button> dentro da section
     const elementRemoveCompleted = document.createElement('button');
     elementRemoveCompleted.id = 'remover-finalizados';
     elementRemoveCompleted.innerText = 'Remover Finalizados';
     elementSection.appendChild(elementRemoveCompleted);
     removeCompleted = document.getElementById('remover-finalizados');
+
+    // Etapa 12 - Bonus - Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava
+    // Criando um Botão <button> dentro da section
+    const elementSalvarTarefas = document.createElement('button');
+    elementSalvarTarefas.id = 'salvar-tarefas';
+    elementSalvarTarefas.innerText = 'Salvar Tarefas';
+    elementSection.appendChild(elementSalvarTarefas);
+    saveTasks = document.getElementById('salvar-tarefas');
   }
 
   function addItem(props) {
@@ -106,8 +120,14 @@ window.onload = function () {
     return allTasks;
   }
 
+    function atualizaStorage(){
+        localStorage.removeItem('tasks');
+        localStorage.setItem("tasks", document.getElementById('lista-tarefas').innerHTML);
+    }
+
   addTask.addEventListener('click', function () {
     if (addItem(recoveredInput)) {
+      atualizaStorage();
       recoveredInput.value = '';
     }
   });
@@ -115,17 +135,19 @@ window.onload = function () {
   removeCompleted.addEventListener('click', function () {
     allTasks = document.querySelectorAll('#item');
     for (let index = 0; index < allTasks.length; index++) {
-        if (allTasks[index].classList.value === "completed") {
-            allTasks[index].parentNode.removeChild(allTasks[index]);            
-        }
+      if (allTasks[index].classList.value === 'completed') {
+        allTasks[index].parentNode.removeChild(allTasks[index]);
+      }
     }
+    atualizaStorage();
   });
 
-  clearAll.addEventListener('click', function () {
+  clearAll.addEventListener('click', function () {    
     allTasks = document.querySelectorAll('#item');
     for (let index = 0; index < allTasks.length; index++) {
       allTasks[index].parentNode.removeChild(allTasks[index]);
     }
+    atualizaStorage();
   });
 
   selectElement.addEventListener('click', function (props) {
@@ -133,14 +155,21 @@ window.onload = function () {
     props.target.style.background = 'rgb(128, 128, 128)';
   });
 
+  saveTasks.addEventListener('click', function () {
+      alert("Itens Salvos");
+      localStorage.setItem("tasks", document.getElementById('lista-tarefas').innerHTML);
+      atualizaStorage();
+  });
+
   selectElement.addEventListener('dblclick', function (props) {
-    if (props.target.classList.value === "opened") {
-        props.target.classList.remove('opened');
-        props.target.classList.add('completed');           
+    if (props.target.classList.value === 'opened') {
+      props.target.classList.remove('opened');
+      props.target.classList.add('completed');
     } else {
-       props.target.classList.remove('completed');
-        props.target.classList.add('opened');   
+      props.target.classList.remove('completed');
+      props.target.classList.add('opened');
     }
+    atualizaStorage();
   });
 
   function startAplication() {
