@@ -37,7 +37,7 @@ footer {
 #texto-tarefa {
   border-radius: 4px;
   display: inline-block;
-  font-family: Verdana;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 16px;
   padding: 3px 5px;
   text-decoration: none;
@@ -120,4 +120,64 @@ footer {
 
 .btnSav:hover {
   background: linear-gradient(rgb(27 , 151 , 10) 5% , rgb(100 , 173 , 90) 100%);
+}
+
+.btnUp {
+  border: 1px solid;
+  border-color: rgb(150 , 75, 14);
+  border-radius: 4px;
+  background: linear-gradient(rgb(78, 40, 8) 5% , rgb(150 , 75 , 14) 100%);
+  box-shadow: inset 1px rgb(215 , 236 , 253);
+  display: inline-block;
+  cursor: pointer;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  padding: 4px 6px;
+  text-decoration: none;
+  color: black;
+  margin-left: 10px;
+}
+
+.btnUp:hover {
+  background: linear-gradient(rgb(150 , 75 , 14) 5% , rgb(78, 40, 8) 100%);
+}
+
+.btnDown {
+  border: 1px solid;
+  border-color: rgb(150 , 75 , 14);
+  border-radius: 4px;
+  background: linear-gradient(rgb(78, 40, 8) 5% , rgb(150 , 75 , 14) 100%);
+  box-shadow: inset 1px rgb(215 , 236 , 253);
+  display: inline-block;
+  cursor: pointer;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  padding: 4px 6px;
+  text-decoration: none;
+  color: black;
+  margin-left: 10px;
+}
+
+.btnDown:hover {
+  background: linear-gradient(rgb(150 , 75 , 14) 5% , rgb(78, 40, 8) 100%);
+}
+
+.btnRmv {
+  border: 1px solid;
+  border-color: rgb(246 , 31 , 14);
+  border-radius: 4px;
+  background: linear-gradient(rgb(252 , 169 , 161) 5% , rgb(246 , 31 , 14) 100%);
+  box-shadow: inset 1px rgb(215 , 236 , 253);
+  display: inline-block;
+  cursor: pointer;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  padding: 4px 6px;
+  text-decoration: none;
+  color: black;
+  margin-left: 10px;
+}
+
+.btnRmv:hover {
+  background: linear-gradient(rgb(246 , 31 , 14) 5% , rgb(252 , 168 , 161) 100%);
 }

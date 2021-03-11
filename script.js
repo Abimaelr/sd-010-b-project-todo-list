@@ -2,6 +2,9 @@ const criarBtnAdicionar = document.createElement('button');
 const criarBtnDelete = document.createElement('button');
 const criarBtnCompleto = document.createElement('button');
 const criarBtnSalva = document.createElement('button');
+const criarBtnUp = document.createElement('button');
+const criarBtnDown = document.createElement('button');
+const criarBtnRemove = document.createElement('button');
 const txtTarefa = document.querySelector('#texto-tarefa');
 const ordLista = document.querySelector('#lista-tarefas');
 const sectionInput = document.querySelector('#section-input');
@@ -38,6 +41,30 @@ function criarBotaoSalvar() {
   criarBtnSalva.className = 'btnSav';
   criarBtnSalva.innerText = 'Salvar Tarefas';
   sectionBtn.appendChild(criarBtnSalva);
+}
+
+// função cria botao up
+function criarBotaoUp() {
+  criarBtnUp.id = 'subir-tarefa';
+  criarBtnUp.className = 'btnUp';
+  criarBtnUp.innerText = 'Up';
+  sectionBtn.appendChild(criarBtnUp);
+}
+
+// função cria botao down
+function criarBotaoDown() {
+  criarBtnDown.id = 'descer-tarefa';
+  criarBtnDown.className = 'btnDown';
+  criarBtnDown.innerText = 'Down';
+  sectionBtn.appendChild(criarBtnDown);
+}
+
+// função cria botao remove
+function criarBotaoRemove() {
+  criarBtnRemove.id = 'remover-tarefa';
+  criarBtnRemove.className = 'btnRmv';
+  criarBtnRemove.innerText = 'X';
+  sectionBtn.appendChild(criarBtnRemove);
 }
 
 // função que cria os itens na lista
@@ -108,6 +135,7 @@ function LimparCompletos() {
   }
 }
 
+// função 
 function salvaTarefa() {
   localStorage.setItem('listaSalva', ordLista.innerHTML);
 }
@@ -133,6 +161,9 @@ criarBtnSalva.addEventListener('click', salvaTarefa);
 
 window.onload = function () {
   criarBotaoAdd();
+  criarBotaoRemove();
+  criarBotaoUp();
+  criarBotaoDown();
   criarBotaoDelete();
   criarBotaoCompleto();
   criarBotaoSalvar();
