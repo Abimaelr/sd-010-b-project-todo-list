@@ -14,7 +14,7 @@ div {
   border: 3px black solid;
   border-radius: 20px;
   height: 550px;
-  background-color: rgba(134 , 214 , 145 , 0.699);
+  background-color: rgb(133, 189, 189);
 }
 
 header {
@@ -41,16 +41,10 @@ header {
   background-color: transparent;
 }
 
-button {
-  border-radius: 20px;
-  padding: 7px 15px;
-  margin-right: 10px;
-}
-
 input {
   width: 30%;
   box-sizing: border-box;
-  border-radius: 5px;
+  border-radius: 20px;
   padding: 3px 15px;
   font-size: 1.15em;
   border: rgb(185, 185, 185) 2px solid;
@@ -58,7 +52,24 @@ input {
 }
 
 input:focus {
-  border-radius: 5px;
+  outline: transparent;
   border: rgb(44, 44, 44) 2px solid;
   background-color: rgb(219, 219, 219);
+}
+
+button {
+  font-size: 1.1em;
+  border-radius: 20px;
+  padding: 5px 15px;
+  margin-right: 10px;
+}
+
+button:focus {
+  outline: transparent;
+}
+
+#mover-cima, #mover-baixo {
+  border-color: 
+  background-color: rgb(231, 186, 38);
+  font-weight: 900;
 }

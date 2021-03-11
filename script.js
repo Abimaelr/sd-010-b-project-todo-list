@@ -85,7 +85,9 @@ btnClearCompleted.addEventListener('click', clearCompleted);
 
 function clearSelected() {
   const selectedElement = document.querySelector('.selected');
-  selectedElement.remove();
+  if (selectedElement) {
+    selectedElement.remove();
+  }
 }
 
 btnClearSelected.addEventListener('click', clearSelected);
@@ -108,7 +110,9 @@ if (localStorage.getItem('taskList')) {
 
 function moveUp() {
   const selectedElement = document.querySelector('.selected');
-  if (taskList.childElementCount > 0 && selectedElement === 1 && selectedElement.previousElementSibling !== null) {
+  if (taskList.childElementCount > 0
+    && selectedElement !== null
+    && selectedElement.previousElementSibling !== null) {
     taskList.insertBefore(selectedElement, selectedElement.previousElementSibling);
   }
 }
@@ -119,7 +123,10 @@ btnMoveUp.addEventListener('click', moveUp);
 
 function moveDown() {
   const selectedElement = document.querySelector('.selected');
-  if (taskList.childElementCount > 0 && selectedElement === 1 && selectedElement.nextElementSibling !== null) {
+  if (taskList.childElementCount > 0
+    && selectedElement !== null
+    && selectedElement.nextElementSibling !== null) {
+    console.log('a');
     taskList.insertBefore(selectedElement.nextElementSibling, selectedElement);
   }
 }
