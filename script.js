@@ -96,9 +96,8 @@ function moveUp() {
 }
 
 function moveDown() {
-  const node = document.getElementsByClassName('selected');
-  const el = node[0];
-  if (el !== listaTarefas.lastChild) {
+  const el = document.querySelector('.selected');
+  if (el && el !== listaTarefas.lastChild) {
     const selected = el;
     const next = el.nextSibling.cloneNode(true);
     el.nextSibling.innerText = selected.innerText;
