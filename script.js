@@ -25,6 +25,9 @@ function addTask(taskTodo) {
       }
        taskEl.classList.add('selected');
     });
+    taskEl.addEventListener('dblclick', () => {      
+      taskEl.classList.toggle('completed')
+    });
   }
   task.value = '';
 }
