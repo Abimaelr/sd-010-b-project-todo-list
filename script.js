@@ -53,28 +53,7 @@ window.onload = function () {
           }
     }
 
-// BOTÃO REMOVER FINALIZADOS
-    // let remover = document.querySelector('#remover-finalizados');
-    // remover.addEventListener('click', removerFinalizados);
-    // function removerFinalizados() {
-    //     let ol = document.querySelectorAll('#lista-tarefas li');
-    //     let orderedList = document.querySelector('#lista-tarefas');
-    //     let size = ol.length;
-    //     for(let i = 0; i < ol.length; i++){
-    //         let classes = ol[i].classList;
-    //         let count = 0;
-    //         for(let index = 0; index < ol[i].classList.length; index++){
-    //             if(classes[index] == 'completed'){
-    //                 count++;
-    //             }
-    //         }
-    //         if(count > 0){
-    //             orderedList.removeChild(orderedList.childNodes[i]);
-    //             i--;
-    //         }
-    //     }
-    // }
-
+// REMOVER FINALIZADOS
     let remover = document.querySelector('#remover-finalizados');
     remover.addEventListener('click', removerFinalizados);
     function removerFinalizados() {
@@ -86,11 +65,37 @@ window.onload = function () {
             t = false;
             }else{
             item.parentNode.removeChild(item);
+            // Source: https://www.w3schools.com/jsref/met_node_removechild.asp
             }
         }
         
     }
 
+// MOVER TAREFAS
+    // Botões
+    let moverCima = document.querySelector('#mover-cima');
+    moverCima.addEventListener('click', movCim);
+    let moverBaixo = document.querySelector('#mover-baixo');
+    moverBaixo.addEventListener('click', movBai);
+
+    //Funções
+    function movCim () {
+        let mov = document.querySelector('.selected');
+        let cim = mov.previousElementSibling;
+        let parent = document.querySelector('#lista-tarefas');
+        if(cim != null){
+            cim.before(mov);
+        }
+    }
+    
+    function movBai () {
+        let mov = document.querySelector('.selected');
+        let bai = mov.nextElementSibling;
+        let parent = document.querySelector('#lista-tarefas');
+        if(bai != null){
+            bai.after(mov);
+        }
+    }
 
 
 }
