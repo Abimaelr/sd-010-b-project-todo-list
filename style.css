@@ -6,3 +6,9 @@
 #texto-tarefa {
     border-color: lightseagreen;
 }
+.cinza{
+    background-color: rgb(128, 128, 128);
+}
+.completed{
+    text-decoration: line-through; /*https://www.horadecodar.com.br/2020/01/08/como-riscar-uma-palavra-com-css*/
+}
