@@ -4,8 +4,13 @@ const taskText = document.querySelector('#texto-tarefa');
 
 function addTaskToDo() {
   buttonAdd.addEventListener('click', function () {
-    mkTask(taskText.value, '');
-    taskText.value = '';
+    if((taskText.value).trim()){
+      mkTask((taskText.value).trim(), '');
+      taskText.value = '';
+    } else {
+      alert("Tarefa Vazia");
+    }
+    
   });
 }
 
