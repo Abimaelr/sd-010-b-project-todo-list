@@ -1,4 +1,4 @@
-window.onload = function () { 
+window.onload = function () {
   let tarefas = JSON.parse(localStorage.getItem('tarefas'));
   if (tarefas != null) {
     for (let i = 0; i < tarefas.length; i += 1) {
@@ -12,7 +12,7 @@ window.onload = function () {
       listaTarefas.appendChild(novaTarefa);
     }
   }
-}
+};
 
 document.addEventListener('click', (event) => {
   if (event.target.classList.contains('tarefa')) {
@@ -80,17 +80,22 @@ document.getElementById('salvar-tarefas').onclick = function () {
 };
 
 document.getElementById('mover-cima').onclick = function () {
-  let listaTarefas = document.querySelector('#lista-tarefas');
   let tarefa = document.querySelector('.selected');
-  if (tarefa !== listaTarefas.firstChild) {
-    listaTarefas.insertBefore(tarefa, tarefa.previousSibling);
+  if (tarefa !== null) {
+    let listaTarefas = document.querySelector('#lista-tarefas');
+    if (tarefa !== listaTarefas.firstChild) {
+      listaTarefas.insertBefore(tarefa, tarefa.previousSibling);
+    }
   }
-}
+};
 
 document.getElementById('mover-baixo').onclick = function () {
-  let listaTarefas = document.querySelector('#lista-tarefas');
   let tarefa = document.querySelector('.selected');
-  if (tarefa !== listaTarefas.lastChild) {
-    listaTarefas.insertBefore(tarefa, tarefa.nextSibling.nextSibling);
+  if (tarefa !== null) {
+    let listaTarefas = document.querySelector('#lista-tarefas');
+    if (tarefa !== listaTarefas.lastChild) {
+      // ??? Existe outra maneira de fazer isto sem ser usando o insertBefore?
+      listaTarefas.insertBefore(tarefa, tarefa.nextSibling.nextSibling);
+    }
   }
-}
+};
