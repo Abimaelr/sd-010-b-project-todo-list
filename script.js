@@ -2,6 +2,9 @@ let addTaskBtn = document.getElementById('criar-tarefa')
 let listaTarefas = document.getElementById('lista-tarefas')
 let allClearBtn = document.getElementById('apaga-tudo')
 let clearTaskBtn = document.getElementById('remover-finalizados')
+let saveBtn = document.getElementById('salvar-tarefas')
+let upBtn = document.getElementById('mover-cima')
+let downBtn = document.getElementById('mover-baixo')
 
 function createElement(tagName) {
   let element = document.createElement(tagName)
@@ -49,12 +52,68 @@ function clearTask() {
   tasksDone.forEach( el => el.remove())  
 }
 
-window.onload = function init() {
+// SOBRE JSON.stringfy()
+// https://www.w3schools.com/js/js_json_stringify.asp
+function save() {
+  localStorage.clear();
+  [...listaTarefas.children].map( (el, index) => {
+    let str = {
+      class: el.className,
+      text: el.innerText
+    }
+    localStorage.setItem(`${[index]}`, JSON.stringify(str))
+  })
+}
 
+// SOBRE JSON.parse()
+// https://www.w3schools.com/js/js_json_parse.asp
+function loadList(){
+  for (let i = 0; i < localStorage.length; i+=1){
+    let obj = JSON.parse(localStorage[i])
+    let li = createElement('li')
+    li.className = obj.class
+    li.innerText = obj.text
+    listaTarefas.appendChild(li)
+  }
+}
+
+// SOBRE CLONAR UM ELEMENTO HTML COM cloneNode()
+// https://gomakethings.com/how-to-copy-or-clone-an-element-with-vanilla-js/#:~:text=Copying%20an%20element%20%23&text=Now%2C%20we%20can%20use%20the,in%20true%20as%20an%20argument.
+function moveUp() {
+  listaTarefas.childNodes.forEach( el => {
+    if (el.classList.contains('selected') && el !== listaTarefas.firstChild){
+      let selected = el
+      let previous = el.previousSibling.cloneNode(true)
+      el.previousSibling.innerText = selected.innerText
+      el.previousSibling.className = selected.className
+      el.innerText = previous.innerText
+      el.className = previous.className      
+    }
+  })
+}
+
+function moveDown() {
+    let el = document.querySelector('.selected')
+    if (el !== listaTarefas.lastChild){
+      let selected = el
+      let next = el.nextSibling.cloneNode(true)
+      el.nextSibling.innerText = selected.innerText
+      el.nextSibling.className = selected.className
+      el.innerText = next.innerText
+      el.className = next.className      
+    }
+
+}
+
+window.onload = function init() {
+  loadList()
   addTaskBtn.addEventListener('click', addTask)
   listaTarefas.addEventListener('click', setSelected)
   listaTarefas.addEventListener('dblclick', setTaskDone)
   allClearBtn.addEventListener('click', setEmptyList)
   clearTaskBtn.addEventListener('click', clearTask)
-
+  saveBtn.addEventListener('click', save)
+  upBtn.addEventListener('click', moveUp)
+  downBtn.addEventListener('click', moveDown)
 }
+
