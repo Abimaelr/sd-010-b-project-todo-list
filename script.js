@@ -153,7 +153,10 @@ window.onload = function () {
   removeCompleted.addEventListener('click', function () {
     allTasks = document.querySelectorAll('#item');
     for (let index = 0; index < allTasks.length; index++) {
-      if (allTasks[index].classList.value === 'completed' || allTasks[index].classList.value === 'completed itemSelected') {
+      if (
+        allTasks[index].classList.value === 'completed' ||
+        allTasks[index].classList.value === 'completed itemSelected'
+      ) {
         allTasks[index].parentNode.removeChild(allTasks[index]);
       }
     }
@@ -162,18 +165,34 @@ window.onload = function () {
 
   moveElementUp.addEventListener('click', function () {
     const selectedElement = document.querySelector('.itemSelected');
-    if (selectedElement.previousElementSibling !== null) {
-      recoveredOl.insertBefore(selectedElement, selectedElement.previousElementSibling);
+    if (
+      selectedElement.className === 'opened itemSelected' ||
+      selectedElement.className === 'completed itemSelecte'
+    ) {
+      if (selectedElement.previousElementSibling !== null) {
+        recoveredOl.insertBefore(
+          selectedElement,
+          selectedElement.previousElementSibling
+        );
+      }
+      atualizaStorage();
     }
-    atualizaStorage();
   });
 
   moveElementDown.addEventListener('click', function () {
     const selectedElement = document.querySelector('.itemSelected');
-    if (selectedElement.nextElementSibling !== null) {
-      recoveredOl.insertBefore(selectedElement.nextElementSibling, selectedElement);
+    if (
+      selectedElement.className === 'opened itemSelected' ||
+      selectedElement.className === 'completed itemSelecte'
+    ) {
+      if (selectedElement.nextElementSibling !== null) {
+        recoveredOl.insertBefore(
+          selectedElement.nextElementSibling,
+          selectedElement
+        );
+      }
+      atualizaStorage();
     }
-    atualizaStorage();
   });
 
   clearAll.addEventListener('click', function () {
@@ -218,7 +237,10 @@ window.onload = function () {
   });
 
   selectElement.addEventListener('dblclick', function (props) {
-    if (props.target.classList.value === 'opened itemSelected' || props.target.classList.value === 'opened') {
+    if (
+      props.target.classList.value === 'opened itemSelected' ||
+      props.target.classList.value === 'opened'
+    ) {
       props.target.classList = 'completed itemSelected';
     } else {
       props.target.classList = 'opened itemSelected';
