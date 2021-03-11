@@ -17,7 +17,7 @@ eraseButton.id = 'apaga-tudo';
 eraseButton.innerHTML = 'Limpar lista';
 document.body.appendChild(eraseButton);
 eraseButton.addEventListener('click', function () {
-  const tasks = document.querySelectorAll('#listItem');  
+  const tasks = document.querySelectorAll('li');  
   for (let index = 0; index < tasks.length; index +=1) {
     tasks[index].parentNode.removeChild(tasks[index]);
   }
@@ -31,7 +31,6 @@ button.addEventListener('click', function () {
   if (text.value !== '') { // Fonte: https://pt.stackoverflow.com/questions/21860/como-pegar-input-usando-html-e-javascript
     const newTask = document.createElement('li');
     newTask.innerHTML = text.value;
-    newTask.id = 'listItem';
     taskList.appendChild(newTask);
     text.value = '';
   }
@@ -50,6 +49,7 @@ function selectTask() {
     }
   });
 }
+
 function completeTask() {
   const tasks2 = document.getElementById('lista-tarefas');
   tasks2.addEventListener('dblclick', function (event2) {
