@@ -70,12 +70,18 @@ window.onload = function () {
     }
   }
 
+  // https://www.w3schools.com/js/js_json_stringify.asp
+  // https://www.w3schools.com/js/js_json_parse.asp
   function saveTasks () {
     let taskItems = document.getElementsByTagName('li');
     let arrayTasks = [];
     if (taskItems != null) {
       for (let index = 0; index < taskItems.length; index++) {
-        arrayTasks.push(taskItems[index].innerHTML);
+        let taskObject = {
+          text: taskItems[index].innerText,
+          className: taskItems[index].className
+        }
+        arrayTasks.push(taskObject);
       }
       localStorage.setItem('taskStorage', JSON.stringify(arrayTasks));
     }
@@ -88,8 +94,8 @@ window.onload = function () {
     if (restore != null) {
       for (let index = 0; index < restore.length; index++) {
         let restoredTask = document.createElement("li");
-        restoredTask.innerHTML = restore[index];
-        restoredTask.setAttribute('class', 'task');
+        restoredTask.innerHTML = restore[index].text;
+        restoredTask.setAttribute('class', restore[index].className);
         restoredTask.addEventListener('click', taskColor);
         restoredTask.addEventListener('dblclick', taskThrough);
         taskList.appendChild(restoredTask);
