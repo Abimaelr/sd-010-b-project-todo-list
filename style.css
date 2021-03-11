@@ -7,6 +7,6 @@ button {
   text-decoration: line-through solid black;
 }
 
-#remover-finalizados {
+#remover-finalizados,#remover-selecionado {
   width: 200px;
 }

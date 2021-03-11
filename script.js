@@ -108,8 +108,8 @@ function acima() {
 acima();
 
 function abaixo() {
-  const btnacima = document.getElementById('mover-baixo');
-  btnacima.addEventListener('click', function () {
+  const btnabaixo = document.getElementById('mover-baixo');
+  btnabaixo.addEventListener('click', function () {
     const lista = document.getElementsByTagName('li');
     if (lista.length > 1) {
       for (let index = 0; index < lista.length - 1; index += 1) {
@@ -124,3 +124,17 @@ function abaixo() {
 }
 
 abaixo();
+
+function removeSelected() {
+  const btnremove = document.getElementById('remover-selecionado');
+  btnremove.addEventListener('click', function () {
+    const lista = document.getElementsByTagName('li');
+      for (let index = 0; index < lista.length; index += 1) {
+        if (lista[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+          lista[index].parentNode.removeChild(lista[index]);
+        }
+      }
+  });
+}
+
+removeSelected();
