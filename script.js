@@ -24,6 +24,13 @@ document.addEventListener("click", function (event) {
       document.querySelectorAll(".rgb-cinza")[0].classList.remove("rgb-cinza");
       event.target.classList.add("rgb-cinza") 
     }
+  }
+  if (event.target.id === "apaga-tudo") {
+    let dad = document.getElementById("lista-tarefas");
+    let childNumbers = document.getElementById("lista-tarefas").childElementCount;
+    for (let i = 0; i < childNumbers; i += 1) {
+      dad.removeChild(dad.lastElementChild)
+    }
   }  
 })
 
