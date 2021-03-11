@@ -1,13 +1,15 @@
-let tarefas = JSON.parse(localStorage.getItem('tarefas'));
-for (let i = 0; i < tarefas.length; i += 1){
-  let listaTarefas = document.querySelector('#lista-tarefas');
-  let novaTarefa = document.createElement('li');
-  novaTarefa.innerText = tarefas[i][0];
-  novaTarefa.className = 'tarefa';
-  if (tarefas[i][1]) {
-    novaTarefa.classList.add('completed');
+window.onload = function () { 
+  let tarefas = JSON.parse(localStorage.getItem('tarefas'));
+  for (let i = 0; i < tarefas.length; i += 1){
+    let listaTarefas = document.querySelector('#lista-tarefas');
+    let novaTarefa = document.createElement('li');
+    novaTarefa.innerText = tarefas[i][0];
+    novaTarefa.className = 'tarefa';
+    if (tarefas[i][1]) {
+      novaTarefa.classList.add('completed');
+    }
+    listaTarefas.appendChild(novaTarefa);
   }
-  listaTarefas.appendChild(novaTarefa);
 }
 
 document.addEventListener('click', (event) => {
@@ -58,6 +60,7 @@ document.getElementById('apaga-tudo').onclick = function () {
 document.getElementById('salvar-tarefas').onclick = function () {
   let tarefas = document.querySelectorAll('.tarefa');
   let tarefasSalvas = [];
+  let tarefaCompletada;
   for (let i = 0; i < tarefas.length; i += 1) {
     if (tarefas[i].classList.contains('completed')) {
       tarefaCompletada = true;
