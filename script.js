@@ -5,7 +5,7 @@ let buttonCleanList = document.getElementById('apaga-tudo');
 let buttonRemoveFinishedTasks = document.getElementById('remover-finalizados');
 
 function createTask() {
-  buttonCreateTask.addEventListener('click', function () {
+  buttonCreateTask.addEventListener('click', () => {
     let task = document.createElement('li')
     task.innerHTML = inputTask.value;
     inputTask.value = '';
