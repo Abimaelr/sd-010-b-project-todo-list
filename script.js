@@ -12,6 +12,7 @@
     if (e.classList.contains('gray')) {
       e.classList.remove('gray')
     } else {
+      cleanSelection()
       e.classList.add('gray')
     }
   }
@@ -22,5 +23,11 @@
     } else {
       e.classList.add('completed')
     }
+  }
+
+  function cleanSelection() {
+    document.querySelectorAll('#lista-tarefas li').forEach(function (item) {
+      item.classList.remove('gray')
+    })
   }
 
