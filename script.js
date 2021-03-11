@@ -32,4 +32,27 @@ function createTask() {
     item.addEventListener('dblclick', completedTask);
   });
 }
+
 createTask();
+
+function clearAll() {
+  const buttonClearAll = document.getElementById('apaga-tudo');
+
+  buttonClearAll.addEventListener('click', () => {
+    document.getElementById('lista-tarefas').innerHTML = '';
+  });
+}
+
+clearAll();
+
+function removeAllCompletedTasks() {
+  const buttonClearAll = document.getElementById('remover-finalizados');
+
+  buttonClearAll.addEventListener('click', () => {
+    const pai = document.getElementById('lista-tarefas');
+    const teste = document.querySelector('#lista-tarefas li.completed');
+    pai.removeChild(teste);
+  });
+}
+
+removeAllCompletedTasks();

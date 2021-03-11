@@ -64,3 +64,13 @@ section button:focus {
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
 }
+
+#apaga-tudo {
+  margin-left: 5px;
+  width: 95px;
+}
+
+#remover-finalizados {
+  width: 140px;
+  margin-left: 5px;
+}
