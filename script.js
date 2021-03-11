@@ -5,12 +5,7 @@ function createTask(event) {
   const task = document.createElement('li');
   listTask.appendChild(task);
   task.textContent = event.target.value;
+  document.getElementById('texto-tarefa').value = '';
 }
 
 inputField.addEventListener('change', createTask);
-
-function taskOrdener() {
-  task.sort();
-}
-
-taskOrdener();
