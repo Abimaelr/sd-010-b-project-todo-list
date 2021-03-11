@@ -9,7 +9,7 @@ const createTask = () => {
   button.addEventListener('click', (create) => {
     const task = document.createElement('li');
     selector('#lista-tarefas').appendChild(task);
-    task.innerText = selector('#texto-tarefa').value;
+    task.textContent = selector('#texto-tarefa').value;
     selector('#texto-tarefa').value = '';
     task.addEventListener('click', taskSelected);
     task.addEventListener('dblclick', taskCompleted);
@@ -66,7 +66,6 @@ const saveTask = () => {
     const taskObj = {};
     for (task of selectorAll('#lista-tarefas li')) {
       taskObj[`${task.innerText}`] = task.className;
-      console.log(task.className)
     }
     localStorage.saveTask = JSON.stringify(taskObj);
   });
@@ -82,10 +81,40 @@ if (localStorage.getItem('saveTask')) {
     create.addEventListener('dblclick', taskCompleted);
     create.className = loadTask[task];
     create.innerText = task;
+    if (create.classList.contains('selected')) selected.task = create;
   }
 }
+
+let moveTaskUp = () => {
+  let button = selector('#mover-cima');
+  button.addEventListener('click', (move) => {
+    let target = selected.task.previousElementSibling;
+    if (target != null) {
+      selected.task.parentNode.insertBefore(
+        target,
+        selected.task.nextElementSibling
+      );
+    }
+  });
+};
+
+let moveTaskDown = () => {
+  let button = selector('#mover-baixo');
+  button.addEventListener('click', (move) => {
+    let target = selected.task.nextElementSibling;
+    if (target != null) {
+      selected.task.parentNode.insertBefore(
+        target,
+        selected.task
+      );
+    }
+  });
+};
+
 saveTask();
 clearSelected();
 clearCompleted();
 clearTask();
 createTask();
+moveTaskUp();
+moveTaskDown();
