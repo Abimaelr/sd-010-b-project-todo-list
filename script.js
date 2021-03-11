@@ -153,7 +153,7 @@ window.onload = function () {
   removeCompleted.addEventListener('click', function () {
     allTasks = document.querySelectorAll('#item');
     for (let index = 0; index < allTasks.length; index++) {
-      if (allTasks[index].classList.value === 'completed') {
+      if (allTasks[index].classList.value === 'completed' || allTasks[index].classList.value === 'completed itemSelected') {
         allTasks[index].parentNode.removeChild(allTasks[index]);
       }
     }
