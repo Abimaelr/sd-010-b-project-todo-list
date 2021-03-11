@@ -5,18 +5,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+  <title>Lista de Tarefas</title>
 </head>
 <body>
   <header><h1>
     Minha Lista de Tarefas
   </h1></header>
   <p id='funcionamento'>Clique duas vezes em um item para marcá-lo como completo</p>
-  <section >
-    <input id='texto-tarefa'>
-    <button id='lista-tarefas'>Adicionar</button>
-  </section >
-  <ol id='lista-tarefa'>
+  <form>
+    <input type='text' name='list' placeholder="Lista de tarefa" required id='texto-tarefa'>
+    <button type='submit' id='lista-tarefas'>Adicionar</button>
+  </form >
+  <ol id='lista-tarefas'>
   </ol>
+  <script src="script.js"></script>
 </body>
 </html>
