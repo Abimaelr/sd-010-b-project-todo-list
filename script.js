@@ -24,7 +24,6 @@ lista.addEventListener('click', (event) => {
   const itemSelecionado = event.target;
   itemSelecionado.style.backgroundColor = 'rgb(128, 128, 128)';
   itemSelecionado.classList.add('selected');
-  console.log(itemSelecionado);
 });
 
 lista.addEventListener('dblclick', (event) => {
@@ -55,3 +54,17 @@ function removeFinalizados() {
 }
 const botaoApagaFinalizados = document.querySelector('#remover-finalizados');
 botaoApagaFinalizados.addEventListener('click', removeFinalizados);
+
+document.querySelector('.selected') = localStorage.selecionados;
+document.querySelectorAll('.completed') = localStorage.finalizados;
+document.querySelectorAll('.li') = localStorage.tarefas;
+const salvarData = function () {
+  const selecionados = document.querySelector('.selected');
+  const finalizados = document.querySelectorAll('.completed');
+  const tarefas = document.querySelectorAll('li');
+  localStorage.setItem('selecionados', selecionados);
+  localStorage.setItem('finalizados', finalizados);
+  localStorage.setItem('tarefas', tarefas);
+};
+
+document.onchange = salvarData;
