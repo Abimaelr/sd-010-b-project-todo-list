@@ -54,6 +54,7 @@ p {
   background-color: forestgreen;
   font-size: 18px;
   color: white;
+  border: 1px solid forestgreen;
 }
 
 .div-lista {
@@ -67,25 +68,50 @@ ol {
   height: auto;
 }
 
+.completed {
+  text-decoration: line-through;
+}
+
 .div-botoes {
-  margin-top: 100px;
+  margin: 50px 0px 15px 0px;
   padding: 25px;
   text-align: center;
 
 }
 
-#apaga-tudo {
 
-  width: 120px;
+#remover-finalizados {
+
+  width: 170px;
   height: 30px;
-  border-radius: 10px;
-  background-color: firebrick;
-  font-size: 18px;
+  border-radius: 20px;
+  background-color: rgb(60, 136, 207);
+  font-size: 16px;
   color: white;
+  border: 1px solid rgb(60, 136, 207);
+  font-weight: bolder;
 }
 
+#apaga-tudo {
 
+  width: 150px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: firebrick;
+  font-size: 16px;
+  color: white;
+  font-weight: bolder;
+  border: 1px solid firebrick;
+}
 
-.completed {
-  text-decoration: line-through;
+#salvar-tarefas {
+
+  width: 150px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: goldenrod;
+  font-size: 16px;
+  color: white;
+  font-weight: bolder;
+  border: 1px solid goldenrod;
 }

@@ -1,3 +1,6 @@
+const salvarLista = document.querySelector('#lista-tarefas');
+salvarLista.innerHTML = localStorage.getItem('list');
+
 function criaItemLista() {
   const texto = document.querySelector('#texto-tarefa');
   const lista = document.querySelector('#lista-tarefas');
@@ -55,16 +58,9 @@ function removeFinalizados() {
 const botaoApagaFinalizados = document.querySelector('#remover-finalizados');
 botaoApagaFinalizados.addEventListener('click', removeFinalizados);
 
-document.querySelector('.selected') = localStorage.selecionados;
-document.querySelectorAll('.completed') = localStorage.finalizados;
-document.querySelectorAll('.li') = localStorage.tarefas;
-const salvarData = function () {
-  const selecionados = document.querySelector('.selected');
-  const finalizados = document.querySelectorAll('.completed');
-  const tarefas = document.querySelectorAll('li');
-  localStorage.setItem('selecionados', selecionados);
-  localStorage.setItem('finalizados', finalizados);
-  localStorage.setItem('tarefas', tarefas);
-};
+function salvarTarefa() {
+  localStorage.setItem('list', salvarLista.innerHTML);
+}
 
-document.onchange = salvarData;
+const salvar = document.querySelector('#salvar-tarefas');
+salvar.addEventListener('click', salvarTarefa);
