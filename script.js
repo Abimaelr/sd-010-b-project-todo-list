@@ -13,21 +13,21 @@ function makeTarefa() {
 let listaTarefas = document.getElementById('lista-tarefas');
 listaTarefas.addEventListener('click', changeColor);
 
-function changeColor(event) {  
-	let element = document.getElementById('lista-tarefas').childNodes;		
-	for (let index = 0; index < element.length; index += 1) {
-		let x = document.getElementById('lista-tarefas').childNodes[index];
-		if (event.target[index] != x) {
-			element[index].classList.remove('backColor');
-		}
-		if (event.target == element[index]) {
-			element[index].classList.add('backColor');			
-		}
-	}
+function changeColor(event) {
+  let element = document.getElementById('lista-tarefas').childNodes;
+  for (let index = 0; index < element.length; index += 1) {
+    // let x = document.getElementById('lista-tarefas').childNodes[index];
+    if (event.target[index] != element[index]) {
+      element[index].classList.remove('backColor', 'completed');
+    }
+    if (event.target == element[index]) {
+      element[index].classList.add('backColor', 'completed');
+    }
+  }
 }
 
 listaTarefas.addEventListener('dblclick', riscando);
 
 function riscando(event) {
-	event.target.classList.toggle('through');
+  event.target.classList.toggle('through');
 }
