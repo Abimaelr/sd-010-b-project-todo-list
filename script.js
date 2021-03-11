@@ -12,15 +12,30 @@ function creatElement() {
     textos.focus();
   });
 }
+//
+//
+
 creatElement();
+
 const li = document.getElementsByClassName('tasks');
 button.addEventListener('click', changeLi);
-
 function changeLi() {
   for (let index = 0; index < li.length; index += 1) {
     ol.addEventListener('click', (event) => {
       li[index].classList.remove('listSelected');
       event.target.classList.add('listSelected');
+    });
+  }
+}
+//
+//
+
+button.addEventListener('click', checkList);
+
+function checkList() {
+  for (let index = 0; index < li.length; index += 1) {
+    ol.addEventListener('dblclick', (event) => {
+      event.target.classList.toggle('completed');
     });
   }
 }
