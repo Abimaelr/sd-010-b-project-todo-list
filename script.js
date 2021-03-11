@@ -165,10 +165,7 @@ window.onload = function () {
 
   moveElementUp.addEventListener('click', function () {
     const selectedElement = document.querySelector('.itemSelected');
-    if (
-      selectedElement.className === 'opened itemSelected' ||
-      selectedElement.className === 'completed itemSelecte'
-    ) {
+    if (selectedElement.className != null) {
       if (selectedElement.previousElementSibling !== null) {
         recoveredOl.insertBefore(
           selectedElement,
@@ -181,10 +178,7 @@ window.onload = function () {
 
   moveElementDown.addEventListener('click', function () {
     const selectedElement = document.querySelector('.itemSelected');
-    if (
-      selectedElement.className === 'opened itemSelected' ||
-      selectedElement.className === 'completed itemSelecte'
-    ) {
+    if (selectedElement.className != null) {
       if (selectedElement.nextElementSibling !== null) {
         recoveredOl.insertBefore(
           selectedElement.nextElementSibling,
