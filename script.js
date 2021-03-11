@@ -12,7 +12,10 @@ window.onload = function () {
 
     newTask.appendChild(textTask);
     newTask.setAttribute('class', 'task');
+
     newTask.addEventListener('click', taskColor);
+    newTask.addEventListener('dblclick', taskThrough);
+
     taskList.appendChild(newTask);
 
     cleanText();
@@ -35,6 +38,15 @@ window.onload = function () {
       taskItens[index].classList.remove('li-selected');
     }
     taskItem.classList.add('li-selected');
+  }
+
+  function taskThrough(event) {
+    let taskItem = event.target;
+    let taskItens = document.querySelectorAll('li');
+    for (let index = 0; index < taskItens.length; index++) {
+      taskItens[index].classList.remove('li-through');
+    }
+    taskItem.classList.add('li-through');
   }
 
 
