@@ -108,6 +108,10 @@ function LimparCompletos() {
   }
 }
 
+function salvaTarefa() {
+  localStorage.setItem('listaSalva', ordLista.innerHTML);
+}
+
 // EVENTOS
 // evento ao clicar no botao "adicionar" insere um item na lista.
 criarBtnAdicionar.addEventListener('click', criarTarefa);
@@ -121,11 +125,17 @@ ordLista.addEventListener('click', selecionaLinha);
 // evento do botao limpar
 criarBtnDelete.addEventListener('click', () => limparLista(ordLista));
 
+// evento do botao remover completos
 criarBtnCompleto.addEventListener('click', LimparCompletos);
+
+// evento do botao salvar tarefas
+criarBtnSalva.addEventListener('click', salvaTarefa);
 
 window.onload = function () {
   criarBotaoAdd();
   criarBotaoDelete();
   criarBotaoCompleto();
   criarBotaoSalvar();
+
+  ordLista.innerHTML = localStorage.getItem('listaSalva');
 };
