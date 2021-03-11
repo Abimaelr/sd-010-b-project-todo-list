@@ -1,9 +1,3 @@
-/*
-pegar o valor do texto inserido
-criar uma li com esse valor, fazer a li ser filha de ol
-acredito que através de lista fica mais fácil, mas vamos ver
-*/
-
 function createLiText () {
   let getText = document.getElementById('texto-tarefa').value;
   let element = document.createElement('li');
@@ -17,15 +11,20 @@ function createLiText () {
 document.getElementById('criar-tarefa').addEventListener('click', createLiText);
 
 function changeColor (event) {
+  let liArray1 = document.getElementsByClassName('list-item');
+  for (index = 0; index < liArray1.length; index += 1) {
+    liArray1[index].style.backgroundColor = 'rgb(255, 255, 255)';
+  }
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+
 }
 
 function addEventToLi () {
-  let liArray = document.getElementsByClassName('list-item');
-  for (index = 0; index < liArray.length; index += 1) {
-    liArray[index].addEventListener('click', changeColor);
+  let liArray2 = document.getElementsByClassName('list-item');
+  for (index = 0; index < liArray2.length; index += 1) {
+    liArray2[index].addEventListener('click', changeColor);
   }
 }
  
-addEventListener('click', addEventToLi);
+document.getElementById('criar-tarefa').addEventListener('click', addEventToLi);
 
