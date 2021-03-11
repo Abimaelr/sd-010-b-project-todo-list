@@ -63,6 +63,7 @@ const buttonClearAll = document.createElement('button');
 bodyChilds.appendChild(buttonClearAll);
 buttonClearAll.id = 'apaga-tudo'
 buttonClearAll.innerText = 'Limpar Tudo';
+
 buttonClearAll.addEventListener('click', function () {
   const tasks = document.querySelectorAll('.task');
   for (let counter = tasks.length - 1; counter >= 0; counter -= 1) {
@@ -74,10 +75,55 @@ buttonClearAll.addEventListener('click', function () {
 const buttonClearComplete = document.createElement('button');
 bodyChilds.appendChild(buttonClearComplete);
 buttonClearComplete.id = 'remover-finalizados';
-buttonClearComplete.innerText = 'remover finalizados';
+buttonClearComplete.innerText = 'Remover Finalizados';
 buttonClearComplete.addEventListener('click', function () {
   const complete = document.querySelectorAll('.completed');
   for (let counter = complete.length - 1; counter >=0; counter -= 1) {
     document.getElementsByTagName('ol')[0].removeChild(complete[counter]);
   }
 });
+
+/* // requisito 12
+const buttonSave = document.createElement('button');
+buttonSave.innerText = 'Salvar Tarefas';
+bodyChilds.appendChild(buttonSave);
+buttonSave.id = 'salvar-tarefas';
+buttonSave.addEventListener('click', function () {
+  const tasks = document.querySelectorAll('.task');
+  for (let x = tasks.length - 1; x >= 0; x -= 1) {
+    olTasks.removeChild((tasks[x]));
+  }
+  olTasks.appendChild
+}) */
+
+// requisito 13
+
+//criando seta para cima
+const upButton = document.createElement('button');
+bodyChilds.appendChild(upButton);
+upButton.innerHTML = "^";
+upButton.id = 'mover-cima';
+//funçao mandar pra cima
+upButton.addEventListener('click', function (event) {
+  let descendo = document.getElementsByClassName('GrayElement')[0].previousElementSibling;
+  let subindo = document.getElementsByClassName('GrayElement')[0];
+  let genericVar = (descendo.innerHTML);
+  //move o gray
+  document.getElementsByClassName('GrayElement')[0].style.backgroundColor = 'initial';
+  subindo.classList.remove('GrayElement');
+  descendo.classList.add('GrayElement');
+  document.getElementsByClassName('GrayElement')[0].style.backgroundColor = 'rgb(128, 128, 128)';
+  //move strike
+  document.getElementsByClassName('completed')[0].style.textDecoration = 'initial';
+  subindo.classList.remove('completed');
+  descendo.classList.add('completed');
+  document.getElementsByClassName('completed')[0].style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+  descendo.innerHTML = ((subindo.innerHTML));
+  subindo.innerHTML = ((genericVar));
+})
+
+
+const downButton = document.createElement('button');
+bodyChilds.appendChild(downButton);
+downButton.innerHTML = "down";
+downButton.id = 'mover-baixo';
