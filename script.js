@@ -1,57 +1,55 @@
-const listaTarefas = document.getElementById('lista-tarefas').getElementsByTagName('li');
-
-function clickItem() {
-  for (let i = 0; i < listaTarefas.length; i += 1) {
-    listaTarefas[i].addEventListener('click', function () {
-      for (let j = 0; j < listaTarefas.length; j += 1) {
-        if (listaTarefas[j].style.backgroundColor === 'rgb(128, 128, 128)') {
-          listaTarefas[j].style.backgroundColor = 'white';
-        }
+function clickItem(li, listaTarefas) {
+  li.addEventListener('click', function (){
+    if (li.style.backgroundColor === 'rgb(128, 128, 128)') {
+      li.style.backgroundColor = 'white';
+    } else {
+      li.style.backgroundColor = 'rgb(128, 128, 128)';
+    }
+    for (let index = 0; index < listaTarefas.childNodes.length; index += 1) {
+      if ((listaTarefas.childNodes[index].style.backgroundColor === 'rgb(128, 128, 128)') && listaTarefas.childNodes[index] !== li) {
+        listaTarefas.childNodes[index].style.backgroundColor = 'white';
       }
-      listaTarefas[i].style.backgroundColor = 'rgb(128, 128, 128)';
-    })
-  }
+    }
+  })
 }
 
-function dblClickItem() {
-  for (let i = 0; i < listaTarefas.length; i += 1) {
-    listaTarefas[i].addEventListener('dblclick', function () {
-      console.log(listaTarefas[i]);
-      if (listaTarefas[i].className === 'completed') {
-        listaTarefas[i].classList.remove('completed');
-      } else {
-        listaTarefas[i].className = 'completed';
-      }
-    })
-  }
+function dblClickItem(li) {
+  li.addEventListener('dblclick', function () {
+    if (li.className === 'completed') {
+      li.classList.remove('completed');
+    } else {
+      li.className = 'completed';
+    }
+  })
 }
 
-function clear() {
-  for (let i = 0; i < listaTarefas.length; i += 1) {
-    document.getElementById('apaga-tudo').addEventListener('click', function () {
-      listaTarefas[i].remove();
-    })
-  }
+function clear(listaTarefas) {
+  document.getElementById('apaga-tudo').addEventListener('click', function () {
+    for (let i = 0; i < listaTarefas.childNodes.length; i += 1) {
+      listaTarefas.childNodes[i].remove();
+    }
+  })
+  
 }
 
-function removeFinalized() {
-  for (let i = 0; i < listaTarefas.length; i += 1) {
-    document.getElementById('remover-finalizados').addEventListener('click', function () {
-      if (listaTarefas[i].className === 'completed') {
-        listaTarefas[i].remove();
+function removeFinalized(listaTarefas) {
+  document.getElementById('remover-finalizados').addEventListener('click', function () {
+    for (let i = 0; i < listaTarefas.childNodes.length; i += 1) {    
+      if (listaTarefas.childNodes[i].className === 'completed') {
+        listaTarefas.childNodes[i].remove();
       }
-    })
-  }
+    }
+  })
 }
 
-function removeSelectd() {
-  for (let i = 0; i < listaTarefas.length; i += 1) {
-    document.getElementById('remover-selecionado').addEventListener('click', function () {
-      if (listaTarefas[i].style.backgroundColor === 'rgb(128, 128, 128)') {
-        listaTarefas[i].remove();
+function removeSelectd(listaTarefas) {
+  document.getElementById('remover-selecionado').addEventListener('click', function () {
+    for (let i = 0; i < listaTarefas.childNodes.length; i += 1) {    
+      if (listaTarefas.childNodes[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+        listaTarefas.childNodes[i].remove();
       }
-    })
-  }
+    }
+  })
 }
 
 function createTask() {
@@ -63,11 +61,12 @@ function createTask() {
     li.innerText = input.value;
     ol.appendChild(li);
     input.value = '';
-    clickItem();
-    dblClickItem();
-    clear();
-    removeFinalized();
-    removeSelectd();
+    const listaTarefas = document.getElementById('lista-tarefas');
+    clickItem(li, listaTarefas);
+    dblClickItem(li);
+    clear(listaTarefas);
+    removeFinalized(listaTarefas);
+    removeSelectd(listaTarefas);
   })
 }
 createTask();
