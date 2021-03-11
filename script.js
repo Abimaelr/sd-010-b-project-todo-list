@@ -19,9 +19,7 @@ function changeColor(event) {
     if (event.target[index] != element[index]) {
       element[index].classList.remove('selected');
     }
-    if (event.target == element[index]) {
-      element[index].classList.add('selected');
-    }
+    event.target.classList.add('selected');
   }
 }
 
@@ -42,7 +40,7 @@ let removerFinalizados = document.getElementById('remover-finalizados');
 removerFinalizados.addEventListener('click', removFinalized);
 
 function removFinalized() {
-  let array = document.getElementsByClassName('completed');
+  let array = document.getElementsByClassName('completed'); //obtive ajuda Henrique Zózimo
 	while (array[0]){
 		array[0].parentNode.removeChild(array[0]);
 	}
