@@ -27,7 +27,7 @@ ordenedList.id = 'lista-tarefas';
 main.appendChild(ordenedList);
 
 const button = createElement('button');
-button.innerHTML = 'Criar tarefa';
+button.innerHTML = 'Adicionar';
 button.id = 'criar-tarefa';
 main.appendChild(button);
 
@@ -41,9 +41,29 @@ function addNewTask() {
     if (inputValue.value.length > 0) {
       const newItem = createElement('li');
       newItem.innerHTML = inputValue.value;
+      newItem.classList.add('task');
       inputValue.value = '';
       ordenedList.appendChild(newItem);
     }
   });
 }
 addNewTask();
+
+function getTask() {
+  const list = document.getElementsByClassName('task');
+  for (let i = 0; i < list.length; i += 1) {
+    list[i].addEventListener('click', () => {
+      console.log('worked');
+      // event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    });
+  }
+}
+getTask();
+
+const clearList = createElement('button');
+clearList.id = 'apaga-tudo';
+clearList.innerHTML = 'Limpar lista';
+main.appendChild(clearList);
+clearList.addEventListener('click', () => {
+  ordenedList.innerHTML = '';
+});
