@@ -101,7 +101,7 @@ function moveUp() {
     selectedLi.forEach((e) => {
       if (e.style.backgroundColor === 'rgb(128, 128, 128)') {
         const before = e.previousElementSibling;
-        e.parentNode.insertBefore(e, before);
+        e.parentNode.insertBefore(e, before.previousSibling);
       }
     });
   });
