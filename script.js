@@ -4,6 +4,15 @@
   var input = document.getElementById('texto-tarefa');
   
   function adicionar() {
-    lista.innerHTML += '<li>'+input.value+'</li>'
+    lista.innerHTML += '<li onClick="changeColor(this)">'+input.value+'</li>'
     input.value= '';
   }
+
+  function changeColor(e) {
+    if (e.classList.contains('gray')) {
+      e.classList.remove('gray')
+    } else {
+      e.classList.add('gray')
+    }
+  }
+
