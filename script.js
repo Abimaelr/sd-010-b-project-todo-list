@@ -140,7 +140,19 @@ function salvaTarefa() {
   localStorage.setItem('listaSalva', ordLista.innerHTML);
 }
 
+//  função de mover
+function moveUp() {
 
+}
+
+function moveDown() {
+
+}
+
+// função de deletar 1 unico item
+function removeUnico() {
+
+}
 
 // EVENTOS
 // evento ao clicar no botao "adicionar" insere um item na lista.
@@ -161,7 +173,13 @@ criarBtnCompleto.addEventListener('click', LimparCompletos);
 // evento do botao salvar tarefas
 criarBtnSalva.addEventListener('click', salvaTarefa);
 
-//evento
+// evento do botao up down
+criarBtnUp.addEventListener('click', moveUp);
+
+criarBtnDown.addEventListener('click', moveDown);
+
+// evento do botao remover
+criarBtnRemove.addEventListener('click', removeUnico);
 
 window.onload = function () {
   criarBotaoAdd();
