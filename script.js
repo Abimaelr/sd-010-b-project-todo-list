@@ -71,6 +71,14 @@ window.onload = function () {
         
     }
 
+// REMOVER SELECIONADO
+    let removerS = document.querySelector('#remover-selecionado');
+    removerS.addEventListener('click', removerSelecionado);
+    function removerSelecionado() {
+        let li = document.querySelector('.selected');
+        li.parentNode.removeChild(li);
+    }
+
 // MOVER TAREFAS
     // Botões
     let moverCima = document.querySelector('#mover-cima');
