@@ -40,5 +40,4 @@ function apagarTarefas() {
   while (pai.firstChild) {
     pai.removeChild(pai.firstChild);
   }
-
 }
