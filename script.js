@@ -23,6 +23,13 @@ criaBotao.id = 'criar-tarefa';
 criaBotao.innerText = "Adiciona Tarefa";
 writeItem.appendChild(criaBotao);
 
+//cria botão pra limpar lista
+const criaLimpar = document.createElement('button');
+criaLimpar.id = 'apaga-tudo';
+criaLimpar.innerText = "Limpar";
+writeItem.appendChild(criaLimpar);
+
+
 //função pra adicionar tarefa
 function criarTarefa() {
 	const botaoTarefa = document.getElementById('criar-tarefa');
@@ -55,7 +62,6 @@ alteraCor()
 function riscar() {
 	const listaOrdenada = document.querySelector('#lista-tarefas');
 	listaOrdenada.addEventListener('dblclick', function (event) {
-		let itemRiscado = document.querySelector('.completed')
 
 		if (event.target.classList.contains('completed')) {
 			event.target.classList.remove('completed');
@@ -66,3 +72,14 @@ function riscar() {
 	})
 }
 riscar();
+
+function limparLista(){
+	const botaoLimpar = document.querySelector('#apaga-tudo');
+	botaoLimpar.addEventListener('click', function (event){
+	const task = document.querySelectorAll('li');
+	for (i = 0; i < task.length; i += 1) {
+		task[i].parentNode.removeChild(task[i]);
+	}
+	})
+}
+limparLista();
