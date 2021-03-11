@@ -18,6 +18,8 @@ let buttonCriarTarefa = document.getElementById('criar-tarefa');
 const buttonDeleteTasks = document.getElementById('apaga-tudo');
 const buttonDeleteTasksEnded = document.getElementById('remover-finalizados');
 const buttonSaveTasks = document.getElementById('salvar-tarefas');
+const buttonMoveTaskUp = document.getElementById('mover-cima');
+const buttonMoveTaskDn = document.getElementById('mover-baixo');
 
 function addEventClickInTask(task) {
     task.addEventListener('click', changeColorTask)
@@ -65,16 +67,20 @@ function deleteTasks() {
 /* Evento para deletar todas as tarefas */
 buttonDeleteTasks.addEventListener('click', deleteTasks);
 
-/* Removendo tarefas finalizadas */
-function deleteTasksEnded() {
+function qtdTasksEnded() {
   let tasks = document.getElementsByClassName('completed');
-  for (let index = 0; index <= tasks.length; index += 1) {
-    taskList.removeChild(document.getElementsByClassName('completed')[0]);
-  }
+  return tasks.length;
 }
 
+/* Removendo tarefas finalizadas */
+function deleteTasksEnded() {
+  let taskList = document.getElementById('lista-tarefas');
+  if(qtdTasksEnded() !== 0) {
+    document.getElementsByClassName('completed')[0].remove();
+    deleteTasksEnded();
+  }
+}
 buttonDeleteTasksEnded.addEventListener('click', deleteTasksEnded);
-
 /* Exercício 12: */
 function saveTasks() {
   let tasks = document.getElementsByTagName('li');
@@ -91,5 +97,41 @@ function saveTasks() {
   alert('Suas tarefas foram salvas com sucesso!!!');
 }
 buttonSaveTasks.addEventListener('click', saveTasks)
+
+//Adicionando botoes para mover as tarefas para cima ou para baixo
+function showConsole(values) {
+  return console.log(values);
+}
+
+function mountTaskList(tasks) {
+  let tasksInfo = [];
+  for (let task of tasks) {
+    tasksInfo.push([task.innerText, task.className, task.style.backgroundColor])
+  }
+  
+  list = document.getElementById('lista-tarefas');
+  list.innerHTML = '';
+  for (let index = 0; index < tasksInfo.length; index += 1) {
+    li = document.createElement('li');
+    li.innerText = tasksInfo[index][0];
+    li.className = tasksInfo[index][1];
+    li.style.backgroundColor = tasksInfo[index][2]
+    list.appendChild(li);
+  }
+  return console.log(tasksInfo);
+}
+
+function moveTaskUp() {
+  tasks = document.getElementsByTagName('li');
+  for (let index = 0; index < tasks.length; index += 1) {
+    if (tasks[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+        tasks[index] = tasks[index].previousSibling
+    }
+  }
+  mountTaskList(tasks);
+}
+
+buttonMoveTaskUp.addEventListener('click', moveTaskUp)
+
 
 
