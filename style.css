@@ -1,3 +1,54 @@
 body {
   margin: 2%;
+  background-color: #6bd26b;
+}
+
+#main {
+  background-color: aliceblue;
+  padding: 5%;
+  border-radius: 10px;
+}
+#title, #funcionamento, #texto-tarefa, #lista-tarefas {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#title {
+  margin-top: 0;
+}
+
+#funcionamento {
+  color: #5a5a5a;
+}
+
+#texto-tarefa {
+  padding: 3px;
+  border-radius: 50px;
+  border: 1px solid #5a5a5a;
+}
+
+#lista-tarefas {
+  text-align: left;
+  border: 1px solid #6bd26b;
+  border-radius: 10px;
+  padding: 10px 0px 10px 30px;
+}
+
+.task {
+  padding: 5px;
+}
+
+button {
+  border: 0px;
+  margin: 5px;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+#criar-tarefa {
+  background-color: #6fbeff;
+}
+
+#apaga-tudo {
+ background-color: #ff6f6f;
 }
