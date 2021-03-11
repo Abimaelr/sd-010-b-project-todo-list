@@ -1,5 +1,6 @@
 const listTask = document.getElementById('lista-tarefas');
 const inputField = document.getElementById('texto-tarefa');
+const clearAll = document.querySelector('#apaga-tudo');
 
 function createTask(event) {
   const task = document.createElement('li');
@@ -21,3 +22,7 @@ function paintLi(event) {
    event.target.classList.add('gray');
  }
 }
+
+clearAll.addEventListener('click', () => {
+  listTask.innerHTML = '';
+})
