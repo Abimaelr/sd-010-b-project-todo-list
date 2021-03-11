@@ -23,7 +23,7 @@ function criarBotaoAdd() {
 function criarBotaoDelete() {
   criarBtnDelete.id = 'apaga-tudo';
   criarBtnDelete.className = 'btnDel';
-  criarBtnDelete.innerText = 'Limpar';
+  criarBtnDelete.innerText = 'Limpar Lista';
   sectionBtn.appendChild(criarBtnDelete);
 }
 
@@ -111,7 +111,7 @@ function riscar() {
 // função para riscar um item
 function itemCompleto(evento) {
   const unid = evento.target;
-  if (unid.className === 'completed') {
+  if (unid.classList.contains('completed')) {
     unid.className = '';
     unid.style.textDecoration = '';
   } else {
@@ -135,10 +135,12 @@ function LimparCompletos() {
   }
 }
 
-// função 
+// função salva a lista no storage
 function salvaTarefa() {
   localStorage.setItem('listaSalva', ordLista.innerHTML);
 }
+
+
 
 // EVENTOS
 // evento ao clicar no botao "adicionar" insere um item na lista.
@@ -158,6 +160,8 @@ criarBtnCompleto.addEventListener('click', LimparCompletos);
 
 // evento do botao salvar tarefas
 criarBtnSalva.addEventListener('click', salvaTarefa);
+
+//evento
 
 window.onload = function () {
   criarBotaoAdd();
