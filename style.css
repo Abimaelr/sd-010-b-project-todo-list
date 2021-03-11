@@ -6,5 +6,5 @@
   }
 
   .selected {
-      color: rgb(128, 128, 128);
+      background-color: rgb(128, 128, 128);
   }
