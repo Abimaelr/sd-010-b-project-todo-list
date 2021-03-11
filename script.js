@@ -14,17 +14,21 @@ function cleanInput() {
   input.value = '';
 }
 
-function addItemToList() {
-  const list = document.getElementById(listaTarefas);
-  const item = document.createElement('li');
-  const input = document.getElementById('texto-tarefa');
-  item.innerText = input.value;
+function addEvents(item) {
   item.addEventListener('click', (element) => {
     addSelectedClass(element, 'selected');
   });
   item.addEventListener('dblclick', (element) => {
     element.target.classList.toggle('completed');
   });
+}
+
+function addItemToList() {
+  const list = document.getElementById(listaTarefas);
+  const item = document.createElement('li');
+  const input = document.getElementById('texto-tarefa');
+  item.innerText = input.value;
+  addEvents(item);
   list.appendChild(item);
 }
 
@@ -60,12 +64,7 @@ function saveList() {
 function addEventListenerToReturned(returned) {
   const item = returned.children;
   for (let index = 0; index < item.length; index += 1) {
-    item[index].addEventListener('click', (element) => {
-      addSelectedClass(element, 'selected');
-    });
-    item[index].addEventListener('dblclick', (element) => {
-      element.target.classList.toggle('completed');
-    });
+    addEvents(item[index]);
   }
 }
 
