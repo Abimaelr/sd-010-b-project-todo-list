@@ -51,16 +51,18 @@ reset.addEventListener('click', removeTask);
 
 // 11
 
-function removefinished() {
+function removeFinished() {
   const removerFinalizados = document.getElementById('remover-finalizados');
 
   const completed = document.getElementsByClassName('completed');
   removerFinalizados.addEventListener('click', () => {
     for (let index = 0; index < completed.length; index += 1) {
       if (completed.length > 0) {
-        completed[index].remove();
+        ol.removeChild(completed[index]);
+       // completed[index].remove();
       }
     }
   });
 }
-button.addEventListener('click', removefinished);
+//removeFinished()
+button.addEventListener('click', removeFinished);
