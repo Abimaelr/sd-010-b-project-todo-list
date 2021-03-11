@@ -163,9 +163,9 @@ window.onload = function () {
     atualizaStorage();
   });
 
-  moveElementUp.addEventListener('click', function () {
+  moveElementUp.addEventListener('click', function (props) {
+    if (props != null) {
     const selectedElement = document.querySelector('.itemSelected');
-    if (selectedElement.className != null) {
       if (selectedElement.previousElementSibling !== null) {
         recoveredOl.insertBefore(
           selectedElement,
@@ -176,9 +176,9 @@ window.onload = function () {
     }
   });
 
-  moveElementDown.addEventListener('click', function () {
+  moveElementDown.addEventListener('click', function (props) {
+    if (props != null) {
     const selectedElement = document.querySelector('.itemSelected');
-    if (selectedElement.className != null) {
       if (selectedElement.nextElementSibling !== null) {
         recoveredOl.insertBefore(
           selectedElement.nextElementSibling,
