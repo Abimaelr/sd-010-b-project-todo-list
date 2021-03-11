@@ -19,10 +19,19 @@ document.addEventListener("click", function (event) {
   }
   if (event.target.classList.contains("item-lista")) {
     if(document.querySelectorAll(".rgb-cinza").length === 0) {
-      event.target.className = "item-lista rgb-cinza"
+      event.target.classList.add("rgb-cinza")
     } if (document.querySelectorAll(".rgb-cinza").length !== 0) {
-      document.querySelectorAll(".rgb-cinza")[0].className = "item-lista";
-      event.target.className = "item-lista rgb-cinza"
+      document.querySelectorAll(".rgb-cinza")[0].classList.remove("rgb-cinza");
+      event.target.classList.add("rgb-cinza") 
     }
   }  
+})
+
+document.addEventListener("dblclick", function (event) {
+  if (event.target.classList.contains("item-lista") && !event.target.classList.contains("completed")) {
+    event.target.classList.add("completed")
+  }
+  else if (event.target.classList.contains("item-lista") && event.target.classList.contains("completed")) {
+    event.target.classList.remove("completed") 
+  }
 })
