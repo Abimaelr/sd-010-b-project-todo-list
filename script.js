@@ -8,7 +8,7 @@ function recebeClick () {
    
    const item = document.createElement('li');
    things.appendChild(item);
-   item.innerText = content.value;
+   item.innerHTML = content.value;
    content.value = '';
 };
 
