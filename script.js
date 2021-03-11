@@ -16,7 +16,6 @@ function changeColor (event) {
     liArray1[index].style.backgroundColor = 'rgb(255, 255, 255)';
   }
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-
 }
 
 function addEventsToLi () {
@@ -38,10 +37,20 @@ function checkItem (event) {
 }
   
 function cleanList () {
-  let getTaskList = document.getElementById('lista-tarefas')
+  let getTaskList = document.getElementById('lista-tarefas');
   while (getTaskList.firstChild) {
     getTaskList.removeChild(getTaskList.firstChild);
     }
   }
 
 document.getElementById('apaga-tudo').addEventListener('click', cleanList);
+
+function cleanCompleted () {
+  let liArray3 = document.querySelectorAll('.list-item.completed');
+  let getTaskList2 = document.getElementById('lista-tarefas');
+  for (let index = 0; index < liArray3.length; index += 1) {
+    getTaskList2.removeChild(liArray3[index]);
+    
+  }
+}
+document.getElementById('remover-finalizados').addEventListener('click', cleanCompleted);
