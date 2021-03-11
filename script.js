@@ -1,6 +1,7 @@
 const button = document.getElementById('criar-tarefa');
 const list = document.getElementById('lista-tarefas');
 const input = document.getElementById('texto-tarefa');
+const clearButton = document.getElementById('apaga-tudo');
 
 function addActivity() {
   button.addEventListener('click', () => {
@@ -37,3 +38,10 @@ function completeActivity() {
   });
 }
 completeActivity();
+
+function cleanList() {
+  clearButton.addEventListener('click', function () {
+    list.innerHTML = '';
+  })
+}
+cleanList();
