@@ -6,11 +6,15 @@ listTask = document.querySelector("#lista-tarefas");
  
 window.onload = function() {
     let listArrayStorage = JSON.parse(localStorage.getItem("listArrayStorage"));
-    if(listArrayStorage !== null){
-        
+    let listArrayClasses = JSON.parse(localStorage.getItem("listArrayClasses"));
+    if(listArrayClasses !== null){
+        console.log('aqui')
         for(let index = 0; index < listArrayStorage.length; index++){
             let li = document.createElement('li');
             li.innerHTML = listArrayStorage[index];
+            if(listArrayClasses[index] == 1){
+                li.className = 'completed'
+            } 
             listTask.appendChild(li);
         }
         changeBackgroundColor();
@@ -116,10 +120,18 @@ function buttonSalvar(){
     
     buttonrSalvar.addEventListener('click', function(event){
         let array = []
+        let arrayClasses = []
         for(let index = 0; index < listArray.length; index++){
             array.push(listArray[index].innerHTML)
+            if(listArray[index].classList.contains("completed")){
+                arrayClasses.push(1);
+            }
+            else{
+                arrayClasses.push(0);
+            }
         }
         localStorage.setItem('listArrayStorage', JSON.stringify(array));
+        localStorage.setItem('listArrayClasses', JSON.stringify(arrayClasses));
     })     
 }
 
