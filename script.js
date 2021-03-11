@@ -119,15 +119,15 @@ document.querySelector('#lista-tarefas').innerHTML = localStorage.task;
 }
 
 window.onload = () => {
-creatTask();
-addSelectedTask();
-addCompletedTask();
-buttonCleanList();
-buttonCleanCompleted();
-buttonClearSelected();
-moveTaskUp();
-moveTaskDown();
-saveTask();
-loadTask();
+  creatTask();
+  addSelectedTask();
+  addCompletedTask();
+  buttonCleanList();
+  buttonCleanCompleted();
+  buttonClearSelected();
+  moveTaskUp();
+  moveTaskDown();
+  saveTask();
+  loadTask();
 
 }
