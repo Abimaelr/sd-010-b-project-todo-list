@@ -14,7 +14,18 @@ addTask.addEventListener('click', function () {
         }
         taskLi.classList.add('selected');
     });
+    taskLi.addEventListener('dblclick', function () {
+      if (taskLi.className === 'selected') {
+        taskLi.classList.add('completed');
+      } else if (taskLi.className === 'completed selected') {
+        taskLi.classList.remove('completed');
+      }
+    });
   });
+
+// function completedTask (event) {
+
+// }
 
 
 
