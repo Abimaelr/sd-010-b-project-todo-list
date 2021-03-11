@@ -15,7 +15,7 @@ function createNewTask() {
     newTask.addEventListener('click', (event) => {
       const allLis = document.getElementsByTagName('li');
       for (let i = 0; i < allLis.length; i += 1) {
-        allLis[i].style.backgroundColor = 'white';
+        allLis[i].style.backgroundColor = '';
       }
       const tgt = event.target;
       tgt.style.backgroundColor = 'rgb(128, 128, 128)';
@@ -45,4 +45,20 @@ input.addEventListener('keypress', (evt) => {
     document.getElementById('criar-tarefa').click();
   }
 });
+
+const saveTasksBtn = document.getElementById('salvar-tarefas');
+saveTasksBtn.addEventListener('click', () => {
+  const tasks = document.getElementById('lista-tarefas').innerHTML;
+  localStorage.setItem('tasks', tasks);
+});
+
+function putSavedTasks() {
+  const tasks = localStorage.getItem('tasks');
+  const tasksList = document.querySelector('#lista-tarefas');
+  console.log(tasks);
+  console.log(tasksList);
+  tasksList.appendChild(tasks);
+  console.log(tasksList.innerHTML);
+}
 createNewTask();
+putSavedTasks();
