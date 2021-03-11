@@ -18,17 +18,22 @@ botão.addEventListener('click', vaiPraLista);
 function vaiPraLista() {
   let li = document.createElement('li');
   li.innerText = entradaDeTarefa;
-  li.className = 'lista'
   caixaDeEntrada.value = '';
   paiDaLista.appendChild(li);
-  tamanhoDaLista=document.querySelectorAll('.lista')
-  for (let cont = 0; cont < tamanhoDaLista.length; cont += 1) {
-    tamanhoDaLista[cont].addEventListener('click',function() {
-      let apagaACor = document.querySelectorAll('.grey')
-      if (apagaACor.length!==[]){apagaACor.classList.remove('grey')}
-      this.classList.add('grey');
-   });
-  }
+  tamanhoDaLista=document.querySelectorAll('li')
+  teste()
 }
 // ***********Pinta de cinza o item selecionado***************
+function teste(){
+for (let cont = 0; cont < tamanhoDaLista.length; cont += 1) {
+  tamanhoDaLista[cont].addEventListener('click',function() {
+      let apagaACor = document.querySelector('.grey')
+      if(apagaACor !== null){
+      apagaACor.classList.remove('grey')
+    } 
+      this.classList.add('grey');
+  });
+  }
+}
+
 
