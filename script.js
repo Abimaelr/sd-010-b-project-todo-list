@@ -1,7 +1,8 @@
 const createTasksBtn = document.getElementById('criar-tarefa');
 const toDoList = document.getElementById('lista-tarefas');
 const taskInput = document.getElementById('texto-tarefa');
-const deleteAllTasks = document.getElementById('apaga-tudo');
+const deleteAllTasksBtn = document.getElementById('apaga-tudo');
+const deleteCompletedTasksBtn = document.getElementById('remover-finalizados');
 
 function createTasks() {
   const toDoListItem = document.createElement('li');
@@ -27,4 +28,11 @@ toDoList.addEventListener('dblclick', (event) => {
   }
 }, false);
 
-deleteAllTasks.addEventListener('click', () => { toDoList.innerHTML = ''; }, false);
+deleteAllTasksBtn.addEventListener('click', () => { toDoList.innerHTML = ''; }, false);
+
+deleteCompletedTasksBtn.addEventListener('click', () => {
+  while (document.querySelector('.completed')) {
+    const completedTask = document.querySelector('.completed');
+    completedTask.remove();
+  }
+}, false);
