@@ -150,6 +150,16 @@ const setAddBtn = () => {
   addItemBtn.addEventListener('click', getItemAndAdd);
 };
 
+// Add input keydown listener
+
+const setInputKey = () => {
+  itemText.addEventListener('keydown', (e) => {
+    if (e.keyCode === 13) {
+      getItemAndAdd();
+    }
+  });
+};
+
 // Add ClearAll Button Listener
 const setClearBtn = () => {
   clearBtn.addEventListener('click', clearAll);
@@ -188,6 +198,7 @@ const setRemoveSelectedBtn = () => {
 
 const loadButtons = () => {
   setAddBtn();
+  setInputKey();
   setClearBtn();
   setClearCompletedBtn();
   setSaveBtn();
