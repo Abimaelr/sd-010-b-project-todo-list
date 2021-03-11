@@ -110,13 +110,11 @@ function loadTasks() {
 window.onload = () => {
   loadTasks();
   saveTaskButton.addEventListener('click', saveTasks);
-  taskInput.addEventListener('keyup', (event) => {
-    if (event.key === 'Enter') addTask(taskInput.value, 'tarefa');
-  });
   createTaskButton.addEventListener('click', () => {
     addTask(taskInput.value, 'tarefa');
   });
   window.addEventListener('keyup', (event) => {
+    if (event.key === 'Enter') addTask(taskInput.value, 'tarefa');
     if (event.key === 'ArrowUp') moveTaskUp();
     if (event.key === 'ArrowDown') moveTaskDown();
   });
