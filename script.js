@@ -4,7 +4,7 @@
   var input = document.getElementById('texto-tarefa');
   
   function adicionar() {
-    lista.innerHTML += '<li onClick="changeColor(this)">'+input.value+'</li>'
+    lista.innerHTML += '<li onClick="changeColor(this)" ondblClick="finished(this)">'+input.value+'</li>'
     input.value= '';
   }
 
@@ -13,6 +13,14 @@
       e.classList.remove('gray')
     } else {
       e.classList.add('gray')
+    }
+  }
+
+  function finished(e) {
+    if (e.classList.contains('completed')) {
+      e.classList.remove('completed')
+    } else {
+      e.classList.add('completed')
     }
   }
 
