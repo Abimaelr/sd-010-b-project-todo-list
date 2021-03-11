@@ -88,12 +88,14 @@ if (localStorage.getItem('saveTask')) {
 let moveTaskUp = () => {
   let button = selector('#mover-cima');
   button.addEventListener('click', (move) => {
-    let target = selected.task.previousElementSibling;
-    if (target != null) {
-      selected.task.parentNode.insertBefore(
-        target,
-        selected.task.nextElementSibling
-      );
+    if (selected.task) {
+      let target = selected.task.previousElementSibling;
+      if (target != null) {
+        selected.task.parentNode.insertBefore(
+          target,
+          selected.task.nextElementSibling
+        );
+      }
     }
   });
 };
@@ -101,14 +103,19 @@ let moveTaskUp = () => {
 let moveTaskDown = () => {
   let button = selector('#mover-baixo');
   button.addEventListener('click', (move) => {
-    let target = selected.task.nextElementSibling;
-    if (target != null) {
-      selected.task.parentNode.insertBefore(
-        target,
-        selected.task
-      );
+    if (selected.task) {
+      let target = selected.task.nextElementSibling;
+      if (target != null) {
+        selected.task.parentNode.insertBefore(target, selected.task);
+      }
     }
   });
+};
+
+let checkTaskSelected = (check) => {
+  for (task of selectorAll('#lista-tarefas li')) {
+    return console.log(task);
+  }
 };
 
 saveTask();
