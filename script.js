@@ -51,7 +51,7 @@ reset.addEventListener('click', removeTask);
 const removerFinalizados = document.getElementById('remover-finalizados');
 function removefinished() {
   const completed = document.getElementsByClassName('completed');
-  for (let index = 0; index < li.length; index += 1) {
+  for (let index = 0; index <= li.length; index += 1) {
     listaTarefas.removeChild(completed[0]);
   }
 }
