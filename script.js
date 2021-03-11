@@ -18,20 +18,20 @@ addButtons('button', 'mover-cima', 'mover-baixo');
 addButtons('button', 'remover-finalizados', 'Limpar Completos');
 addButtons('button', 'apaga-tudo', 'Limpar Lista');
 addButtons('button', 'salvar-tarefas', 'Salvar Lista');
+const leOl = document.querySelector('#lista-tarefas');
 function addLista() {
   const auxInput = document.querySelector('#texto-tarefa');
   if (auxInput.value !== '') {
-    const auxOl = document.querySelector('#lista-tarefas');
     const auxLi = document.createElement('li');
     auxLi.innerText = auxInput.value;
     auxLi.className = 'ncinca ncompleted';
-    auxOl.appendChild(auxLi);
+    leOl.appendChild(auxLi);
     auxInput.value = '';
   }
 }
 const auxButton = document.querySelector('#criar-tarefa');
 auxButton.addEventListener('click', addLista);
-/* /////////////////// */
+
 function clearCompleted() {
   const aux = document.querySelectorAll('li');
   for (let i = 0; i < aux.length; i += 1) {
@@ -50,7 +50,7 @@ function pintarCinca(evento) {
     aux.className = `ncinca ${auxSalve}`;
   }
 }
-const leOl = document.querySelector('#lista-tarefas');
+
 leOl.addEventListener('click', pintarCinca);
 
 function dbClick(event) {
@@ -64,21 +64,15 @@ function dbClick(event) {
   }
 }
 leOl.addEventListener('dblclick', dbClick);
-
 function apagaLista() {
-  const aux = document.querySelector('#lista-tarefas');
-  aux.innerHTML = '';
+  leOl.innerHTML = '';
 }
-const auxButtonClear = document.querySelector('#apaga-tudo');
-auxButtonClear.addEventListener('click', apagaLista);
-
 function removeFinalizados() {
   const aux = document.querySelectorAll('.completed');
   for (let i = 0; i < aux.length; i += 1) {
     aux[i].remove();
   }
 }
-
 function salvarDados() {
   const auxLi = document.querySelectorAll('li');
   const aux = [];
@@ -87,7 +81,14 @@ function salvarDados() {
   }
   localStorage.setItem('ListaSalva', JSON.stringify(aux));
 }
-
+function removeSelecionado() {
+  const aux = document.querySelector('.cinca');
+  aux.remove();
+}
+const auxRemoveSelecionado = document.querySelector('#remover-selecionado');
+auxRemoveSelecionado.addEventListener('click', removeSelecionado);
+const auxButtonClear = document.querySelector('#apaga-tudo');
+auxButtonClear.addEventListener('click', apagaLista);
 const auxRemoveFinalizados = document.querySelector('#remover-finalizados');
 auxRemoveFinalizados.addEventListener('click', removeFinalizados);
 const auxSalvar = document.querySelector('#salvar-tarefas');
