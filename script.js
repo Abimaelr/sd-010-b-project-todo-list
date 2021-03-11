@@ -45,16 +45,21 @@ const clearTask = () => {
     list.innerHTML = '';
   });
 };
-// Clear Completed
-const clearCompleted = () => {
-  clearComplet.addEventListener('click', () => {
-    list.innerHTML = '';
-  });
-};
-// Clear Completed
+// Clear Select
 const clearSelected = () => {
   clearSelect.addEventListener('click', () => {
     selected.task.parentNode.removeChild(selected.task);
+  });
+};
+// Clear Completed
+const clearCompleted = () => {
+  clearComplet.addEventListener('click', () => {
+    const listLi = document.querySelectorAll('#lista-tarefas li');
+    listLi.forEach((task) => {
+      if (task.classList.contains('completed')) {
+        task.parentNode.removeChild(task);
+      }
+    });
   });
 };
 // Save Task
@@ -98,7 +103,10 @@ const moveTaskUp = () => {
 const moveTaskDown = () => {
   moveDown.addEventListener('click', () => {
     if (selected.task && selected.task.nextElementSibling != null) {
-      selected.task.parentNode.insertBefore(target, selected.task);
+      selected.task.parentNode.insertBefore(
+        selected.task.nextElementSibling,
+        selected.task,
+      );
     }
   });
 };
