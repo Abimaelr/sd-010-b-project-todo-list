@@ -19,7 +19,7 @@ function addTask() {
     task.className = 'task';
     task.innerHTML = newTask.value;
     taskList.appendChild(task);
-    task.addEventListener('click', taskSelect);
+    // task.addEventListener('click', taskSelect);
     task.addEventListener('dblclick', taskCompleted);
     newTask.value = '';
   }
@@ -29,8 +29,21 @@ function removeAllTasks() {
   taskList.innerHTML = '';
 }
 
+function removeCompletedTasks() {
+  const completedTasks = document.getElementsByClassName('completed');
+  for (let i = 0; i < completedTasks.length; i++) {
+    completedTasks[i].remove();
+  }
+  if (completedTasks.length > 0) {
+    removeCompletedTasks();
+  }
+}
+
 const btnAdd = document.getElementById('criar-tarefa');
 btnAdd.addEventListener('click', addTask);
 
 const btnRmvAll = document.getElementById('apaga-tudo');
 btnRmvAll.addEventListener('click', removeAllTasks);
+
+const btnRmvCompleted = document.getElementById('remover-finalizados');
+btnRmvCompleted.addEventListener('click', removeCompletedTasks);
