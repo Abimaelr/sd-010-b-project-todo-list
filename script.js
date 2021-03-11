@@ -95,3 +95,12 @@ function moverBaixo() {
 }
 const btnMoverBaixo = document.querySelector('#mover-baixo');
 btnMoverBaixo.addEventListener('click', moverBaixo);
+
+function removerSelecionado() {
+  const listaItens = document.querySelector('ol');
+  const selecionado = document.querySelectorAll('.selected');
+
+  listaItens.removeChild(selecionado[0]);
+}
+const btnRemoveSelecionado = document.querySelector('#remover-selecionado');
+btnRemoveSelecionado.addEventListener('click', removerSelecionado);

@@ -16,7 +16,7 @@ header {
   display: inline-block;
   text-align: left;
   background-color: white;
-  margin-top: 300px;
+  margin-top: 200px;
   width: 1400px;
   border-radius: 50px;
   height: auto;
@@ -77,6 +77,28 @@ ol {
   padding: 25px;
   text-align: center;
 
+}
+
+#mover-cima {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  color: white;
+  background-color: gold;
+  border: 1px solid gold;
+  margin-right: 15px;
+}
+
+#mover-baixo {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  color: white;
+  background-color: gold;
+  border: 1px solid gold;
+  margin-right: 15px;
 }
 
 
