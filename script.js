@@ -100,8 +100,8 @@ function moveUp() {
     const selectedLi = document.querySelectorAll('li');
     selectedLi.forEach((e) => {
       if (e.style.backgroundColor === 'rgb(128, 128, 128)') {
-        const before = e.previousElementSibling;
-        e.parentNode.insertBefore(e, before.previousSibling);
+        const before = e.previousSibling;
+        e.parentNode.insertBefore(e, before);
       }
     });
   });
