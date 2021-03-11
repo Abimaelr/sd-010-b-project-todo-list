@@ -175,7 +175,7 @@ window.onload = function () {
           selectedElement.previousElementSibling
         );
       }
-      atualizaStorage();
+      atualizaStorage(); 
     }
   });
 
