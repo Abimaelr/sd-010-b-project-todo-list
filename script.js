@@ -67,9 +67,12 @@ clearList();
 clearCompleted();
 
 function buttonCompleted(){
-    let itemCompleted = document.querySelector(".completed");
-    if (itemCompleted.parentNode) {
-        itemCompleted.parentNode.removeChild(itemCompleted);
-        // Removendo um elemento específico sem precisar especificar seu pai
+    let itemCompleted = document.querySelectorAll(".completed");
+    for (let i = 0; i < itemCompleted.length; i += 1){
+        if (itemCompleted[i].parentNode) {
+            itemCompleted[i].parentNode.removeChild(itemCompleted[i]);
+            // Removendo um elemento específico sem precisar especificar seu pai
+        } 
     }
+    
 }
