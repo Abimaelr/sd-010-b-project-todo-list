@@ -1,7 +1,7 @@
 window.onload = function () { 
   let tarefas = JSON.parse(localStorage.getItem('tarefas'));
   if (tarefas != null) {
-    for (let i = 0; i < tarefas.length; i += 1){
+    for (let i = 0; i < tarefas.length; i += 1) {
       let listaTarefas = document.querySelector('#lista-tarefas');
       let novaTarefa = document.createElement('li');
       novaTarefa.innerText = tarefas[i][0];
@@ -17,9 +17,13 @@ window.onload = function () {
 document.addEventListener('click', (event) => {
   if (event.target.classList.contains('tarefa')) {
     let tarefas = document.querySelectorAll('.tarefa');
+    // ??? Consigo chamar o elemento procurando pelo atributo style?
     for (let i = 0; i < tarefas.length; i += 1) {
+      tarefas[i].classList.remove('selected');
       tarefas[i].style.backgroundColor = null;
     }
+    // ???
+    event.target.classList.add('selected');
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 });
@@ -74,3 +78,19 @@ document.getElementById('salvar-tarefas').onclick = function () {
   localStorage.setItem('tarefas', JSON.stringify(tarefasSalvas));
   alert('Tarefas salvas!');
 };
+
+document.getElementById('mover-cima').onclick = function () {
+  let listaTarefas = document.querySelector('#lista-tarefas');
+  let tarefa = document.querySelector('.selected');
+  if (tarefa !== listaTarefas.firstChild) {
+    listaTarefas.insertBefore(tarefa, tarefa.previousSibling);
+  }
+}
+
+document.getElementById('mover-baixo').onclick = function () {
+  let listaTarefas = document.querySelector('#lista-tarefas');
+  let tarefa = document.querySelector('.selected');
+  if (tarefa !== listaTarefas.lastChild) {
+    listaTarefas.insertBefore(tarefa, tarefa.nextSibling.nextSibling);
+  }
+}
