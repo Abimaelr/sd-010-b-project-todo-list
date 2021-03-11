@@ -1,7 +1,7 @@
-.through {
+.completed {
     text-decoration: line-through;
 }
 
-.backColor {
+.selected {
     background-color: rgb(128, 128, 128);
 }

@@ -16,12 +16,11 @@ listaTarefas.addEventListener('click', changeColor);
 function changeColor(event) {
   let element = document.getElementById('lista-tarefas').childNodes;
   for (let index = 0; index < element.length; index += 1) {
-    // let x = document.getElementById('lista-tarefas').childNodes[index];
     if (event.target[index] != element[index]) {
-      element[index].classList.remove('backColor', 'completed');
+      element[index].classList.remove('selected');
     }
     if (event.target == element[index]) {
-      element[index].classList.add('backColor', 'completed');
+      element[index].classList.add('selected');
     }
   }
 }
@@ -29,5 +28,5 @@ function changeColor(event) {
 listaTarefas.addEventListener('dblclick', riscando);
 
 function riscando(event) {
-  event.target.classList.toggle('through');
+  event.target.classList.toggle('completed');
 }
