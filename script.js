@@ -96,23 +96,25 @@ let taskList = document.querySelectorAll('li.task');
       listOl.insertBefore(taskList[index +1],position);
     }
   }
-
-
 })
 }
-
-
-
-
 const saveTask = () => {
+ btnSave.addEventListener('click',function(){
+ localStorageSave();
+ })
 
 }
 
-const localStoregeSave = () => {
-
-}
+const localStorageSave = () => {
+let save = document.querySelector('#lista-tarefas').innerHTML;
+localStorage.task = save;
+window.alert('Lista Salva');
+};
 
 const loadTask = () => {
+if (localStorage.task ){
+document.querySelector('#lista-tarefas').innerHTML = localStorage.task;
+}
 
 }
 
@@ -125,5 +127,7 @@ buttonCleanCompleted();
 buttonClearSelected();
 moveTaskUp();
 moveTaskDown();
+saveTask();
+loadTask();
 
 }

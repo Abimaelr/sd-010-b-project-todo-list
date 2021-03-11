@@ -3,8 +3,12 @@ border-radius:6px;
 
 }
 
-.configContainer{
-  margin-bottom:  10px;
+#configContainer{
+margin-top: 10px;
+
+}
+#bonus{
+margin-top: 10px;
 }
 
 .selected{
