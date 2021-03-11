@@ -8,7 +8,7 @@ window.onload = function() {
     let listArrayStorage = JSON.parse(localStorage.getItem("listArrayStorage"));
     let listArrayClasses = JSON.parse(localStorage.getItem("listArrayClasses"));
     if(listArrayClasses !== null){
-        console.log('aqui')
+    
         for(let index = 0; index < listArrayStorage.length; index++){
             let li = document.createElement('li');
             li.innerHTML = listArrayStorage[index];
@@ -22,6 +22,8 @@ window.onload = function() {
         buttonApaga();
         buttonFinalizados();  
         buttonSalvar();
+        buttonSelecionadosRemover();
+
     }
 } 
 
@@ -29,10 +31,8 @@ function buttonSelecionadosRemover(){
     
     let buttonSelecionado = document.querySelector("#remover-selecionado");
 
-    let task = document.querySelector('.selected');
-
     buttonSelecionado.addEventListener('click', function(){
-        // console.log(task);
+        let task = document.querySelector('.selected');
         task.remove();
     })     
 }
@@ -48,18 +48,20 @@ function changeBackgroundColor(){
             if(event.target.style.backgroundColor !== 'rgb(128, 128, 128)'){
                 event.target.style.backgroundColor = 'rgb(128, 128, 128)';
                 event.target.classList.add('selected');
-                // console.log(event.target);
-                buttonSelecionadosRemover()
+                // console.log(event.target);  
             
             }
             else{ 
+                
             }
             for(let index1 = 0; index1 < listArray.length; index1++){
                 if(listArray[index1] !== event.target){
                     listArray[index1].classList.remove('selected');
                     listArray[index1].style.backgroundColor = 'white';
+                    
                 }
             }
+            
         })
     }    
 }
@@ -67,9 +69,9 @@ function changeBackgroundColor(){
 function buttonFinalizados(){
     
     let buttonApaga = document.querySelector("#remover-finalizados");
-    let listArray = document.querySelectorAll(".completed");
     buttonApaga.addEventListener('click', function(){
         // console.log(listArray);
+        let listArray = document.querySelectorAll(".completed");
         for(let index = 0; index < listArray.length; index++){
             listArray[index].remove();
                 
@@ -88,13 +90,13 @@ function riscaTask(){
             if(event.target.classList.contains('completed')){
                 event.target.classList.remove('completed');
                 event.target.classList.add('notcompleted');
-                buttonFinalizados(); 
+                
             }
             else{ 
                 event.target.classList.add('completed');
                 event.target.classList.remove('notcompleted');
-                buttonFinalizados(); 
             }
+            console.log(event.target.className);
         })
     }  
 }
