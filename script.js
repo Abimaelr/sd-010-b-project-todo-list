@@ -32,7 +32,11 @@ selecionaItem.addEventListener('dblclick', function (event) {
 
 const botaoApaga = document.querySelector('#apaga-tudo');
 botaoApaga.addEventListener('click', function () {
-  selecionaItem.innerText = '';
+  for (let index = 0; index < tarefas.length; index += 1) {
+    selecionaItem.removeChild(tarefas[index]);
+    index -= 1;
+  }
+  localStorage.clear();
 });
 
 const botaoRemoveFinalizados = document.querySelector('#remover-finalizados');
@@ -41,23 +45,25 @@ botaoRemoveFinalizados.addEventListener('click', function () {
     if (tarefas[index].classList.contains('completed')) {
       selecionaItem.removeChild(tarefas[index]);
       index -= 1;
-    }
+    }    
   }
 });
 
 const botaoSalvar = document.querySelector('#salvar-tarefas');
 botaoSalvar.addEventListener('click', function () {
-  const tarefas = document.getElementsByTagName('li');
+  const tarefas = document.getElementsByTagName('li'); 
   const itens = [];
   if (tarefas !== null) {
     for (let index = 0; index < tarefas.length; index += 1) {
       itens.push(tarefas[index].innerHTML);
     }
     localStorage.setItem('todoList', JSON.stringify(itens));
+    itens.push(tarefas[index].classList.contains('completed'));
   }
 });
 
-function recuperaItens() {
+function recuperaItens() {  
+  const selecionaItem = document.querySelector('ol');
   const recupera = JSON.parse(localStorage.getItem('todoList'));
   if (recupera !== null) {
     for (let index = 0; index < recupera.length; index += 1) {
