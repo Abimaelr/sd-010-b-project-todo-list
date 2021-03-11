@@ -18,6 +18,13 @@ function addTask() {
 addTask();
 
 function selectItem() {
-  let clickedItem = event.target;
-  clickedItem.style.backgroundColor = 'rgb(128, 128, 128)';
+  const selectedItem = document.querySelector('.selectedItem');
+  if (selectedItem) {
+    selectedItem.classList.remove('selectedItem');
+    let clickedItem = event.target;
+    clickedItem.classList.add('selectedItem');
+  } else {
+    let clickedItem = event.target;
+    clickedItem.classList.add('selectedItem');
+  }
 }
