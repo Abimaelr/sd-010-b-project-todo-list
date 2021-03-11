@@ -37,3 +37,11 @@ function checkItem (event) {
   }
 }
   
+function cleanList () {
+  let getTaskList = document.getElementById('lista-tarefas')
+  while (getTaskList.firstChild) {
+    getTaskList.removeChild(getTaskList.firstChild);
+    }
+  }
+
+document.getElementById('apaga-tudo').addEventListener('click', cleanList);
