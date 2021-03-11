@@ -45,7 +45,7 @@ function criarBotaoSalvar() {
 
 // função cria botao up
 function criarBotaoUp() {
-  criarBtnUp.id = 'subir-tarefa';
+  criarBtnUp.id = 'mover-cima';
   criarBtnUp.className = 'btnUp';
   criarBtnUp.innerText = '▲';
   sectionBtn.appendChild(criarBtnUp);
@@ -53,7 +53,7 @@ function criarBotaoUp() {
 
 // função cria botao down
 function criarBotaoDown() {
-  criarBtnDown.id = 'descer-tarefa';
+  criarBtnDown.id = 'mover-baixo';
   criarBtnDown.className = 'btnDown';
   criarBtnDown.innerText = '▼';
   sectionBtn.appendChild(criarBtnDown);
@@ -61,7 +61,7 @@ function criarBotaoDown() {
 
 // função cria botao remove
 function criarBotaoRemove() {
-  criarBtnRemove.id = 'remover-tarefa';
+  criarBtnRemove.id = 'remover-selecionado';
   criarBtnRemove.className = 'btnRmv';
   criarBtnRemove.innerText = '✘';
   sectionBtn.appendChild(criarBtnRemove);
@@ -78,7 +78,7 @@ function criarTarefa() {
 // função para pintar o background
 function pintarLinha() {
   for (let index = 0; index < getItem.length; index += 1) {
-    if (getItem[index].className === 'selected') {
+    if (getItem[index].classList.contains('selected')) {
       getItem[index].style.backgroundColor = 'rgb(128, 128, 128)';
     } else {
       getItem[index].style.backgroundColor = '';
@@ -142,11 +142,17 @@ function salvaTarefa() {
 
 //  função de mover
 function moveUp() {
-
+  const seletor = document.querySelector('.selected');
+  if (seletor.previousSibling !== null) {
+    ordLista.insertBefore(seletor, seletor.previousSibling);
+  }
 }
 
 function moveDown() {
-
+  const seletor = document.querySelector('.selected');
+  if (seletor.nextSibling !== null) {
+    ordLista.insertBefore(seletor, seletor.nextSibling.nextSibling);
+  }
 }
 
 // função de deletar 1 unico item
