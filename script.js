@@ -12,6 +12,6 @@ botao.addEventListener('click', function () {
 
 for (let index = 0; index < corLista.length; index += 1) {
   corLista[index].addEventListener('click', function () {
-    event.target.style.color = 'rgb(128, 128, 128)';
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   })
 }
