@@ -4,7 +4,7 @@ createTaskButton = document.querySelector("#criar-tarefa");
 inputTask = document.querySelector("#texto-tarefa");
 listTask = document.querySelector("#lista-tarefas");
 
-window.onload = function() {
+/* window.onload = function() {
     let listArrayStorage = JSON.parse(localStorage.getItem("listArrayStorage"));
     let listArrayClasses = JSON.parse(localStorage.getItem("listArrayClasses"));
     if(listArrayClasses !== null){
@@ -26,7 +26,7 @@ window.onload = function() {
 
     }
 } 
-
+ */
 function buttonSelecionadosRemover(){
     
     let buttonSelecionado = document.querySelector("#remover-selecionado");
@@ -36,31 +36,27 @@ function buttonSelecionadosRemover(){
     })     
 }
 
-function changeBackgroundColor(){
-
-    let listArray = document.querySelector("ol").childNodes;
-
-    for(let index = 0; index < listArray.length; index++){
+function changeBackgroundColor(li){
       
-        listArray[index].addEventListener('click', function(event){
+    li.addEventListener('click', function(event){   
+        let listArray = document.querySelectorAll("li");
+
+        if(event.target.style.backgroundColor !== 'rgb(128, 128, 128)'){
+            event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+            eventX = event.target;
+                        
+        }
+        else{ 
             
-            if(event.target.style.backgroundColor !== 'rgb(128, 128, 128)'){
-                event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-                eventX = event.target;
-                            
-            }
-            else{ 
+        }
+        for(let index1 = 0; index1 < listArray.length; index1++){
+            if(listArray[index1] !== event.target){
+                listArray[index1].style.backgroundColor = 'white';
                 
             }
-            for(let index1 = 0; index1 < listArray.length; index1++){
-                if(listArray[index1] !== event.target){
-                    listArray[index1].style.backgroundColor = 'white';
-                    
-                }
-            }
-            
-        })
-    }    
+        }
+        
+    })   
 }
 
 function buttonFinalizados(){
@@ -75,29 +71,25 @@ function buttonFinalizados(){
      })     
 }
 
-function riscaTask(){
-    let listArray = document.querySelector("ol").childNodes;
-    for(let index = 0; index < listArray.length; index++){
-        listArray[index].addEventListener('dblclick', function(event){
-            console.log(event.target);
-            console.log(event.target.className);
-            if(event.target.className !== 'completed'){
-                event.target.classList.add('completed');
-                buttonFinalizados(); 
-            }
-            else{ 
-                event.target.classList.remove('completed');
-            }
-        })
-    }  
+function riscaTask(li){
+    
+    li.addEventListener('dblclick', function(event){
+        if(event.target.classList.contains('completed') === false){
+            event.target.classList.add('completed');
+        }
+        else{ 
+            event.target.classList.remove('completed');
+        }
+    })  
 }
 
 function buttonApaga(){
     
     let buttonrApaga = document.querySelector("#apaga-tudo");
-    let listArray = document.querySelector("ol").childNodes;
 
-    buttonrApaga.addEventListener('click', function(event){
+    buttonrApaga.addEventListener('click', function(){
+        let listArray = document.querySelectorAll("li");
+        console.log(listArray);
         for(let index = 0; index < listArray.length; index++){
             listArray[index].remove();
                 
@@ -108,9 +100,9 @@ function buttonApaga(){
 function buttonSalvar(){
     
     let buttonrSalvar = document.querySelector("#salvar-tarefas");
-    let listArray = document.querySelector("ol").childNodes;
     
     buttonrSalvar.addEventListener('click', function(event){
+        let listArray = document.querySelector("li");
         let array = []
         let arrayClasses = []
         for(let index = 0; index < listArray.length; index++){
@@ -127,6 +119,10 @@ function buttonSalvar(){
     })     
 }
 
+buttonApaga();
+buttonFinalizados();  
+buttonSalvar();
+buttonSelecionadosRemover();
 
 createTaskButton.addEventListener("click", function(){
     if(inputTask.value == ''){
@@ -138,12 +134,9 @@ createTaskButton.addEventListener("click", function(){
         // li.className = 'notcompleted';
         listTask.appendChild(li);
         inputTask.value = '';
-        changeBackgroundColor();
-        riscaTask();
-        buttonApaga();
-        buttonFinalizados();  
-        buttonSalvar();
-        buttonSelecionadosRemover();
+        changeBackgroundColor(li);
+        riscaTask(li);
+       
     }
     
 })
