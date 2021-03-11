@@ -69,7 +69,7 @@ button:focus {
   outline: transparent;
 }
 
-#mover-cima,
+#mover-cima , 
 #mover-baixo {
   border-color: rgb(141 , 121 , 9);
   background-color: rgb(231 , 186 , 38);
@@ -80,8 +80,8 @@ button:focus {
   background-color: rgb(25 , 187 , 52);
 }
 
-#apaga-tudo,
-#remover-finalizados,
+#apaga-tudo , 
+#remover-finalizados , 
 #remover-selecionado {
   border-color: rgb(126 , 28 , 16);
   background-color: rgb(187 , 65 , 34);
