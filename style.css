@@ -26,13 +26,16 @@ li {
   text-decoration: line-through;
 }
 
-#apaga-tudo {
+button {
   padding: 5px;
-  background-color: #E13636;
   border: 1px solid black;
-  color: white;
   border-radius: 4px;
   margin: 0 20px;
+}
+
+#apaga-tudo {
+  background-color: #E13636;
+  color: white;
 }
 
 #apaga-tudo:hover {
@@ -40,10 +43,6 @@ li {
 }
 
 #remover-finalizados {
-  padding: 5px;
-  border: 1px solid black;
-  border-radius: 4px;
-  margin: 0 20px;
   background-color: #ccc23a;
   color: white;  
 }
@@ -53,10 +52,6 @@ li {
 }
 
 #salvar-tarefas {
-  padding: 5px;
-  border: 1px solid black;
-  border-radius: 4px;
-  margin: 0 20px;
   background-color: #3bbb35;
   color: white;
 }

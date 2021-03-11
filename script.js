@@ -100,3 +100,45 @@ function loadTasks() {
 }
 
 loadTasks();
+
+function taskUp() {
+  const buttonUp = document.querySelector("#mover-cima");
+  buttonUp.addEventListener("click", function () {
+    if(howSelected() != 0){
+      reordering("up", howSelected());
+    }
+  });
+}
+
+function taskDown() {
+  const buttonUp = document.querySelector("#mover-baixo");
+  buttonUp.addEventListener("click", function () {
+    if(howSelected() != (ThetoDoList.childNodes.length - 1)){
+      reordering("Down", howSelected());
+    }
+  });
+}
+
+function reordering(position, select) {  
+  if (position == "up") {
+  console.log("Up");
+  ThetoDoList.insertBefore(ThetoDoList.childNodes[select], ThetoDoList.childNodes[select-1]);
+  } else {
+    console.log("down");
+  ThetoDoList.insertBefore(ThetoDoList.childNodes[select], ThetoDoList.childNodes[select+2]);
+  }  
+}
+
+function howSelected() {
+  let select
+  for (let task = 0; task < ThetoDoList.childNodes.length; task++) {
+    if (ThetoDoList.childNodes[task].className.match(/selected/)) {
+      select = task;
+    }
+  }
+  return select;
+}
+
+taskUp();
+
+taskDown();
