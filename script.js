@@ -5,6 +5,8 @@ const olElement = document.querySelector('#lista-tarefas');
 const clearBtn = document.querySelector('#apaga-tudo');
 const clearCompletedBtn = document.querySelector('#remover-finalizados');
 const saveBtn = document.querySelector('#salvar-tarefas');
+const moveUpBtn = document.querySelector('#mover-cima');
+const moveDownBtn = document.querySelector('#mover-baixo');
 
 //              Aux Functions
 
@@ -66,7 +68,6 @@ const getListOnLoad = () => {
   // Object entries found in w3
   if (localStorage.getItem('list')) {
     const items = Object.entries(JSON.parse(localStorage.getItem('list')));
-    console.log('oi');
     for (let index = 0; index < items.length; index += 1) {
       const text = items[index][1][0];
       const classNameList = items[index][1][1];
@@ -108,6 +109,32 @@ const saveListState = () => {
   }
 };
 
+// Move Up function
+
+const moveItemUp = () => {
+  const lis = Array.from(document.querySelectorAll('li'));
+  lis.forEach((li, index) => {
+    if (li.classList.contains('selected') && index > 0) {
+      const previousListItem = lis[index - 1];
+      li.parentNode.replaceChild(li, lis[index - 1]);
+      li.parentNode.insertBefore(previousListItem, li.nextElementSibling);
+    }
+  });
+};
+
+// Move Down Function
+
+const moveItemDown = () => {
+  const lis = Array.from(document.querySelectorAll('li'));
+  lis.forEach((li, index) => {
+    if (li.classList.contains('selected') && index < lis.length - 1) {
+      const nextListItem = lis[index + 1];
+      li.parentNode.replaceChild(li, lis[index + 1]);
+      li.parentNode.insertBefore(nextListItem, li);
+    }
+  });
+};
+
 //      Add Listeners
 
 // Add addItem button listener
@@ -131,6 +158,18 @@ const setSaveBtn = () => {
   saveBtn.addEventListener('click', saveListState);
 };
 
+// add move up button listener
+
+const setMoveUpBtn = () => {
+  moveUpBtn.addEventListener('click', moveItemUp);
+};
+
+// add move down button listener
+
+const setMoveDownBtn = () => {
+  moveDownBtn.addEventListener('click', moveItemDown);
+};
+
 // all buttons
 
 const loadButtons = () => {
@@ -138,6 +177,8 @@ const loadButtons = () => {
   setClearBtn();
   setClearCompletedBtn();
   setSaveBtn();
+  setMoveUpBtn();
+  setMoveDownBtn();
 };
 
 window.onload = () => {
