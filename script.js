@@ -63,13 +63,24 @@ function riscaItem(entradaDaFuncao) {
 }
 
 //Crio a função do botão que apaga todos os itens da lista
-let botao = document.getElementById("apaga-tudo");
-botao.addEventListener("click", apagaTudo);
+let apagarTudo = document.getElementById("apaga-tudo");
+apagarTudo.addEventListener("click", apagaTudo);
 
 function apagaTudo() {
     let itens = document.getElementsByTagName("li");
     let numeroDeItens = itens.length;
     for (i=0; i<numeroDeItens; i++) {
         itens[0].remove();
+    }
+}
+
+let removerTarefasCompletadas = document.getElementById("remover-finalizados");
+removerTarefasCompletadas.addEventListener("click", removeCompletadas);
+
+function removeCompletadas() {
+    let tarefasTerminadas = document.getElementsByClassName("completed");
+    let numeroTarefas = tarefasTerminadas.length
+    for (i=0; i<numeroTarefas; i++) {
+        tarefasTerminadas[0].remove()
     }
 }
