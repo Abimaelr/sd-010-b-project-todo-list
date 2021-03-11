@@ -18,7 +18,7 @@ window.onload = function defaultBackgroundList() {
   sessionStorage.setItem('colorList', backgroundColorList);
 };
 
-function SelectActivity() {
+function selectActivity() {
   const listItem = document.getElementsByTagName('li');
   list.addEventListener('click', (event) => {
     const element = event;
@@ -28,4 +28,12 @@ function SelectActivity() {
     element.target.classList.add('selected');
   });
 }
-SelectActivity();
+selectActivity();
+
+function completeActivity() {
+  list.addEventListener('dblclick', (event) => {
+    const element = event;
+    element.target.classList.toggle('completed');
+  });
+}
+completeActivity();
