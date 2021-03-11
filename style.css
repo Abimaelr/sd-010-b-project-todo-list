@@ -1,0 +1,71 @@
+body {
+  background-color: pink;
+  text-align: center;
+}
+
+h1 {
+  line-height: 0px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+#funcionamento {
+  color: #5b5b58;
+  margin-top: 3px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#criar-tarefa {
+  background-color: blue;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  padding: 5px;
+}
+
+#apaga-tudo {
+  background-color: red;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  padding: 5px;
+}
+
+#remover-finalizados {
+  background-color: green;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  padding: 5px;
+}
+
+#remover-selecionado {
+  background-color: red;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  padding: 5px;
+}
+
+#salvar-tarefas {
+  background-color: blue;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  padding: 5px;
+}
+
+#mover-cima {
+  background-color: yellow;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+}
+
+#mover-baixo {
+  background-color: yellow;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+}
