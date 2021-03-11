@@ -53,13 +53,12 @@ saveTasksBtn.addEventListener('click', () => {
 });
 
 function putSavedTasks() {
-  for (let i = 0; i < localStorage.key.length; i += 1) {
-    const tasks = localStorage.getItem('tasks');
-    const tasksList = document.querySelector('#lista-tarefas');
-    const listHTML = document.createElement('p');
-    listHTML.innerHTML = tasks;
-    tasksList.appendChild(listHTML);
-  }
+  const tasks = localStorage.getItem('tasks');
+  const tasksList = document.querySelector('#lista-tarefas');
+  console.log(tasks);
+  console.log(tasksList);
+  tasksList.innerHTML = localStorage.getItem('tasks');
+  console.log(tasksList.innerHTML);
 }
 createNewTask();
 putSavedTasks();
