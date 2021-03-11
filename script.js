@@ -12,6 +12,11 @@ function addItem(){
 }   
 
 function changeColor(event){
+    const itemList = document.querySelectorAll('ol li')
+    for (let index = 0; index < itemList.length; index++ ) {
+        console.log('xablau')
+            itemList[index].style.backgroundColor = 'white';
+      }
     event.target.style.backgroundColor = 'rgb(128, 128, 128)'
 
 }
@@ -24,3 +29,4 @@ function itensListener(){
 }
 
 itensListener()
+
