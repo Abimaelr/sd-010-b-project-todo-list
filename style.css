@@ -78,3 +78,11 @@ section button:focus {
 #remover-selecionado {
   width: 160px;
 }
+
+#mover-cima {
+  width: 90px;
+}
+
+#mover-baixo {
+  width: 90px;
+}

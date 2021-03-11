@@ -47,6 +47,7 @@ function createTask() {
 
     item.addEventListener('dblclick', completedTask);
   });
+
   // const tasks = JSON.parse(localStorage.getItem('favorites'));
 
   // // Para cada item do array, é renderizado no html
@@ -91,3 +92,35 @@ function removeSelectedtask() {
 }
 
 removeSelectedtask();
+
+function moveUp() {
+  const buttonMoveUp = document.getElementById('mover-cima');
+
+  buttonMoveUp.addEventListener('click', () => {
+    const selectedLi = document.querySelectorAll('li');
+    selectedLi.forEach((e) => {
+      if (e.style.backgroundColor === 'rgb(128, 128, 128)') {
+        const before = e.previousElementSibling;
+        e.parentNode.insertBefore(e, before);
+      }
+    });
+  });
+}
+
+moveUp();
+
+function moveDown() {
+  const buttonMoveDown = document.getElementById('mover-baixo');
+
+  buttonMoveDown.addEventListener('click', () => {
+    const selectedLi = document.querySelectorAll('li');
+    selectedLi.forEach((e) => {
+      if (e.style.backgroundColor === 'rgb(128, 128, 128)') {
+        const next = e.nextElementSibling;
+        e.parentNode.insertBefore(e, next.nextSibling);
+      }
+    });
+  });
+}
+
+moveDown();
