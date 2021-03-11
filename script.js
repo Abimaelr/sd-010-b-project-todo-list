@@ -1,17 +1,17 @@
-const buttonAdd = document.querySelector("#criar-tarefa");
-const ThetoDoList = document.querySelector("#lista-tarefas");
-const taskText = document.querySelector("#texto-tarefa");
+const buttonAdd = document.querySelector('#criar-tarefa');
+const ThetoDoList = document.querySelector('#lista-tarefas');
+const taskText = document.querySelector('#texto-tarefa');
 
 function addTaskToDo() {
-  buttonAdd.addEventListener("click", function () {
-    mkTask(taskText.value, "");
-    taskText.value = "";
+  buttonAdd.addEventListener('click', function () {
+    mkTask(taskText.value, '');
+    taskText.value = '';
   });
 }
 
 function mkTask(text, saved) {
-  const taskToDo =  document.createElement("li");
-  taskToDo.className = " taskToDo" + saved;
+  const taskToDo =  document.createElement('li');
+  taskToDo.className = ' taskToDo' + saved;
   taskToDo.innerText = text;
   selectableTasks(taskToDo);
   doubleClick(taskToDo);
@@ -21,38 +21,38 @@ function mkTask(text, saved) {
 addTaskToDo();
 
 function selectableTasks(taskSelec) {
-  taskSelec.addEventListener("click", function () {
-    let lastSelected = document.querySelector(".selected");
+  taskSelec.addEventListener('click', function () {
+    let lastSelected = document.querySelector('.selected');
     if (lastSelected != null) {
-      lastSelected.className = lastSelected.className.replace(" selected", "");
+      lastSelected.className = lastSelected.className.replace(' selected', '');
     }
-    taskSelec.className += " selected";
+    taskSelec.className += ' selected';
   });
 }
 
 function doubleClick(taskDb) {
-  taskDb.addEventListener("dblclick", function () {
+  taskDb.addEventListener('dblclick', function () {
     if (taskDb.className.match(/completed/)) {
-      taskDb.className = taskDb.className.replace(" completed", "");
+      taskDb.className = taskDb.className.replace(' completed', '');
     } else {
-      taskDb.className += " completed";
+      taskDb.className += ' completed';
     }
   });
 }
 
 function dellTasks() {
-  let buttonDellAll = document.querySelector("#apaga-tudo");
-  buttonDellAll.addEventListener("click", function () {
-    ThetoDoList.innerHTML = "";
+  let buttonDellAll = document.querySelector('#apaga-tudo');
+  buttonDellAll.addEventListener('click', function () {
+    ThetoDoList.innerHTML = '';
   });
 }
 
 dellTasks();
 
 function dellDone() {
-  let buttonDellDone = document.querySelector("#remover-finalizados");
-  buttonDellDone.addEventListener("click", function () {
-    let tasksDone = document.querySelectorAll(".completed");
+  let buttonDellDone = document.querySelector('#remover-finalizados');
+  buttonDellDone.addEventListener('click', function () {
+    let tasksDone = document.querySelectorAll('.completed');
     const totalDone = tasksDone.length;
     for (let task = 0; task < totalDone; task++) {
       ThetoDoList.removeChild(tasksDone[task]);
@@ -63,12 +63,12 @@ function dellDone() {
 dellDone();
 
 function saveTasks() {  
-  const buttonSave = document.querySelector("#salvar-tarefas");
-  buttonSave.addEventListener("click", function () {
+  const buttonSave = document.querySelector('#salvar-tarefas');
+  buttonSave.addEventListener('click', function () {
 
     let tasksToSave = [];
     dellSaveds();
-    let allTasksNow = document.querySelectorAll(".taskToDo");
+    let allTasksNow = document.querySelectorAll('.taskToDo');
     for (let toSave = 0; toSave < allTasksNow.length; toSave++) {      
       let taskObj = {
         task: allTasksNow[toSave].innerText,
@@ -76,55 +76,55 @@ function saveTasks() {
       };
       tasksToSave.push(taskObj);
     }
-    localStorage.setItem("tasksToSave", JSON.stringify(tasksToSave));
-    alert("Lista Salva com Sucesso");
+    localStorage.setItem('tasksToSave', JSON.stringify(tasksToSave));
+    alert('Lista Salva com Sucesso');
   });
 }
 
 saveTasks();
 
 function dellSaveds() {
-  localStorage.removeItem("tasksToSave");
+  localStorage.removeItem('tasksToSave');
 }
 
 function loadTasks() {
-  let toLoadTasks = JSON.parse(localStorage.getItem("tasksToSave"));
+  let toLoadTasks = JSON.parse(localStorage.getItem('tasksToSave'));
   if(toLoadTasks != undefined){
     for (let task = 0; task < toLoadTasks.length; task++) {
-      mkTask(toLoadTasks[task].task, toLoadTasks[task].class.replace(" taskToDo", ""));
+      mkTask(toLoadTasks[task].task, toLoadTasks[task].class.replace(' taskToDo', ''));
     }
-    console.log("Carregado");
+    console.log('Carregado');
   } else {
-    console.log("Vasio");
+    console.log('Vasio');
   }
 }
 
 loadTasks();
 
 function taskUp() {
-  const buttonUp = document.querySelector("#mover-cima");
-  buttonUp.addEventListener("click", function () {
+  const buttonUp = document.querySelector('#mover-cima');
+  buttonUp.addEventListener('click', function () {
     if(howSelected() != 0 && howSelected() != null){
-      reordering("up", howSelected());
+      reordering('up', howSelected());
     }
   });
 }
 
 function taskDown() {
-  const buttonUp = document.querySelector("#mover-baixo");
-  buttonUp.addEventListener("click", function () {
+  const buttonUp = document.querySelector('#mover-baixo');
+  buttonUp.addEventListener('click', function () {
     if(howSelected() != (ThetoDoList.childNodes.length - 1) && howSelected() != null){
-      reordering("Down", howSelected());
+      reordering('Down', howSelected());
     }
   });
 }
 
 function reordering(position, select) {  
-  if (position == "up") {
-  console.log("Up");
+  if (position == 'up') {
+  console.log('Up');
   ThetoDoList.insertBefore(ThetoDoList.childNodes[select], ThetoDoList.childNodes[select-1]);
   } else {
-    console.log("down");
+    console.log('down');
   ThetoDoList.insertBefore(ThetoDoList.childNodes[select], ThetoDoList.childNodes[select+2]);
   }  
 }
@@ -142,3 +142,12 @@ function howSelected() {
 taskUp();
 
 taskDown();
+
+function removeSelectd() {
+  const buttonDellSected = document.querySelector('#remover-selecionado');
+  buttonDellSected.addEventListener('click', function () {
+    ThetoDoList.removeChild(ThetoDoList.childNodes[howSelected()]);
+  });
+}
+
+removeSelectd();
