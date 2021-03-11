@@ -11,8 +11,7 @@ function addTaskToDo() {
 
 function mkTask(text, saved) {
   const taskToDo =  document.createElement("li");
-  taskToDo.className = "taskToDo" + saved;
-  console.log(saved);
+  taskToDo.className = " taskToDo" + saved;
   taskToDo.innerText = text;
   selectableTasks(taskToDo);
   doubleClick(taskToDo);
@@ -25,10 +24,8 @@ function selectableTasks(taskSelec) {
   taskSelec.addEventListener("click", function () {
     let lastSelected = document.querySelector(".selected");
     if (lastSelected != null) {
-      lastSelected.style.backgroundColor = "#dfd9d7";
       lastSelected.className = lastSelected.className.replace(" selected", "");
     }
-    taskSelec.style.backgroundColor = "rgb(128, 128, 128)";
     taskSelec.className += " selected";
   });
 }
@@ -65,16 +62,19 @@ function dellDone() {
 
 dellDone();
 
-let tasksToSave = [];
-
 function saveTasks() {  
   const buttonSave = document.querySelector("#salvar-tarefas");
   buttonSave.addEventListener("click", function () {
-    let allTasksNow = document.querySelectorAll(".taskToDo");    
-    tasksToSave = [];
-    localStorage.setItem("tasksToSave", JSON.stringify(tasksToSave));
-    for (let toSave = 0; toSave < allTasksNow.length; toSave++) {
-      tasksToSave.push(allTasksNow[toSave].innerText);
+
+    let tasksToSave = [];
+    dellSaveds();
+    let allTasksNow = document.querySelectorAll(".taskToDo");
+    for (let toSave = 0; toSave < allTasksNow.length; toSave++) {      
+      let taskObj = {
+        task: allTasksNow[toSave].innerText,
+        class: allTasksNow[toSave].className
+      };
+      tasksToSave.push(taskObj);
     }
     localStorage.setItem("tasksToSave", JSON.stringify(tasksToSave));
     alert("Lista Salva com Sucesso");
@@ -83,18 +83,19 @@ function saveTasks() {
 
 saveTasks();
 
+function dellSaveds() {
+  localStorage.removeItem("tasksToSave");
+}
+
 function loadTasks() {
   let toLoadTasks = JSON.parse(localStorage.getItem("tasksToSave"));
-  let sizeArrayTask;
   if(toLoadTasks != undefined){
-    sizeArrayTask = toLoadTasks.length;
-  }
-  if((toLoadTasks != undefined) && (sizeArrayTask != 0)){
-    for (let toLoad = 0; toLoad < toLoadTasks.length; toLoad++) {
-      mkTask(toLoadTasks[toLoad], " taskSaved");
-    } 
+    for (let task = 0; task < toLoadTasks.length; task++) {
+      mkTask(toLoadTasks[task].task, toLoadTasks[task].class.replace(" taskToDo", ""));
+    }
+    console.log("Carregado");
   } else {
-    console.log("Vasio")
+    console.log("Vasio");
   }
 }
 

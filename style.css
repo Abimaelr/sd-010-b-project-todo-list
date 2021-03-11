@@ -64,3 +64,7 @@ li {
 #salvar-tarefas:hover {
   background-color: #226e1e;
 }
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}
