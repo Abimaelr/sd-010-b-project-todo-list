@@ -163,10 +163,7 @@ window.onload = function () {
   moveElementUp.addEventListener('click', function () {
     const selectedElement = document.querySelector('.itemSelected');
     if (selectedElement.previousElementSibling !== null) {
-      recoveredOl.insertBefore(
-        selectedElement,
-        selectedElement.previousElementSibling
-      );
+      recoveredOl.insertBefore(selectedElement, selectedElement.previousElementSibling);
     }
     atualizaStorage();
   });
@@ -174,10 +171,7 @@ window.onload = function () {
   moveElementDown.addEventListener('click', function () {
     const selectedElement = document.querySelector('.itemSelected');
     if (selectedElement.nextElementSibling !== null) {
-      recoveredOl.insertBefore(
-        selectedElement.nextElementSibling,
-        selectedElement
-      );
+      recoveredOl.insertBefore(selectedElement.nextElementSibling, selectedElement);
     }
     atualizaStorage();
   });
