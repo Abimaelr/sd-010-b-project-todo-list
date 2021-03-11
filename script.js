@@ -44,9 +44,9 @@ window.onload = function () {
     let taskItem = event.target;
     let taskItens = document.querySelectorAll('li');
     for (let index = 0; index < taskItens.length; index++) {
-      taskItens[index].classList.remove('li-through');
+      taskItens[index].classList.remove('completed');
     }
-    taskItem.classList.add('li-through');
+    taskItem.classList.add('completed');
   }
 
 
