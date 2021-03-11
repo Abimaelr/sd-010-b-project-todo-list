@@ -29,6 +29,18 @@ criaLimpar.id = 'apaga-tudo';
 criaLimpar.innerText = "Limpar";
 writeItem.appendChild(criaLimpar);
 
+//cria botão remover finalizados
+const removeFinalizados = document.createElement('button');
+removeFinalizados.id = 'remover-finalizados';
+removeFinalizados.innerText = "Finalizado";
+writeItem.appendChild(removeFinalizados);
+
+//cria botão salvar tarefas
+const salvarTarefa = document.createElement('button');
+salvarTarefa.id = 'salvar-tarefas';
+salvarTarefa.innerText = "Salvar";
+writeItem.appendChild(salvarTarefa);
+
 
 //função pra adicionar tarefa
 function criarTarefa() {
@@ -73,13 +85,35 @@ function riscar() {
 }
 riscar();
 
-function limparLista(){
+function limparLista() {
 	const botaoLimpar = document.querySelector('#apaga-tudo');
-	botaoLimpar.addEventListener('click', function (event){
-	const task = document.querySelectorAll('li');
-	for (i = 0; i < task.length; i += 1) {
-		task[i].parentNode.removeChild(task[i]);
-	}
+	botaoLimpar.addEventListener('click', function (event) {
+		const task = document.querySelectorAll('li');
+		for (i = 0; i < task.length; i += 1) {
+			task[i].parentNode.removeChild(task[i]);
+		}
 	})
 }
 limparLista();
+
+function limpaFinalizado() {
+	const botaoFinalizado = document.querySelector('#remover-finalizados');
+	botaoFinalizado.addEventListener('click', function (event) {
+		const itensRiscados = document.querySelectorAll('.completed');
+		for (j = 0; j < itensRiscados.length; j += 1) {
+			itensRiscados[j].parentNode.removeChild(itensRiscados[j]);
+		}
+	})
+}
+limpaFinalizado();
+
+function salvarLista() {
+	const salvarTarefa = document.querySelector('#salvar-tarefas');
+	salvarTarefa.addEventListener('click', function (event) {
+		const salvar = document.querySelectorAll('li');
+		for (i = 0; i < salvar.length; i += 1) {
+			localStorage.salvar[i];
+		}
+	})
+}
+salvarLista();
