@@ -1,87 +1,90 @@
-let inputTask = document.getElementById('texto-tarefa');
-let orderedList = document.getElementById('lista-tarefas');
-let buttonCreateTask = document.getElementById('criar-tarefa');
-let buttonCleanList = document.getElementById('apaga-tudo');
-let buttonRemoveFinishedTasks = document.getElementById('remover-finalizados');
-let buttonSaveTasks = document.getElementById('salvar-tarefas')
+const inputTask = document.getElementById('texto-tarefa');
+const orderedList = document.getElementById('lista-tarefas');
+const buttonCreateTask = document.getElementById('criar-tarefa');
+const buttonCleanList = document.getElementById('apaga-tudo');
+const buttonRemoveFinishedTasks = document.getElementById('remover-finalizados');
+const buttonSaveTasks = document.getElementById('salvar-tarefas');
 
 function createTask() {
   buttonCreateTask.addEventListener('click', () => {
-    let task = document.createElement('li')
+    const task = document.createElement('li');
     task.innerHTML = inputTask.value;
     inputTask.value = '';
     orderedList.appendChild(task);
-  })
+  });
 }
 createTask();
 
 function changeListItemColor() {
-  orderedList.addEventListener('click', function (event) {
-    for (i = 0; i < orderedList.children.length; i += 1) {
+  orderedList.addEventListener('click', (param) => {
+    for (let i = 0; i < orderedList.children.length; i += 1) {
       orderedList.children[i].style.backgroundColor = '';
     }
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  })
+    const evento = param;
+    evento.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  });
 }
 changeListItemColor();
 
 function scratchTask() {
-  orderedList.addEventListener('dblclick', function (event) {
-    if (event.target.className === 'completed') {
-      event.target.className = ""
+  orderedList.addEventListener('dblclick', (event) => {
+    const eventt = event;
+    if (eventt.target.className === 'completed') {
+      eventt.target.className = '';
     } else {
-      event.target.className = "completed"
+      eventt.target.className = 'completed';
     }
-  })
+  });
 }
 scratchTask();
 
 function cleanList() {
-  buttonCleanList.addEventListener('click', function () {
+  buttonCleanList.addEventListener('click', () => {
     orderedList.textContent = '';
-  })
+  });
 }
 cleanList();
 
 function removeFinishedTasks() {
-  buttonRemoveFinishedTasks.addEventListener('click', function (event) {
-    let CompletedTasks = document.getElementById('lista-tarefas');
-    for (i = CompletedTasks.children.length - 1; i >= 0; i -= 1) {
-      let task = CompletedTasks.children[i]
-      if (task.className === "completed") {
-        CompletedTasks.removeChild(CompletedTasks.children[i])
+  buttonRemoveFinishedTasks.addEventListener('click', () => {
+    const CompletedTasks = document.getElementById('lista-tarefas');
+    for (let i = CompletedTasks.children.length - 1; i >= 0; i -= 1) {
+      const task = CompletedTasks.children[i];
+      if (task.className === 'completed') {
+        CompletedTasks.removeChild(CompletedTasks.children[i]);
       }
     }
-  })
+  });
 }
 removeFinishedTasks();
 
 function SetLocalStorage() { // função baseada na solução do colega Gustavo Cerqueira
-  buttonSaveTasks.addEventListener('click', function () {
-    const allListItems = document.getElementsByTagName('li');
-    storedList = [];
-    for (let item of allListItems) {
+  buttonSaveTasks.addEventListener('click', () => {
+    const allListItems = document.querySelectorAll('li');
+    const storedList = [];
+    allListItems.forEach((item) => {
       const storedItem = {
         text: item.innerHTML,
         class: item.className,
-      }
+      };
       storedList.push(storedItem);
-      localStorage.setItem('task', JSON.stringify(storedList));
-    }
-  })
+    });
+    localStorage.setItem('task', JSON.stringify(storedList));
+  });
 }
+
 SetLocalStorage();
 
 function getLocalStorage() {
   function loadTask(paramTask, paramClass) {
-      let newTask = document.createElement('li')
-      newTask.innerHTML = paramTask;
-      newTask.className = paramClass;
-      orderedList.appendChild(newTask);
-}
+    const newTask = document.createElement('li');
+    newTask.innerHTML = paramTask;
+    newTask.className = paramClass;
+    orderedList.appendChild(newTask);
+  }
 
-  storedTasks = JSON.parse(localStorage.getItem('task'));
-  for (let i in storedTasks) {
+  const storedTasks = JSON.parse(localStorage.getItem('task'));
+  for (let i = 0; i < storedTasks.length; i += 1) {
     loadTask(storedTasks[i].text, storedTasks[i].class);
   }
 }
