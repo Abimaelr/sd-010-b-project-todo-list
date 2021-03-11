@@ -4,13 +4,16 @@ let buttonCreateTask = document.getElementById('criar-tarefa');
 let buttonCleanList = document.getElementById('apaga-tudo');
 let buttonRemoveFinishedTasks = document.getElementById('remover-finalizados');
 
-buttonCreateTask.addEventListener('click', function () {
-  let task = document.createElement('li')
-  task.innerHTML = inputTask.value;
-  inputTask.value = '';
-  orderedList.appendChild(task);
-  SetLocalStorage(orderedList, task);
-})
+function createTask() {
+  buttonCreateTask.addEventListener('click', function () {
+    let task = document.createElement('li')
+    task.innerHTML = inputTask.value;
+    inputTask.value = '';
+    orderedList.appendChild(task);
+    SetLocalStorage(orderedList, task);
+  })
+}
+createTask();
 
 function changeListItemColor() {
   orderedList.addEventListener('click', function (event) {
@@ -33,7 +36,6 @@ function scratchTask() {
 }
 scratchTask();
 
-
 function cleanList() {
   buttonCleanList.addEventListener('click', function () {
     orderedList.textContent = '';
@@ -55,7 +57,7 @@ function removeFinishedTasks() {
 removeFinishedTasks();
 
 function SetLocalStorage(a, b) {
-    buttonCreateTask.addEventListener('click', function() {
-        localStorage.setItem(a, b)
-    })
+  buttonCreateTask.addEventListener('click', function () {
+    localStorage.setItem(a, b)
+  })
 }
