@@ -49,9 +49,9 @@ function removeAllCompletedTasks() {
   const buttonClearAll = document.getElementById('remover-finalizados');
 
   buttonClearAll.addEventListener('click', () => {
-    const pai = document.getElementById('lista-tarefas');
-    const teste = document.querySelector('#lista-tarefas li.completed');
-    pai.removeChild(teste);
+    document.querySelectorAll('.completed').forEach((e) => {
+      e.remove();
+    });
   });
 }
 
