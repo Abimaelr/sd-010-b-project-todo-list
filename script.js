@@ -108,7 +108,7 @@ if (localStorage.getItem('taskList')) {
 
 function moveUp() {
   const selectedElement = document.querySelector('.selected');
-  if (taskList.childElementCount > 0 && selectedElement.previousElementSibling !== null) {
+  if (taskList.childElementCount > 0 && selectedElement === 1 && selectedElement.previousElementSibling !== null) {
     taskList.insertBefore(selectedElement, selectedElement.previousElementSibling);
   }
 }
@@ -119,7 +119,7 @@ btnMoveUp.addEventListener('click', moveUp);
 
 function moveDown() {
   const selectedElement = document.querySelector('.selected');
-  if (taskList.childElementCount > 0 && selectedElement.nextElementSibling !== null) {
+  if (taskList.childElementCount > 0 && selectedElement === 1 && selectedElement.nextElementSibling !== null) {
     taskList.insertBefore(selectedElement.nextElementSibling, selectedElement);
   }
 }

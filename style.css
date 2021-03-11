@@ -29,7 +29,7 @@ header {
 }
 
 #list {
-  height: 260px;
+  height: 220px;
 }
 
 .selected {
@@ -39,4 +39,26 @@ header {
 .completed {
   text-decoration: line-through solid black;
   background-color: transparent;
+}
+
+button {
+  border-radius: 20px;
+  padding: 7px 15px;
+  margin-right: 10px;
+}
+
+input {
+  width: 30%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 3px 15px;
+  font-size: 1.15em;
+  border: rgb(185, 185, 185) 2px solid;
+  background-color: rgb(230, 230, 230);
+}
+
+input:focus {
+  border-radius: 5px;
+  border: rgb(44, 44, 44) 2px solid;
+  background-color: rgb(219, 219, 219);
 }
