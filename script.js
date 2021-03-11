@@ -30,3 +30,23 @@ listaTarefas.addEventListener('dblclick', riscando);
 function riscando(event) {
   event.target.classList.toggle('completed');
 }
+
+let apagaTudo = document.getElementById('apaga-tudo');
+apagaTudo.addEventListener('click', deleteAll);
+
+function deleteAll() {
+  document.getElementById('lista-tarefas').innerHTML = '';
+}
+
+let removerFinalizados = document.getElementById('remover-finalizados');
+removerFinalizados.addEventListener('click', removFinalized);
+
+function removFinalized() {
+  let element = document.getElementsByClassName('completed');
+  let filho = document.getElementById('lista-tarefas').childNodes;
+  for (let index = 0; index < filho.length; index += 1)
+    if (element[index] == element[index]) {
+      document.getElementById('lista-tarefas').classList.remove('selected');
+      document.getElementById('lista-tarefas').removeChild(filho[index]);
+    }
+}
