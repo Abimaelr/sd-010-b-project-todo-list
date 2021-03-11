@@ -2,9 +2,11 @@ window.onload = function () {
   function listenClick () {
     let addButton = document.getElementById('criar-tarefa');
     let deleteButton = document.getElementById('apaga-tudo');
+    let removeButton = document.getElementById('remover-finalizados');
 
     addButton.addEventListener('click', addTask);
     deleteButton.addEventListener('click', deleteAll);
+    removeButton.addEventListener('click', removeEnd);
   }
 
   function addTask () {
@@ -54,6 +56,17 @@ window.onload = function () {
     }
   }
 
-  listenClick();
+  function removeEnd () {
+    let taskList = document.getElementById('lista-tarefas');
+    let taskItems = document.getElementsByTagName('li');
 
+    for (let index = 0; index < taskItems.length; index++) {
+      if (taskItems[index].classList.contains('completed')) {
+        taskList.removeChild(taskItems[index]);
+        index = 0;
+      }
+    }
+  }
+
+  listenClick();
 }
