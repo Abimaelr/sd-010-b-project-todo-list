@@ -1,15 +1,15 @@
 .item {
-    background-color: white;
+  background-color: white;
 }
 
 .selected {
-    background-color: rgb(128, 128, 128);
+  background-color: gray;
 }
 
 .completed {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 button {
-    margin: 5px;
+  margin: 5px;
 }
