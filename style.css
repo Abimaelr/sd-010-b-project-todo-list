@@ -4,3 +4,7 @@
     max-height: 768px;
     /* line-height: 30px; */
   }
+
+  .selected {
+      color: rgb(128, 128, 128);
+  }
