@@ -4,6 +4,8 @@ const botaoLimpa = document.getElementById("apaga-tudo");
 const botaoLimpaEnd = document.getElementById("remover-finalizados");
 const botaoSalvar = document.getElementById("salvar-tarefas");
 const botaoLimpaSelecionado = document.getElementById("remover-selecionado");
+const botaoCima = document.getElementById("mover-cima");
+const botaoBaixo = document.getElementById("mover-baixo");
 const listaMae = document.getElementById("lista-tarefas");
 const tarefas = document.getElementsByClassName("tarefa");
 const input = document.getElementById("texto-tarefa");
@@ -96,9 +98,81 @@ function openSave() {
 }
 
 function deleteSelected() {
-    for (let index = 0; index < tarefas.length; index+= 1) {
+    for (let index = 0; index < tarefas.length; index += 1) {
         if (tarefas[index].style.backgroundColor ===  "rgb(128, 128, 128)") {
             tarefas[index].remove();
+        }
+    }
+}
+
+function toUp() {
+    for (let index = 1; index < (tarefas.length); index += 1) {
+        if (tarefas[index].style.backgroundColor === "rgb(128, 128, 128)" && tarefas[index].classList.contains("completed")) {
+            let cima = listaMae.children[index - 1];
+            let atual = listaMae.children[index];
+            let cimaOld = listaMae.children[index - 1].innerHTML;
+            let sel = 1;
+            if (cima.classList.contains("completed")) {
+                sel = 0;
+            }
+            cima.innerHTML = atual.innerHTML;
+            atual.innerHTML = cimaOld;
+            chageColor(index - 1);
+            tarefas[index - 1].classList.add("completed");
+            if (sel === 1) {
+                atual.classList.remove("completed"); 
+            }
+        } else  if (tarefas[index].style.backgroundColor === "rgb(128, 128, 128)") {
+            let cima = listaMae.children[index - 1];
+            let atual = listaMae.children[index];
+            let cimaOld = listaMae.children[index - 1].innerHTML;
+            let sel = 0;
+            if (cima.classList.contains("completed")) {
+                sel = 1;
+            }
+            cima.innerHTML = atual.innerHTML;
+            atual.innerHTML = cimaOld;
+            chageColor(index - 1);
+            tarefas[index - 1].classList.remove("completed");
+            if (sel === 1) {
+                atual.classList.add("completed"); 
+            }
+            }
+    }
+}    
+
+function toDown() {
+    for (let index = (tarefas.length - 1); index >= 0; index-= 1) {
+        if (tarefas[index].style.backgroundColor ===  "rgb(128, 128, 128)" && tarefas[index].classList.contains("completed")) {
+            let baixo = listaMae.children[index + 1];
+            let atual = listaMae.children[index];
+            let baixoOld = listaMae.children[index + 1].innerHTML;
+            let sel = 1;
+            if (baixo.classList.contains("completed")) {
+                sel = 0;
+            }
+            baixo.innerHTML = atual.innerHTML;
+            atual.innerHTML = baixoOld;
+            tarefas[index + 1].classList.add("completed");
+            chageColor(index + 1);
+            if (sel === 1) {
+                atual.classList.remove("completed"); 
+            }
+        } else  if (tarefas[index].style.backgroundColor === "rgb(128, 128, 128)") {
+            let baixo = listaMae.children[index + 1];
+            let atual = listaMae.children[index];
+            let baixoOld = listaMae.children[index + 1].innerHTML;
+            let sel = 0;
+            if (baixo.classList.contains("completed")) {
+                sel = 1;
+            }
+            baixo.innerHTML = atual.innerHTML;
+            atual.innerHTML = baixoOld;
+            tarefas[index + 1].classList.remove("completed");
+            chageColor(index + 1);
+            if (sel === 1) {
+                atual.classList.add("completed"); 
+            }
         }
     }
 }
