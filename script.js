@@ -5,7 +5,6 @@ let corLista = document.querySelectorAll('ol');
 
 botao.addEventListener('click', function () {
   let novaLista = document.createElement('li');
-  novaLista.className = 'lista';
   lista.appendChild(novaLista).innerText = textoInput.value;
   textoInput.value = '';
 })
