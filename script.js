@@ -54,8 +54,10 @@ function removefinished() {
 
   const completed = document.getElementsByClassName('completed');
   removerFinalizados.addEventListener('click', () => {
-    for (let i = 0; i <= li.length; i++) {
-      completed[i].remove();
+    for (let index = 0; index < completed.length; index += 1) {
+      if (completed.length > 0) {
+        completed[index].remove();
+      }
     }
   });
 }
