@@ -43,13 +43,40 @@ function apagarTarefas() {
 }
 
 function removerFinalizados() {
-// Refencia tirada de: http://devfuria.com.br/javascript/dom-remove-child/#:~:text=O%20m%C3%A9todo%20removeChild()%20remove,filho%20que%20deve%20ser%20removido.
-  const listaTarefas = document.querySelectorAll('li')
+  // Refencia tirada de: http://devfuria.com.br/javascript/dom-remove-child/#:~:text=O%20m%C3%A9todo%20removeChild()%20remove,filho%20que%20deve%20ser%20removido.
+  const listaTarefas = document.querySelectorAll('li');
   const pai = document.getElementById('lista-tarefas');
-  let classes = [];
-   for (let i = 0; i < listaTarefas.length; i += 1) {
-    if (listaTarefas[i].classList.contains("completed") == true) {
+  for (let i = 0; i < listaTarefas.length; i += 1) {
+    if (listaTarefas[i].classList.contains("completed") === true) {
       pai.removeChild(listaTarefas[i]);
     }
   }
 }
+
+function salvarTarefas() {
+  const pai = document.getElementById('lista-tarefas');
+  const listaTarefas = document.querySelectorAll('li');
+  //console.log(listaTarefas[0].innerText);
+  for (let i = 0; i < listaTarefas.length; i += 1) {
+    localStorage.setItem(('tarefa' + [i + 1]), listaTarefas[i].innerText);
+  }
+}
+
+function pegarTarefas() {
+  const pai = document.getElementById('lista-tarefas');
+  let tarefas = [];
+  for (let i = 0; i < localStorage.length; i += 1) {
+    tarefas.push(localStorage.getItem(('tarefa' + [i + 1])));
+  }
+  localStorage.clear();
+  for (let i = 0; i < tarefas.length; i += 1) {
+    const li = document.createElement('li');
+    li.className = 'tarefa';
+    li.innerHTML = tarefas[i];
+    pai.appendChild(li);
+    li.addEventListener('click', setColor);
+    li.addEventListener('dblclick', setRiscado);
+    document.getElementById('texto-tarefa').value = '';
+  }
+}
+window.onload = pegarTarefas();

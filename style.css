@@ -8,6 +8,14 @@ body {
   background-color: white;
 }
 
+.bnt-funcion {
+  margin-right: 5px;
+  height: 30px;
+  padding: 9px;
+  border: none;
+  color: white;
+}
+
 #criar-tarefa {
   width: 165px;
   height: 30px;
@@ -15,6 +23,18 @@ body {
   padding: 9px;
   border: none;
   color: white;
+}
+
+#remover-finalizados {
+  background-color: teal;
+}
+
+#apaga-tudo {
+  background-color: red;
+}
+
+#salvar-tarefas {
+  background-color: green;
 }
 
 #texto-tarefa {
@@ -30,9 +50,9 @@ body {
 }
 
 .bnt-funcion {
-  margin-right: 5px;
+  margin-right: 15px;
   height: 30px;
-  background-color: teal;
+
   padding: 9px;
   border: none;
   color: white;
