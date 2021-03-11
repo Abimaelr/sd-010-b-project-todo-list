@@ -1,9 +1,11 @@
 .button {
     color: black;
-    background-color: white;
+    background-color:cadetblue;
     padding: 15px 30px;
     border-radius: 4px;
-    font-size: 10px;
+    font-size: 20px;
     line-height: 10px;
     font-weight: 400;
+    margin-left: 200px;
+    margin-top: 100px;
     }
