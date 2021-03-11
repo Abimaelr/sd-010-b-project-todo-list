@@ -5,4 +5,15 @@ document.querySelector('#criar-tarefa').addEventListener('click', function () {
   generateLi.innerHTML = task.value;
   taskList.appendChild(generateLi);
   task.value = '';
-})
+  generateLi.className = 'listItem';
+
+  document.querySelectorAll('.listItem').forEach(function (item) {
+    item.addEventListener('click', function (element) {
+      if (document.querySelectorAll('.selectedItem').length > 0) {
+        document.querySelectorAll('.selectedItem')[0].className = 'listItem';
+      }
+      element.target.className = 'selectedItem';
+    });
+  });
+
+});
