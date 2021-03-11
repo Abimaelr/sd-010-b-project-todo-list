@@ -84,7 +84,7 @@ function getLocalStorage() {
   }
 
   const storedTasks = JSON.parse(localStorage.getItem('task'));
-  for (let i = 0; i < storedTasks.length; i += 1) {
+  for (let i in storedTasks) {
     loadTask(storedTasks[i].text, storedTasks[i].class);
   }
 }
