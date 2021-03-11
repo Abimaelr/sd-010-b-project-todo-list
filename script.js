@@ -143,15 +143,19 @@ function salvaTarefa() {
 //  função de mover
 function moveUp() {
   const seletor = document.querySelector('.selected');
-  if (seletor.previousSibling !== null) {
-    ordLista.insertBefore(seletor, seletor.previousSibling);
+  if (seletor !== null) {
+    if (seletor.previousSibling !== null) {
+      ordLista.insertBefore(seletor, seletor.previousSibling);
+    }
   }
 }
 
 function moveDown() {
   const seletor = document.querySelector('.selected');
-  if (seletor.nextSibling !== null) {
-    ordLista.insertBefore(seletor, seletor.nextSibling.nextSibling);
+  if (seletor !== null) {
+    if (seletor.nextSibling !== null) {
+      ordLista.insertBefore(seletor, seletor.nextSibling.nextSibling);
+    }
   }
 }
 
