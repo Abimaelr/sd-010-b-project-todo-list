@@ -9,7 +9,7 @@ header {
 }
 
 p {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: Roboto, sans-serif;
 }
 
 .completed {
@@ -21,20 +21,16 @@ p {
 }
 
 button {
-  margin: 1px 1px;
+  margin: 1px;
   background-color: rebeccapurple;
-  font: bold;
   font-size: 14px;
 }
 
 button:hover {
   border: 2px black solid;
-}
-
-li:hover {
   cursor: pointer;
 }
 
-button:hover {
+li:hover {
   cursor: pointer;
 }
