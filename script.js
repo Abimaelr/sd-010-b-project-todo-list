@@ -1,18 +1,18 @@
-const createListButton = document.getElementById('criar-tarefa'); // constante recebe button
+const createListButton = document.getElementById('criar-tarefa'); // button gE-ID
 
 function createListItem() {
-  const listCreate = document.getElementById('lista-tarefas'); // list recebe ol
-  const capture = document.getElementById('texto-tarefa'); // capture recebe input text
-  const newListItem = document.createElement('li'); // cria novo item de lista
+  const listCreate = document.getElementById('lista-tarefas'); // ol gE-ID
+  const newListItem = document.createElement('li');
+  const capture = document.getElementById('texto-tarefa'); // input gE-ID
 
-  newListItem.innerText = capture.value; // novo item de lista + innerText recebe input value
-  listCreate.appendChild(newListItem); // novo item de lista é acomplado à lista como filho
-  capture.value = ''; // limpa o input com string vazia
+  newListItem.innerText = capture.value;
+  listCreate.appendChild(newListItem);
+  capture.value = '';
 }
 
 function createBgColor(cgColor) {
+  const listColor = document.querySelectorAll('li'); // ol li qsAll
   const aux = cgColor;
-  const listColor = document.querySelectorAll('ol li');
 
   for (let index = 0; index < listColor.length; index += 1) {
     listColor[index].style.backgroundColor = 'rgb(256, 256, 256)';
@@ -21,13 +21,25 @@ function createBgColor(cgColor) {
   aux.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
-function TheListener() {
-  const generalList = document.querySelectorAll('ol');
+function doneTask(event) {
+  const listCreate = document.getElementById('lista-tarefas'); // ol gE-ID
+  const aux = event.target;
 
-  for (let index = 0; index < generalList.length; index += 1) {
-    generalList[index].addEventListener('click', createBgColor);
+  if (aux.id === listCreate) {
+    event.preventDefault();
+  } else {
+    aux.classList.toggle('completed');
   }
 }
 
-createListButton.addEventListener('click', createListItem); // adiciona função ao button
+function TheListener() {
+  const generalList = document.querySelectorAll('ol'); // ol qSAll
+  for (let index = 0; index < generalList.length; index += 1) {
+    generalList[index].addEventListener('click', createBgColor);
+    generalList[index].addEventListener('dblclick', doneTask);
+  }
+}
+
+createListButton.addEventListener('click', createListItem);
+
 TheListener();
