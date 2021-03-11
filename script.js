@@ -1,7 +1,9 @@
 // ouvindo o botão add
 document.getElementById('criar-tarefa').addEventListener('click', addItem)
-// ouvindo o botão remove
+// ouvindo o botão  todos
 document.getElementById('apaga-tudo').addEventListener('click', deleteAll)
+// ouvindo o botão remove concluidos
+document.getElementById('remover-finalizados').addEventListener('click', deleteDone)
 
 function addItem(){
     let text = document.getElementById('texto-tarefa');
@@ -14,12 +16,6 @@ function addItem(){
 }   
 
 function completeTask(event){
-   /* const itemList = document.querySelectorAll('ol li')
-    for (let index = 0; index < itemList.length; index++ ) {
-            if (itemList[index].classList.contains('completed')) {
-                itemList[index].classList.remove('completed');
-            }
-      }*/
             if (event.target.classList.contains('completed')) {
                 event.target.classList.remove('completed');
             } else { event.target.classList.add('completed');}
@@ -48,5 +44,11 @@ function deleteAll() {
     for (let index = 0; index < itemList.length; index++ ) {
         itemList[index].remove()
       }
+}
 
+function deleteDone(){
+    const itemList = document.querySelectorAll('.completed')
+    for (let index = 0; index < itemList.length; index++ ) {
+        itemList[index].remove()
+      }
 }
