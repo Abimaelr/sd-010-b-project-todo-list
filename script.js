@@ -19,7 +19,7 @@ function adicionaNaListaEApagaEnter(entradaDaFuncao) {
     let teclaPressionada = entradaDaFuncao.keyCode || entradaDaFuncao.which;
     if (teclaPressionada == 13) {
         adicionaNaListaEApaga();
-    }
+        }
     }
     
 
