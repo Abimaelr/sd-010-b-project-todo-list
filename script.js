@@ -42,11 +42,8 @@ let removerFinalizados = document.getElementById('remover-finalizados');
 removerFinalizados.addEventListener('click', removFinalized);
 
 function removFinalized() {
-  let filho = document.getElementById('lista-tarefas').childNodes;
-  for (let index = 0; index < filho.length; index += 1) {
-    if (filho[index].classList.contains('completed') == true) {
-      document.getElementById('lista-tarefas').classList.remove('completed');
-      document.getElementById('lista-tarefas').removeChild(filho[index]);
-    } else {};
-}
+  let array = document.getElementsByClassName('completed');
+	while (array[0]){
+		array[0].parentNode.removeChild(array[0]);
+	}
 }
