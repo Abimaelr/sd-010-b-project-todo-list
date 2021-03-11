@@ -19,12 +19,16 @@ function changeColor (event) {
 
 }
 
-function addEventToLi () {
+function addEventsToLi () {
   let liArray2 = document.getElementsByClassName('list-item');
   for (index = 0; index < liArray2.length; index += 1) {
     liArray2[index].addEventListener('click', changeColor);
+    liArray2[index].addEventListener('dblclick', checkItem);
   }
 }
  
-document.getElementById('criar-tarefa').addEventListener('click', addEventToLi);
+document.getElementById('criar-tarefa').addEventListener('click', addEventsToLi);
 
+function checkItem (event) {
+  event.target.className = 'list-item completed';
+}
