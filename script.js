@@ -167,7 +167,7 @@ window.onload = function () {
     let item = verifyClickedItem();
     if (item !== null) {
       recoveredOl.insertBefore(item,item.previousElementSibling);
-      atualizaStorage();
+      atualizaStorage(); 
     }
   });
 
