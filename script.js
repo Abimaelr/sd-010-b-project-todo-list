@@ -40,13 +40,22 @@ function checkList() {
   }
 }
 
+// 10
 const reset = document.getElementById('apaga-tudo');
-
 const listaTarefas = document.getElementById('lista-tarefas');
-
 function removeTask() {
   for (let index = li.length; index >= 1; index -= 1) {
     listaTarefas.removeChild(li[0]);
   }
 }
 reset.addEventListener('click', removeTask);
+
+// 11
+const removerFinalizados = document.getElementById('remover-finalizado');
+function removefinished() {
+  const completed = document.getElementsByClassName('completed');
+  for (let index = li.length; index >= 1; index -= 1) {
+    listaTarefas.removeChild(completed[0]);
+  }
+}
+removerFinalizados.addEventListener('click', removefinished);
