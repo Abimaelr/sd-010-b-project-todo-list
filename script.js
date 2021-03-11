@@ -9,25 +9,30 @@ saveButton.addEventListener('click', () => {
   addTask();
 });
 
-function addTask(taskTodo) {
-  let taskText = task.value;
-  if (taskTodo) {
-    taskText = taskTodo.text;
-  }
-  if (taskText) {
-    const taskEl = document.createElement('li');
-    taskEl.classList.add('list');
-    taskEl.innerText = taskText;
-    orderedlist.appendChild(taskEl)
-    taskEl.addEventListener('click', () => {     
-      for (let i = 0; i < listItem.length; i += 1) {        
-        listItem[i].classList.remove('selected');
-      }
-       taskEl.classList.add('selected');
-    });
-    taskEl.addEventListener('dblclick', () => {      
-      taskEl.classList.toggle('completed')
-    });
-  }
+deleteAll.addEventListener('click', () => {
+  removeAll();
+});
+
+function addTask() {
+  let taskText = task.value;   
+  const taskEl = document.createElement('li');
+  taskEl.classList.add('list');
+  taskEl.innerText = taskText;
+  orderedlist.appendChild(taskEl)
+  taskEl.addEventListener('click', () => {     
+    for (let i = 0; i < listItem.length; i += 1) {        
+      listItem[i].classList.remove('selected');
+    }
+      taskEl.classList.add('selected');
+  });
+  taskEl.addEventListener('dblclick', () => {      
+    taskEl.classList.toggle('completed')
+  }); 
   task.value = '';
+}
+
+function removeAll() {
+  while (orderedlist.firstChild) {
+    orderedlist.removeChild(orderedlist.lastChild)
+  }
 }
