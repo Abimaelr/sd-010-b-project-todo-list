@@ -42,12 +42,14 @@ function completedClass() {
   const pai = document.getElementById('lista-tarefas');
 
   pai.addEventListener('dblclick', function (event) {
-    if ((event.target.classList.value).includes('completed')) {
+    if (event.target.classList.contains('completed')) {
       event.target.classList.remove('completed');
     } else {
       event.target.classList.add('completed');
     }
   }); 
+
+
   
 } completedClass()
   
