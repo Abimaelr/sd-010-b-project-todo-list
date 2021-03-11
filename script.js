@@ -11,7 +11,6 @@ const taskList = document.createElement('ol');
 taskList.id = 'lista-tarefas';
 document.body.appendChild(taskList);
 
-
 const eraseButton = document.createElement('button');
 eraseButton.id = 'apaga-tudo';
 eraseButton.innerHTML = 'Limpar lista';
@@ -21,7 +20,18 @@ eraseButton.addEventListener('click', function () {
   for (let index = 0; index < tasks.length; index +=1) {
     tasks[index].parentNode.removeChild(tasks[index]);
   }
-})
+});
+
+const delCompButton = document.createElement('button');
+delCompButton.id = 'remover-finalizados';
+delCompButton.innerHTML = 'Apagar completados';
+document.body.appendChild(delCompButton);
+delCompButton.addEventListener('click', function () {
+  const compTasks = document.querySelectorAll('.completed');
+  for (let index = 0; index < compTasks.length; index += 1) {
+    compTasks[index].parentNode.removeChild(compTasks[index]);
+  }
+});
 
 const button = document.createElement('button');
 button.id = 'criar-tarefa';
@@ -41,7 +51,7 @@ function selectTask() {
   const tasks = document.getElementById('lista-tarefas');
   const list = document.getElementsByTagName('li');
   tasks.addEventListener('click', function (event) {
-    if (event.target.classList.value !== 'completed'){
+    if (event.target.classList.value !== 'completed') {
       for (let index = 0; index < tasks.childNodes.length; index += 1) {
         list[index].classList.remove('selected');
       }
@@ -60,7 +70,6 @@ function completeTask() {
       event2.target.classList.remove('selected');  
     } else {
       event2.target.classList.remove('completed');
-      event2.target.classList.add('selected');
     }
   });
 }
