@@ -48,11 +48,15 @@ function removeTask() {
 reset.addEventListener('click', removeTask);
 
 // 11
-const removerFinalizados = document.getElementById('remover-finalizados');
+
 function removefinished() {
+  const removerFinalizados = document.getElementById('remover-finalizados');
+
   const completed = document.getElementsByClassName('completed');
-  for (let index = 0; index <= li.length; index += 1) {
-    listaTarefas.removeChild(completed[0]);
-  }
+  removerFinalizados.addEventListener('click', () => {
+    for (let i = 0; i <= li.length; i++) {
+      completed[i].remove();
+    }
+  });
 }
-removerFinalizados.addEventListener('click', removefinished);
+button.addEventListener('click', removefinished);
