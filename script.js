@@ -30,5 +30,10 @@ function addEventsToLi () {
 document.getElementById('criar-tarefa').addEventListener('click', addEventsToLi);
 
 function checkItem (event) {
+  if (event.target.className == 'list-item'){
   event.target.className = 'list-item completed';
+  } else {
+    event.target.className = 'list-item';
+  }
 }
+  
