@@ -6,6 +6,7 @@ function createElement(tag) {
   return element;
 }
 
+// Montagem do HTML:
 const main = document.getElementById('main');
 
 const title = createElement('h1');
@@ -22,22 +23,20 @@ const input = createElement('input');
 input.id = 'texto-tarefa';
 main.appendChild(input);
 
-const ordenedList = createElement('ol');
-ordenedList.id = 'lista-tarefas';
-main.appendChild(ordenedList);
-
 const button = createElement('button');
 button.innerHTML = 'Adicionar';
 button.id = 'criar-tarefa';
 main.appendChild(button);
 
+const ordenedList = createElement('ol');
+ordenedList.id = 'lista-tarefas';
+main.appendChild(ordenedList);
+
+// Adcionar:
 function addNewTask() {
   const inputValue = document.getElementById('texto-tarefa');
-  // const button = document.getElementById('cria-tarefa');
-  // const ordenedList = document.getElementById('lista-tarefas');
 
   button.addEventListener('click', () => {
-    // console.log(inputValue.value);
     if (inputValue.value.length > 0) {
       const newItem = createElement('li');
       newItem.innerHTML = inputValue.value;
@@ -49,21 +48,39 @@ function addNewTask() {
 }
 addNewTask();
 
+// Seleciona tarefa na lista:
 function getTask() {
-  const list = document.getElementsByClassName('task');
-  for (let i = 0; i < list.length; i += 1) {
-    list[i].addEventListener('click', () => {
-      console.log('worked');
-      // event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-    });
-  }
+  ordenedList.addEventListener('click', (e) => {
+    // for (let i = 0; i < ordenedList.length; i += 1) {
+    if (e.target.classList.contains('select')) {
+      e.target.classList.remove('select');
+    } else {
+      e.target.classList.add('select');
+    }
+    // }
+  });
 }
+
 getTask();
 
+function taskDone() {
+  ordenedList.addEventListener('dblclick', (e) => {
+    if (e.target.classList.contains('done')) {
+      e.target.classList.remove('done');
+    } else {
+      e.target.classList.add('done');
+    }
+  });
+}
+taskDone();
+
+// Limpa lista:
 const clearList = createElement('button');
+
 clearList.id = 'apaga-tudo';
 clearList.innerHTML = 'Limpar lista';
 main.appendChild(clearList);
+
 clearList.addEventListener('click', () => {
   ordenedList.innerHTML = '';
 });
