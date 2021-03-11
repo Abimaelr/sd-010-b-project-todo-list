@@ -16,8 +16,8 @@ eraseButton.id = 'apaga-tudo';
 eraseButton.innerHTML = 'Limpar lista';
 document.body.appendChild(eraseButton);
 eraseButton.addEventListener('click', function () {
-  const tasks = document.querySelectorAll('li');  
-  for (let index = 0; index < tasks.length; index +=1) {
+  const tasks = document.querySelectorAll('li');
+  for (let index = 0; index < tasks.length; index += 1) {
     tasks[index].parentNode.removeChild(tasks[index]);
   }
 });
@@ -78,7 +78,7 @@ function completeTask() {
   tasks2.addEventListener('dblclick', function (event2) {
     if (event2.target.classList.value !== 'completed') {
       event2.target.classList.add('completed');
-      event2.target.classList.remove('selected');  
+      event2.target.classList.remove('selected');
     } else {
       event2.target.classList.remove('completed');
     }
@@ -89,7 +89,7 @@ const saveButton = document.createElement('button');
 saveButton.id = 'salvar-tarefas';
 saveButton.innerHTML = 'Salvar tarefas';
 document.body.appendChild(saveButton);
-saveButton.addEventListener('click', function (event) {
+saveButton.addEventListener('click', function () {
   localStorage.setItem('taskList', document.getElementById('lista-tarefas').innerHTML);
 });
 
