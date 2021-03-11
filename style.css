@@ -11,3 +11,10 @@ button {
   color: antiquewhite;
   font-weight: 600;
 }
+
+.selected {
+  background-color: rgb( 128 , 128 , 128);
+}
+.completed {
+  text-decoration: line-through;
+}
