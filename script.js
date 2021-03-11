@@ -6,15 +6,14 @@ function addButtons(tag, tId, tInner) {
   aux.innerText = tInner;
   leBoby.appendChild(aux);
 }
-
 addButtons('header', '', 'Minha Lista de Tarefas');
 addButtons('p', 'funcionamento', 'Clique duas vezes em um item para marcá-lo como completo');
 addButtons('input', 'texto-tarefa', '');
 addButtons('button', 'criar-tarefa', 'Adicionar');
 addButtons('ol', 'lista-tarefas', '');
 addButtons('button', 'remover-selecionado', 'remover selecionado');
-addButtons('button', 'mover-cima', 'mover-baixo');
-addButtons('button', 'mover-cima', 'mover-baixo');
+addButtons('button', 'mover-cima', 'mover-cima');
+addButtons('button', 'mover-baixo', 'mover-baixo');
 addButtons('button', 'remover-finalizados', 'Limpar Completos');
 addButtons('button', 'apaga-tudo', 'Limpar Lista');
 addButtons('button', 'salvar-tarefas', 'Salvar Lista');
@@ -24,9 +23,32 @@ function addLista() {
   if (auxInput.value !== '') {
     const auxLi = document.createElement('li');
     auxLi.innerText = auxInput.value;
-    auxLi.className = 'ncinca ncompleted';
     leOl.appendChild(auxLi);
     auxInput.value = '';
+  }
+}
+function addClass(li, className) {
+  if (Object.entries(className).length > 0) {
+    const auxList = Object.values(className);
+    console.log(li);
+    console.log(className);
+    auxList.forEach((itemClass) => {
+      console.log('2----');
+      li.classList.add(itemClass);
+    });
+  }
+}
+
+if (localStorage.ListaSalva) {
+  const aux = Object.entries(JSON.parse(localStorage.getItem('ListaSalva')));
+  console.log(aux.length);
+  for (let i = 0; i < aux.length; i += 1) {
+    const auxRecupera = document.createElement('li');
+    const text = aux[i][1][0];
+    auxRecupera.innerText = text;
+    const classLis = aux[i][1][1];
+    addClass(auxRecupera, classLis);
+    leOl.appendChild(auxRecupera);
   }
 }
 const auxButton = document.querySelector('#criar-tarefa');
@@ -74,32 +96,28 @@ function removeFinalizados() {
   }
 }
 function salvarDados() {
-  const auxLi = document.querySelectorAll('li');
-  const aux = [];
-  for (let i = 0; i < auxLi.length; i += 1) {
-    aux[i] = auxLi[i].innerText;
-  }
+  const auxLi = Array.from(document.querySelectorAll('li'));
+  const aux = {};
+  auxLi.forEach((li, index) => {
+    console.log(li.innerText, li.classList);
+    aux[index] = [li.innerText, li.classList];
+  });
   localStorage.setItem('ListaSalva', JSON.stringify(aux));
 }
 function removeSelecionado() {
-  const aux = document.querySelector('.cinca');
-  aux.remove();
+  document.querySelector('.cinca').remove();
 }
-const auxRemoveSelecionado = document.querySelector('#remover-selecionado');
-auxRemoveSelecionado.addEventListener('click', removeSelecionado);
-const auxButtonClear = document.querySelector('#apaga-tudo');
-auxButtonClear.addEventListener('click', apagaLista);
-const auxRemoveFinalizados = document.querySelector('#remover-finalizados');
-auxRemoveFinalizados.addEventListener('click', removeFinalizados);
-const auxSalvar = document.querySelector('#salvar-tarefas');
-auxSalvar.addEventListener('click', salvarDados);
-
-if (localStorage.ListaSalva) {
-  const aux = JSON.parse(localStorage.getItem('ListaSalva'));
+/* function moverCima() {
+  let aux = document.querySelectorAll('li');
   for (let i = 0; i < aux.length; i += 1) {
-    const ol = document.querySelector('#lista-tarefas');
-    const auxRecupera = document.createElement('li');
-    auxRecupera.innerHTML = aux[i];
-    ol.appendChild(auxRecupera);
   }
+} */
+function moverBaixo() {
+
 }
+document.querySelector('#remover-selecionado').addEventListener('click', removeSelecionado);
+document.querySelector('#apaga-tudo').addEventListener('click', apagaLista);
+document.querySelector('#remover-finalizados').addEventListener('click', removeFinalizados);
+document.querySelector('#salvar-tarefas').addEventListener('click', salvarDados);
+/* document.querySelector('#mover-cima').addEventListener('click', moverCima); */
+document.querySelector('#mover-baixo').addEventListener('click', moverBaixo);
