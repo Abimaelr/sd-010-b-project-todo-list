@@ -4,6 +4,9 @@ const listOl = document.querySelector('#lista-tarefas'); //ol para criação da 
 const buttonClean = document.querySelector('#apaga-tudo'); // btn apaga tudo
 const btnRemoveFinalizados =document.querySelector("#remover-finalizados"); // btn remover finalizados
 const btnRemoveSelected = document.querySelector("#remover-selecionado"); // btn remover selecionados
+const btnMoveUp = document.querySelector('#mover-cima');
+const btnMoveDown = document.querySelector("#mover-baixo");
+const btnSave = document.querySelector("#salvar-tarefas");
 
 const  creatTask = () => {
  addButton.addEventListener('click',function(){
@@ -72,7 +75,46 @@ const buttonClearSelected =() => {
   })
 }
 
+const moveTaskUp = () => {
+btnMoveUp.addEventListener('click',function(){
+let taskList = document.querySelectorAll('li.task');
+  for(let index = 0; index < taskList.length; index +=1){
+    let position = taskList[index];
+    if (position.classList.contains('selected') && position.previousElementSibling !== null ){
+      listOl.insertBefore(position, taskList[index - 1]);
+    }
+  }
+})
+}
 
+const moveTaskDown = () => {
+btnMoveDown.addEventListener('click',function(){
+let taskList = document.querySelectorAll('li.task');
+  for(let index = 0; index < taskList.length; index +=1){
+    let position = taskList[index];
+    if(position.classList.contains('selected') && position.nextElementSibling !== null){
+      listOl.insertBefore(taskList[index +1],position);
+    }
+  }
+
+
+})
+}
+
+
+
+
+const saveTask = () => {
+
+}
+
+const localStoregeSave = () => {
+
+}
+
+const loadTask = () => {
+
+}
 
 window.onload = () => {
 creatTask();
@@ -81,5 +123,7 @@ addCompletedTask();
 buttonCleanList();
 buttonCleanCompleted();
 buttonClearSelected();
+moveTaskUp();
+moveTaskDown();
 
 }
