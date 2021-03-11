@@ -1,7 +1,6 @@
 const button = document.getElementById('criar-tarefa');
 const ol = document.getElementById('lista-tarefas');
 const textos = document.getElementById('texto-tarefa');
-console.log(textos);
 
 function creatElement() {
   button.addEventListener('click', () => {
@@ -15,26 +14,24 @@ function creatElement() {
 }
 creatElement();
 const li = document.getElementsByClassName('tasks');
+button.addEventListener('click', changeLi);
 
 function changeLi() {
   for (let index = 0; index < li.length; index += 1) {
-    li[index].addEventListener('click', (event) => {
-      event.target.style.backgroundColor = 'rgb(128,128,128)';
+    ol.addEventListener('click', (event) => {
+      li[index].classList.remove('listSelected');
+      event.target.classList.add('listSelected');
     });
   }
 }
 
-button.addEventListener('click', changeLi);
-
-
 const reset = document.getElementById('apaga-tudo');
 
-let listaTarefas = document.getElementById('lista-tarefas')
-function removeTask() {
+const listaTarefas = document.getElementById('lista-tarefas');
 
-  for (let index = li.length; index >=  1; index -= 1) {
+function removeTask() {
+  for (let index = li.length; index >= 1; index -= 1) {
     listaTarefas.removeChild(li[0]);
   }
-
 }
-reset.addEventListener('click', removeTask)
+reset.addEventListener('click', removeTask);
