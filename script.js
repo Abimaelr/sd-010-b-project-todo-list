@@ -11,7 +11,7 @@ function makeTarefa() {
 }
 
 let listaTarefas = document.getElementById('lista-tarefas');
-listaTarefas.addEventListener('dblclick', changeColor);
+listaTarefas.addEventListener('click', changeColor);
 
 function changeColor(event) {  
 	let element = document.getElementById('lista-tarefas').childNodes;		
