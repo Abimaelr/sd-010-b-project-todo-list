@@ -31,21 +31,25 @@ function removeCompletedTask(task) {
   completedTask.classList.remove('completed');
 }
 
-function TheListener() {
+createListButton.addEventListener('click', createListItem);
+
+function clickListener() {
   const generalList = document.querySelectorAll('ol'); // ol qSAll
   for (let index = 0; index < generalList.length; index += 1) {
     generalList[index].addEventListener('click', createBgColor);
   }
 }
 
-createListButton.addEventListener('click', createListItem);
+clickListener();
 
-TheListener();
+function DblclickListener() {
+  document.addEventListener('dblclick', (event) => {
+    if (event.target.classList.contains('completed')) {
+      removeCompletedTask(event.target);
+    } else {
+      completeTask(event.target);
+    }
+  }, false);
+}
 
-document.addEventListener('dblclick', (event) => {
-  if (event.target.classList.contains('completed')) {
-    removeCompletedTask(event.target);
-  } else {
-    completeTask(event.target);
-  }
-}, false);
+DblclickListener();
