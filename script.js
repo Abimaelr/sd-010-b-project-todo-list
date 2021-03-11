@@ -1,12 +1,13 @@
 function addNewItemList() {
-  let getInputButton = document.querySelector('#criar-tarefa');
-  let getInputField = document.querySelector('#texto-tarefa');
-  let getOl = document.querySelector('#lista-tarefas');
+  const getInputButton = document.querySelector('#criar-tarefa');
+  const getInputField = document.querySelector('#texto-tarefa');
+  const getOl = document.querySelector('#lista-tarefas');
 
   getInputButton.addEventListener('click', function () {
     if (getInputField.value.length > 0) {
-      let newLi = document.createElement('li');
+      const newLi = document.createElement('li');
       newLi.innerText = getInputField.value;
+      newLi.className = 'selected';
       getOl.appendChild(newLi);
       getInputField.value = '';
     } else {
@@ -16,3 +17,16 @@ function addNewItemList() {
 }
 
 addNewItemList();
+
+function changeColorItem() {
+  const getOl = document.querySelector('#lista-tarefas');
+  getOl.addEventListener('click', function (event) {
+    let getLi = document.querySelector('.selected');
+    if (getLi != null) {
+      document.querySelector('.selected').classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+  });
+}
+
+changeColorItem();
