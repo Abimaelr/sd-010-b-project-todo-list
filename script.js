@@ -1,14 +1,16 @@
 window.onload = function () { 
   let tarefas = JSON.parse(localStorage.getItem('tarefas'));
-  for (let i = 0; i < tarefas.length; i += 1){
-    let listaTarefas = document.querySelector('#lista-tarefas');
-    let novaTarefa = document.createElement('li');
-    novaTarefa.innerText = tarefas[i][0];
-    novaTarefa.className = 'tarefa';
-    if (tarefas[i][1]) {
-      novaTarefa.classList.add('completed');
+  if (tarefas != null) {
+    for (let i = 0; i < tarefas.length; i += 1){
+      let listaTarefas = document.querySelector('#lista-tarefas');
+      let novaTarefa = document.createElement('li');
+      novaTarefa.innerText = tarefas[i][0];
+      novaTarefa.className = 'tarefa';
+      if (tarefas[i][1]) {
+        novaTarefa.classList.add('completed');
+      }
+      listaTarefas.appendChild(novaTarefa);
     }
-    listaTarefas.appendChild(novaTarefa);
   }
 }
 
