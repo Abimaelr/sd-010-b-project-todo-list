@@ -6,6 +6,10 @@ function taskSelect(e) {
   e.target.classList.add('selected');
 }
 
+function taskCompleted(e) {
+  e.target.classList.toggle('completed');
+}
+
 function addTask() {
   const newTask = document.getElementById('texto-tarefa');
   if (newTask.value !== '') {    
@@ -15,6 +19,7 @@ function addTask() {
     task.innerHTML = newTask.value;
     taskList.appendChild(task);
     task.addEventListener('click', taskSelect);
+    task.addEventListener('dblclick', taskCompleted);
     newTask.value = '';
   }
 }
