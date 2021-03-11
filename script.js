@@ -11,20 +11,37 @@ function addItem(){
     list.appendChild(li);
 }   
 
-function changeColor(event){
+function completeTask(event){
+   /* const itemList = document.querySelectorAll('ol li')
+    for (let index = 0; index < itemList.length; index++ ) {
+            if (itemList[index].classList.contains('completed')) {
+                itemList[index].classList.remove('completed');
+            }
+      }*/
+
+
+            if (event.target.classList.contains('completed')) {
+                event.target.classList.remove('completed');
+            } else { event.target.classList.add('completed');}
+      
+    
+
+}
+
+
+function changeColor(click){
     const itemList = document.querySelectorAll('ol li')
     for (let index = 0; index < itemList.length; index++ ) {
-        console.log('xablau')
-            itemList[index].style.backgroundColor = 'white';
+            itemList[index].style.backgroundColor = 'rgb(256, 256, 256)';
       }
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)'
-
+    click.target.style.backgroundColor = 'rgb(128, 128, 128)'
 }
 
 function itensListener(){
     const itemList = document.querySelectorAll('ol')
     for(let index = 0; index < itemList.length; index++){
     itemList[index].addEventListener('click', changeColor)
+    itemList[index].addEventListener('dblclick', completeTask)
     }
 }
 
