@@ -1,8 +1,9 @@
 let text = document.querySelector('#texto-tarefa'); //local digitar tarefa
 const addButton = document.querySelector('#criar-tarefa'); //btn add tarefa na minha lista
 const listOl = document.querySelector('#lista-tarefas'); //ol para criação da minha li
-const buttonClean = document.querySelector('#apaga-tudo')// btn apaga tudo
-const btnRemoveFinalizados =document.querySelector("#remover-finalizados")
+const buttonClean = document.querySelector('#apaga-tudo'); // btn apaga tudo
+const btnRemoveFinalizados =document.querySelector("#remover-finalizados"); // btn remover finalizados
+const btnRemoveSelected = document.querySelector("#remover-selecionado"); // btn remover selecionados
 
 const  creatTask = () => {
  addButton.addEventListener('click',function(){
@@ -52,9 +53,9 @@ const buttonCleanList = () => {
 }
 
 const buttonCleanCompleted = () => {
-  btnRemoveFinalizados.addEventListener('click' , function(){
-    let completeds = document.querySelectorAll('li.completed')
-      for(index = 0; index < completeds.length; index += 1){
+  btnRemoveFinalizados.addEventListener('click', function(){
+    let completeds = document.querySelectorAll('li.completed');
+      for(let index = 0; index < completeds.length; index += 1){
         listOl.removeChild(completeds[index]);
       }
           // completeds.forEach((key)=>{
@@ -62,7 +63,14 @@ const buttonCleanCompleted = () => {
           // })
   })
 }
-
+const buttonClearSelected =() => {
+  btnRemoveSelected.addEventListener('click', function(){
+    let selectedTask = document.querySelectorAll('li.selected');
+    for(let index = 0; index < selectedTask.length; index +=1){
+      listOl.removeChild(selectedTask[index]);
+    }
+  })
+}
 
 
 
@@ -72,5 +80,6 @@ addSelectedTask();
 addCompletedTask();
 buttonCleanList();
 buttonCleanCompleted();
+buttonClearSelected();
 
 }
