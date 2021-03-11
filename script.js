@@ -11,16 +11,25 @@ function inserirTarefa() {
 // site que me ajudou https://pt.stackoverflow.com/questions/375441/selecionar-um-select-pelo-valor-digitado-no-input
 
 let cinza = document.getElementById('lista-tarefas');
-cinza.addEventListener('click', function(event){
-    let cinza2 = document.getElementsByClassName('itens');
-    for (let index = 0; index < cinza2.length; index += 1) {
+cinza.addEventListener('click', function (event) {
+  let cinza2 = document.getElementsByClassName('itens');
+  for (let index = 0; index < cinza2.length; index += 1) {
     document.getElementsByClassName('itens')[index].classList.remove('selected');
     event.target.classList.add('selected');
-    }
-    
+  }
 })
+
+let cinza3 = document.getElementById('lista-tarefas');
+cinza3.addEventListener('dblclick', function (event) {
+  
+    if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+})
+
 
 // for (let index = 0; index < palet.length; index += 1) {
 //     palet[index].addEventListener('click', function (event) {
 //       document.getElementsByClassName('selected')[0].classList.remove('selected');
-      
