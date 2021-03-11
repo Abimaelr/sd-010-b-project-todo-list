@@ -19,7 +19,7 @@ function limpaInput(){
 }
 
  
-
+//Mudar o beackground para cinza
 function changeColor(){
     let addList = document.querySelector('#lista-tarefas');
     addList.addEventListener("click", function(event){
@@ -32,13 +32,7 @@ function changeColor(){
 }
 changeColor();
 
-
-/* Pontos importantes sobre este requisito:
-
-* Crie uma classe CSS com o nome "completed" e defina a propriedade "text-decoration" com o valor "line-through".
-
-* Utilize a classe CSS "completed" para adicionar o efeito de letra tachada (riscada) às tarefas finalizadas. */
-
+//Riscar elemento
 function riscaList(){
     let addList = document.querySelector('#lista-tarefas');
     addList.addEventListener("dblclick", function(event){
@@ -51,3 +45,16 @@ function riscaList(){
     })
 }
 riscaList(); 
+
+// Botão limpar lista
+function clearList(){
+    let buttonLimpar = document.getElementById("apaga-tudo");
+    let listaPai = document.getElementById("lista-tarefas");
+        buttonLimpar. addEventListener("click", function(){
+            while (listaPai.firstChild) { 
+                listaPai.removeChild(listaPai.firstChild);
+            } //Removendo todos os nós filhos de um elemento
+        });
+    
+}
+clearList();  
