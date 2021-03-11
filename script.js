@@ -37,7 +37,7 @@ let selectedTask = document.querySelector('.selected');
 }
 
 const addCompletedTask = ( ) => {
-  listOl.addEventListener('dblclick', function(event){
+  listOl.addEventListener('dblclick', (event) => {
   if(event.target.classList.contains('completed') ) {
     event.target.classList.remove('completed')
   }
@@ -56,7 +56,7 @@ const buttonCleanList = () => {
 }
 
 const buttonCleanCompleted = () => {
-  btnRemoveFinalizados.addEventListener('click', function(){
+  btnRemoveFinalizados.addEventListener('click', () => {
     let completeds = document.querySelectorAll('li.completed');
       for(let index = 0; index < completeds.length; index += 1){
         listOl.removeChild(completeds[index]);
@@ -67,7 +67,7 @@ const buttonCleanCompleted = () => {
   })
 }
 const buttonClearSelected =() => {
-  btnRemoveSelected.addEventListener('click', function(){
+  btnRemoveSelected.addEventListener('click', () => {
     let selectedTask = document.querySelectorAll('li.selected');
     for(let index = 0; index < selectedTask.length; index +=1){
       listOl.removeChild(selectedTask[index]);
@@ -88,10 +88,10 @@ let taskList = document.querySelectorAll('li.task');
 }
 
 const moveTaskDown = () => {
-btnMoveDown.addEventListener('click',function(){
-let taskList = document.querySelectorAll('li.task');
-  for(let index = 0; index < taskList.length; index +=1){
-    let position = taskList[index];
+  btnMoveDown.addEventListener('click',() => {
+  let taskList = document.querySelectorAll('li.task');
+    for(let index = 0; index < taskList.length; index +=1){
+      let position = taskList[index];
     if(position.classList.contains('selected') && position.nextElementSibling !== null){
       listOl.insertBefore(taskList[index +1],position);
     }
@@ -99,22 +99,21 @@ let taskList = document.querySelectorAll('li.task');
 })
 }
 const saveTask = () => {
- btnSave.addEventListener('click',function(){
- localStorageSave();
- })
-
+  btnSave.addEventListener('click',() => {
+  localStorageSave();
+  })
 }
 
 const localStorageSave = () => {
-let save = document.querySelector('#lista-tarefas').innerHTML;
-localStorage.task = save;
-window.alert('Lista Salva');
+  let save = document.querySelector('#lista-tarefas').innerHTML;
+  localStorage.task = save;
+  window.alert('Lista Salva');
 };
 
 const loadTask = () => {
-if (localStorage.task ){
-document.querySelector('#lista-tarefas').innerHTML = localStorage.task;
-}
+  if (localStorage.task ){
+  document.querySelector('#lista-tarefas').innerHTML = localStorage.task;
+  }
 
 }
 
