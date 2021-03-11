@@ -16,3 +16,13 @@ document.addEventListener('click', (event) => {
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 });
+
+document.addEventListener('dblclick', (event) => {
+  if (event.target.classList.contains('tarefa')) {
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
+    }
+  }
+});
