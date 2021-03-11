@@ -18,7 +18,7 @@ function creatElement() {
 creatElement();
 
 const li = document.getElementsByClassName('tasks');
-button.addEventListener('click', changeLi);
+
 function changeLi() {
   for (let index = 0; index < li.length; index += 1) {
     ol.addEventListener('click', (event) => {
@@ -27,11 +27,8 @@ function changeLi() {
     });
   }
 }
+button.addEventListener('click', changeLi);
 //
-//
-
-button.addEventListener('click', checkList);
-
 function checkList() {
   for (let index = 0; index < li.length; index += 1) {
     ol.addEventListener('dblclick', (event) => {
@@ -39,7 +36,7 @@ function checkList() {
     });
   }
 }
-
+button.addEventListener('click', checkList);
 // 10
 const reset = document.getElementById('apaga-tudo');
 const listaTarefas = document.getElementById('lista-tarefas');
@@ -51,7 +48,7 @@ function removeTask() {
 reset.addEventListener('click', removeTask);
 
 // 11
-const removerFinalizados = document.getElementById('remover-finalizado');
+const removerFinalizados = document.getElementById('remover-finalizados');
 function removefinished() {
   const completed = document.getElementsByClassName('completed');
   for (let index = li.length; index >= 1; index -= 1) {
