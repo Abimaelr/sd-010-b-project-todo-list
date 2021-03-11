@@ -42,11 +42,11 @@ let removerFinalizados = document.getElementById('remover-finalizados');
 removerFinalizados.addEventListener('click', removFinalized);
 
 function removFinalized() {
-  let element = document.getElementsByClassName('completed');
   let filho = document.getElementById('lista-tarefas').childNodes;
-  for (let index = 0; index < filho.length; index += 1)
-    if (element[index] == element[index]) {
-      document.getElementById('lista-tarefas').classList.remove('selected');
+  for (let index = 0; index < filho.length; index += 1) {
+    if (filho[index].classList.contains('completed') == true) {
+      document.getElementById('lista-tarefas').classList.remove('completed');
       document.getElementById('lista-tarefas').removeChild(filho[index]);
-    }
+    } else {};
+}
 }
