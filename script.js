@@ -61,7 +61,7 @@ olTasks.addEventListener('dblclick', function (event) {
 // requisito 10
 const buttonClearAll = document.createElement('button');
 bodyChilds.appendChild(buttonClearAll);
-buttonClearAll.id = 'apaga-tudo'
+buttonClearAll.id = 'apaga-tudo';
 buttonClearAll.innerText = 'Limpar Tudo';
 
 buttonClearAll.addEventListener('click', function () {
@@ -78,29 +78,9 @@ buttonClearComplete.id = 'remover-finalizados';
 buttonClearComplete.innerText = 'Remover Finalizados';
 buttonClearComplete.addEventListener('click', function () {
   const complete = document.querySelectorAll('.completed');
-  for (let counter = complete.length - 1; counter >=0; counter -= 1) {
+  for (let counter = complete.length - 1; counter >= 0; counter -= 1) {
     document.getElementsByTagName('ol')[0].removeChild(complete[counter]);
   }
 });
-
-// requisito 12
-const buttonSave = document.createElement('button');
-buttonSave.innerText = 'Salvar Tarefas';
-bodyChilds.appendChild(buttonSave);
-buttonSave.id = 'salvar-tarefas';
-buttonSave.addEventListener('click', function () {
-  const tasks = document.querySelectorAll('.task');
-  for (let x = tasks.length - 1; x >= 0; x -= 1) {
-    olTasks.removeChild((tasks[x]));
-  }
-  olTasks.appendChild
-});
-
-//requisito 14
-const clearSelected = document.createElement('button');
-bodyChilds.appendChild(clearSelected);
-clearSelected.id ='remover-selecionado';
-clearSelected.innerText = 'Remover Selecionado';
-clearSelected.addEventListener('click', function () {
-  olTasks.removeChild(getGrayElement[0]);
-})
+ 
+//daqui pra frente é CSS da página:
