@@ -102,7 +102,7 @@ function selecionaLinha(event) {
 // riscando
 function riscar() {
   for (let index = 0; index < getItem.length; index += 1) {
-    if (getItem[index].className === 'completed') {
+    if (getItem[index].classList.contains('completed')) {
       getItem[index].style.textDecoration = 'line-through solid rgb(0, 0, 0)';
     }
   }
@@ -115,7 +115,7 @@ function itemCompleto(evento) {
     unid.className = '';
     unid.style.textDecoration = '';
   } else {
-    unid.className = 'completed';
+    unid.className += ' completed';
   }
   riscar();
 }
@@ -157,7 +157,8 @@ function moveDown() {
 
 // função de deletar 1 unico item
 function removeUnico() {
-
+  const seletor = document.querySelector('.selected');
+  ordLista.removeChild(seletor);
 }
 
 // EVENTOS
