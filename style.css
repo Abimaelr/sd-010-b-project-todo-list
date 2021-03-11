@@ -1,3 +1,9 @@
+body {
+  background-color: silver;
+  padding: 10px;
+  margin: 10px;
+}
+
 header {
   font-size: 20px;
 }
@@ -12,4 +18,23 @@ p {
 
 .cinca {
   background-color: gray;
+}
+
+button {
+  margin: 1px 1px;
+  background-color: rebeccapurple;
+  font: bold;
+  font-size: 14px;
+}
+
+button:hover {
+  border: 2px black solid;
+}
+
+li:hover {
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
 }

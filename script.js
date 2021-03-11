@@ -30,10 +30,7 @@ function addLista() {
 function addClass(li, className) {
   if (Object.entries(className).length > 0) {
     const auxList = Object.values(className);
-    console.log(li);
-    console.log(className);
     auxList.forEach((itemClass) => {
-      console.log('2----');
       li.classList.add(itemClass);
     });
   }
@@ -41,7 +38,6 @@ function addClass(li, className) {
 
 if (localStorage.ListaSalva) {
   const aux = Object.entries(JSON.parse(localStorage.getItem('ListaSalva')));
-  console.log(aux.length);
   for (let i = 0; i < aux.length; i += 1) {
     const auxRecupera = document.createElement('li');
     const text = aux[i][1][0];
@@ -99,7 +95,6 @@ function salvarDados() {
   const auxLi = Array.from(document.querySelectorAll('li'));
   const aux = {};
   auxLi.forEach((li, index) => {
-    console.log(li.innerText, li.classList);
     aux[index] = [li.innerText, li.classList];
   });
   localStorage.setItem('ListaSalva', JSON.stringify(aux));
@@ -107,17 +102,30 @@ function salvarDados() {
 function removeSelecionado() {
   document.querySelector('.cinca').remove();
 }
-/* function moverCima() {
-  let aux = document.querySelectorAll('li');
-  for (let i = 0; i < aux.length; i += 1) {
-  }
-} */
-function moverBaixo() {
 
+function moverCima() {
+  const li = Array.from(document.querySelectorAll('li'));
+  for (let key = 0; key < li.length; key += 1) {
+    const position = li[key];
+    console.log(position);
+    if (li[key].classList.contains('cinca') && key > 0) {
+      position.parentNode.insertBefore(position, li[key - 1]);
+    }
+  }
+}
+function moverBaixo() {
+  const li = Array.from(document.querySelectorAll('li'));
+  for (let key = li.length - 1; key >= 0; key -= 1) {
+    const position = li[key];
+    if (li[key].classList.contains('cinca') && key < li.length - 1) {
+      console.log(position);
+      position.parentNode.insertBefore(li[key + 1], position);
+    }
+  }
 }
 document.querySelector('#remover-selecionado').addEventListener('click', removeSelecionado);
 document.querySelector('#apaga-tudo').addEventListener('click', apagaLista);
 document.querySelector('#remover-finalizados').addEventListener('click', removeFinalizados);
 document.querySelector('#salvar-tarefas').addEventListener('click', salvarDados);
-/* document.querySelector('#mover-cima').addEventListener('click', moverCima); */
+document.querySelector('#mover-cima').addEventListener('click', moverCima);
 document.querySelector('#mover-baixo').addEventListener('click', moverBaixo);
