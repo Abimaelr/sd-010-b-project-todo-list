@@ -38,3 +38,14 @@ function apagar() {
     }
   }
 // https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild me ajudou no apagar tudo
+document.getElementById('remover-finalizados').addEventListener('click', apagarSelecionado);
+
+function apagarSelecionado() {
+    let listaOrde = document.getElementById("lista-tarefas");
+    let listona = document.querySelectorAll('.completed');
+    for (let key in listona) {
+   if (listona[key].classList.contains('completed')) {
+       listaOrde.removeChild(listaOrde.childNodes[key])
+   }
+}
+}
