@@ -2,3 +2,11 @@
   max-width: 1366px;
   max-height: 768px;
 }
+
+button {
+  width: auto;
+  height: 25px;
+  background-color: darkcyan;
+  color: antiquewhite;
+  font-weight: 600;
+}
