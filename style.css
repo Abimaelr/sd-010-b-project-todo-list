@@ -1,5 +1,5 @@
 * {
-  font-family:fantasy ;
+  font-family: fantasy;
 }
 
 header {
@@ -7,7 +7,6 @@ header {
 }
 
 #funcionamento {
- 
   margin: 10px;
 }
 
@@ -32,5 +31,3 @@ header {
 .selected {
   background-color: rgb(128,128,128);
 }
-
-
