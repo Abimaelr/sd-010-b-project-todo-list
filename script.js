@@ -37,8 +37,8 @@ function riscaList(){
     let addList = document.querySelector('#lista-tarefas');
     addList.addEventListener("dblclick", function(event){
         let elementRiscado = document.querySelector(".completed"); 
-        if(elementRiscado){
-            elementRiscado.classList.remove('completed');
+        if(event.target.classList.contains('completed')){
+            event.target.classList.remove('completed');
         } else{
             event.target.classList.add('completed'); 
         }
@@ -62,7 +62,6 @@ clearList();
 //Bot]ao Limpar Completados; 
  function clearCompleted(){
     let buttonLimpar = document.getElementById("remover-finalizados");
-    
     buttonLimpar.addEventListener("click", buttonCompleted)
 }
 clearCompleted();
