@@ -32,14 +32,12 @@ function changeLi() {
 
 button.addEventListener('click', changeLi);
 //
-function checkList() {
-  for (let index = 0; index < li.length; index += 1) {
-    ol.addEventListener('dblclick', (event) => {
-      event.target.classList.toggle('completed');
-    });
-  }
-}
-button.addEventListener('click', checkList);
+
+ol.addEventListener('dblclick', (event) => {
+  event.target.classList.toggle('completed');
+});
+
+// button.addEventListener('click', checkList);
 // 10
 const reset = document.getElementById('apaga-tudo');
 const listaTarefas = document.getElementById('lista-tarefas');
