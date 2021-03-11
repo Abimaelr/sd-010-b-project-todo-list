@@ -34,10 +34,6 @@ footer {
   margin-bottom: 20px;
 }
 
-#selected {
-  background-color: rgb(128 , 128 , 128);
-}
-
 #texto-tarefa {
   border-radius: 4px;
   display: inline-block;
@@ -51,7 +47,7 @@ footer {
   border: 1px solid;
   border-color: rgb(70 , 167 , 245);
   border-radius: 10px;
-  background: linear-gradient(to bottom , rgb(134 , 198 , 248) 5% , rgb(70 , 167 , 245) 100%);
+  background: linear-gradient(rgb(134 , 198 , 248) 5% , rgb(70 , 167 , 245) 100%);
   box-shadow: inset 1px rgb(215 , 236 , 253);
   display: inline-block;
   cursor: pointer;
@@ -63,14 +59,14 @@ footer {
 }
 
 .btnAdd:hover {
-  background: linear-gradient(to bottom , rgb(70 , 167 , 245) 5% , rgb(134 , 198 , 248) 100%);
+  background: linear-gradient(rgb(70 , 167 , 245) 5% , rgb(134 , 198 , 248) 100%);
 }
 
 .btnDel {
   border: 1px solid;
   border-color: rgb(246 , 31 , 14);
   border-radius: 4px;
-  background: linear-gradient(to bottom , rgb(252 , 169 , 161) 5% , rgb(246 , 31 , 14) 100%);
+  background: linear-gradient(rgb(252 , 169 , 161) 5% , rgb(246 , 31 , 14) 100%);
   box-shadow: inset 1px rgb(215 , 236 , 253);
   display: inline-block;
   cursor: pointer;
@@ -83,14 +79,14 @@ footer {
 }
 
 .btnDel:hover {
-  background: linear-gradient(to bottom , rgb(246 , 31 , 14) 5% , rgb(252 , 168 , 161) 100%);
+  background: linear-gradient(rgb(246 , 31 , 14) 5% , rgb(252 , 168 , 161) 100%);
 }
 
 .btnCmp {
   border: 1px solid;
   border-color: rgb(22 , 115 , 192);
   border-radius: 4px;
-  background: linear-gradient(to bottom , rgb(66 , 134 , 185) 5% , rgb(22 , 115 , 192) 100%);
+  background: linear-gradient(rgb(66 , 134 , 185) 5% , rgb(22 , 115 , 192) 100%);
   box-shadow: inset 1px rgb(215 , 236 , 253);
   display: inline-block;
   cursor: pointer;
@@ -103,14 +99,14 @@ footer {
 }
 
 .btnCmp:hover {
-  background: linear-gradient(to bottom , rgb(22 , 115 , 192) 5% , rgb(66 , 134 , 185) 100%);
+  background: linear-gradient(rgb(22 , 115 , 192) 5% , rgb(66 , 134 , 185) 100%);
 }
 
 .btnSav {
   border: 1px solid;
   border-color: rgb(27 , 151 , 10);
   border-radius: 4px;
-  background: linear-gradient(to bottom , rgb(100 , 173 , 90) 5% , rgb(27 , 151 , 10) 100%);
+  background: linear-gradient(rgb(100 , 173 , 90) 5% , rgb(27 , 151 , 10) 100%);
   box-shadow: inset 1px rgb(215 , 236 , 253);
   display: inline-block;
   cursor: pointer;
@@ -123,5 +119,5 @@ footer {
 }
 
 .btnSav:hover {
-  background: linear-gradient(to bottom , rgb(27 , 151 , 10) 5% , rgb(100 , 173 , 90) 100%);
+  background: linear-gradient(rgb(27 , 151 , 10) 5% , rgb(100 , 173 , 90) 100%);
 }
