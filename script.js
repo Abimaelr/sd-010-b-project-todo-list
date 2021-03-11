@@ -8,7 +8,7 @@ window.onload = function () {
   let removeCompleted = null;
   let saveTasks = null;
   let moveElementUp = null;
-  let moveElementDown = null;
+  let removeSelected = null;
 
   startAplication();
 
@@ -115,6 +115,14 @@ window.onload = function () {
     elementButtonDown.innerText = 'Mover Baixo';
     elementSection.appendChild(elementButtonDown);
     moveElementDown = document.getElementById('mover-baixo');
+
+    // Etapa 14 - Adicione um botão com id="remover-selecionado" que, quando clicado, remove o item selecionado
+    // Criando um Botão <button> dentro da section
+    const elementButtonRemoveSelected = document.createElement('button');
+    elementButtonRemoveSelected.id = 'remover-selecionado';
+    elementButtonRemoveSelected.innerText = 'Remover Selecionado';
+    elementSection.appendChild(elementButtonRemoveSelected);
+    removeSelected = document.getElementById('remover-selecionado');
   }
 
   function addItem(props) {
@@ -166,7 +174,7 @@ window.onload = function () {
   moveElementUp.addEventListener('click', function () {
     let item = verifyClickedItemUp();
     if (item !== null) {
-      recoveredOl.insertBefore(item,item.previousElementSibling);
+      recoveredOl.insertBefore(item, item.previousElementSibling);
       atualizaStorage();
     }
   });
@@ -175,11 +183,9 @@ window.onload = function () {
     let item = verifyClickedItem();
     if (item != null) {
       try {
-        recoveredOl.insertBefore(item.nextElementSibling,item);
+        recoveredOl.insertBefore(item.nextElementSibling, item);
         atualizaStorage();
-      } catch (error) {
-          
-      }
+      } catch (error) {}
     }
   });
 
@@ -187,12 +193,15 @@ window.onload = function () {
     allTasks = document.querySelectorAll('#item');
     let retorno = null;
     for (let index = 0; index < allTasks.length; index++) {
-       if (allTasks[index].className === "opened itemSelected" || allTasks[index].className === "completed itemSelected") {          
-            if (index > 0 && index <= (allTasks.length)) {
-                retorno = allTasks[index];
-                break;
-            }
-       }
+      if (
+        allTasks[index].className === 'opened itemSelected' ||
+        allTasks[index].className === 'completed itemSelected'
+      ) {
+        if (index > 0 && index <= allTasks.length) {
+          retorno = allTasks[index];
+          break;
+        }
+      }
     }
     return retorno;
   }
@@ -201,14 +210,16 @@ window.onload = function () {
     allTasks = document.querySelectorAll('#item');
     let retorno = null;
     for (let index = 0; index < allTasks.length; index++) {
-       if (allTasks[index].className === "opened itemSelected" || allTasks[index].className === "completed itemSelected") {
-          retorno = allTasks[index];
-          break;
-       }
+      if (
+        allTasks[index].className === 'opened itemSelected' ||
+        allTasks[index].className === 'completed itemSelected'
+      ) {
+        retorno = allTasks[index];
+        break;
+      }
     }
     return retorno;
   }
-
 
   clearAll.addEventListener('click', function () {
     allTasks = document.querySelectorAll('#item');
@@ -249,6 +260,14 @@ window.onload = function () {
       document.getElementById('lista-tarefas').innerHTML
     );
     atualizaStorage();
+  });
+
+  removeSelected.addEventListener('click', function () {
+    let item = verifyClickedItem();
+    if (item != null) {
+      item.parentNode.removeChild(item);
+      atualizaStorage();
+    }
   });
 
   selectElement.addEventListener('dblclick', function (props) {
