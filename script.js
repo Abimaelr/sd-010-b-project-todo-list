@@ -1,3 +1,5 @@
+const tasksList = document.getElementById('lista-tarefas');
+
 let flag = true;
 function riskCompleted(evt) {
   const tgt = evt.target;
@@ -6,7 +8,6 @@ function riskCompleted(evt) {
 }
 function createNewTask() {
   const newTaskBtn = document.getElementById('criar-tarefa');
-  const tasksList = document.getElementById('lista-tarefas');
   const taskText = document.getElementById('texto-tarefa');
   newTaskBtn.addEventListener('click', () => {
     const newTask = document.createElement('li');
@@ -26,7 +27,6 @@ function createNewTask() {
 }
 const eraseBtn = document.getElementById('apaga-tudo');
 eraseBtn.addEventListener('click', () => {
-  const tasksList = document.getElementById('lista-tarefas');
   tasksList.innerHTML = '';
 });
 
@@ -54,7 +54,6 @@ saveTasksBtn.addEventListener('click', () => {
 
 function putSavedTasks() {
   const tasks = localStorage.getItem('tasks');
-  const tasksList = document.querySelector('#lista-tarefas');
   console.log(tasks);
   console.log(tasksList);
   tasksList.innerHTML = localStorage.getItem('tasks');
