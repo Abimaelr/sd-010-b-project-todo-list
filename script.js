@@ -5,11 +5,11 @@ const selectorAll = (id) => document.querySelectorAll(id);
 
 // Create Task
 const createTask = () => {
-  let button = selector('#criar-tarefa');
+  const button = selector('#criar-tarefa');
   button.addEventListener('click', (create) => {
-    let task = document.createElement('li');
+    const task = document.createElement('li');
     selector('#lista-tarefas').appendChild(task);
-    task.innerHTML = selector('#texto-tarefa').value;
+    task.innerText = selector('#texto-tarefa').value;
     selector('#texto-tarefa').value = '';
     task.addEventListener('click', taskSelected);
     task.addEventListener('dblclick', taskCompleted);
@@ -35,7 +35,7 @@ let taskCompleted = (elem) => {
 };
 // Clear
 const clearTask = () => {
-  let button = selector('#apaga-tudo');
+  const button = selector('#apaga-tudo');
   button.addEventListener('click', (clear) => {
     for (task of selectorAll('#lista-tarefas li')) {
       task.parentNode.removeChild(task);
@@ -55,9 +55,36 @@ const clearCompleted = () => {
 const clearSelected = () => {
   let button = selector('#remover-selecionado');
   button.addEventListener('click', (clear) => {
-    selected.task.parentNode.removeChild(selected.task)
+    selected.task.parentNode.removeChild(selected.task);
   });
 };
+// Save Task
+const saveTask = () => {
+  let button = selector('#salvar-tarefas');
+  button.addEventListener('click', (clear) => {
+    if (localStorage.getItem('saveTask')) localStorage.clear();
+    const taskObj = {};
+    for (task of selectorAll('#lista-tarefas li')) {
+      taskObj[`${task.innerText}`] = task.className;
+      console.log(task.className)
+    }
+    localStorage.saveTask = JSON.stringify(taskObj);
+  });
+};
+
+if (localStorage.getItem('saveTask')) {
+  const loadTask = JSON.parse(localStorage.saveTask);
+  let create;
+  for (task in loadTask) {
+    create = document.createElement('li');
+    selector('#lista-tarefas').appendChild(create);
+    create.addEventListener('click', taskSelected);
+    create.addEventListener('dblclick', taskCompleted);
+    create.className = loadTask[task];
+    create.innerText = task;
+  }
+}
+saveTask();
 clearSelected();
 clearCompleted();
 clearTask();
