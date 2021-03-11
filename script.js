@@ -7,6 +7,7 @@ const clearCompletedBtn = document.querySelector('#remover-finalizados');
 const saveBtn = document.querySelector('#salvar-tarefas');
 const moveUpBtn = document.querySelector('#mover-cima');
 const moveDownBtn = document.querySelector('#mover-baixo');
+const removeSelectedBtn = document.querySelector('#remover-selecionado');
 
 //              Aux Functions
 
@@ -135,6 +136,13 @@ const moveItemDown = () => {
   });
 };
 
+const removeSelected = () => {
+  const selectedLi = document.querySelector('.selected');
+  if (selectedLi) {
+    selectedLi.parentNode.removeChild(selectedLi);
+  }
+};
+
 //      Add Listeners
 
 // Add addItem button listener
@@ -170,6 +178,12 @@ const setMoveDownBtn = () => {
   moveDownBtn.addEventListener('click', moveItemDown);
 };
 
+// add remove selected Btn listener
+
+const setRemoveSelectedBtn = () => {
+  removeSelectedBtn.addEventListener('click', removeSelected);
+};
+
 // all buttons
 
 const loadButtons = () => {
@@ -179,6 +193,7 @@ const loadButtons = () => {
   setSaveBtn();
   setMoveUpBtn();
   setMoveDownBtn();
+  setRemoveSelectedBtn();
 };
 
 window.onload = () => {
