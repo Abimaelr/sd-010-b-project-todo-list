@@ -4,7 +4,7 @@ createTaskButton = document.querySelector("#criar-tarefa");
 inputTask = document.querySelector("#texto-tarefa");
 listTask = document.querySelector("#lista-tarefas");
 
-/* window.onload = function() {
+window.onload = function() {
     let listArrayStorage = JSON.parse(localStorage.getItem("listArrayStorage"));
     let listArrayClasses = JSON.parse(localStorage.getItem("listArrayClasses"));
     if(listArrayClasses !== null){
@@ -26,7 +26,7 @@ listTask = document.querySelector("#lista-tarefas");
 
     }
 } 
- */
+ 
 function buttonSelecionadosRemover(){
     
     let buttonSelecionado = document.querySelector("#remover-selecionado");
