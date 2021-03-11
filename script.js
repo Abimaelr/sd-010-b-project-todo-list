@@ -146,7 +146,7 @@ function toUp() {
 }    
 
 function toDown() {
-    for (let index = (tarefas.length - 1); index >= 0; index-= 1) {
+    for (let index = (tarefas.length - 2); index >= 0; index-= 1) {
         if (tarefas[index].style.backgroundColor ===  "rgb(128, 128, 128)" && tarefas[index].classList.contains("completed")) {
             let baixo = listaMae.children[index + 1];
             let atual = listaMae.children[index];
