@@ -1,8 +1,10 @@
 window.onload = function () {
-  let addButton = document.getElementById('criar-tarefa');
-
   function listenClick () {
+    let addButton = document.getElementById('criar-tarefa');
+    let deleteButton = document.getElementById('apaga-tudo');
+
     addButton.addEventListener('click', addTask);
+    deleteButton.addEventListener('click', deleteAll);
   }
 
   function addTask () {
@@ -49,7 +51,12 @@ window.onload = function () {
     taskItem.classList.add('completed');
   }
 
-
+  function deleteAll () {
+    let taskList = document.getElementById('lista-tarefas');
+    while (taskList.firstChild) {
+      taskList.removeChild(taskList.firstChild);
+    }
+  }
 
   listenClick();
 
