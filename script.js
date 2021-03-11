@@ -67,11 +67,60 @@ function removeCompleted() {
   const cleanCompleted = document.getElementById('remover-finalizados');
   cleanCompleted.addEventListener('click', function () {
       while (classCompleted.length > 0){
-      classCompleted[0].parentNode.removeChild(classCompleted[0])
+      classCompleted[0].parentNode.removeChild(classCompleted[0]);
       }
-  })
+  });
 }
 
 removeCompleted();
 
+function save() {
+  const buttonSave = document.getElementById('salvar-tarefas');
+  buttonSave.addEventListener('click', function () {
+    const lista = document.getElementsByTagName('ol');
+      localStorage.setItem('listaObjects',JSON.stringify(lista[0].innerHTML));
+  });
+}
 
+save();
+
+function initialize() {
+  let list = document.getElementsByTagName('ol')[0];
+  list.innerHTML = (localStorage.getItem('listaObjects'));
+}
+
+// initialize ();
+
+function acima() {
+  const btnacima = document.getElementById('mover-cima');
+  btnacima.addEventListener('click', function () {
+    const lista = document.getElementsByTagName('li');
+    for (let index = 1; index < lista.length; index += 1) {
+      if (lista[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+        let backup = lista[index - 1].innerText;
+        lista[index - 1].innerText = lista[index].innerText;
+        lista[index].innerText = backup;
+      }
+    }
+  });
+}
+
+acima();
+
+function abaixo() {
+  const btnacima = document.getElementById('mover-baixo');
+  btnacima.addEventListener('click', function () {
+    const lista = document.getElementsByTagName('li');
+    if (lista.length > 1) {
+      for (let index = 0; index < lista.length - 1; index += 1) {
+        if (lista[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+          let backup = lista[index + 1].innerText;
+          lista[index + 1].innerText = lista[index].innerText;
+          lista[index].innerText = backup;
+        }
+      }
+    }
+  });
+}
+
+abaixo();
