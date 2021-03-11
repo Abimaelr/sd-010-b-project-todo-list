@@ -22,10 +22,10 @@ const li = document.getElementsByClassName('tasks');
 function changeLi() {
   for (let index = 0; index < li.length; index += 1) {
     ol.addEventListener('click', (event) => {
-      if (li.length > 0) {
+     // if (li.length > 0) {
         li[index].classList.remove('listSelected');
         event.target.classList.add('listSelected');
-      }
+     // }
     });
   }
 }
