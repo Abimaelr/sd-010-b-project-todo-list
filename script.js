@@ -77,7 +77,9 @@ function recuperaItens() {
       selecionaItem.appendChild(itemRecupera);
     }
   }
-}
+};
+
+recuperaItens();
 
 const botaoRemoveSelecionado = document.querySelector('#remover-selecionado');
 botaoRemoveSelecionado.addEventListener('click', function () {
@@ -88,17 +90,15 @@ botaoRemoveSelecionado.addEventListener('click', function () {
   }
 });
 
-recuperaItens();
-
 // questões abaixo resolvidas após thread iniciada pelo Henrique Zózimo, com explicações nos plantões
 // outerHTML: https://developer.mozilla.org/pt-BR/docs/Web/API/Element/outerHTML
 const moveUp = document.getElementById('mover-cima');
 moveUp.addEventListener('click', function () {
   for (let index = 0; index < tarefas.length; index += 1) {
     if ((index !== 0) && (tarefas[index].style.backgroundColor === 'rgb(128, 128, 128)')) {
-      const temp = tarefas[index].outerHTML;
+      const varTemp = tarefas[index].outerHTML;
       tarefas[index].outerHTML = tarefas[index - 1].outerHTML;
-      tarefas[index - 1].outerHTML = temp;
+      tarefas[index - 1].outerHTML = varTemp;
     }
   }
 });
@@ -107,9 +107,9 @@ const moveDown = document.getElementById('mover-baixo');
 moveDown.addEventListener('click', function () {
   for (let index = tarefas.length -1; index >= 0; index -= 1) {
     if ((index !== (tarefas.length - 1)) && (tarefas[index].style.backgroundColor === 'rgb(128, 128, 128)')) {
-        const temp = tarefas[index].outerHTML;
+        const varTemp = tarefas[index].outerHTML;
         tarefas[index].outerHTML = tarefas[index + 1].outerHTML;
-        tarefas[index + 1].outerHTML = temp;      
+        tarefas[index + 1].outerHTML = varTemp;
     }
   }
 });
