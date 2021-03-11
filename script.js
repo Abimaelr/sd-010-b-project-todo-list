@@ -22,13 +22,14 @@ const li = document.getElementsByClassName('tasks');
 function changeLi() {
   for (let index = 0; index < li.length; index += 1) {
     ol.addEventListener('click', (event) => {
-     // if (li.length > 0) {
+      if (li.length > 0) {
         li[index].classList.remove('listSelected');
         event.target.classList.add('listSelected');
-     // }
+      }
     });
   }
 }
+
 button.addEventListener('click', changeLi);
 //
 function checkList() {
@@ -57,12 +58,11 @@ function removeFinished() {
   const completed = document.getElementsByClassName('completed');
   removerFinalizados.addEventListener('click', () => {
     for (let index = 0; index < completed.length; index += 1) {
-      if (completed.length > 0) {
-        ol.removeChild(completed[index]);
-       // completed[index].remove();
-      }
+      ol.removeChild(completed[0]);
+      // completed[index].remove();
     }
   });
 }
-//removeFinished()
+
+// removeFinished()
 button.addEventListener('click', removeFinished);
