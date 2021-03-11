@@ -61,5 +61,37 @@ salvarLista.innerHTML = localStorage.getItem('list');
 function salvarTarefa() {
   localStorage.setItem('list', salvarLista.innerHTML);
 }
+// Consegui a solução com a ajuda do PR da Thais Quintela Turma08 Trybe;
 const salvar = document.querySelector('#salvar-tarefas');
 salvar.addEventListener('click', salvarTarefa);
+
+function moverCima() {
+  let posicao;
+  const itens = document.querySelectorAll('.itens');
+  for (let index = 0; index < itens.length; index += 1) {
+    if (itens[index].classList.contains('selected')) {
+      posicao = index;
+    }
+  }
+  if (posicao > 0) {
+    itens[posicao].parentElement.insertBefore(itens[posicao], itens[posicao - 1]);
+  }
+  // Consegui a solução com a ajuda do PR da Thais Quintela Turma08 Trybe;
+}
+const btnMoverCima = document.querySelector('#mover-cima');
+btnMoverCima.addEventListener('click', moverCima);
+
+function moverBaixo() {
+  let posicao;
+  const itens = document.querySelectorAll('.itens');
+  for (let index = 0; index < itens.length; index += 1) {
+    if (itens[index].classList.contains('selected')) {
+      posicao = index + 1;
+    }
+  }
+  if (posicao < itens.length) {
+    itens[posicao].parentElement.insertBefore(itens[posicao], itens[posicao - 1]);
+  }
+}
+const btnMoverBaixo = document.querySelector('#mover-baixo');
+btnMoverBaixo.addEventListener('click', moverBaixo);
