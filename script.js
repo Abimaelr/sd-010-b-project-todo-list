@@ -112,13 +112,23 @@ let pegaUl = document.querySelector("#lista-tarefas");
         console.log("xablau")
         let aux = evento.target;
 
+        let cinza = document.getElementsByClassName("cinza");
+        for (let index = 0; index < cinza.length; index += 1){
+            cinza[index].className = "";
+        }
+
         if (aux.className !== 'cinza'){
             aux.className = 'cinza'; 
             
         } else {
             aux.className = "";
         }  
+    
+      
 }
+////////////////////////////////////////////////////////////////////////////////
+
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -129,7 +139,7 @@ let pegaUl = document.querySelector("#lista-tarefas");
 // function atribuiClasseSelected(evento) {
 //     apagaClasse();
 //     if (evento.target.style.backgroundColor == "rgb(128, 128, 128)") {
-//         evento.target.style.backgroundColor = "";
+//         evento.target.className = "selected";
 //     }
 // }
 
@@ -139,3 +149,22 @@ let pegaUl = document.querySelector("#lista-tarefas");
 //         itens[i].classList.remove("selected");
 //     } 
 // } 
+
+const selectItem = (item) => {
+    const selectedElement = document.querySelector('.selected');
+    if (selectedElement) {
+      selectedElement.classList.remove('selected');
+      item.classList.add('selected');
+    } else {
+      item.classList.add('selected');
+    }
+  };
+  
+  const completeItem = (item) => {
+    const { classList } = item;
+    if (classList.contains('completed')) {
+      classList.remove('completed');
+    } else {
+      classList.add('completed');
+    }
+  };
