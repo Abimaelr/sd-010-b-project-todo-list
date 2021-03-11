@@ -62,6 +62,19 @@ function addList(storedTask, classTask) {
   task.addEventListener('dblclick', taskCompleted);
 }
 
+// moveUp e moveDown baseado em: https://stackoverflow.com/questions/34913953/move-an-element-one-place-up-or-down-in-the-dom-tree-with-javascript
+function moveUp() {
+  let element = document.querySelector('.selected');
+  if(element.previousElementSibling)
+  element.parentNode.insertBefore(element, element.previousElementSibling);
+}
+
+function moveDown() {
+  let element = document.querySelector('.selected');
+  if(element.nextElementSibling)
+  element.parentNode.insertBefore(element.nextElementSibling, element);
+}
+
 function init() {
   const storedTask = JSON.parse(localStorage.getItem('tasks'));
   const storedClass = JSON.parse(localStorage.getItem('classes'));
@@ -85,3 +98,9 @@ btnRmvCompleted.addEventListener('click', removeCompletedTasks);
 
 const btnSave = document.getElementById('salvar-tarefas');
 btnSave.addEventListener('click', saveTasksList);
+
+const btnMoveUp = document.getElementById('mover-cima');
+btnMoveUp.addEventListener('click', moveUp);
+
+const btnMoveDown = document.getElementById('mover-baixo');
+btnMoveDown.addEventListener('click', moveDown);
