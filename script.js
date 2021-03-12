@@ -73,14 +73,23 @@ function qtdTasksEnded() {
 }
 
 /* Removendo tarefas finalizadas */
+
 function deleteTasksEnded() {
+  let taskList = document.getElementById('lista-tarefas');
+  while(document.getElementsByClassName('completed')[0]) {
+    document.getElementsByClassName('completed')[0].remove();
+  }
+  saveTasks();
+}
+
+/* function deleteTasksEnded() {
   let taskList = document.getElementById('lista-tarefas');
   if(qtdTasksEnded() !== 0) {
     document.getElementsByClassName('completed')[0].remove();
     deleteTasksEnded();
   }
   saveTasks();
-}
+} */
 buttonDeleteTasksEnded.addEventListener('click', deleteTasksEnded);
 /* Exercício 12: */
 function saveTasks() {
