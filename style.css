@@ -5,8 +5,8 @@
 }
 
 body {
-  background-color: rgb(171,211,211);
-  font-family: 'Poppins', sans-serif;
+  background-color: rgb(171 , 211 , 211);
+  font-family: Poppins, sans-serif;
 }
 
 header {
@@ -25,7 +25,7 @@ header p {
 }
 
 section {
-  background-color: rgba(0,0,0,0.12);
+  background-color: rgba(0 , 0 , 0 , 0.12);
   width: 80%;
   height: 75vh;
   margin: auto;
@@ -50,7 +50,7 @@ section input:focus {
 section button {
   height: 25px;
   width: 90px;
-  background-color: rgb(67,67,67);
+  background-color: rgb(67 , 67 , 67);
   color: white;
   font-weight: 600;
   border-radius: 6px;
@@ -62,7 +62,7 @@ section button:focus {
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0,0,0);
+  text-decoration: line-through solid black;
 }
 
 #apaga-tudo {
