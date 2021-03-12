@@ -86,3 +86,7 @@ section button:focus {
 #mover-baixo {
   width: 90px;
 }
+
+#salvar-tarefas {
+  width: 110px;
+}
