@@ -47,3 +47,24 @@ function riscarEDesriscarALinha() {
     todasAsLinhas[index].addEventListener('dblclick', riscaALinha);
   }
 }
+
+//botão apaga tudo
+let bodyPagina = document.getElementsByTagName('body')[0];
+let buttonApagarTudo = document.createElement('button');
+buttonApagarTudo.innerText = 'Botão apagar tudo';
+buttonApagarTudo.id = 'apaga-tudo';
+bodyPagina.appendChild(buttonApagarTudo);
+
+buttonApagarTudo.addEventListener('click', function() {
+  for (let i = 0; 0 < todasAsLinhas.length; i += 1) {
+    lista.removeChild(todasAsLinhas[0]);
+  }
+});
+
+
+
+//botão remove os finalizados
+let buttonRemoverFinalizados = document.createElement('button');
+buttonRemoverFinalizados.id = 'remover-finalizados';
+buttonRemoverFinalizados.innerText = 'Remover finalizados';
+bodyPagina.appendChild(buttonRemoverFinalizados);
