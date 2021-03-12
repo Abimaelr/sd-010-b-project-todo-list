@@ -37,9 +37,16 @@ function lineThroughItem() {
   getOl.addEventListener('dblclick', function (event) {
     let getLi = document.querySelector('.completed');
     if (getLi != null) {
-      getLi.classList.remove('completed');
+      //  getLi.classList.remove('completed');
+      getLi.classList.remove('selected');
     }
-    event.target.classList.add('completed');
+
+    if (event.target.classList.contains('completed') === false) {
+      event.target.classList.add('completed');
+      event.target.classList.remove('selected');
+    } else {
+      event.target.classList.remove('completed');
+    }
   });
 }
 
