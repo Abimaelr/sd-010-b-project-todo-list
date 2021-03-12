@@ -99,3 +99,11 @@ document.getElementById('mover-baixo').onclick = function () {
     }
   }
 };
+
+document.getElementById('remover-selecionado').onclick = function () {
+  let tarefa = document.querySelector('.selected');
+  if (tarefa !== null) {
+    let listaTarefas = document.querySelector('#lista-tarefas');
+    listaTarefas.removeChild(tarefa);
+  }
+}
