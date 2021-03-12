@@ -85,12 +85,16 @@ img {
   justify-content: center;
 }
 
-a {
-  cursor: pointer;
+.option-buttons button {
+  width: 45px;
 }
 
-.option-buttons a img {
-  margin-right: 5px;
+.option-buttons button:nth-of-type(1),
+.option-buttons button:nth-of-type(2),
+.option-buttons button:nth-of-type(5),
+.option-buttons button:nth-of-type(6) {
+  background-color: transparent;
+  border: none;
 }
 
 section input:focus {
@@ -98,7 +102,7 @@ section input:focus {
 }
 
 button:hover {
-  box-shadow: 1px 1px 5px 2px rgba(0 , 0 , 0 , 0.3);
+  box-shadow: 1px 1px 5px 2px rgba(0 , 0 , 0 , 0.4);
   transition: box-shadow 400ms;
 }
 
@@ -126,14 +130,6 @@ section button:focus {
   margin-left: 5px;
   margin-right: 10px;
   margin-top: -5px;
-}
-
-#mover-baixo {
-  width: 50px;
-}
-
-#salvar-tarefas {
-  width: 60px;
 }
 
 #lista-tarefas {
