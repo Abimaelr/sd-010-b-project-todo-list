@@ -13,23 +13,43 @@ function listaItem() {
     }
   });
 }
-listaItem()
-/*Clicar em um item da lista deve alterar a cor de fundo do item para cinza rgb(128,128,128)](#7---clicar-em-um-item-da-lista-deve-alterar-a-cor-de-fundo-do-item-para-cinza-rgb128128128)
-Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo](#8---não-deve-ser-possível-selecionar-mais-de-um-elemento-da-lista-ao-mesmo-tempo)
-Clicar duas vezes em um item, faz com que ele seja riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item]
-*/
+listaItem();
 function backgroundCinza() {
   let lista = document.getElementById('lista-tarefas');
   lista.addEventListener('click', function(event){
     let colorCinza = document.querySelector(".cinza");
-    if(colorCinza){
+    if (colorCinza){
       colorCinza.classList.remove('cinza');   
     } 
       event.target.classList.add('cinza');
   })
 }
-backgroundCinza()
+backgroundCinza();
+// botao para click duas vezes :https://developer.mozilla.org/en-US/docs/Web/API/Element/dblclick_event
+function backgroundRiscado() {
+  let lista = document.getElementById('lista-tarefas')
+  lista.addEventListener('dblclick', function(event){
+    let riscado = document.querySelector('.completed');
+    if (riscado) {
+      riscado.classList.remove('completed');
+    } 
+      event.target.classList.add('completed');
+  })
+}
+backgroundRiscado();
 
+function bottonApagaLista () {
+  const botton = document.getElementById('apaga-tudo')
+  let lista = document.getElementById('lista-tarefas');
+  botton.addEventListener('click', function(){
+    while (lista.firstChild){  
+      // A declaração while cria um laço que executa uma rotina especifica enquanto a condição de teste for avaliada como verdadeira
+      // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/while
+    lista.removeChild(lista.firstChild);
+    }
+  });
+}
+bottonApagaLista();
 
 
 
