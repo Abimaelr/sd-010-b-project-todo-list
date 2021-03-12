@@ -10,15 +10,20 @@ botao.addEventListener("click", adicionatarefa);
 function adicionatarefa(){
     let criaListaTarefas = document.createElement("li");
     criaListaTarefas.innerHTML = textoTarefa.value;
-    criaListaTarefas.className = "add"
+    
     listaPai.appendChild(criaListaTarefas);
     textoTarefa.value=""; 
 }
 
-//Requisito 7
+//Requisito 7 e 8
 
 let list = document.querySelector("#lista-tarefas");
 
 list.addEventListener("click", function(event){
-    event.target.style.backgroundColor = "rgb(128, 128, 128)"
+    
+   let listItens = document.querySelectorAll("li");
+   for (let i = 0; i < listItens.length; i += 1){
+       listItens[i].style.backgroundColor = "white";
+   }
+   event.target.style.backgroundColor = "rgb(128, 128, 128)"
 })
