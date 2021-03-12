@@ -38,7 +38,15 @@ header {
 
 #apaga-tudo {
   margin-left: 5px;
-  background-color: greenyellow;
+  background-color: rgb(241, 158, 119);
+  font-family: fantasy;
+  font-size: small;
+  font-weight: bold;
+}
+
+#remover-finalizados {
+  margin-left: 5px;
+  background-color: rgb(177, 250, 177);
   font-family: fantasy;
   font-size: small;
   font-weight: bold;

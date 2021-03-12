@@ -69,3 +69,18 @@ function clearAllItems() {
 }
 
 clearAllItems();
+
+function clearFinishedItems() {
+  const clearButton = document.querySelector('#remover-finalizados');
+  const getOl = document.querySelector('#lista-tarefas');
+
+  clearButton.addEventListener('click', function () {
+    let getLi = document.querySelector('.completed');
+
+    if (getLi.classList.contains('completed')) {
+      getOl.removeChild(getLi);
+    }
+  });
+}
+
+clearFinishedItems();
