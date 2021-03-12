@@ -6,6 +6,7 @@ window.onload = function () {
     let saveButton = document.getElementById('salvar-tarefas');
     let upButton = document.getElementById('mover-cima');
     let downButton = document.getElementById('mover-baixo');
+    let removeSelectedButton = document.getElementById('remover-selecionado');
 
     addButton.addEventListener('click', addTask);
     deleteButton.addEventListener('click', deleteAll);
@@ -13,6 +14,7 @@ window.onload = function () {
     saveButton.addEventListener('click', saveTasks);
     upButton.addEventListener('click', upMoved);
     downButton.addEventListener('click', downMoved);
+    removeSelectedButton.addEventListener('click', removeSelected);
   }
 
   function addTask () {
@@ -124,6 +126,13 @@ window.onload = function () {
     if (activeTask != taskList.lastChild && activeTask != null) {
       taskList.insertBefore(activeTask, activeTask.nextSibling.nextSibling);
     }
+  }
+
+  function removeSelected () {
+    let taskList = document.getElementById('lista-tarefas');
+    let activeTask = document.querySelector('.li-selected');
+
+    taskList.removeChild(activeTask);
   }
 
   listenClick();
