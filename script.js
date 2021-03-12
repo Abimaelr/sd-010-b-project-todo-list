@@ -8,7 +8,7 @@ const main = document.getElementById('main');
 
 const title = createElement('h1');
 title.innerHTML = 'Minha Lista de Tarefas';
-main.appendChild(title);
+document.querySelector('header').appendChild(title);
 title.id = 'title';
 
 const funcionamento = createElement('p');
@@ -70,10 +70,10 @@ selectTask();
 // Marca tarefa concluida:
 function taskDone() {
   ordenedList.addEventListener('dblclick', (e) => {
-    if (e.target.classList.contains('done')) {
-      e.target.classList.remove('done');
+    if (e.target.classList.contains('completed')) {
+      e.target.classList.remove('completed');
     } else {
-      e.target.classList.add('done');
+      e.target.classList.add('completed');
     }
   });
 }
@@ -92,7 +92,7 @@ const doneItens = document.getElementById('lista-tarefas').childNodes;
 function removeDone() {
   clearDone.addEventListener('click', () => {
     for (let i = 0; i < doneItens.length; i += 1) {
-      if (doneItens[i].classList.contains('done')) {
+      if (doneItens[i].classList.contains('completed')) {
         doneItens[i].parentNode.removeChild(doneItens[i]);
       }
     }
