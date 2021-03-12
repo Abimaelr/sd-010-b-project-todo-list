@@ -2,6 +2,7 @@
   var button = document.getElementById('criar-tarefa');
   var lista = document.getElementById('lista-tarefas');
   var input = document.getElementById('texto-tarefa');
+  var itens = []
   
   function adicionar() {
     lista.innerHTML += '<li onClick="changeColor(this)" ondblClick="finished(this)">'+input.value+'</li>'
@@ -30,4 +31,10 @@
       item.classList.remove('gray')
     })
   }
+
+  function cleanList() {
+    lista.innerHTML = ''
+}
+
+/* ------------------------------------------ */
 
