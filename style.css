@@ -5,3 +5,13 @@
 .completed {
   text-decoration: line-through solid black;
 }
+
+main {
+  width: 600px;
+  margin-left: 430px;
+  margin-top: 100px;
+  border: 5px solid black;
+  border-radius: 50px;
+  text-align: center;
+  padding: 200px;
+}
