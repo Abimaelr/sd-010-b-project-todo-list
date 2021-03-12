@@ -17,20 +17,25 @@
 
   <section>
     <div class="buttons">
-      <input type="text" id="texto-tarefa">
-      <button id="criar-tarefa">Criar tarefa</button>
+      <div class="insert-task">
+        <input type="text" id="texto-tarefa">
+        <button id="criar-tarefa"><img src="/img/add.png" alt="add tarefa">Criar tarefa</button>
+      </div>
 
-      <button id="apaga-tudo">Limpar Lista</button>
+      <div class="option-buttons">
+        <a id="mover-cima"><img src="/img/up-arrow.png" alt="Mover cima"></a>
+  
+        <a id="mover-baixo"><img src="/img/down-arrow.png" alt="Mover baixo"></a>
+  
+        <button id="remover-finalizados">Limpar Finalizados</button>
 
-      <button id="remover-finalizados">Limpar Finalizados</button>
+        <button id="remover-selecionado">Remover Selecionado</button>
 
-      <button id="remover-selecionado">Remover Selecionado</button>
-
-      <button id="mover-cima">Mover Cima</button>
-
-      <button id="mover-baixo">Mover Baixo</button>
-
-      <button id="salvar-tarefas">Salvar Tarefas</button>
+        <a id="apaga-tudo"><img src="/img/limpar-lista.png" alt="Apagar tudo"></a>
+  
+        <a id="salvar-tarefas"><img src="/img/save.png" alt="Salvar lista"></a>
+  
+      </div>
     </div>
 
     <ol id="lista-tarefas">
