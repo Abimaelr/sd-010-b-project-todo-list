@@ -93,40 +93,30 @@ function removeSelectedtask() {
 
 removeSelectedtask();
 
+// eslint-disable-next-line max-lines-per-function
 function moveUp() {
   const buttonMoveUp = document.getElementById('mover-cima');
-  const taskList = document.getElementById('lista-tarefas');
+
+  const buttonMoveDown = document.getElementById('mover-baixo');
 
   buttonMoveUp.addEventListener('click', () => {
     const selectedLi = document.querySelectorAll('li');
-    // selectedLi.forEach((e) => {
-    //   if (e.style.backgroundColor === 'rgb(128, 128, 128)') {
-    //     // const before = e.previousElementSibling;
-    //     e.parentNode.insertBefore(e, e.previousSibling);
-    //   }
-    // });
     for (let i = 1; i < selectedLi.length; i += 1) {
       if (selectedLi[i].style.backgroundColor === 'rgb(128, 128, 128)') {
         selectedLi[i].parentNode.insertBefore(selectedLi[i], selectedLi[i].previousSibling);
       }
     }
   });
-}
-
-moveUp();
-
-function moveDown() {
-  const buttonMoveDown = document.getElementById('mover-baixo');
 
   buttonMoveDown.addEventListener('click', () => {
     const selectedLi = document.querySelectorAll('li');
-    selectedLi.forEach((e) => {
-      if (e.style.backgroundColor === 'rgb(128, 128, 128)') {
-        const next = e.nextElementSibling;
-        e.parentNode.insertBefore(e, next.nextSibling);
+    for (let i = 0; i < selectedLi.length - 1; i += 1) {
+      if (selectedLi[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+        // eslint-disable-next-line max-len
+        selectedLi[i].parentNode.insertBefore(selectedLi[i], selectedLi[i].nextElementSibling.nextSibling);
       }
-    });
+    }
   });
 }
 
-moveDown();
+moveUp();
