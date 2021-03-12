@@ -42,8 +42,10 @@ document.getElementById('remover-finalizados').addEventListener('click', functio
 })
 
 document.getElementById('remover-selecionado').addEventListener('click', function deleteSelectedTasks() {
-  while(document.getElementsByClassName('selected').length > 0) {
-    document.getElementById('lista-tarefas').removeChild(document.getElementsByClassName('selected')[0]);
+  for(index = 0; index < document.getElementsByTagName('li').length; index +=1) {
+    if(document.getElementsByTagName('li')[index].className.includes('selected')) {
+      document.getElementById('lista-tarefas').removeChild(document.getElementsByTagName('li')[index]);
+    }
   }
 })
 
