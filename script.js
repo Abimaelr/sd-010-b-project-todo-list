@@ -2,12 +2,16 @@ let textoInput = document.getElementById('texto-tarefa');
 let botao = document.getElementById('criar-tarefa');
 let lista = document.getElementById('lista-tarefas');
 let paiLista = document.querySelector('ol');
+let listaItens = document.getElementsByTagName('li');
+let botaoApagar = document.getElementById('apaga-tudo');
+
 
 function criarListas() {
   botao.addEventListener('click', function () {
     let novaLista = document.createElement('li');
     lista.appendChild(novaLista).innerText = textoInput.value;
     textoInput.value = '';
+    apagaTudo();
   })
 }
 
@@ -32,3 +36,15 @@ function ricarLinha() {
 }
 
 ricarLinha();
+
+function apagaTudo() {
+  botaoApagar.addEventListener('click', function () {
+    for (let index = 0; index < listaItens.length; index += 1) {
+      listaItens[index].remove();
+    }
+  })
+}
+
+
+
+
