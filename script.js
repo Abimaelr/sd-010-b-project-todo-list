@@ -4,11 +4,15 @@ window.onload = function () {
     let deleteButton = document.getElementById('apaga-tudo');
     let removeButton = document.getElementById('remover-finalizados');
     let saveButton = document.getElementById('salvar-tarefas');
+    let upButton = document.getElementById('mover-cima');
+    let downButton = document.getElementById('mover-baixo');
 
     addButton.addEventListener('click', addTask);
     deleteButton.addEventListener('click', deleteAll);
     removeButton.addEventListener('click', removeEnd);
     saveButton.addEventListener('click', saveTasks);
+    upButton.addEventListener('click', upMoved);
+    downButton.addEventListener('click', downMoved);
   }
 
   function addTask () {
@@ -90,7 +94,7 @@ window.onload = function () {
   function restoreTasks() {
     let restore = JSON.parse(localStorage.getItem('taskStorage'));
     let taskList = document.getElementById('lista-tarefas');
-
+    //
     if (restore != null) {
       for (let index = 0; index < restore.length; index++) {
         let restoredTask = document.createElement("li");
@@ -100,6 +104,25 @@ window.onload = function () {
         restoredTask.addEventListener('dblclick', taskThrough);
         taskList.appendChild(restoredTask);
       }
+    }
+  }
+
+  //https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore
+  function upMoved() {
+    let taskList = document.getElementById('lista-tarefas');
+    let activeTask = document.querySelector('.li-selected');
+
+    if (activeTask != taskList.firstChild && activeTask != null) {
+      taskList.insertBefore(activeTask, activeTask.previousSibling);
+    }
+  }
+  
+  function downMoved() {
+    let taskList = document.getElementById('lista-tarefas');
+    let activeTask = document.querySelector('.li-selected');
+
+    if (activeTask != taskList.lastChild && activeTask != null) {
+      taskList.insertBefore(activeTask, activeTask.nextSibling.nextSibling);
     }
   }
 
