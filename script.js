@@ -66,7 +66,7 @@ function recoveryTasks() {
 }
 
 document.getElementById('mover-cima').addEventListener('click', function moveItenUp() {
-  if(document.getElementsByClassName('selected')[0].previousElementSibling){
+  if(document.getElementsByClassName('selected')[0] && document.getElementsByClassName('selected')[0].previousElementSibling){
     let itemSalvo = {}
     itemSalvo.texto = document.getElementsByClassName('selected')[0].previousElementSibling.innerText;
     itemSalvo.classes = document.getElementsByClassName('selected')[0].previousElementSibling.className;
@@ -79,7 +79,7 @@ document.getElementById('mover-cima').addEventListener('click', function moveIte
 })
 
 document.getElementById('mover-baixo').addEventListener('click', function moveItenDown() {
-  if(document.getElementsByClassName('selected')[0].nextElementSibling){
+  if(document.getElementsByClassName('selected')[0] && document.getElementsByClassName('selected')[0].nextElementSibling){
     let itemSalvo = {}
     itemSalvo.texto = document.getElementsByClassName('selected')[0].nextElementSibling.innerText;
     itemSalvo.classes = document.getElementsByClassName('selected')[0].nextElementSibling.className;
