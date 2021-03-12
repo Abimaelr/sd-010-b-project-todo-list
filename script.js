@@ -21,11 +21,12 @@ function vaiPraLista() {
   caixaDeEntrada.value = '';
   paiDaLista.appendChild(li);
   tamanhoDaLista=document.querySelectorAll('li')
-  teste()
+  açoes()
 }
 // ***********Pinta de cinza o item selecionado***************
-function teste(){
+function açoes(){
 for (let cont = 0; cont < tamanhoDaLista.length; cont += 1) {
+  // ***********seleciona o texto ao clicar************
   tamanhoDaLista[cont].addEventListener('click',function() {
       let apagaACor = document.querySelector('.grey')
       if(apagaACor !== null){
@@ -33,7 +34,20 @@ for (let cont = 0; cont < tamanhoDaLista.length; cont += 1) {
     } 
       this.classList.add('grey');
   });
-  }
+  // ***********risca o texto ao clicar duas vezes*********
+  tamanhoDaLista[cont].addEventListener('dblclick',function(){
+    this.classList.toggle('completed');
+
+
+  })
+
+  // tamanhoDaLista[cont].addEventListener('dblclick',function(){
+  //   this.classList.add('completed');
+
+
+  // })
+
+}
 }
 
 
