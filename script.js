@@ -64,3 +64,29 @@ function recoveryTasks() {
     document.getElementById('lista-tarefas').appendChild(tarefa);
   }
 }
+
+document.getElementById('mover-cima').addEventListener('click', function moveItenUp() {
+  if(document.getElementsByClassName('selected')[0].previousElementSibling){
+    let itemSalvo = {}
+    itemSalvo.texto = document.getElementsByClassName('selected')[0].previousElementSibling.innerText;
+    itemSalvo.classes = document.getElementsByClassName('selected')[0].previousElementSibling.className;
+    Object.freeze(itemSalvo);
+    document.getElementsByClassName('selected')[0].previousElementSibling.innerText = document.getElementsByClassName('selected')[0].innerText;
+    document.getElementsByClassName('selected')[0].previousElementSibling.className = document.getElementsByClassName('selected')[0].className;
+    document.getElementsByClassName('selected')[0].nextElementSibling.innerText = itemSalvo.texto;
+    document.getElementsByClassName('selected')[0].nextElementSibling.className = itemSalvo.classes;
+  }
+})
+
+document.getElementById('mover-baixo').addEventListener('click', function moveItenDown() {
+  if(document.getElementsByClassName('selected')[0].nextElementSibling){
+    let itemSalvo = {}
+    itemSalvo.texto = document.getElementsByClassName('selected')[0].nextElementSibling.innerText;
+    itemSalvo.classes = document.getElementsByClassName('selected')[0].nextElementSibling.className;
+    Object.freeze(itemSalvo);
+    document.getElementsByClassName('selected')[0].nextElementSibling.innerText = document.getElementsByClassName('selected')[0].innerText;
+    document.getElementsByClassName('selected')[0].nextElementSibling.className = document.getElementsByClassName('selected')[0].className;
+    document.getElementsByClassName('selected')[0].innerText = itemSalvo.texto;
+    document.getElementsByClassName('selected')[0].className = itemSalvo.classes;
+  }
+})
