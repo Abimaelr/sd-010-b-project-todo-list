@@ -24,6 +24,7 @@ function vaiPraLista() {
   açoes()
 }
 // ***********Pinta de cinza o item selecionado***************
+let teste
 function açoes(){
 for (let cont = 0; cont < tamanhoDaLista.length; cont += 1) {
   // ***********seleciona o texto ao clicar************
@@ -31,23 +32,16 @@ for (let cont = 0; cont < tamanhoDaLista.length; cont += 1) {
       let apagaACor = document.querySelector('.grey')
       if(apagaACor !== null){
       apagaACor.classList.remove('grey')
-    } 
+      }
       this.classList.add('grey');
-  });
-  // ***********risca o texto ao clicar duas vezes*********
-  tamanhoDaLista[cont].addEventListener('dblclick',function(){
-    this.classList.toggle('completed');
-
-
+    });
+    risca()
+  }
+}
+// ***********risca o texto ao clicar duas vezes*********
+function risca(){
+  paiDaLista.addEventListener('dblclick',function(event){
+    event.target.classList.toggle('completed')
   })
-
-  // tamanhoDaLista[cont].addEventListener('dblclick',function(){
-  //   this.classList.add('completed');
-
-
-  // })
-
 }
-}
-
 
