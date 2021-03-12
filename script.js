@@ -5,6 +5,15 @@ let clickList = document.getElementsByClassName('liStyle');
 
 
 
+// Vai adicionando item a lista a cada click
+buton.addEventListener('click', function(){  
+  let novaLista = document.createElement('li');
+  novaLista.classList.add('liStyle');
+  lista.appendChild(novaLista).innerText = textInput.value;
+  textInput.value = '';  
+  mudarCor();  
+  complet();
+});
 
 //
 function mudarCor() {
@@ -24,13 +33,3 @@ function complet() {
     event.target.classList.toggle('completed');
   });  
 }
-
-// Vai adicionando item a lista a cada click
-buton.addEventListener('click', function(){  
-  let novaLista = document.createElement('li');
-  novaLista.classList.add('liStyle');
-  lista.appendChild(novaLista).innerText = textInput.value;
-  textInput.value = '';  
-  mudarCor();  
-  complet();
-});
