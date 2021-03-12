@@ -20,14 +20,5 @@ function adicionatarefa(){
 let list = document.querySelector("#lista-tarefas");
 
 list.addEventListener("click", function(event){
-    event.target.style.backgroundColor = "green"
+    event.target.style.backgroundColor = "rgb(128, 128, 128)"
 })
-
-
-// listaPai.addEventListener("click", changeColor);
-
-// function changeColor (event){
-//     event.target.style.backgroundColor = "blue"
-// }
-
-
