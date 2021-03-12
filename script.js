@@ -94,7 +94,7 @@ document.getElementById('mover-baixo').onclick = function () {
   if (tarefa !== null) {
     let listaTarefas = document.querySelector('#lista-tarefas');
     if (tarefa !== listaTarefas.lastChild) {
-      // ??? Existe outra maneira de fazer isto sem ser usando o insertBefore?
+      // ??? Existe outra maneira de fazer isto sem ser usando insertBefore e dois nextSibling?
       listaTarefas.insertBefore(tarefa, tarefa.nextSibling.nextSibling);
     }
   }
@@ -106,4 +106,4 @@ document.getElementById('remover-selecionado').onclick = function () {
     let listaTarefas = document.querySelector('#lista-tarefas');
     listaTarefas.removeChild(tarefa);
   }
-}
+};
