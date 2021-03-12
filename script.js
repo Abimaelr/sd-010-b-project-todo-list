@@ -10,4 +10,13 @@ function createLiText () {
   let butaDicionarLista=  document.getElementById('criar-tarefa');
   butaDicionarLista.addEventListener('click', createLiText);
 
- 
+  function selecionarItem(event){
+    let itemSelecionado = document.querySelector('.selected');
+    if(itemSelecionado){
+      itemSelecionado.classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+  }
+  let listaTarefa = document.getElementById('lista-tarefas')
+  listaTarefa.addEventListener("click", selecionarItem)
+  
