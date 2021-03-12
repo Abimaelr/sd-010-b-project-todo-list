@@ -42,7 +42,9 @@ document.getElementById('remover-finalizados').addEventListener('click', functio
 })
 
 document.getElementById('remover-selecionado').addEventListener('click', function deleteSelectedTasks() {
+  if(document.getElementsByClassName('selected')[0]) {
     document.getElementById('lista-tarefas').removeChild(document.getElementsByClassName('selected')[0]);
+  }
 })
 
 document.getElementById('salvar-tarefas').addEventListener('click', function saveTasks() {
