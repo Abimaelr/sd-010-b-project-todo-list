@@ -37,7 +37,6 @@ function backgroundRiscado() {
   })
 }
 backgroundRiscado();
-
 function bottonApagaLista () {
   const botton = document.getElementById('apaga-tudo')
   let lista = document.getElementById('lista-tarefas');
@@ -50,6 +49,15 @@ function bottonApagaLista () {
   });
 }
 bottonApagaLista();
-
-
+function apagaTudo () {
+  let botton = document.getElementById('remover-finalizados');
+  botton.addEventListener('click', buttonFinal);
+} 
+apagaTudo();
+function buttonFinal() {
+  let bottonCompleted = document.querySelector('.completed');
+  while (bottonCompleted.parentNode) {
+    bottonCompleted.parentNode.removeChild(bottonCompleted);
+  }
+}
 
