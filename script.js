@@ -1,6 +1,3 @@
-window.onload = function () {
-};
-
 function createElement(tag) {
   const element = document.createElement(tag);
   return element;
@@ -32,16 +29,24 @@ const ordenedList = createElement('ol');
 ordenedList.id = 'lista-tarefas';
 main.appendChild(ordenedList);
 
+const clearList = createElement('button');
+clearList.id = 'apaga-tudo';
+clearList.innerHTML = 'Limpar lista';
+main.appendChild(clearList);
+
+const clearDone = createElement('button');
+clearDone.id = 'remover-finalizados';
+clearDone.innerHTML = 'Remover finalizados';
+main.appendChild(clearDone);
+
 // Adcionar:
 function addNewTask() {
-  const inputValue = document.getElementById('texto-tarefa');
-
   button.addEventListener('click', () => {
-    if (inputValue.value.length > 0) {
+    if (input.value.length > 0) {
       const newItem = createElement('li');
-      newItem.innerHTML = inputValue.value;
+      newItem.innerHTML = input.value;
       newItem.classList.add('task');
-      inputValue.value = '';
+      input.value = '';
       ordenedList.appendChild(newItem);
     }
   });
@@ -49,20 +54,20 @@ function addNewTask() {
 addNewTask();
 
 // Seleciona tarefa na lista:
-function getTask() {
+function selectTask() {
   ordenedList.addEventListener('click', (e) => {
-    // for (let i = 0; i < ordenedList.length; i += 1) {
-    if (e.target.classList.contains('select')) {
-      e.target.classList.remove('select');
-    } else {
+    for (let i = 0; i < ordenedList.children.length; i += 1) {
+      if (ordenedList.children[i].classList.contains('select')) {
+        ordenedList.children[i].classList.remove('select');
+        e.target.classList.add('select');
+      }
       e.target.classList.add('select');
     }
-    // }
   });
 }
+selectTask();
 
-getTask();
-
+// Marca tarefa concluida:
 function taskDone() {
   ordenedList.addEventListener('dblclick', (e) => {
     if (e.target.classList.contains('done')) {
@@ -75,12 +80,39 @@ function taskDone() {
 taskDone();
 
 // Limpa lista:
-const clearList = createElement('button');
+function clearAll() {
+  clearList.addEventListener('click', () => {
+    ordenedList.innerHTML = '';
+  });
+}
+clearAll();
 
-clearList.id = 'apaga-tudo';
-clearList.innerHTML = 'Limpar lista';
-main.appendChild(clearList);
+// Remove finalizados:
+function removeDone() {
+  clearDone.addEventListener('click', () => {
+    for (let i = 0; i < ordenedList.children.length; i += 1) {
+      if (ordenedList.children[i].classList.contains('done')) {
+        ordenedList.children[i].innerHTML = '';
+      }
+    }
+  });
+}
+removeDone();
 
-clearList.addEventListener('click', () => {
-  ordenedList.innerHTML = '';
-});
+window.onload = () => {
+};
+
+// npm run cypress:open => eveluator job local
+
+// btn up/down:
+// const selected = document.querySelector('.selected');
+// const lower = selected.nextElementSibling;
+// taskList.removeChild(lower);
+// selected.insertAdjacentElement('beforebegin', lower);
+
+// const selected = document.querySelector('.selected');
+//   if (selected && selected.previousSibling) {
+//     const upper = selected.previousSibling;
+//     taskList.removeChild(upper);
+//     selected.insertAdjacentElement('afterend', upper);
+//   }
