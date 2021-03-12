@@ -26,20 +26,20 @@ function coloreFundo() {
 coloreFundo();
 
 function tarefaCompleta() {
-  lista.addEventListener('dblclick', function(evento){
+  lista.addEventListener('dblclick', function (evento){
     evento.target.classList.toggle('completed'); // adiciona e remove a classe quando há o dblclick
   });
 }
 tarefaCompleta();
 
-const botaoApagaTudo = document.querySelector('#apaga-tudo')
+const botaoApagaTudo = document.querySelector('#apaga-tudo');
 
-function apagaItensDaLista(){
-  botaoApagaTudo.addEventListener('click', function() {
-    for(let i = itensLista.length -1 ; i >= 0; i -=1) { //parto do final da lista até zero removendo os elem
+function apagaItensDaLista() {
+  botaoApagaTudo.addEventListener('click', function () {
+    for(let i = itensLista.length -1 ; i >= 0; i -= 1) { //parto do final da lista até zero removendo os elem
       itensLista[i].remove();
     }
-  }) 
+  });
 }
 apagaItensDaLista();
 
@@ -48,7 +48,7 @@ const botaoRemoveCompletos = document.querySelector('#remover-finalizados');
 
 function removeCompletos(){
   for (let i = 0; i < itensLista.length; i += 1) {
-    if(itensLista[i].classList.contains('completed')){ 
+    if (itensLista[i].classList.contains('completed')) { 
       lista.removeChild(itensLista[i]); // Para conseguir remover todos usei a mesma ideia da Alessandra Resende
       i -= 1;
     }
@@ -60,7 +60,7 @@ botaoRemoveCompletos.addEventListener('click', removeCompletos);
 
 const botaoSalvaTarefa = document.querySelector('#salvar-tarefas');
 
-function salvarValoresLista(){
+function salvarValoresLista() {
   localStorage.setItem('listaDeTarefas', lista.innerHTML); // salvo os valores da lista(ol) no storage
 }
 botaoSalvaTarefa.addEventListener('click', salvarValoresLista);
@@ -76,24 +76,34 @@ window.onload = pegaValoresSalvos; // ao carregar a página chamo essa função
 
 // Requisito 13 - mover para cima
 
-function moverParaCima(){
-  for (let i = 0; i < itensLista.length; i += 1){ 
-    if(itensLista[i].classList.contains('selected') && i > 0){ // verifico se o li na posição contem a classe e i for > 0
-      itensLista[i].parentNode.insertBefore(itensLista[i], itensLista[i-1]) // list item na posiçao filho do pai, vai inserir li
+function moverParaCima() {
+  for (let i = 0; i < itensLista.length; i += 1) { 
+    if (itensLista[i].classList.contains('selected') && i > 0) { // verifico se o li na posição contem a classe e i for > 0
+      itensLista[i].parentNode.insertBefore(itensLista[i], itensLista[i - 1]); // list item na posiçao filho do pai, vai inserir li
     } // na posiçao li - 1
   }
 }
 const botaoCima = document.querySelector('#mover-cima');
-botaoCima.addEventListener('click', moverParaCima)
+botaoCima.addEventListener('click', moverParaCima);
 
 // Requisito 13 - mover para baixo
 
-function moverParaBaixo(){
-  for (let i = itensLista.length - 1; i >= 0 ; i -= 1){ 
-    if(itensLista[i].classList.contains('selected') && i < itensLista.length - 1){ 
-      itensLista[i].parentNode.insertBefore(itensLista[i].nextSibling, itensLista[i]) 
-    } 
+function moverParaBaixo() {
+  for (let i = itensLista.length - 1; i >= 0 ; i -= 1) { 
+    if (itensLista[i].classList.contains('selected') && i < itensLista.length - 1) { 
+      itensLista[i].parentNode.insertBefore(itensLista[i].nextSibling, itensLista[i]);
+    }
   }
 }
-const botaoBaixo = document.querySelector('#mover-baixo')
-botaoBaixo.addEventListener('click', moverParaBaixo)
+const botaoBaixo = document.querySelector('#mover-baixo');
+botaoBaixo.addEventListener('click', moverParaBaixo);
+
+// Requisito 14 - Botão remover um item
+
+function removeItem() {
+  const selecionado = document.querySelector('.selected');
+  selecionado.parentNode.removeChild(selecionado);
+  
+}
+const botaoRemove = document.querySelector('#remover-selecionado');
+botaoRemove.addEventListener('click', removeItem);
