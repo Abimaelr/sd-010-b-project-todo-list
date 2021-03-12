@@ -95,15 +95,21 @@ removeSelectedtask();
 
 function moveUp() {
   const buttonMoveUp = document.getElementById('mover-cima');
+  const taskList = document.getElementById('lista-tarefas');
 
   buttonMoveUp.addEventListener('click', () => {
     const selectedLi = document.querySelectorAll('li');
-    selectedLi.forEach((e) => {
-      if (e.style.backgroundColor === 'rgb(128, 128, 128)') {
-        const before = e.previousSibling;
-        e.parentNode.insertBefore(e, before);
+    // selectedLi.forEach((e) => {
+    //   if (e.style.backgroundColor === 'rgb(128, 128, 128)') {
+    //     // const before = e.previousElementSibling;
+    //     e.parentNode.insertBefore(e, e.previousSibling);
+    //   }
+    // });
+    for (let i = 1; i < selectedLi.length; i += 1) {
+      if (selectedLi[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+        selectedLi[i].parentNode.insertBefore(selectedLi[i], selectedLi[i].previousSibling);
       }
-    });
+    }
   });
 }
 
