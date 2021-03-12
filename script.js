@@ -7,6 +7,7 @@ document.querySelector('#criar-tarefa').addEventListener('click', function () {
   task.value = '';
   generateLi.className = 'listItem';
 
+
   document.querySelectorAll('.listItem').forEach(function (item) {
     item.addEventListener('click', function (element) {
       if (document.querySelectorAll('.selectedItem').length > 0) {
@@ -15,5 +16,12 @@ document.querySelector('#criar-tarefa').addEventListener('click', function () {
       element.target.className = 'selectedItem';
     });
   });
-
 });
+
+
+  document.getElementById('apaga-tudo').addEventListener('click', function () {
+    while (document.getElementById('lista-tarefas').firstChild) {
+      document.getElementById('lista-tarefas').removeChild(document.getElementById('lista-tarefas').firstChild);
+    }
+  });
+
