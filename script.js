@@ -10,13 +10,13 @@ botao.addEventListener("click", adicionatarefa);
 function adicionatarefa(){
     let criaListaTarefas = document.createElement("li");
     criaListaTarefas.innerHTML = textoTarefa.value;
-    
+
     listaPai.appendChild(criaListaTarefas);
     textoTarefa.value=""; 
 }
 
 //Requisito 7 e 8
-
+// Usei como referência o site https://developer.mozilla.org/pt-BR/docs/Web/API/Event/target.
 let list = document.querySelector("#lista-tarefas");
 
 list.addEventListener("click", function(event){
