@@ -41,9 +41,9 @@ deleteCompletedTasksBtn.addEventListener('click', () => {
 
 saveTasksBtn.addEventListener('click', () => {
   const toDoListItems = document.querySelectorAll('#lista-tarefas li');
-  let content = [];
-  let className = [];
-  let itemSalvos = { content, className };
+  const content = [];
+  const className = [];
+  const itemSalvos = { content, className };
   for (let index = 0; index < toDoListItems.length; index += 1) {
     content.push(toDoListItems[index].innerHTML);
     className.push(toDoListItems[index].className);
