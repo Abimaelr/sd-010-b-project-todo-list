@@ -2,6 +2,7 @@ const buttom = document.querySelector('#criar-tarefa');
 
 const caixaTexto = document.querySelector('#texto-tarefa');
 const lista = document.querySelector('#lista-tarefas');
+const itensLista = lista.getElementsByTagName('li')
 
 function listaDeTarefas() {
   buttom.addEventListener('click', function() {
@@ -34,13 +35,11 @@ tarefaCompleta();
 const botaoApagaTudo = document.querySelector('#apaga-tudo')
 
 function apagaItensDaLista(){
-    const itensLista = lista.getElementsByTagName('li')
-
-    botaoApagaTudo.addEventListener('click', function() {
-      for(let i = itensLista.length -1 ; i >= 0; i -=1) { //parto do final da lista até zero removendo os elem
-        itensLista[i].remove();
-      }
-    }) 
+  botaoApagaTudo.addEventListener('click', function() {
+    for(let i = itensLista.length -1 ; i >= 0; i -=1) { //parto do final da lista até zero removendo os elem
+      itensLista[i].remove();
+    }
+  }) 
 }
 apagaItensDaLista();
 
@@ -48,10 +47,9 @@ apagaItensDaLista();
 const botaoRemoveCompletos = document.querySelector('#remover-finalizados');
 
 function removeCompletos(){
-  const tarefaFinalizada = document.getElementsByTagName('li');
-  for (let i = 0; i < tarefaFinalizada.length; i += 1) {
-    if(tarefaFinalizada[i].classList.contains('completed')){ 
-      lista.removeChild(tarefaFinalizada[i]); // Para conseguir remover todos usei a mesma ideia da Alessandra Resende
+  for (let i = 0; i < itensLista.length; i += 1) {
+    if(itensLista[i].classList.contains('completed')){ 
+      lista.removeChild(itensLista[i]); // Para conseguir remover todos usei a mesma ideia da Alessandra Resende
       i -= 1;
     }
   }
@@ -75,3 +73,29 @@ function pegaValoresSalvos() {
   }
 }
 window.onload = pegaValoresSalvos; // ao carregar a página chamo essa função
+
+// Requisito 13 - mover para cima
+
+function moverParaCima(){
+  for (let i = 0; i < itensLista.length; i += 1){ 
+    if(itensLista[i].classList.contains('selected') && i > 0){ // verifico se o li na posição contem a classe e i for > 0
+      itensLista[i].parentNode.insertBefore(itensLista[i], itensLista[i-1]) // list item na posiçao filho do pai, vai inserir li
+    } // na posiçao li - 1
+  }
+}
+const botaoCima = document.querySelector('#mover-cima');
+botaoCima.addEventListener('click', moverParaCima)
+
+// Requisito 13 - mover para baixo
+
+function moverParaBaixo(){
+  for (let i = itensLista.length -1; i >= 0 ; i -= 1){ 
+    if(itensLista[i].classList.contains('selected') && i < itensLista.length){ 
+      console.log(i)
+      console.log(itensLista[i].nextSibling)
+      itensLista[i].parentNode.insertBefore(itensLista[i].nextElementSibling, itensLista[i]) 
+    } 
+  }
+}
+const botaoBaixo = document.querySelector('#mover-baixo')
+botaoBaixo.addEventListener('click', moverParaBaixo)
