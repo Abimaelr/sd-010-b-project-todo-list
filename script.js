@@ -4,14 +4,7 @@ let lista = document.getElementById('lista-tarefas');
 let clickList = document.getElementsByClassName('liStyle');
 
 
-// Vai adicionando item a lista a cada click
-buton.addEventListener('click', function(){  
-  let novaLista = document.createElement('li');
-  novaLista.classList.add('liStyle');
-  lista.appendChild(novaLista).innerText = textInput.value;
-  textInput.value = '';  
-  mudarCor();
-});
+
 
 //
 function mudarCor() {
@@ -23,6 +16,21 @@ function mudarCor() {
         }
         event.target.classList.add('color');   
       }
-      });
+    });
   }
 }
+function complet() {
+  lista.addEventListener('dblclick', function(event) {
+    event.target.classList.toggle('completed');
+  });  
+}
+
+// Vai adicionando item a lista a cada click
+buton.addEventListener('click', function(){  
+  let novaLista = document.createElement('li');
+  novaLista.classList.add('liStyle');
+  lista.appendChild(novaLista).innerText = textInput.value;
+  textInput.value = '';  
+  mudarCor();  
+  complet();
+});
