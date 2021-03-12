@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+#lista-tarefas, p{
+  background-color: darkgreen;
+  width: 500px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  text-align: center;
+  
+}
+
+p {
+  margin-top: 10px; 
+}
+
+#container {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px; 
+}
+
+ol li {
+  background-color: rgb(255, 255, 255);
+  border-bottom: solid 1px black;
+  list-style-type: none;
+  
+}
