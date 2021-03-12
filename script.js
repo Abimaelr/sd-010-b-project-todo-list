@@ -1,5 +1,3 @@
-
-
 //paragrafo com ID e texto
 const paragrafo = document.createElement('p');
 paragrafo.innerText = "Clique duas vezes em um item para marcá-lo como completo";
@@ -17,6 +15,7 @@ writeItem.appendChild(criaInput);
 //cria lista ordenada
 const list = document.createElement('ol');
 list.id = "lista-tarefas";
+list.setAttribute('tabindex', 0);
 body.appendChild(list);
 
 //cria botão pra adicionar tarefa
@@ -60,10 +59,12 @@ function criarTarefa() {
 	const olId = document.getElementById('lista-tarefas');
 
 	botaoTarefa.addEventListener('click', function (event) {
-		const itemLista = document.getElementById('texto-tarefa');
+		const itemLista = document.querySelector('#texto-tarefa');
 		let itemTarefa = document.createElement('li');
 		itemTarefa.classList.add('item-lista-tarefa');
 		itemTarefa.innerText = itemLista.value;
+		let atributo = document.querySelectorAll('.texto-tarefa');
+		itemTarefa.setAttribute('tabindex', atributo.length)
 		olId.appendChild(itemTarefa);
 		itemLista.value = "";
 
@@ -74,6 +75,7 @@ criarTarefa();
 function alteraCor() {
 	const listaOrdenada = document.querySelector('#lista-tarefas');
 	listaOrdenada.addEventListener('click', function (event) {
+		listaOrdenada.focus();
 		let itemCinza = document.querySelector('.corCinza')
 		if (itemCinza) {
 			itemCinza.classList.remove('corCinza');
@@ -100,6 +102,7 @@ riscar();
 function limparLista() {
 	const botaoLimpar = document.querySelector('#apaga-tudo');
 	botaoLimpar.addEventListener('click', function (event) {
+		localStorage.clear()
 		const task = document.querySelectorAll('li');
 		for (i = 0; i < task.length; i += 1) {
 			task[i].parentNode.removeChild(task[i]);
@@ -125,9 +128,32 @@ function salvarLista() {
 		const salvar = document.querySelector('ol').innerHTML;
 
 		localStorage.setItem('chave-salvar', salvar);
-
-
 	})
 }
 salvarLista();
 
+function moveUpDown() {
+	const listaOrdenada = document.querySelector('#lista-tarefas');
+	listaOrdenada.addEventListener('keydown', function (event) {
+console.log('teste');
+	
+		let tecla = event.keyCode;
+		let itensListas = document.querySelectorAll('.item-lista-tarefa');
+
+		for (let i = 0; i < itensListas.length; i += 1) {
+
+			if (tecla === 38) {
+
+				itensListas[i].classList.remove('corCinza');
+				itensListas[i + 1].classList.add('corCinza');
+
+			} else if (tecla === 40) {
+				itensListas[i].classList.remove('corCinza');
+				itensListas[i - 1].classList.add('corCinza');
+			}
+		}
+
+
+	})
+} 
+	moveUpDown();
