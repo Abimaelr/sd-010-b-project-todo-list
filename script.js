@@ -89,11 +89,9 @@ botaoCima.addEventListener('click', moverParaCima)
 // Requisito 13 - mover para baixo
 
 function moverParaBaixo(){
-  for (let i = itensLista.length -1; i >= 0 ; i -= 1){ 
-    if(itensLista[i].classList.contains('selected') && i < itensLista.length){ 
-      console.log(i)
-      console.log(itensLista[i].nextSibling)
-      itensLista[i].parentNode.insertBefore(itensLista[i].nextElementSibling, itensLista[i]) 
+  for (let i = itensLista.length - 1; i >= 0 ; i -= 1){ 
+    if(itensLista[i].classList.contains('selected') && i < itensLista.length - 1){ 
+      itensLista[i].parentNode.insertBefore(itensLista[i].nextSibling, itensLista[i]) 
     } 
   }
 }
