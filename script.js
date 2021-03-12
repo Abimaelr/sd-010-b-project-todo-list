@@ -35,14 +35,11 @@ changeColorItem();
 function lineThroughItem() {
   const getOl = document.querySelector('#lista-tarefas');
   getOl.addEventListener('dblclick', function (event) {
-    let getLi = document.querySelector('.selected');
-    if (getLi.classList.contains('selected')) {
-      getLi.classList.remove('selected');
-      event.target.classList.add('completed');
-    } else if (getLi.classList.contains('completed')) {
+    let getLi = document.querySelector('.completed');
+    if (getLi != null) {
       getLi.classList.remove('completed');
-      event.target.classList.add('completed');
     }
+    event.target.classList.add('completed');
   });
 }
 
