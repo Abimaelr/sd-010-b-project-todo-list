@@ -54,3 +54,28 @@ function cleanCompleted () {
   }
 }
 document.getElementById('remover-finalizados').addEventListener('click', cleanCompleted);
+
+function saveListData () {
+  let liArray4 = document.querySelectorAll('.list-item');
+  for (let index = 0; index < liArray4.length; index += 1){
+    localStorage.setItem('li'+[index], liArray4[index].outerHTML);
+  }
+}
+
+
+document.getElementById('salvar-tarefas').addEventListener('click', saveListData);
+
+// no window.onload puxar as informações salvas no localstorage através de uma função;
+// essas informações precisam ser apendadas na tag ol com id lista-tarefas;
+
+window.onload = function() {
+  loadLocalStorage();
+}
+
+function loadLocalStorage () {
+let string = '';
+  for (let index = 0; index < localStorage.length; index += 1) {
+  string += (localStorage.getItem('li'+[index]));
+  }
+  document.getElementById('lista-tarefas').innerHTML = string;
+}
