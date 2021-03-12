@@ -11,17 +11,25 @@ function criarTarefa() {
     pintar()
 }
 function pintar() {
-  let encontraFundoItem = document.getElementsByClassName("fundo-Item")[0];
+  
 let encontraItensDaLista = document.querySelectorAll('.item-lista');
+  
 encontraItensDaLista.forEach((element) => {
         element.addEventListener('click', (event) => {
+          retiraClasse()
         event.target.classList.add("fundo-Item")
     })
     })
   }
+  function retiraClasse() {
+    let encontraFundoItem = document.getElementsByClassName("fundo-Item")[0];
+    encontraFundoItem.classList.remove("fundo-Item");
+  }
 function apagarTudo() {
     let pegarLi = document.querySelectorAll('.item-lista');
+    if (pegarLi !== null);{
     for (let i = 0;i <= pegarLi.length;i++) {
         pegarLi[i].remove();
     }
+  }
 }
