@@ -51,3 +51,21 @@ function lineThroughItem() {
 }
 
 lineThroughItem();
+
+function clearAllItems() {
+  const clearButton = document.querySelector('#apaga-tudo');
+  const getOl = document.querySelector('#lista-tarefas');
+
+  clearButton.addEventListener('click', function () {
+    // deleta o primeiro filho
+    // mas o segundo se tornar o primeiro filho
+    // com isso o loop só finalizar quando
+    // todos os filhos forem deletados
+    // porque todos se tornaram primeiro filho
+    while (getOl.firstChild) {
+      getOl.removeChild(getOl.firstChild);
+    }
+  });
+}
+
+clearAllItems();

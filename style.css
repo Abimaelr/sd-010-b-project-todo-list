@@ -35,3 +35,11 @@ header {
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
 }
+
+#apaga-tudo {
+  margin-left: 5px;
+  background-color: greenyellow;
+  font-family: fantasy;
+  font-size: small;
+  font-weight: bold;
+}
