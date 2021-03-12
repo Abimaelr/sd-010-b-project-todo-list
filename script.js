@@ -7,8 +7,6 @@ function criaHeader (){
   header.innerText = "Minha Lista de Tarefas";
   body.appendChild(header);
 
-  //Estilo
-
   header.style.marginLeft = "100px";
   header.style.fontSize = "30px";
 }
@@ -101,17 +99,17 @@ function mudaFundo (evento){
 
   let cinza = document.getElementsByClassName("cinza");
   for (let index = 0; index < cinza.length; index += 1){
-      cinza[index].className = "";
+    cinza[index].className = "";
   }
   if (aux.className !== 'cinza'){
-      aux.className = 'cinza'; 
+    aux.className = 'cinza'; 
       
   } else {
-      aux.className = "";
+    console.log("xa")
+    aux.className = "";
   } 
 }
 ////////////////////////////////////////////////////////////////////////////////
-
 
 let botao2 = document.createElement("button");
 botao2.id = "apaga-tudo";
@@ -123,9 +121,7 @@ pegaBotao.addEventListener("click", function () {
     let pegaLista = document.getElementById("lista-tarefas");
     pegaLista.innerHTML = "";
 });
-
 /////////////////////////////////////////////////////////////////////////////////////////
-
 // var lista = document.getElementById("lista-tarefas");
 // lista.addEventListener("click", atribuiClasseSelected);
 
@@ -162,3 +158,18 @@ const selectItem = (item) => {
       classList.add('completed');
     }
   }; */
+
+  // let pegaLi =  document.getElementById("lista-tarefas");
+  pegaUl.addEventListener("dblclick", function (evento){
+    console.log("teste")
+    let origem = evento.target;
+    origem.className = "completed";
+
+   pegaUl.addEventListener("dblclick", function (){
+    if (origem.className == "completed"){
+      origem.classList.remove("completed");
+      // origem.classList.add("completed");
+    }
+   })
+    
+  });
