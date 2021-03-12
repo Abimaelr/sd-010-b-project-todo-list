@@ -41,13 +41,15 @@ document.getElementById('remover-finalizados').addEventListener('click', functio
   }
 })
 
-document.getElementById('remover-selecionado').addEventListener('click', function deleteSelectedTasks() {
-  for(index = 0; index < document.getElementsByTagName('li').length; index +=1) {
-    if(document.getElementsByTagName('li')[index].className.includes('selected')) {
-      document.getElementById('lista-tarefas').removeChild(document.getElementsByTagName('li')[index]);
+document.querySelector('#remover-selecionado').addEventListener('click', function deleteSelectedTasks() {
+  let itemSelecionado = document.getElementsByTagName('li');
+  for (index = 0; index < itemSelecionado.length; index += 1) {
+    if(window.getComputedStyle(itemSelecionado[index]).backgroundColor === 'rgb(128, 128, 128)') {
+      itemSelecionado[index].parentNode.removeChild(itemSelecionado[index]);
     }
   }
 })
+
 
 document.getElementById('salvar-tarefas').addEventListener('click', function saveTasks() {
   localStorage.clear();
