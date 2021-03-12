@@ -86,13 +86,14 @@ function clearAll() {
   });
 }
 clearAll();
+const doneItens = document.getElementById('lista-tarefas').childNodes;
 
 // Remove finalizados:
 function removeDone() {
   clearDone.addEventListener('click', () => {
-    for (let i = 0; i < ordenedList.children.length; i += 1) {
-      if (ordenedList.children[i].classList.contains('done')) {
-        ordenedList.children[i].innerHTML = '';
+    for (let i = 0; i < doneItens.length; i += 1) {
+      if (doneItens[i].classList.contains('done')) {
+        doneItens[i].parentNode.removeChild(doneItens[i]);
       }
     }
   });

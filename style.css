@@ -48,6 +48,7 @@ button {
 }
 
 .task {
+  cursor: pointer;
   padding: 5px;
   border-radius: 50px;
   margin: 5px;
