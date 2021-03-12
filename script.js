@@ -5,13 +5,11 @@ let paiLista = document.querySelector('ol');
 let listaItens = document.getElementsByTagName('li');
 let botaoApagar = document.getElementById('apaga-tudo');
 
-
 function criarListas() {
   botao.addEventListener('click', function () {
     let novaLista = document.createElement('li');
     lista.appendChild(novaLista).innerText = textoInput.value;
     textoInput.value = '';
-    apagaTudo();
   })
 }
 
@@ -39,12 +37,12 @@ ricarLinha();
 
 function apagaTudo() {
   botaoApagar.addEventListener('click', function () {
-    for (let index = 0; index < listaItens.length; index += 1) {
-      listaItens[index].remove();
+    for (let index = 0; 0 < listaItens.length; index += 1) {
+      listaItens[0].remove();
     }
   })
 }
 
-
+apagaTudo();
 
 
