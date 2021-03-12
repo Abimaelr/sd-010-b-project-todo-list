@@ -62,9 +62,16 @@ buttonApagarTudo.addEventListener('click', function() {
 });
 
 
-
 //botão remove os finalizados
 let buttonRemoverFinalizados = document.createElement('button');
 buttonRemoverFinalizados.id = 'remover-finalizados';
 buttonRemoverFinalizados.innerText = 'Remover finalizados';
 bodyPagina.appendChild(buttonRemoverFinalizados);
+
+
+buttonRemoverFinalizados.addEventListener('click', function() {
+  while(document.querySelector('.completed')) {
+    document.querySelector('.completed').remove();
+  }
+});
+// não pode por variável no "while", porque?
