@@ -1,4 +1,5 @@
 const bodyChilds = document.body;
+
 // requisito 1
 bodyChilds.appendChild(document.createElement('header'));
 document.querySelector('header').innerText = 'Minha Lista de Tarefas';
@@ -71,18 +72,6 @@ buttonClearAll.addEventListener('click', function () {
   }
 });
 
-// requisito 11
-const buttonClearComplete = document.createElement('button');
-bodyChilds.appendChild(buttonClearComplete);
-buttonClearComplete.id = 'remover-finalizados';
-buttonClearComplete.innerText = 'Remover Finalizados';
-buttonClearComplete.addEventListener('click', function () {
-  const complete = document.querySelectorAll('.completed');
-  for (let counter = complete.length - 1; counter >= 0; counter -= 1) {
-    document.getElementsByTagName('ol')[0].removeChild(complete[counter]);
-  }
-});
- 
 //requisito 14
 const removeSelected = document.createElement('button');
 bodyChilds.appendChild(removeSelected);
@@ -91,3 +80,15 @@ removeSelected.innerText = 'Remover Selecionado';
 removeSelected.addEventListener('click', function() { 
   document.querySelector('ol').removeChild(document.getElementsByClassName('GrayElement')[0]);
 });
+
+const buttonSave = document.createElement('button');
+document.body.appendChild(buttonSave);
+buttonSave.id = 'salvar-tarefas';
+buttonSave.innerText = 'salvar tarefas';
+buttonSave.addEventListener('click', function (){
+  const getOl = document.querySelector('ol').innerHTML;
+    localStorage.setItem('item', getOl);
+});
+if(localStorage.item) {
+  document.querySelector('ol').innerHTML = localStorage.item;
+}
