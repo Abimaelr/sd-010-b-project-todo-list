@@ -33,3 +33,4 @@ function complet() {
     event.target.classList.toggle('completed');
   });  
 }
+complet();
