@@ -5,6 +5,8 @@ window.onload = function () {
   removeItem.addEventListener('click', removeSelectedItem);
   const deleteCompleteItem = document.querySelector('#remover-finalizados');
   deleteCompleteItem.addEventListener('click', deletingCompletedItem);
+  const saveList = document.querySelector('#salvar-tarefas');
+  saveList.addEventListener('click', savingList);
 };
 
 const inputText = document.querySelector('#texto-tarefa');
@@ -57,4 +59,7 @@ function deletingCompletedItem() {
   for (let index = 0; index < itemsList.length; index += 1) {
     itemsList[index].remove();
   }
+}
+function savingList() {
+  localStorage.setItem('list', list.innerHTML);
 }
