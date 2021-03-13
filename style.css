@@ -1,3 +1,21 @@
 .fundo-Item{
     background-color: rgb(128, 128, 128);
 }
+.lista-titulo{
+    margin: 40px;
+    border: 40px;
+    padding: 40px;
+    background-color: white;
+    border-radius: 30px;
+    text-align: center;
+    font-size: large;
+}
+#lista-tarefas{
+    text-align:start;
+}
+.nome{
+    font-size:futura;
+}
+body{
+    background-color: #19FAEE;
+}
