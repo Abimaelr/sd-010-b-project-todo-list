@@ -2,6 +2,7 @@ let textInput = document.getElementById('texto-tarefa');
 let buton = document.getElementById('criar-tarefa');
 let lista = document.getElementById('lista-tarefas');
 let clickList = document.getElementsByClassName('liStyle');
+let btnApaga = document.getElementById('apaga-tudo');
 
 
 
@@ -34,3 +35,9 @@ function complet() {
   });  
 }
 complet();
+
+btnApaga.addEventListener('click', function() {
+    lista.innerHTML = '';
+  });
+
+
