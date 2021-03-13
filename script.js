@@ -1,6 +1,7 @@
 //Starting
 
-createOl()
+window.onload = createOl()
+window.onload = recoveryTarefas()
 
 function createOl () {
   let addOl = document.createElement("OL");
@@ -37,6 +38,29 @@ document.addEventListener("click", function (event) {
     for (let i = 0; i < listCompleted.length; i += 1) {
       listCompleted[i].remove()
     }
+  }
+  if (event.target.id === "salvar-tarefas") {
+    localStorage.clear()
+    let listLength = document.querySelectorAll(".item-lista").length
+    for (let index = 0; index < listLength; index += 1) {
+      if (document.querySelectorAll(".item-lista")[index].className === "item-lista rgb-cinza completed" || document.querySelectorAll(".item-lista")[index].className === "item-lista completed rgb-cinza") {
+        let listItem = document.querySelectorAll(".item-lista")[index].innerText;
+        localStorage.setItem(`tarefa ${index}`, `${listItem} rgb-cinza completed`)
+      }
+      else if (document.querySelectorAll(".item-lista")[index].className === "item-lista rgb-cinza") {
+        let listItem = document.querySelectorAll(".item-lista")[index].innerText;
+        localStorage.setItem(`tarefa ${index}`, `${listItem} rgb-cinza`)
+      }
+      else if (document.querySelectorAll(".item-lista")[index].className === "item-lista completed") {
+        let listItem = document.querySelectorAll(".item-lista")[index].innerText;
+        localStorage.setItem(`tarefa ${index}`, `${listItem} completed`)
+      }
+      else if (document.querySelectorAll(".item-lista")[index].className === "item-lista") {
+        let listItem = document.querySelectorAll(".item-lista")[index].innerText;
+        localStorage.setItem(`tarefa ${index}`, `${listItem}`)
+      }
+    }
+    console.log(localStorage)
   }  
 })
 
@@ -48,3 +72,47 @@ document.addEventListener("dblclick", function (event) {
     event.target.classList.remove("completed") 
   }
 })
+
+function recoveryTarefas () {
+  if (localStorage.length == 0) {}
+  else if (localStorage.length > 0) {
+    for (let k = 0; k < localStorage.length; k += 1) {
+      let item = localStorage.getItem(`tarefa ${k}`);
+      if (item.includes("rgb-cinza completed")) {
+        let newLi = document.createElement("LI");
+        newLi.setAttribute("class", "item-lista rgb-cinza completed");
+        let newItem = item.replace("rgb-cinza", "").replace("completed", "");
+        let textInput = newItem;
+        let textLi = document.createTextNode(textInput);
+        newLi.appendChild(textLi);
+        document.getElementById("lista-tarefas").appendChild(newLi);
+      }
+      else if (item.includes("rgb-cinza")) {
+        let newLi = document.createElement("LI");
+        newLi.setAttribute("class", "item-lista rgb-cinza");
+        let newItem = item.replace("rgb-cinza", "");
+        let textInput = newItem;
+        let textLi = document.createTextNode(textInput);
+        newLi.appendChild(textLi);
+        document.getElementById("lista-tarefas").appendChild(newLi);
+      }
+      else if (item.includes("completed")) {
+        let newLi = document.createElement("LI");
+        newLi.setAttribute("class", "item-lista completed");
+        let newItem = item.replace("completed", "");
+        let textInput = newItem;
+        let textLi = document.createTextNode(textInput);
+        newLi.appendChild(textLi);
+        document.getElementById("lista-tarefas").appendChild(newLi);
+      }
+      else {
+        let newLi = document.createElement("LI");
+        newLi.setAttribute("class", "item-lista");
+        let textInput = item;
+        let textLi = document.createTextNode(textInput);
+        newLi.appendChild(textLi);
+        document.getElementById("lista-tarefas").appendChild(newLi);
+      }
+    }
+  }
+}
