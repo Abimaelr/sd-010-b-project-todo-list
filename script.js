@@ -7,6 +7,10 @@ window.onload = function () {
   deleteCompleteItem.addEventListener('click', deletingCompletedItem);
   const saveList = document.querySelector('#salvar-tarefas');
   saveList.addEventListener('click', savingList);
+  const clearList = document.querySelector('#apaga-tudo');
+  clearList.addEventListener('click', deleteList);
+  
+  retrievingList();
 };
 
 const inputText = document.querySelector('#texto-tarefa');
