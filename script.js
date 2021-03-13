@@ -25,9 +25,11 @@ function generateTask() {
 
 // 7 e 8 Mudar a cor de fundo do item ao clicar nele Somente permitir um elemento selecionado por vez:
 const background = 'rgb(128, 128, 128)';
+const allElements = document.querySelector('#lista-tarefas');
+const tasks = document.getElementsByTagName('li');
+
 function setSelected(event) {
-  const allElements = document.querySelector('#lista-tarefas');
-  const tasks = document.getElementsByTagName('li');
+  
 
   allElements.addEventListener('click', function (event) {
     const actual = event.target;
@@ -39,5 +41,18 @@ function setSelected(event) {
   });
 }
 
+// 9. Ao clicar duas vezes no item, ele será riscado (e vice-e-versa):
+function completedTasks(event) {
+  const actual = event.target;
+
+  for (let index = 0; index < tasks.length; index += 1) {
+    if (actual.className === 'completed item') {
+     actual.className = 'item';
+    } else {
+    actual.className = 'completed item';
+    }
+  }
+}
 setSelected();
 button.addEventListener('click', generateTask);
+allElements.addEventListener('dblclick', completedTasks);
