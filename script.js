@@ -1,6 +1,8 @@
 window.onload = function () {
   const creatingTasks = document.querySelector('#criar-tarefa');
   creatingTasks.addEventListener('click', addTask);
+  const removeItem = document.querySelector('#remover-selecionado');
+  removeItem.addEventListener('click', removeSelectedItem);
 };
 
 const inputText = document.querySelector('#texto-tarefa');
@@ -26,4 +28,9 @@ function itemComplete(event) {
 function selectedItem(event) {
   removingSelection();
   event.target.classList.toggle('selected');
+}
+
+function removeSelectedItem() {
+  const selectedItem = document.querySelector('.selected');
+  selectedItem.remove();
 }
