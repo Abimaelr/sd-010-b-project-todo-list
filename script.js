@@ -10,6 +10,8 @@ function getList() {
     })
     changeClass.addEventListener('click', function(evt) {
         let selected = document.querySelector('.selected')
+        // Fiz uma pesquisa sobre a utilização das propriedades do ClassList no:
+        // https://www.w3schools.com/jsref/prop_element_classlist.asp
         if(selected != null){
             document.querySelector('.selected').classList.remove('selected');
         } else {
