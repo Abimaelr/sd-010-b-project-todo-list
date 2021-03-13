@@ -4,6 +4,7 @@ const input = document.getElementById('texto-tarefa');
 const clearButton = document.getElementById('apaga-tudo');
 const clearActivityButton = document.getElementById('remover-finalizados');
 const salveListButton = document.getElementById('salvar-tarefas');
+const clearSelectedButton = document.getElementById('remover-selecionado');
 
 function addActivity() {
   button.addEventListener('click', () => {
@@ -48,7 +49,7 @@ function clearList() {
 }
 clearList();
 
-function clearSelectedActivities() {
+function clearCompletedActivities() {
   clearActivityButton.addEventListener('click', () => {
     const listItemComplete = document.querySelectorAll('.completed');
     for (let index = 0; index < listItemComplete.length; index += 1) {
@@ -56,7 +57,7 @@ function clearSelectedActivities() {
     }
   });
 }
-clearSelectedActivities();
+clearCompletedActivities();
 
 window.onload = function salveList() {
   salveListButton.addEventListener('click', () => {
@@ -66,3 +67,11 @@ window.onload = function salveList() {
     list.innerHTML = localStorage.activities;
   }
 };
+
+function clearSelectedActivities() {
+  clearSelectedButton.addEventListener('click', () => {
+    const activitySelected = document.querySelector('.selected');
+    activitySelected.remove();
+  });
+}
+clearSelectedActivities();
