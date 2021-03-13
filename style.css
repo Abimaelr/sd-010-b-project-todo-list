@@ -1,9 +1,9 @@
-#criar-tarefa {
+#criar-tarefa, #apaga-tudo {
   background-color: antiquewhite;
   border-radius: 5px;
   padding: 3px;
 }
-#criar-tarefa:hover {
+#criar-tarefa:hover, #apaga-tudo:hover {
   background-color: aquamarine;
 }
 .selecionada {

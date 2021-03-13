@@ -2,6 +2,8 @@ const createBtn = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const caixaTexto = document.getElementById('texto-tarefa');
 const listItem = document.querySelectorAll(".listItem");
+const btnClear = document.getElementById('apaga-tudo');
+btnClear.innerHTML = 'Apagar tudo';
 createBtn.innerHTML = 'Criar tarefa';
 function clickCreateList () {
   const listItem = document.createElement('li');
@@ -11,7 +13,7 @@ function clickCreateList () {
   caixaTexto.value = ''; 
 }
 createBtn.addEventListener('click', clickCreateList);
-taskList.addEventListener('click', function (event) {
+taskList.addEventListener('click', (event) => {
   const select = document.getElementsByClassName('selecionada');
   if (select.length !== 0) {
     select[0].classList.remove('selecionada');
@@ -20,8 +22,8 @@ taskList.addEventListener('click', function (event) {
   if (select.length === 0 ) {
     event.target.classList.add('selecionada');
   }
-})
-taskList.addEventListener('dblclick', function (event) {
+});
+taskList.addEventListener('dblclick', (event) => {
   const completed = document.getElementsByClassName('completed');
   if (!event.target.classList.contains('completed')) {
     event.target.classList.add('completed');
@@ -29,5 +31,7 @@ taskList.addEventListener('dblclick', function (event) {
   else if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
   }
-}
-)
+});
+btnClear.addEventListener('click', () => {
+  taskList.innerHTML = '';
+});
