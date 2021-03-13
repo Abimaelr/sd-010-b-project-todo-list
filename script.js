@@ -3,6 +3,7 @@ const list = document.getElementById('lista-tarefas');
 const input = document.getElementById('texto-tarefa');
 const clearButton = document.getElementById('apaga-tudo');
 const clearActivityButton = document.getElementById('remover-finalizados');
+const salveListButton = document.getElementById('salvar-tarefas');
 
 function addActivity() {
   button.addEventListener('click', () => {
@@ -56,3 +57,12 @@ function clearSelectedActivities() {
   });
 }
 clearSelectedActivities();
+
+window.onload = function salveList() {
+  salveListButton.addEventListener('click', () => {
+    localStorage.setItem('activities', list.innerHTML);
+  });
+  if (localStorage.activities) {
+    list.innerHTML = localStorage.activities;
+  }
+};
