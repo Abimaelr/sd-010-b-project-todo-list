@@ -4,6 +4,8 @@ const taskInput = document.getElementById('texto-tarefa');
 const deleteAllTasksBtn = document.getElementById('apaga-tudo');
 const deleteCompletedTasksBtn = document.getElementById('remover-finalizados');
 const saveTasksBtn = document.getElementById('salvar-tarefas');
+const moveDownBtn = document.getElementById('mover-baixo');
+const moveUpBtn = document.getElementById('mover-cima');
 
 function createTasks() {
   const toDoListItem = document.createElement('li');
@@ -23,11 +25,12 @@ toDoList.addEventListener('click', (event) => {
 
 toDoList.addEventListener('dblclick', (event) => {
   const element = event.target;
-  if (element.classList.contains('completed')) {
+  /* if (element.classList.contains('completed')) {
     element.classList.remove('completed');
   } else {
     element.classList.add('completed');
-  }
+  } */
+  element.classList.toggle('completed');
 }, false);
 
 deleteAllTasksBtn.addEventListener('click', () => { toDoList.innerHTML = ''; }, false);
@@ -39,27 +42,48 @@ deleteCompletedTasksBtn.addEventListener('click', () => {
   }
 }, false);
 
-saveTasksBtn.addEventListener('click', () => {
-  const toDoListItems = document.querySelectorAll('#lista-tarefas li');
-  const content = [];
-  const className = [];
-  const itemSalvos = { content, className };
-  for (let index = 0; index < toDoListItems.length; index += 1) {
-    content.push(toDoListItems[index].innerHTML);
-    className.push(toDoListItems[index].className);
-  }
-  localStorage.setItem('itens-salvos', JSON.stringify(itemSalvos));
-}, false);
+function saveList() {
+  const tasks = document.getElementById('lista-tarefas').innerHTML;
+  localStorage.list = tasks;
+  window.alert('Lista Salva Com sucesso!');
+}
 
-window.onload = () => {
-  const saveItemsLocalStorage = localStorage.getItem('itens-salvos');
-  if (saveItemsLocalStorage !== null) {
-    const saveItemsObj = JSON.parse(saveItemsLocalStorage);
-    for (let index = 0; index < saveItemsObj.content.length; index += 1) {
-      const toDoListItem = document.createElement('li');
-      toDoListItem.innerHTML = saveItemsObj.content[index];
-      toDoListItem.className = saveItemsObj.className[index];
-      toDoList.appendChild(toDoListItem);
-    }
+function saveButton() {
+  saveTasksBtn.addEventListener('click', () => {
+    saveList();
+  });
+}
+saveButton();
+
+function loadList() {
+  if (localStorage.list) {
+    document.getElementById('lista-tarefas').innerHTML = localStorage.list;
   }
-};
+}
+loadList();
+
+function moveUp() {
+  moveUpBtn.addEventListener('click', () => {
+    let todaLista = document.querySelectorAll('li');
+    for (let index = 0; index < todaLista.length; index += 1) {
+      let pos = todaLista[index];
+      if (pos.classList.contains('selected') && pos.previousElementSibling !== null) {
+        toDoList.insertBefore(pos, todaLista[index - 1]);
+      }
+    }
+  });
+}
+moveUp();
+
+function moveDown() {
+  moveDownBtn.addEventListener('click', () => {
+    let todaLista = document.querySelectorAll('li');
+    for (let index = 0; index < todaLista.length; index += 1) {
+      let pos = todaLista[index];
+      if (pos.classList.contains('selected') && pos.nextElementSibling !== null) {
+        toDoList.insertBefore(todaLista[index + 1], pos);
+      }
+    }
+  });
+}
+moveDown();
