@@ -83,4 +83,11 @@ buttonClearComplete.addEventListener('click', function () {
   }
 });
  
-//daqui pra frente é CSS da página:
+//requisito 14
+const removeSelected = document.createElement('button');
+bodyChilds.appendChild(removeSelected);
+removeSelected.id = 'remover-selecionado';
+removeSelected.innerText = 'Remover Selecionado';
+removeSelected.addEventListener('click', function() { 
+  document.querySelector('ol').removeChild(document.getElementsByClassName('GrayElement')[0]);
+});
