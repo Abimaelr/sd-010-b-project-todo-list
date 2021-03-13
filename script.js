@@ -6,6 +6,7 @@ const deleteCompletedTasksBtn = document.getElementById('remover-finalizados');
 const saveTasksBtn = document.getElementById('salvar-tarefas');
 const moveDownBtn = document.getElementById('mover-baixo');
 const moveUpBtn = document.getElementById('mover-cima');
+const deleteSelectedBtn = document.getElementById('remover-selecionado');
 
 function createTasks() {
   const toDoListItem = document.createElement('li');
@@ -87,3 +88,10 @@ function moveDown() {
   });
 }
 moveDown();
+
+deleteSelectedBtn.addEventListener('click', () => {
+  while (document.querySelector('.selected')) {
+    const completedTask = document.querySelector('.selected');
+    completedTask.remove();
+  }
+});
