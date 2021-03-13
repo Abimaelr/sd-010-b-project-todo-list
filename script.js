@@ -26,11 +26,18 @@ function itemComplete(event) {
 }
 
 function selectedItem(event) {
-  removingSelection();
+  removeSelected();
   event.target.classList.toggle('selected');
 }
 
 function removeSelectedItem() {
   const selectedItem = document.querySelector('.selected');
   selectedItem.remove();
+}
+
+function removeSelected() {
+  const selection = document.querySelectorAll('.selected');
+  for (let index = 0; index < selection.length; index += 1) {
+    selection[index].classList.remove('selected');
+  }
 }
