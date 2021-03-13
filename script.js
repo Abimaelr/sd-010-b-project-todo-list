@@ -1,9 +1,10 @@
 let textoInput = document.getElementById('texto-tarefa');
 let botao = document.getElementById('criar-tarefa');
 let lista = document.getElementById('lista-tarefas');
-let paiLista = document.querySelector('ol');
+let paiLista = document.querySelector('#lista-tarefas');
 let listaItens = document.getElementsByTagName('li');
 let botaoApagar = document.getElementById('apaga-tudo');
+let botaoRemoverFinalizados = document.getElementById('remover-finalizados');
 
 function criarListas() {
   botao.addEventListener('click', function () {
@@ -27,22 +28,29 @@ function mudarCorSelected() {
 
 mudarCorSelected();
 
-function ricarLinha() {
+function riscarLinha() {
   paiLista.addEventListener('dblclick', function (event) {
     event.target.classList.toggle('completed');
   });
 }
 
-ricarLinha();
+riscarLinha();
 
 function apagaTudo() {
   botaoApagar.addEventListener('click', function () {
-    for (let index = 0; 0 < listaItens.length; index += 1) {
-      listaItens[0].remove();
+    paiLista.innerHTML = '';
+  })
+};
+
+apagaTudo();
+
+function apagaFinalizados() {
+  botaoRemoverFinalizados.addEventListener('click', function () {
+    let finalizados = document.querySelectorAll('li.completed');
+    for (let index = 0; index < finalizados.length; index += 1) {
+      paiLista.removeChild(finalizados[index]);
     }
   })
 }
 
-apagaTudo();
-
-
+apagaFinalizados();
