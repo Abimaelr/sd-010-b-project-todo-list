@@ -4,14 +4,15 @@ document.getElementById('criar-tarefa').addEventListener('click', addItem)
 document.getElementById('apaga-tudo').addEventListener('click', deleteAll)
 // ouvindo o botão remove concluidos
 document.getElementById('remover-finalizados').addEventListener('click', deleteDone)
+// ouvindo o botão save
+document.getElementById('salvar-tarefas').addEventListener('click', save)
 
 function addItem(){
-    let text = document.getElementById('texto-tarefa');
     let list = document.getElementById('lista-tarefas');
     let li = document.createElement('li');
-    li.innerText = text.value;
+    li.innerText = document.getElementById('texto-tarefa').value;
     li.className = 'item';
-    text.value = "";
+    document.getElementById('texto-tarefa').value = "";
     list.appendChild(li);
 }   
 
@@ -52,3 +53,18 @@ function deleteDone(){
         itemList[index].remove()
       }
 }
+
+function save(){
+    let listOl = document.getElementById('lista-tarefas').innerHTML;
+    localStorage.itens = listOl;
+    alert('Lista salva');
+}
+
+
+function load() {
+    if (localStorage.itens) {
+      document.getElementById('lista-tarefas').innerHTML = localStorage.itens;
+    }
+  }
+  
+  load();
