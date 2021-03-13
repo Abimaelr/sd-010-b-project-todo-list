@@ -5,6 +5,7 @@ let paiLista = document.querySelector('#lista-tarefas');
 let listaItens = document.getElementsByTagName('li');
 let botaoApagar = document.getElementById('apaga-tudo');
 let botaoRemoverFinalizados = document.getElementById('remover-finalizados');
+let botaoSalvarLista = document.getElementById('salvar-tarefas');
 
 function criarListas() {
   botao.addEventListener('click', function () {
@@ -54,3 +55,25 @@ function apagaFinalizados() {
 }
 
 apagaFinalizados();
+
+function salvar() {
+  let salvarLista = document.getElementById('lista-tarefas').innerHTML;
+  localStorage.lista = salvarLista;
+  alert('Lista salva');
+}
+
+function botaoSalvar() {
+  botaoSalvarLista.addEventListener('click', function () {
+    salvar();
+  })
+}
+
+botaoSalvar();
+
+function carregarLista() {
+  if (localStorage.lista) {
+    document.getElementById('lista-tarefas').innerHTML = localStorage.lista;
+  }
+}
+
+carregarLista();
