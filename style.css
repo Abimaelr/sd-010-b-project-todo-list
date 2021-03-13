@@ -1,6 +1,7 @@
 body {
   background-color: green;
 }
+
 main {
   margin-left: auto;
   margin-right: auto;
@@ -22,11 +23,11 @@ p {
 
 button {
   border-radius: 10px;
-  box-shadow: 5px 5px 5px #eee;
+  box-shadow: 5px 5px 5px rgb(194, 201, 196);
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0 , 0 , 0);
+  text-decoration: line-through solid black rgb(0 , 0 , 0);
 }
 
 .selected {
