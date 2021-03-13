@@ -1,7 +1,4 @@
 const buttonAdd = document.getElementById('criar-tarefa')
-
-
-
 buttonAdd.addEventListener('click', function(){
   event.preventDefault()
   let listaTarefas = document.getElementById('lista-tarefas')
@@ -9,7 +6,6 @@ buttonAdd.addEventListener('click', function(){
   let textUser = tarefas.texto.value;
   let listaLi = document.createElement('li');
   listaLi.textContent = textUser
-  
   listaTarefas.appendChild(listaLi);
-  console.log(listaLi)
+  tarefas.reset();
 }) 
