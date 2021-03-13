@@ -81,7 +81,7 @@ function recoveryTarefas () {
       if (item.includes("rgb-cinza completed")) {
         let newLi = document.createElement("LI");
         newLi.setAttribute("class", "item-lista rgb-cinza completed");
-        let newItem = item.replace("rgb-cinza", "").replace("completed", "");
+        let newItem = item.replace(" rgb-cinza", "").replace(" completed", "");
         let textInput = newItem;
         let textLi = document.createTextNode(textInput);
         newLi.appendChild(textLi);
@@ -90,7 +90,7 @@ function recoveryTarefas () {
       else if (item.includes("rgb-cinza")) {
         let newLi = document.createElement("LI");
         newLi.setAttribute("class", "item-lista rgb-cinza");
-        let newItem = item.replace("rgb-cinza", "");
+        let newItem = item.replace(" rgb-cinza", "");
         let textInput = newItem;
         let textLi = document.createTextNode(textInput);
         newLi.appendChild(textLi);
@@ -99,7 +99,7 @@ function recoveryTarefas () {
       else if (item.includes("completed")) {
         let newLi = document.createElement("LI");
         newLi.setAttribute("class", "item-lista completed");
-        let newItem = item.replace("completed", "");
+        let newItem = item.replace(" completed", "");
         let textInput = newItem;
         let textLi = document.createTextNode(textInput);
         newLi.appendChild(textLi);
