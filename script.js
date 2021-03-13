@@ -17,7 +17,7 @@ function addTask() {
   item.innerText = inputText.value;
   list.appendChild(item);
   inputText.value = '';
-  item.addEventListener('click', selectingItem);
+  item.addEventListener('click', selectedItem);
   item.addEventListener('dblclick', itemComplete);
 }
 
@@ -62,4 +62,13 @@ function deletingCompletedItem() {
 }
 function savingList() {
   localStorage.setItem('list', list.innerHTML);
+}
+
+function retrievingList() {
+  list.innerHTML = localStorage.getItem('list');
+  const recoverItem = document.querySelectorAll('li');
+  for (let index = 0; index < recoverItem.length; index += 1) {
+    recoverItem[index].addEventListener('click', selectedItem);
+    recoverItem[index].addEventListener('dblclick', itemComplete);
+  }
 }
