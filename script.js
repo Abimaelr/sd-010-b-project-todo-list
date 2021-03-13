@@ -22,3 +22,8 @@ function itemComplete(event) {
     event.target.classList.toggle('completed');
   }
 }
+
+function selectedItem(event) {
+  removingSelection();
+  event.target.classList.toggle('selected');
+}
