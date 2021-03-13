@@ -16,82 +16,73 @@ function createTasks() {
 }
 createTasksBtn.addEventListener('click', createTasks);
 
-// Explorar a resolução com querySelectorAll('#lista-tarefas li')
-toDoList.addEventListener('click', (event) => {
-  const element = event.target;
-  const selectedItem = document.querySelector('.selected');
-  if (selectedItem) selectedItem.classList.remove('selected');
-  element.classList.add('selected');
-}, false);
+function selectTask(event) {
+  const selectedTask = document.querySelector('.selected');
+  if (selectedTask) {
+    selectedTask.classList.remove('selected');
+  }
+  event.target.classList.add('selected');
+}
+toDoList.addEventListener('click', selectTask);
 
-toDoList.addEventListener('dblclick', (event) => {
-  const element = event.target;
-  /* if (element.classList.contains('completed')) {
-    element.classList.remove('completed');
-  } else {
-    element.classList.add('completed');
-  } */
-  element.classList.toggle('completed');
-}, false);
+function completeTask(event) {
+  event.target.classList.toggle('completed');
+}
+toDoList.addEventListener('dblclick', completeTask);
 
-deleteAllTasksBtn.addEventListener('click', () => { toDoList.innerHTML = ''; }, false);
+function deleteAllTasks() {
+  toDoList.innerHTML = '';
+}
+deleteAllTasksBtn.addEventListener('click', deleteAllTasks);
 
-deleteCompletedTasksBtn.addEventListener('click', () => {
+function deleteCompletedTasks() {
   while (document.querySelector('.completed')) {
     const completedTask = document.querySelector('.completed');
     completedTask.remove();
   }
-}, false);
-
-function saveList() {
-  const tasks = document.getElementById('lista-tarefas').innerHTML;
-  localStorage.list = tasks;
-  window.alert('Lista Salva Com sucesso!');
 }
+deleteCompletedTasksBtn.addEventListener('click', deleteCompletedTasks);
 
-function saveButton() {
-  saveTasksBtn.addEventListener('click', () => {
-    saveList();
-  });
+function saveTasks() {
+  localStorage.mySavedTasks = toDoList.innerHTML;
 }
-saveButton();
+saveTasksBtn.addEventListener('click', saveTasks);
 
 function loadList() {
-  if (localStorage.list) {
-    document.getElementById('lista-tarefas').innerHTML = localStorage.list;
+  if (localStorage.mySavedTasks) {
+    toDoList.innerHTML = localStorage.mySavedTasks;
   }
 }
-loadList();
 
 function moveUp() {
-  moveUpBtn.addEventListener('click', () => {
-    let todaLista = document.querySelectorAll('li');
-    for (let index = 0; index < todaLista.length; index += 1) {
-      let pos = todaLista[index];
-      if (pos.classList.contains('selected') && pos.previousElementSibling !== null) {
-        toDoList.insertBefore(pos, todaLista[index - 1]);
-      }
+  const toDoListItem = document.querySelectorAll('li');
+  for (let index = 0; index < toDoListItem.length; index += 1) {
+    const pos = toDoListItem[index];
+    if (pos.classList.contains('selected') && pos.previousElementSibling !== null) {
+      toDoList.insertBefore(pos, toDoListItem[index - 1]);
     }
-  });
+  }
 }
-moveUp();
+moveUpBtn.addEventListener('click', moveUp);
 
 function moveDown() {
-  moveDownBtn.addEventListener('click', () => {
-    let todaLista = document.querySelectorAll('li');
-    for (let index = 0; index < todaLista.length; index += 1) {
-      let pos = todaLista[index];
-      if (pos.classList.contains('selected') && pos.nextElementSibling !== null) {
-        toDoList.insertBefore(todaLista[index + 1], pos);
-      }
+  const toDoListItem = document.querySelectorAll('li');
+  for (let index = 0; index < toDoListItem.length; index += 1) {
+    const pos = toDoListItem[index];
+    if (pos.classList.contains('selected') && pos.nextElementSibling !== null) {
+      toDoList.insertBefore(toDoListItem[index + 1], pos);
     }
-  });
-}
-moveDown();
-
-deleteSelectedBtn.addEventListener('click', () => {
-  while (document.querySelector('.selected')) {
-    const completedTask = document.querySelector('.selected');
-    completedTask.remove();
   }
-});
+}
+moveDownBtn.addEventListener('click', moveDown);
+
+function deleteSelectedTask() {
+  while (document.querySelector('.selected')) {
+    document.querySelector('.selected').remove();
+  }
+}
+deleteSelectedBtn.addEventListener('click', deleteSelectedTask);
+
+window.onload = () => {
+  loadList();
+};
