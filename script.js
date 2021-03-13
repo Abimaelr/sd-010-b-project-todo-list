@@ -27,3 +27,30 @@ list.addEventListener("click", function(event){
    }
    event.target.style.backgroundColor = "rgb(128, 128, 128)"
 })
+
+// Requisito 9
+
+
+list.addEventListener("click", riscaNome);
+
+function riscaNome(event){
+    let listTarefas = document.querySelectorAll("li");
+    for (let i = 0; i < listTarefas.length; i += 1){
+        event.target.style.textDecoration = "line-through solid rgb(0, 0, 0)";
+        event.target.className = "completed";
+    }
+    
+}
+
+list.addEventListener("dblclick", desrriscaNome);
+
+function desrriscaNome(event){
+    let listTarefas = document.querySelectorAll("li");
+    for (let i = 0; i < listTarefas.length; i += 1){
+        if (event.target.style.textDecoration == "line-through solid rgb(0, 0, 0)"){
+            event.target.style.textDecoration = "none";
+            event.target.classList.remove("completed")
+        }
+    }
+    
+}
