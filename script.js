@@ -26,6 +26,7 @@ function trocarCinza() {
     }
   });
 }
+// ajudo do italo de mattos turma B
 function doubleClick() {
   let listaTarefas = document.querySelector('#lista-tarefas');
   let items = listaTarefas.children;
