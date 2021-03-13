@@ -1,3 +1,5 @@
+document.getElementById('criar-tarefa').addEventListener('click', createLiText);
+
 function createLiText () {
   let getText = document.getElementById('texto-tarefa').value;
   let element = document.createElement('li');
@@ -8,8 +10,6 @@ function createLiText () {
   }
 }
 
-document.getElementById('criar-tarefa').addEventListener('click', createLiText);
-
 function changeColor (event) {
   let liArray1 = document.getElementsByClassName('list-item');
   for (index = 0; index < liArray1.length; index += 1) {
@@ -17,6 +17,8 @@ function changeColor (event) {
   }
   event.target.classList.add('selected');
 }
+
+document.getElementById('criar-tarefa').addEventListener('click', addEventsToLi);
 
 function addEventsToLi () {
   let liArray2 = document.getElementsByClassName('list-item');
@@ -26,8 +28,6 @@ function addEventsToLi () {
   }
 }
  
-document.getElementById('criar-tarefa').addEventListener('click', addEventsToLi);
-
 function checkItem (event) {
   if (event.target.className == 'list-item selected'){
   event.target.classList.add('completed');
@@ -35,7 +35,8 @@ function checkItem (event) {
     event.target.classList.remove('completed');
   }
 }
-  
+document.getElementById('apaga-tudo').addEventListener('click', cleanList);
+
 function cleanList () {
   let getTaskList = document.getElementById('lista-tarefas');
   while (getTaskList.firstChild) {
@@ -43,7 +44,7 @@ function cleanList () {
     }
   }
 
-document.getElementById('apaga-tudo').addEventListener('click', cleanList);
+document.getElementById('remover-finalizados').addEventListener('click', cleanCompleted);
 
 function cleanCompleted () {
   let liArray = document.querySelectorAll('.list-item.completed');
@@ -54,7 +55,7 @@ function cleanCompleted () {
   }
 }
 
-document.getElementById('remover-finalizados').addEventListener('click', cleanCompleted);
+document.getElementById('salvar-tarefas').addEventListener('click', saveListData);
 
 function saveListData () {
   let liArray4 = document.querySelectorAll('.list-item');
@@ -62,8 +63,6 @@ function saveListData () {
     localStorage.setItem('li'+[index], liArray4[index].outerHTML);
   }
 }
-
-document.getElementById('salvar-tarefas').addEventListener('click', saveListData);
 
 window.onload = function() {
   loadLocalStorage();
@@ -77,6 +76,8 @@ let string = '';
   document.getElementById('lista-tarefas').innerHTML = string;
 }
 
+document.getElementById('mover-cima').addEventListener('click', moveUp);
+
 function moveUp () {
   let liArray = document.querySelectorAll('.list-item');
   let dataSaver = {};
@@ -84,7 +85,6 @@ function moveUp () {
     if (liArray[index].classList.contains('selected') && liArray[index] != liArray[0]) {
       dataSaver.text = liArray[index].previousElementSibling.innerText;
       dataSaver.class = liArray[index].previousElementSibling.className;
-      Object.freeze(dataSaver);
       liArray[index].previousElementSibling.innerText = liArray[index].innerText;
       liArray[index].previousElementSibling.className = liArray[index].className;
       liArray[index].innerText = dataSaver.text;
@@ -93,7 +93,7 @@ function moveUp () {
   }
 }
 
-document.getElementById('mover-cima').addEventListener('click', moveUp);
+document.getElementById('mover-baixo').addEventListener('click', moveDown);
 
 function moveDown () {
   let liArray = document.querySelectorAll('.list-item');
@@ -102,7 +102,6 @@ function moveDown () {
     if (liArray[index].classList.contains('selected') && liArray[index] != liArray[liArray.length - 1]) {
       dataSaver.text = liArray[index].nextElementSibling.innerText;
       dataSaver.class = liArray[index].nextElementSibling.className;
-      Object.freeze(dataSaver);
       liArray[index].nextElementSibling.innerText = liArray[index].innerText;
       liArray[index].nextElementSibling.className = liArray[index].className;
       liArray[index].innerText = dataSaver.text;
@@ -112,4 +111,14 @@ function moveDown () {
   }
 }
 
-document.getElementById('mover-baixo').addEventListener('click', moveDown);
+document.getElementById('remover-selecionado').addEventListener('click', removeSelected);
+
+function removeSelected () {
+  let liArray = document.querySelectorAll('.list-item');
+  let olId = document.getElementById('lista-tarefas');
+  for (let index = 0; index < liArray.length; index += 1) {
+    if (liArray[index].classList.contains('selected')) {
+      olId.removeChild(liArray[index]);
+    }
+  }
+}
