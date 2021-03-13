@@ -3,6 +3,8 @@ const taskList = document.getElementById('lista-tarefas');
 const caixaTexto = document.getElementById('texto-tarefa');
 const listItem = document.querySelectorAll(".listItem");
 const btnClear = document.getElementById('apaga-tudo');
+const btnResetCompleted = document.getElementById('remover-finalizados');
+btnResetCompleted.innerHTML = 'Remover finalizados';
 btnClear.innerHTML = 'Apagar tudo';
 createBtn.innerHTML = 'Criar tarefa';
 function clickCreateList () {
@@ -34,4 +36,10 @@ taskList.addEventListener('dblclick', (event) => {
 });
 btnClear.addEventListener('click', () => {
   taskList.innerHTML = '';
+});
+btnResetCompleted.addEventListener('click', () => {
+  const completed = document.getElementsByClassName('completed');
+  for (let index = 0; index < completed.length; index += 1) {
+    completed[index].remove();
+  }
 });

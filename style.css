@@ -1,9 +1,13 @@
-#criar-tarefa, #apaga-tudo {
+#criar-tarefa,
+#apaga-tudo,
+#remover-finalizados {
   background-color: antiquewhite;
   border-radius: 5px;
   padding: 3px;
 }
-#criar-tarefa:hover, #apaga-tudo:hover {
+#criar-tarefa:hover,
+#apaga-tudo:hover,
+#remover-finalizados:hover {
   background-color: aquamarine;
 }
 .selecionada {
