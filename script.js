@@ -1,16 +1,17 @@
 let textoInput = document.getElementById('texto-tarefa');
 let botao = document.getElementById('criar-tarefa');
-let lista = document.getElementById('lista-tarefas');
 let paiLista = document.querySelector('#lista-tarefas');
 let listaItens = document.getElementsByTagName('li');
 let botaoApagar = document.getElementById('apaga-tudo');
 let botaoRemoverFinalizados = document.getElementById('remover-finalizados');
 let botaoSalvarLista = document.getElementById('salvar-tarefas');
+let botaoRemoverSelecionado = document.getElementById('remover-selecionado');
+
 
 function criarListas() {
   botao.addEventListener('click', function () {
     let novaLista = document.createElement('li');
-    lista.appendChild(novaLista).innerText = textoInput.value;
+    paiLista.appendChild(novaLista).innerText = textoInput.value;
     textoInput.value = '';
   })
 }
@@ -56,12 +57,7 @@ function apagaFinalizados() {
 
 apagaFinalizados();
 
-function salvar() {
-  let salvarLista = document.getElementById('lista-tarefas').innerHTML;
-  localStorage.lista = salvarLista;
-  alert('Lista salva');
-}
-
+//Resolvi com a ajuda dos amigos Flavio e Marcos
 function botaoSalvar() {
   botaoSalvarLista.addEventListener('click', function () {
     salvar();
@@ -70,6 +66,13 @@ function botaoSalvar() {
 
 botaoSalvar();
 
+function salvar() {
+  let salvarLista = document.getElementById('lista-tarefas').innerHTML;
+  localStorage.lista = salvarLista;
+  alert('Lista salva');
+}
+
+
 function carregarLista() {
   if (localStorage.lista) {
     document.getElementById('lista-tarefas').innerHTML = localStorage.lista;
@@ -77,3 +80,13 @@ function carregarLista() {
 }
 
 carregarLista();
+
+// Depois da explicação consegui resolver sozinho esta função
+botaoRemoverSelecionado.addEventListener('click', removerSelecionado);
+
+function removerSelecionado() {
+  let selecionado = document.querySelectorAll('li.selected');
+  for (let index = 0; index < selecionado.length; index += 1) {
+    paiLista.removeChild(selecionado[index]);
+  }
+}
