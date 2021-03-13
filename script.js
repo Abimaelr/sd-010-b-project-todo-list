@@ -3,7 +3,7 @@ let buton = document.getElementById('criar-tarefa');
 let lista = document.getElementById('lista-tarefas');
 let clickList = document.getElementsByClassName('liStyle');
 let btnApaga = document.getElementById('apaga-tudo');
-
+let btnFinalizados = document.getElementById('remover-finalizados');
 
 
 // Vai adicionando item a lista a cada click
@@ -16,7 +16,7 @@ buton.addEventListener('click', function(){
   complet();
 });
 
-//
+// Muda a cor do fundo para cinza
 function mudarCor() {
   for (let i = 0; i <  clickList.length; i++) {
     clickList[i].addEventListener('click', function() {
@@ -38,6 +38,14 @@ complet();
 
 btnApaga.addEventListener('click', function() {
     lista.innerHTML = '';
-  });
+});
+
+
+btnFinalizados.addEventListener('click', function(){
+  let finalizados = document.querySelectorAll('li.completed');
+  for(let i =0; i < finalizados.length; i++) {
+    lista.removeChild(finalizados[i]);
+  }
+});
 
 
