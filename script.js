@@ -26,10 +26,7 @@ encontraItensDaLista.forEach((element) => {
     encontraFundoItem.classList.remove("fundo-Item");
   }
 function apagarTudo() {
-    let pegarLi = document.querySelectorAll('.item-lista');
-    if (pegarLi !== null);{
-    for (let i = 0;i <= pegarLi.length;i++) {
-        pegarLi[i].remove();
-    }
+    let pegaOl = document.getElementById("lista-tarefas");
+    pegaOl.innerText = "";
+  
   }
-}
