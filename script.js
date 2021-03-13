@@ -40,8 +40,8 @@ function doubleClick() {
     }
   })
 }
-doubleClick();
 window.onload = function () {
   adicionar();
   trocarCinza();
+  doubleClick();
 };
