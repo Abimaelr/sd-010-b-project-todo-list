@@ -6,14 +6,12 @@ function generateTask() {
   const listFather = document.querySelector('#lista-tarefas');
   const value = dataInserted.value;
   const listElements = document.createElement('li');
-  listElements.id = 'item';
-  // Criar o EventListener durante a criação dinámica do elemento aprendida no link 'https://ultimatecourses.com/blog/attaching-event-handlers-to-dynamically-created-javascript-elements':
-  listElements.addEventListener('click', changeBackground);
-  listElements.style.backgroundColor = 'white';
+  listElements.className = 'item';
   listElements.innerText = value;
 
   // function que verifica se foi introduzido algo no input:
   function verifiesInput() {
+
     if (value !== '') {
       listFather.appendChild(listElements);
       dataInserted.focus();
@@ -25,15 +23,21 @@ function generateTask() {
   verifiesInput();
 }
 
-// 7. Mudar a cor de fundo do item ao clicar nele:
-function changeBackground(event) {
-  const element = event.target;
+// 7 e 8 Mudar a cor de fundo do item ao clicar nele Somente permitir um elemento selecionado por vez:
+const background = 'rgb(128, 128, 128)';
+function setSelected(event) {
+  const allElements = document.querySelector('#lista-tarefas');
+  const tasks = document.getElementsByTagName('li');
 
-  if (element.style.backgroundColor === 'white') {
-    element.style.backgroundColor = 'rgb(128, 128, 128)';
-  } else {
-    element.style.backgroundColor = 'white';
-  }
+  allElements.addEventListener('click', function (event) {
+    const actual = event.target;
+
+    for (let index = 0; index < tasks.length; index += 1) {
+        tasks[index].style.backgroundColor = '';
+      }
+        actual.style.backgroundColor = background;
+  });
 }
 
+setSelected();
 button.addEventListener('click', generateTask);
