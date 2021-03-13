@@ -13,9 +13,9 @@ document.getElementById('criar-tarefa').addEventListener('click', createLiText);
 function changeColor (event) {
   let liArray1 = document.getElementsByClassName('list-item');
   for (index = 0; index < liArray1.length; index += 1) {
-    liArray1[index].style.backgroundColor = 'rgb(255, 255, 255)';
+    liArray1[index].classList.remove('selected');
   }
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  event.target.classList.add('selected');
 }
 
 function addEventsToLi () {
@@ -29,10 +29,10 @@ function addEventsToLi () {
 document.getElementById('criar-tarefa').addEventListener('click', addEventsToLi);
 
 function checkItem (event) {
-  if (event.target.className == 'list-item'){
-  event.target.className = 'list-item completed';
+  if (event.target.className == 'list-item selected'){
+  event.target.classList.add('completed');
   } else {
-    event.target.className = 'list-item';
+    event.target.classList.remove('completed');
   }
 }
   
@@ -46,13 +46,14 @@ function cleanList () {
 document.getElementById('apaga-tudo').addEventListener('click', cleanList);
 
 function cleanCompleted () {
-  let liArray3 = document.querySelectorAll('.list-item.completed');
+  let liArray = document.querySelectorAll('.list-item.completed');
   let getTaskList2 = document.getElementById('lista-tarefas');
-  for (let index = 0; index < liArray3.length; index += 1) {
-    getTaskList2.removeChild(liArray3[index]);
+  for (let index = 0; index < liArray.length; index += 1) {
+    getTaskList2.removeChild(liArray[index]);
     
   }
 }
+
 document.getElementById('remover-finalizados').addEventListener('click', cleanCompleted);
 
 function saveListData () {
@@ -62,11 +63,7 @@ function saveListData () {
   }
 }
 
-
 document.getElementById('salvar-tarefas').addEventListener('click', saveListData);
-
-// no window.onload puxar as informações salvas no localstorage através de uma função;
-// essas informações precisam ser apendadas na tag ol com id lista-tarefas;
 
 window.onload = function() {
   loadLocalStorage();
@@ -79,3 +76,40 @@ let string = '';
   }
   document.getElementById('lista-tarefas').innerHTML = string;
 }
+
+function moveUp () {
+  let liArray = document.querySelectorAll('.list-item');
+  let dataSaver = {};
+  for (let index = 0; index < liArray.length; index += 1) {
+    if (liArray[index].classList.contains('selected') && liArray[index] != liArray[0]) {
+      dataSaver.text = liArray[index].previousElementSibling.innerText;
+      dataSaver.class = liArray[index].previousElementSibling.className;
+      Object.freeze(dataSaver);
+      liArray[index].previousElementSibling.innerText = liArray[index].innerText;
+      liArray[index].previousElementSibling.className = liArray[index].className;
+      liArray[index].innerText = dataSaver.text;
+      liArray[index].className = dataSaver.class;
+    }
+  }
+}
+
+document.getElementById('mover-cima').addEventListener('click', moveUp);
+
+function moveDown () {
+  let liArray = document.querySelectorAll('.list-item');
+  let dataSaver = {};
+  for (let index = 0; index < liArray.length; index += 1) {
+    if (liArray[index].classList.contains('selected') && liArray[index] != liArray[liArray.length - 1]) {
+      dataSaver.text = liArray[index].nextElementSibling.innerText;
+      dataSaver.class = liArray[index].nextElementSibling.className;
+      Object.freeze(dataSaver);
+      liArray[index].nextElementSibling.innerText = liArray[index].innerText;
+      liArray[index].nextElementSibling.className = liArray[index].className;
+      liArray[index].innerText = dataSaver.text;
+      liArray[index].className = dataSaver.class;
+      break;
+    }
+  }
+}
+
+document.getElementById('mover-baixo').addEventListener('click', moveDown);
