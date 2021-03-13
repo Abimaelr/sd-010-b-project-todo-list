@@ -1,3 +1,10 @@
+function removeSelected() {
+  const selection = document.querySelectorAll('.selected');
+  for (let index = 0; index < selection.length; index += 1) {
+    selection[index].classList.remove('selected');
+  }
+}
+
 function selectedItem(event) {
   removeSelected();
   event.target.classList.toggle('selected');
@@ -24,15 +31,8 @@ function addTask() {
 }
 
 function removeSelectedItem() {
-  const selectedItem = document.querySelector('.selected');
-  selectedItem.remove();
-}
-
-function removeSelected() {
-  const selection = document.querySelectorAll('.selected');
-  for (let index = 0; index < selection.length; index += 1) {
-    selection[index].classList.remove('selected');
-  }
+  const selectedItemList = document.querySelector('.selected');
+  selectedItemList.remove();
 }
 
 function deleteList() {
