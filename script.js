@@ -3,6 +3,8 @@ window.onload = function () {
   creatingTasks.addEventListener('click', addTask);
   const removeItem = document.querySelector('#remover-selecionado');
   removeItem.addEventListener('click', removeSelectedItem);
+  const deleteCompleteItem = document.querySelector('#remover-finalizados');
+  deleteCompleteItem.addEventListener('click', deletingCompletedItem);
 };
 
 const inputText = document.querySelector('#texto-tarefa');
@@ -39,5 +41,20 @@ function removeSelected() {
   const selection = document.querySelectorAll('.selected');
   for (let index = 0; index < selection.length; index += 1) {
     selection[index].classList.remove('selected');
+  }
+}
+
+function deleteList() {
+  const recoverItems = document.querySelectorAll('.item');
+  if (recoverItems.length !== 0) {
+    const list = document.querySelector('#lista-tarefas');
+    list.innerHTML = '';
+  }
+}
+
+function deletingCompletedItem() {
+  const itemsList = document.querySelectorAll('.completed');
+  for (let index = 0; index < itemsList.length; index += 1) {
+    itemsList[index].remove();
   }
 }
