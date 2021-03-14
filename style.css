@@ -3,8 +3,9 @@
   border-radius: 5px;
   padding: 3px;
 }
-#criar-tarefa:hover , #apaga-tudo:hover , #remover-finalizados:hover , #salvar-tarefas:hover {
+#criar-tarefa:hover , #apaga-tudo:hover ,
+#remover-finalizados:hover , #salvar-tarefas:hover {
   background-color: aquamarine;
 }
-.selecionada {background-color: grey;}
-.completed {text-decoration: line-through solid black;}
+.selecionada { background-color: grey; }
+.completed { text-decoration: line-through solid black; }

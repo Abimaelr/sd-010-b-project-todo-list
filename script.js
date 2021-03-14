@@ -13,7 +13,7 @@ function clickCreateList() {
   listItem.className = 'listItem';
   listItem.innerHTML = caixaTexto.value;
   taskList.appendChild(listItem);
-  caixaTexto.value = ''; 
+  caixaTexto.value = '';
 }
 createBtn.addEventListener('click', clickCreateList);
 taskList.addEventListener('click', (event) => {
@@ -22,15 +22,14 @@ taskList.addEventListener('click', (event) => {
     select[0].classList.remove('selecionada');
     event.target.classList.add('selecionada');
   }
-  if (select.length === 0 ) {
+  if (select.length === 0) {
     event.target.classList.add('selecionada');
   }
 });
 taskList.addEventListener('dblclick', (event) => {
   if (!event.target.classList.contains('completed')) {
     event.target.classList.add('completed');
-  }
-  else if (event.target.classList.contains('completed')) {
+  } else if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
   }
 });
@@ -46,7 +45,7 @@ btnResetCompleted.addEventListener('click', () => {
 btnSave.addEventListener('click', () => {
   localStorage.setItem('taskSaveList', taskList.innerHTML);
 });
-window.onload = function () {
+window.onload = () => {
   const taskSave = localStorage.getItem('taskSaveList');
-    taskList.innerHTML = taskSave;
-}
+  taskList.innerHTML = taskSave;
+};
