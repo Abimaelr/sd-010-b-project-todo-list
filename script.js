@@ -31,26 +31,28 @@ list.addEventListener("click", function(event){
 // Requisito 9
 
 
-list.addEventListener("click", riscaNome);
+list.addEventListener("dblclick", riscaNome);
 
 function riscaNome(event){
     let listTarefas = document.querySelectorAll("li");
     for (let i = 0; i < listTarefas.length; i += 1){
-        event.target.style.textDecoration = "line-through solid rgb(0, 0, 0)";
         event.target.className = "completed";
+        event.target.style.textDecoration = "line-through solid rgb(0, 0, 0)"
+    }
+}
+
+//Exercício 10
+
+let botaoLimparTudo = document.getElementById("apaga-tudo");
+
+botaoLimparTudo.addEventListener("click", limparLista);
+
+function limparLista(){
+    let listTarefas = document.querySelectorAll("li")
+
+    for (let i = 0; i < listTarefas.length; i +=1){
+        listTarefas[i].remove()
     }
     
 }
 
-list.addEventListener("dblclick", desrriscaNome);
-
-function desrriscaNome(event){
-    let listTarefas = document.querySelectorAll("li");
-    for (let i = 0; i < listTarefas.length; i += 1){
-        if (event.target.style.textDecoration == "line-through solid rgb(0, 0, 0)"){
-            event.target.style.textDecoration = "none";
-            event.target.classList.remove("completed")
-        }
-    }
-    
-}
