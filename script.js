@@ -9,18 +9,20 @@ buttonAdd.addEventListener('click', function () {
   listaTarefas.appendChild(listaLi);
   listaLi.className = ('listada');
   tarefas.reset();
- })
+})
 //verifiquei a escrita do Carlos Vieira - t10-B pra entender que a minha variavel listada deveria ser li e dentro da função
- function choose(clickado){
-   let listada = document.querySelectorAll('li');
-for (index = 0; index <listada.length; index+=1){
-   if (listada[index].classList.contains('listada')) {
-      listada[index].classList.remove('selected');
+function choose(clickado) {
+  let listada = document.querySelectorAll('li');
+  for (index = 0; index < listada.length; index += 1) {
+    if (listada[index].classList.contains('listada')) {
+      listada[index].classList.remove('grayScale');
     }
   }
-  clickado.target.classList.add('selected');
- }
+  clickado.target.classList.add('grayScale');
+}
 
- listaTarefas.addEventListener('click', choose);
+listaTarefas.addEventListener('click', choose);
 
-
+listaTarefas.addEventListener('dblclick', function (riscado) {
+  riscado.target.classList.toggle('done');
+})

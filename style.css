@@ -1,12 +1,11 @@
-body{
-  text-align: center;
+body{ 
+  margin-left: 35px;
 }
 
-ol li{
- text-align: center;
- margin: 35;
-}
-
-.selected {
+.grayScale {
   background-color: rgb(128,128,128);
+}
+
+.done {
+  text-decoration: line-through;
 }
