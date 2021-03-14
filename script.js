@@ -30,16 +30,26 @@ olParent.addEventListener('click', function(event) {
 // Requesito 9
 
 olParent.addEventListener('dblclick', function(event) {
-  event.target.classList.toggle('completed')
+  event.target.classList.toggle('completed');
 })
 
-// Requesito 10
+// Requesito 10 --> https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/ (referência)
 
 function removeAllListItens() {
   while (olParent.firstChild) 
     olParent.removeChild(olParent.firstChild)
   }
 
-
 const btnRemoveAll = document.getElementById('apaga-tudo');
-btnRemoveAll.addEventListener('click', removeAllListItens)  
+btnRemoveAll.addEventListener('click', removeAllListItens);
+
+// Requesito 11 --> https://www.javascripttutorial.net/dom/manipulating/remove-a-dom-element/ (referência)
+function removeCompletedItens() {
+  const completedList = document.querySelectorAll('.completed');
+  for (let i = 0; i < completedList.length; i += 1) {
+    olParent.removeChild(completedList[i]);
+  }
+};
+
+const btnRemoveCompleted = document.getElementById('remover-finalizados');
+btnRemoveCompleted.addEventListener('click', removeCompletedItens);
