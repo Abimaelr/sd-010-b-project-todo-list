@@ -12,7 +12,6 @@ function vaiPraLista() { //função do botão vaiPraLista
   li.addEventListener('click',  seleciona);
   // ***********risca o texto ao clicar duas vezes*********
   li.addEventListener('dblclick', function(event) {
-    console.log('ola');
     event.target.classList.toggle('completed');
   })
   paiDaLista.appendChild(li);
@@ -26,7 +25,7 @@ function seleciona() {
 };// ***********Apaga tudo***************************
 botãoApaga.addEventListener('click', function() {
   let list = document.getElementById("lista-tarefas");
-  for (cont = 0; 0 < (list.childElementCount); cont += 1) {
+  while (0 < (list.childElementCount)) {
   list.removeChild(list.childNodes[0]);
   }
 })// ***********Apaga Riscados**********************
@@ -38,13 +37,24 @@ botãoApagaRiscados.addEventListener('click', function () {
   }
 });// ***************Salva************************
 //https://warcontent.com/localstorage-javascript/
-let botãoSalvar = document.getElementById('salvar-tarefas');
+let botãoSalvar = document.getElementById('salvar-tarefas')
 botãoSalvar.addEventListener('click', salvar); 
 function salvar() {
-  let itensASalvar = paiDaLista.innerHTML;
-  localStorage.setItem('Salvo', itensASalvar);
-  //por innerHTMH pois o localStorageso salva texto
+  let itensASalvar = paiDaLista.innerHTML
+  localStorage.setItem('Salvo', itensASalvar)//por innerHTMH pois o localStorageso salva texto
 }
 window.onload = function () {
-  paiDaLista.innerHTML = localStorage.getItem ('Salvo');
+  paiDaLista.innerHTML = localStorage.getItem ('Salvo')
+  colocaOsListeners()
+  }
+
+function colocaOsListeners() {
+  let liSalvas = paiDaLista.childNodes
+  for (let cont = 0; cont < liSalvas.length; cont++) {
+    liSalvas[cont].addEventListener('click',  seleciona);
+    // ***********risca o texto ao clicar duas vezes*********
+    liSalvas[cont].addEventListener('dblclick', function(event) {
+      event.target.classList.toggle('completed');
+    })
+  }
 }
