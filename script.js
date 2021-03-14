@@ -6,7 +6,6 @@ function generateTask() {
   const listFather = document.querySelector('#lista-tarefas');
   const value = dataInserted.value;
   const listElements = document.createElement('li');
-  listElements.className = 'item';
   listElements.innerText = value;
 
   // function que verifica se foi introduzido algo no input:
@@ -34,7 +33,7 @@ function setSelected() {
     for (let index = 0; index < tasks.length; index += 1) {
       tasks[index].style.backgroundColor = '';
     }
-      actual.style.backgroundColor = background;
+    actual.style.backgroundColor = background;
   });
 }
 
@@ -44,9 +43,9 @@ function completedTasks(event) {
 
   for (let index = 0; index < tasks.length; index += 1) {
     if (actual.className !== 'completed') {
-     actual.className = 'completed';
+      actual.classList.add('completed');
     } else {
-    actual.className = 'item';
+      actual.classList.remove('completed');
     }
   }
 }
@@ -55,7 +54,7 @@ function completedTasks(event) {
 const deleteButton = document.querySelector('#apaga-tudo');
 function deleteAllItems() {
 
-  while(allElements.firstChild) {
+  while (allElements.firstChild) {
     allElements.removeChild(allElements.firstChild);
   }
 }
@@ -69,7 +68,7 @@ function removeCompleted() {
   for (let index = 0; index < listSons.length; index += 1) {
     // Dica retirada do link 'http://devfuria.com.br/javascript/dom-remove-child/#:~:text=O%20m%C3%A9todo%20removeChild()%20remove,filho%20que%20deve%20ser%20removido.':
     if (listSons[index].classList.contains('completed') === true) {
-    listFather.removeChild(listSons[index]);
+      listFather.removeChild(listSons[index]);
     }
   }
 }
