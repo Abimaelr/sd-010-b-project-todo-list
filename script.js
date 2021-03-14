@@ -12,10 +12,10 @@ function createListItem() {
   }
 }
 
-const btnList = document.querySelector('#criar-tarefa');
-btnList.addEventListener('click', createListItem);
+const btnListAdd = document.querySelector('#criar-tarefa');
+btnListAdd.addEventListener('click', createListItem);
 
-// requesito 7
+// requesito 7 e 8 - Tive ajuda dos colegas Gabriel Miranda e Lucas Martins
 
 const olParent = document.getElementById('lista-tarefas');
 
@@ -27,8 +27,19 @@ olParent.addEventListener('click', function(event) {
   event.target.classList.toggle('selected');
 })
 
-// Requesito 8
+// Requesito 9
 
 olParent.addEventListener('dblclick', function(event) {
   event.target.classList.toggle('completed')
 })
+
+// Requesito 10
+
+function removeAllListItens() {
+  while (olParent.firstChild) 
+    olParent.removeChild(olParent.firstChild)
+  }
+
+
+const btnRemoveAll = document.getElementById('apaga-tudo');
+btnRemoveAll.addEventListener('click', removeAllListItens)  
