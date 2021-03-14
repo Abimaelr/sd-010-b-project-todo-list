@@ -26,4 +26,25 @@ function listenClick() {
 }
 listenClick();
 
-// function dbclick
+// PAra as funções abaixo eu tive ajuda do colega Robson Cardoso //
+
+function completedTask(parameter) {
+  const completed = parameter;
+  completed.classList.add('completed');
+}
+
+function removeCompleted(parameter) {
+  const incompleted = parameter;
+  incompleted.classList.remove('completed');
+}
+
+function taskCompleted() {
+  document.addEventListener('dblclick', (e) => {
+    if (e.target.classList.contains('completed')) {
+      removeCompleted(e.target);
+    } else {
+      completedTask(e.target);
+    }
+  }, false);
+}
+taskCompleted();
