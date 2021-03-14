@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -18,15 +18,20 @@
         </div>
 
         <div>
-          <input type="text" id="texto-tarefa" />
+          <input type="text" id="texto-tarefa" value="" />
         </div>
 
-        <div id="lista-tarefas">
-          <ol>
-            
-          </ol>
+        <div>
+          <button id="criar-tarefa" onclick="criaTarefa()">Adicionar</button>
+          <button id="apaga-tudo" onclick="">Apagar Tudo</button>
+          <button id="remover-finalizados" onclick="">Apagar</button>
+        </div>
+
+        <div>
+          <ol id="lista-tarefas"></ol>
         </div>
       </header>
     </div>
+    <script src="/script.js"></script>
   </body>
 </html>
