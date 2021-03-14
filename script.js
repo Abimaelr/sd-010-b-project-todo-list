@@ -45,6 +45,15 @@ function taskCompleted() {
     } else {
       completedTask(e.target);
     }
-  }, false);
+  });
 }
 taskCompleted();
+
+function eraseList() {
+  const listItem = document.querySelectorAll('li');
+  for (let index = 0; index < listItem.length; index += 1) {
+    listItem[index].remove();
+  }
+}
+
+document.getElementById('apaga-tudo').addEventListener('click', eraseList);
