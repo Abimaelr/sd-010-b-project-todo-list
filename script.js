@@ -45,4 +45,15 @@ function changeBckgColor (event) {
     event.target.classList.add('changeColor')
 }
 
+toDoList.addEventListener('dblclick', completeTask)
+
+function completeTask(e){
+    let complete = document.querySelector('.completed')
+    if (e.target !== complete){
+        e.target.classList.add('completed')
+    } else {
+        e.target.classList.remove('completed')
+    }
+}
+
 
