@@ -1,14 +1,14 @@
-#criar-tarefa,
-#apaga-tudo,
-#remover-finalizados,
+#criar-tarefa , 
+#apaga-tudo , 
+#remover-finalizados , 
 #salvar-tarefas {
   background-color: antiquewhite;
   border-radius: 5px;
   padding: 3px;
 }
-#criar-tarefa:hover,
-#apaga-tudo:hover,
-#remover-finalizados:hover,
+#criar-tarefa:hover , 
+#apaga-tudo:hover , 
+#remover-finalizados:hover , 
 #salvar-tarefas:hover {
   background-color: aquamarine;
 }

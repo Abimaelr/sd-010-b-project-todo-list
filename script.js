@@ -1,7 +1,6 @@
 const createBtn = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const caixaTexto = document.getElementById('texto-tarefa');
-const listItem = document.querySelectorAll(".listItem");
 const btnClear = document.getElementById('apaga-tudo');
 const btnResetCompleted = document.getElementById('remover-finalizados');
 const btnSave = document.getElementById('salvar-tarefas');
@@ -9,7 +8,7 @@ btnSave.innerHTML = 'Salvar tarefas';
 btnResetCompleted.innerHTML = 'Remover finalizados';
 btnClear.innerHTML = 'Apagar tudo';
 createBtn.innerHTML = 'Criar tarefa';
-function clickCreateList () {
+function clickCreateList() {
   const listItem = document.createElement('li');
   listItem.className = 'listItem';
   listItem.innerHTML = caixaTexto.value;
@@ -28,7 +27,6 @@ taskList.addEventListener('click', (event) => {
   }
 });
 taskList.addEventListener('dblclick', (event) => {
-  const completed = document.getElementsByClassName('completed');
   if (!event.target.classList.contains('completed')) {
     event.target.classList.add('completed');
   }
@@ -41,13 +39,12 @@ btnClear.addEventListener('click', () => {
 });
 btnResetCompleted.addEventListener('click', () => {
   const completed = document.querySelectorAll('.completed');
-    for (let index = 0; index < completed.length; index+= 1) {
-      completed[index].remove();
-    }
+  for (let index = 0; index < completed.length; index += 1) {
+    completed[index].remove();
+  }
 });
 btnSave.addEventListener('click', () => {
   localStorage.setItem('taskSaveList', taskList.innerHTML);
-  alert('dados salvos');
 });
 window.onload = function () {
   const taskSave = localStorage.getItem('taskSaveList');
