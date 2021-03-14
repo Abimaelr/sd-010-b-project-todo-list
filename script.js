@@ -7,6 +7,7 @@ function generateTask() {
   const value = dataInserted.value;
   const listElements = document.createElement('li');
   listElements.innerText = value;
+  listElements.className = 'task';
 
   // function que verifica se foi introduzido algo no input:
   function verifiesInput() {
@@ -53,7 +54,6 @@ function completedTasks(event) {
 // 10. Botão que apaga tudo:
 const deleteButton = document.querySelector('#apaga-tudo');
 function deleteAllItems() {
-
   while (allElements.firstChild) {
     allElements.removeChild(allElements.firstChild);
   }
@@ -73,8 +73,21 @@ function removeCompleted() {
   }
 }
 
+// 12. Botão que salva tarefas:
+const saveTasks = document.querySelector('#salvar-tarefas');
+const actualTasksFather = document.getElementById('lista-tarefas');
+
+function saveTasksStatus() {
+  const actualTasks = document.querySelectorAll('li');
+  for (let index = 0; index < actualTasks.length; index += 1) {
+    localStorage.setItem('task' + [index + 1], actualTasks[index].innerText);
+  }
+}
+
+
 setSelected();
 button.addEventListener('click', generateTask);
 allElements.addEventListener('dblclick', completedTasks);
 deleteButton.addEventListener('click', deleteAllItems);
 deleteCompletedButton.addEventListener('click', removeCompleted);
+saveTasks.addEventListener('click', saveTasksStatus);
