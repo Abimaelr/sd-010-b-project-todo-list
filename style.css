@@ -2,6 +2,11 @@ body{
   text-align: center;
 }
 
-li{
+ol li{
  text-align: center;
+ margin: 35;
+}
+
+.selected {
+  background-color: rgb(128,128,128);
 }
