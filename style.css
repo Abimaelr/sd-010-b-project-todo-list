@@ -1,9 +1,56 @@
 /* Estilização */
+h1 {
+  margin-top: 5px;
+}
 
 .selected {
-    background-color: rgb(128, 128, 128);
+  background-color: gray;
+}
+
+#criar-tarefa {
+	background-color: bisque;
+	border-radius: 20px;
 }
 
 .completed {
-    text-decoration: line-through;
+  text-decoration: line-through;
+}
+
+#remover-selecionado {
+  background-color: lightcoral;
+  border-radius: 30%;
+}
+
+#apaga-tudo {
+  background-color: lightcoral;
+  border-radius: 20px;
+  margin-bottom: 5px;
+}
+
+#remover-finalizados {
+  background-color: lightblue;
+  border-radius: 20px;
+}
+
+#box {
+  border-radius: 20px;
+  background-color: white;
+  max-width: 50%;
+  border-left: 20px;
+  padding: 20px;
+  min-height: 150px;
+}
+
+body {
+  background-color: burlywood;
+}
+
+p {
+  font-style: italic;
+}
+
+#buttons {
+  position: absolute;
+  margin-bottom: 10px;
+  vertical-align: bottom;
 }

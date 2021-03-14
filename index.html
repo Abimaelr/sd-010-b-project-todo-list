@@ -7,17 +7,20 @@
     <title>To-Do-List</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header>
+<body>  
+    <section id="box">
+      <header>
         <h1>Minha Lista de Tarefas</h1>
         <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    </header>
-    <section>
+      </header>
         <input id="texto-tarefa" type="text">
         <button id="criar-tarefa">Adicionar</button>
         <ol id="lista-tarefas"></ol>
-        <button id="apaga-tudo">Limpar Lista</button>
-        <button id="remover-finalizados">Limpar completos</button>
+        <section id="buttons">
+          <button id="remover-selecionado">X</button>
+          <button id="apaga-tudo">Limpar Lista</button>
+          <button id="remover-finalizados">Limpar completos</button>
+        </section>    
     </section> 
     <script src="script.js"></script>
 </body>

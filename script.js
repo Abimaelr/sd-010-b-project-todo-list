@@ -1,14 +1,14 @@
 const addButton = document.getElementById('criar-tarefa');
 const task = document.getElementById('texto-tarefa');
 const oL = document.getElementById('lista-tarefas');
-let taskList = [];
+// const taskList = [];
 
-function creatOL() {   
+function creatOL() {
   const taski = document.createElement('li');
   taski.className = 'task';
   taski.innerText = task.value;
-  oL.appendChild(taski);  
-  taskList.push(task.value);
+  oL.appendChild(taski);
+  // taskList.push(task.value);
   task.value = '';
 }
 addButton.addEventListener('click', creatOL);
@@ -26,7 +26,7 @@ function listenClick() {
 }
 listenClick();
 
-// PAra as funções abaixo eu tive ajuda do colega Robson Cardoso //
+// Para as funções abaixo eu tive ajuda do colega Robson Cardoso //
 
 function completedTask(parameter) {
   const completed = parameter;
@@ -66,3 +66,10 @@ function eraseCompleted() {
 }
 
 document.getElementById('remover-finalizados').addEventListener('click', eraseCompleted);
+
+function removeSelected() {
+  const eraseSelected = document.querySelector('.selected');
+  eraseSelected.remove();
+}
+
+document.getElementById('remover-selecionado').addEventListener('click', removeSelected);
