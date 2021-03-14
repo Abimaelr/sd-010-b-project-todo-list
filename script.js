@@ -57,3 +57,12 @@ function eraseList() {
 }
 
 document.getElementById('apaga-tudo').addEventListener('click', eraseList);
+
+function eraseCompleted() {
+  const completedTasks = document.querySelectorAll('.completed');
+  for (let i = 0; i < completedTasks.length; i += 1) {
+    completedTasks[i].remove();
+  }
+}
+
+document.getElementById('remover-finalizados').addEventListener('click', eraseCompleted);
