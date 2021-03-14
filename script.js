@@ -1,8 +1,10 @@
 
 const lista = document.getElementById('lista-tarefas');
 const tarefas = document.getElementById('texto-tarefa');
-const addButton = document.getElementById('criar-tarefa')
+const addButton = document.getElementById('criar-tarefa');
+const deleteButton = document.getElementById('apaga-tudo');
 const PAINT = 'paintSelected';
+const LINE = 'completed';
 
 addButton.addEventListener('click', function() {
   const newItem = document.createElement('li');
@@ -22,4 +24,16 @@ addButton.addEventListener('click', function() {
     }
     itemSelected.classList.add(PAINT);    
   })
+  lista.addEventListener('dblclick', function(evt) {
+    const completedTask = evt.target;
+    completedTask.classList.toggle(LINE);
+  })
 });
+
+deleteButton.addEventListener('click', clearAll);
+
+function clearAll() {
+  lista.innerHTML = '';  
+  tarefas.value = '';
+}
+
