@@ -5,6 +5,8 @@ const clearButton = document.getElementById('apaga-tudo');
 const clearActivityButton = document.getElementById('remover-finalizados');
 const salveListButton = document.getElementById('salvar-tarefas');
 const clearSelectedButton = document.getElementById('remover-selecionado');
+const moveUpButton = document.getElementById('mover-cima');
+const moveDownButton = document.getElementById('mover-baixo');
 
 function addActivity() {
   button.addEventListener('click', () => {
@@ -75,3 +77,27 @@ function clearSelectedActivities() {
   });
 }
 clearSelectedActivities();
+
+function moveUp() {
+  const allActivities = document.getElementsByTagName('li');
+  moveUpButton.addEventListener('click', () => {
+    for (let index = 1; index < allActivities.length; index += 1) {
+      if (allActivities[index].classList.contains('selected')) {
+        list.insertBefore(allActivities[index], allActivities[index - 1]); // o numero index será inserido antes do valor acima ( por isso, que sobe)
+      }
+    }
+  });
+}
+moveUp();
+
+function moveDown() {
+  const allActivities = document.getElementsByTagName('li');
+  moveDownButton.addEventListener('click', () => {
+    for (let index = allActivities.length - 1; index >= 0; index -= 1) {
+      if (allActivities[index].classList.contains('selected') && index < allActivities.length - 1) {
+        list.insertBefore(allActivities[index].nextSibling, allActivities[index]); // o numero após o valor[index] será inserido antes deste
+      }
+    }
+  });
+}
+moveDown();

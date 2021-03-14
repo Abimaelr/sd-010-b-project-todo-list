@@ -29,14 +29,23 @@ header {
 }
 
 .output-section {
-  text-align: center;
+  margin-left: 30px;
 }
 
-#apaga-tudo , #remover-finalizados , #mover-cima , #mover-baixo , #remover-selecionado {
+#mover-cima , #mover-baixo {
   background-color: black;
   border-radius: 50px;
   color: white;
   font-weight: 600;
-  margin: 80px 5px 0 10px;
+  margin: 70px 5px 0 10px;
+  padding: 2px 5px;
+}
+
+#apaga-tudo , #remover-finalizados , #remover-selecionado {
+  background-color: black;
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+  margin: 40px 5px 0 10px;
   padding: 2px 5px;
 }
