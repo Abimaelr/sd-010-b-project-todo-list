@@ -1,40 +1,31 @@
 let tamanhoDaLista = []
-// **************Armazena o texto****************
-let entradaDeTarefa;
-const caixaDeEntrada = document.getElementById('texto-tarefa');
-caixaDeEntrada.addEventListener('keyup', tarefa);
-function tarefa() {
-  entradaDeTarefa = caixaDeEntrada.value;
-}// **************Adciona o texto na lista****************
 const paiDaLista = document.getElementById('lista-tarefas');
 const botão = document.getElementById('criar-tarefa');
+
 botão.addEventListener('click', vaiPraLista); 
-function vaiPraLista() {
+
+// **************Adciona o texto na lista****************
+function vaiPraLista() { //função do botão vaiPraLista
+  let entradaDeTarefa = document.getElementById('texto-tarefa').value
   const li = document.createElement('li');
   li.innerText = entradaDeTarefa;
-  caixaDeEntrada.value = '';
-  paiDaLista.appendChild(li);
-  tamanhoDaLista=document.querySelectorAll('li');
-  açoes();
-}// ***********risca o texto ao clicar duas vezes*********
-function risca() {
-  paiDaLista.addEventListener('dblclick', function(event){
+  entradaDeTarefa.value = '';
+  li.addEventListener('click',  seleciona)
+  // ***********risca o texto ao clicar duas vezes*********
+  li.addEventListener('dblclick', function(event){
+    console.log('ola')
     event.target.classList.toggle('completed');
-  });
-}// ***********Pinta de cinza o item selecionado***************
-function açoes() {
-for (let cont = 0; cont < tamanhoDaLista.length; cont += 1) {
-  // ***********seleciona o texto ao clicar************
-  tamanhoDaLista[cont].addEventListener('click', function() {
-    let apagaACor = document.querySelector('.grey')
-    if(apagaACor !== null){
-      apagaACor.classList.remove('grey');
-    }
-    this.classList.add('grey');
-    });
-    risca();
-  }
+  })
+  paiDaLista.appendChild(li);
 }
+// ***********seleciona o texto ao clicar************
+function seleciona() {
+  let apagaACor = document.querySelector('.grey')
+  if(apagaACor !== null){
+    apagaACor.classList.remove('grey');
+  }
+  this.classList.add('grey');
+};
 // ***********Apaga tudo****************************
 const botãoApaga = document.getElementById('apaga-tudo');
 botãoApaga.addEventListener('click', function(){
@@ -43,3 +34,11 @@ botãoApaga.addEventListener('click', function(){
   list.removeChild(list.childNodes[0]);
   }
 })
+// ***********Apaga Riscados****************************
+const botãoApagaRiscados = document.getElementById('remover-finalizados')
+  botãoApagaRiscados.addEventListener('click', function (){
+   const riscados = document.getElementsByClassName('completed');
+   for (let index = 0; index < riscados.length; index = 0) {
+     riscados[0].parentNode.removeChild(riscados[0]);
+   }
+ })
