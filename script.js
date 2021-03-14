@@ -43,7 +43,7 @@ function completedTasks(event) {
   const actual = event.target;
 
   for (let index = 0; index < tasks.length; index += 1) {
-    if (actual.className === 'item') {
+    if (actual.className !== 'completed') {
      actual.className = 'completed';
     } else {
     actual.className = 'item';
@@ -53,11 +53,24 @@ function completedTasks(event) {
 
 // 10. Botão que apaga tudo:
 const deleteButton = document.querySelector('#apaga-tudo');
-function deleteAllItems(event) {
-  const find = event.target;
+function deleteAllItems() {
 
   while(allElements.firstChild) {
     allElements.removeChild(allElements.firstChild);
+  }
+}
+
+// 11. Botão que remove todas as tarefas finalizadas:
+const deleteCompletedButton = document.querySelector('#remover-finalizados');
+function removeCompleted() {
+  const listSons = document.querySelectorAll('li');
+  const listFather = document.getElementById('lista-tarefas');
+
+  for (let index = 0; index < listSons.length; index += 1) {
+    // Dica retirada do link 'http://devfuria.com.br/javascript/dom-remove-child/#:~:text=O%20m%C3%A9todo%20removeChild()%20remove,filho%20que%20deve%20ser%20removido.':
+    if (listSons[index].classList.contains('completed') === true) {
+    listFather.removeChild(listSons[index]);
+    }
   }
 }
 
@@ -65,3 +78,4 @@ setSelected();
 button.addEventListener('click', generateTask);
 allElements.addEventListener('dblclick', completedTasks);
 deleteButton.addEventListener('click', deleteAllItems);
+deleteCompletedButton.addEventListener('click', removeCompleted);
