@@ -50,6 +50,18 @@ function completedTasks(event) {
     }
   }
 }
+
+// 10. Botão que apaga tudo:
+const deleteButton = document.querySelector('#apaga-tudo');
+function deleteAllItems(event) {
+  const find = event.target;
+
+  while(allElements.firstChild) {
+    allElements.removeChild(allElements.firstChild);
+  }
+}
+
 setSelected();
 button.addEventListener('click', generateTask);
 allElements.addEventListener('dblclick', completedTasks);
+deleteButton.addEventListener('click', deleteAllItems);
