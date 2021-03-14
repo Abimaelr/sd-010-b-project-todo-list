@@ -1,15 +1,35 @@
 // inserindo o primeiro parágrafo 
+let title = document.getElementById('title')
 let firstParagraph = document.createElement('p')
-document.body.appendChild(firstParagraph)
+title.appendChild(firstParagraph)
 firstParagraph.id = 'funcionamento'
 firstParagraph.innerHTML = 'Clique duas vezes em um item para marcá-lo como completo'
 
 // inserindo o campo para preenchimento
-let fieldOfListItem = document.createElement('input')
-document.body.appendChild(fieldOfListItem)
-fieldOfListItem.id = 'texto-tarefa'
+let form = document.getElementById('form')
+let inputItem = document.createElement('input')
+form.appendChild(inputItem)
+inputItem.id = 'texto-tarefa'
+inputItem.type = 'text'
 
 // inserindo uma lista ordenada
 let toDoList = document.createElement('ol')
-document.body.appendChild(toDoList)
+form.appendChild(toDoList)
 toDoList.id = 'lista-tarefas'
+
+// inserindo um botão para gerar a tarefa
+let toDoListBtn = document.createElement('button')
+document.body.appendChild(toDoListBtn)
+toDoListBtn.id = 'criar-tarefa'
+toDoListBtn.innerHTML = "Adicionar tarefa"
+
+toDoListBtn.addEventListener('click', generateItem)
+
+function generateItem () {
+      let item = document.createElement('li');
+      item.classList.add('item');
+      item.innerText = inputItem.value
+      toDoList.appendChild(item);
+      inputItem.value = '';
+}
+
