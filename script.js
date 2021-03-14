@@ -1,23 +1,31 @@
-let ul = document.getElementById('#lista-tarefas');
+const ol = document.getElementById('#lista-tarefas');
 let li;
 let itemId;
-let itens;
+let item;
 
 function adicionar() {
-  if (document.getElementById('#texto-tarefa').value != '') {
-    item = document.getElementById('#texto-tarefa').value;
-    itemId = ul.childElementCount;
-    li = createItemElemet(itemId);
+  if (document.getElementById('texto-tarefa').value !== '') {
+    item = document.getElementById('texto-tarefa');
+    itemId = ol.childElementCount;
+    li = createItemElemet(item.value, itemId);
+    li.appendChild(removerItemBtn(itemId));
+    ol.appendChild(li);
   }
 }
+function remover() {
+
+}
 // cria o elemento dentro de li
-function criarItem(itemValue, itemId) {
-  let li = document.createElement('li');
+function createItemElemet(itemValue, itemId) {
+  li = document.createElement('li');
   li.setAttribute('index', itemId);
   li.appendChild(document.createTextNode(itemValue));
   return li;
 }
-
-function remover() {
-
+// cria o botão para remover um item da lista
+function removerItemBtn(itemId) {
+  let btn = document.createElement('button');
+  btn.setAttribute('onclick', 'limpaInput('+itemId+')');
+  btn.innerHTML = 'x';
+  return btn;
 }
