@@ -34,7 +34,6 @@ function generateItem () {
 }
 
 // Alterando a cor de fundo do item da lista quando clicado
-
 toDoList.addEventListener('click', changeBckgColor)
 
 function changeBckgColor (event) {
@@ -45,6 +44,7 @@ function changeBckgColor (event) {
     event.target.classList.add('changeColor')
 }
 
+// Quando dado um clique duplo o item é marcado com uma linha que o sobrepõe 
 toDoList.addEventListener('dblclick', completeTask)
 
 function completeTask(e){
@@ -56,4 +56,16 @@ function completeTask(e){
     }
 }
 
+// Adicionando um botão que apaga todos os itens da lista
+let clearListBtn = document.createElement('button')
+document.body.appendChild(clearListBtn)
+clearListBtn.id = 'apaga-tudo'
+clearListBtn.innerText = 'Apagar lista'
 
+clearListBtn.addEventListener('click', toClearAll)
+
+function toClearAll () {
+while (toDoList.hasChildNodes()){
+    toDoList.removeChild(toDoList.firstChild);
+}
+}
