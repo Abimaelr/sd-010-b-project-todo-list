@@ -7,7 +7,7 @@ function createListItem() {
     const listItem = document.createElement('li');
     listItem.innerText = taskName.value;
     makeList.appendChild(listItem);
-    listItem.classList.add('taskList')
+    listItem.classList.add('taskList');
     taskName.value = '';
   }
 }
@@ -22,7 +22,13 @@ const olParent = document.getElementById('lista-tarefas');
 olParent.addEventListener('click', function(event) {
   const taskList = document.querySelector('.selected')
   if (taskList !== null) {
-    taskList.classList.remove('selected')
+    taskList.classList.remove('selected');
   }  
-  event.target.classList.toggle('selected')
+  event.target.classList.toggle('selected');
+})
+
+// Requesito 8
+
+olParent.addEventListener('dblclick', function(event) {
+  event.target.classList.toggle('completed')
 })

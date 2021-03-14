@@ -31,12 +31,16 @@ p {
   margin-top: 10px; 
 }
 
-.taskList {
-  background-color: rgb(207, 170, 170);
+ol li{  
+  background-color: white;
   border-bottom: solid 1px black;
 }
 
 .selected{
   background-color: rgb(128, 128, 128);
   border-bottom: solid 1px black;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
