@@ -11,7 +11,6 @@ function generateTask() {
 
   // function que verifica se foi introduzido algo no input:
   function verifiesInput() {
-
     if (value !== '') {
       listFather.appendChild(listElements);
       dataInserted.focus();
@@ -28,16 +27,14 @@ const background = 'rgb(128, 128, 128)';
 const allElements = document.querySelector('#lista-tarefas');
 const tasks = document.getElementsByTagName('li');
 
-function setSelected(event) {
-  
-
+function setSelected() {
   allElements.addEventListener('click', function (event) {
     const actual = event.target;
 
     for (let index = 0; index < tasks.length; index += 1) {
-        tasks[index].style.backgroundColor = '';
-      }
-        actual.style.backgroundColor = background;
+      tasks[index].style.backgroundColor = '';
+    }
+      actual.style.backgroundColor = background;
   });
 }
 
@@ -46,10 +43,10 @@ function completedTasks(event) {
   const actual = event.target;
 
   for (let index = 0; index < tasks.length; index += 1) {
-    if (actual.className === 'completed item') {
-     actual.className = 'item';
+    if (actual.className === 'item') {
+     actual.className = 'completed';
     } else {
-    actual.className = 'completed item';
+    actual.className = 'item';
     }
   }
 }
