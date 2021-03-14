@@ -17,7 +17,7 @@ let toDoList = document.createElement('ol')
 form.appendChild(toDoList)
 toDoList.id = 'lista-tarefas'
 
-// inserindo um botão para gerar a tarefa
+// inserindo um botão para gerar a tarefa (que adicione a tarefa de forma ordenada a apague o valor inserido no input logo em seguida)
 let toDoListBtn = document.createElement('button')
 document.body.appendChild(toDoListBtn)
 toDoListBtn.id = 'criar-tarefa'
@@ -32,4 +32,17 @@ function generateItem () {
       toDoList.appendChild(item);
       inputItem.value = '';
 }
+
+// Alterando a cor de fundo do item da lista quando clicado
+
+toDoList.addEventListener('click', changeBckgColor)
+
+function changeBckgColor (event) {
+    let selected = document.querySelector('.changeColor')
+    if (selected) {
+        selected.classList.remove('changeColor')
+    }
+    event.target.classList.add('changeColor')
+}
+
 

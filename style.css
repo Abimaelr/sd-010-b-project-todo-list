@@ -1,0 +1,10 @@
+*{
+    box-sizing: border-box;
+}
+.item{
+    cursor: pointer;
+}
+
+.changeColor{
+    background-color: rgb(128, 128, 128);
+}
