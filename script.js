@@ -56,3 +56,17 @@ function limparLista(){
     
 }
 
+//Execício 11
+let botaoLimparSelecionados = document.getElementById("remover-finalizados");
+
+botaoLimparSelecionados.addEventListener("click", limparFinalizados);
+
+function limparFinalizados(){
+    let listTarefas = document.querySelectorAll("li")
+
+    for (let i = 0; i < listTarefas.length; i +=1){
+        if (listTarefas[i].className == "completed"){
+            listTarefas[i].remove()
+        }
+    }  
+}
