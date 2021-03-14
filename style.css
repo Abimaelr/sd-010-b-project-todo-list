@@ -16,6 +16,7 @@ body {
   margin-right: auto;
   margin-top: 40px;
   text-align: center;
+  list-style-type: none;
   
 }
 
@@ -30,9 +31,12 @@ p {
   margin-top: 10px; 
 }
 
-ol li {
-  background-color: rgb(255, 255, 255);
+.taskList {
+  background-color: rgb(207, 170, 170);
   border-bottom: solid 1px black;
-  list-style-type: none;
-  text-align: justify;
+}
+
+.selected{
+  background-color: rgb(128, 128, 128);
+  border-bottom: solid 1px black;
 }

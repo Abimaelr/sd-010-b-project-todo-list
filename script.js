@@ -1,15 +1,28 @@
 // requesito 5 e 6
 
-function createListItem () {
+function createListItem() {
   const taskName = document.querySelector('#texto-tarefa');
   if (taskName.value !== '') {
     const makeList = document.querySelector('#lista-tarefas');
-    const listItem = document.createElement('li');    
+    const listItem = document.createElement('li');
     listItem.innerText = taskName.value;
     makeList.appendChild(listItem);
-    taskName.value = ''; 
+    listItem.classList.add('taskList')
+    taskName.value = '';
   }
-};
+}
 
 const btnList = document.querySelector('#criar-tarefa');
 btnList.addEventListener('click', createListItem);
+
+// requesito 7
+
+const olParent = document.getElementById('lista-tarefas');
+
+olParent.addEventListener('click', function(event) {
+  const taskList = document.querySelector('.selected')
+  if (taskList !== null) {
+    taskList.classList.remove('selected')
+  }  
+  event.target.classList.toggle('selected')
+})
