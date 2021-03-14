@@ -1,10 +1,11 @@
 const createListButton = document.getElementById('criar-tarefa'); // button Criar Tarefa
 const clearButton = document.getElementById('apaga-tudo'); // button Apagar Lista
 const clearCompletedButton = document.getElementById('remover-finalizados'); // button Remover Finalizados
+const clearSelectedButton = document.getElementById('remover-selecionado'); // button Remover Selecionado
 
 function createListItem() {
-  const listCreate = document.getElementById('lista-tarefas'); // ol gE-ID
-  const capture = document.getElementById('texto-tarefa'); // input gE-ID
+  const listCreate = document.getElementById('lista-tarefas');
+  const capture = document.getElementById('texto-tarefa');
   const newListItem = document.createElement('li');
 
   newListItem.innerText = capture.value;
@@ -12,15 +13,17 @@ function createListItem() {
   capture.value = '';
 }
 
-function createBgColor(cgColor) {
-  const listColor = document.querySelectorAll('li'); // li qsAll
-  const aux = cgColor;
-
-  for (let index = 0; index < listColor.length; index += 1) {
-    listColor[index].style.backgroundColor = 'rgb(256, 256, 256)';
-  }
-
-  aux.target.style.backgroundColor = 'rgb(128, 128, 128)';
+function selectedLine() {
+  const listColor = document.getElementsByTagName('li');
+  const listCreate = document.getElementById('lista-tarefas');
+  listCreate.addEventListener('click', (event) => {
+    for (let i = 0; i < listColor.length; i += 1) {
+      if (listColor[i].classList.contains('selected')) {
+        listColor[i].classList.remove('selected');
+      }
+    }
+    event.target.classList.add('selected');
+  });
 }
 
 function taskComplete(aux) {
@@ -47,19 +50,18 @@ function clearCompletedList() {
   }
 }
 
+function clearSelected() {
+  const selectList = document.querySelector('.selected');
+  selectList.remove();
+}
+
+selectedLine();
 createListButton.addEventListener('click', createListItem);
 clearButton.addEventListener('click', clearList);
 clearCompletedButton.addEventListener('click', clearCompletedList);
+clearSelectedButton.addEventListener('click', clearSelected);
 
-function clickListener() {
-  const list = document.querySelectorAll('ol'); // ol qSAll
-  for (let index = 0; index < list.length; index += 1) {
-    list[index].addEventListener('click', createBgColor);
-  }
-}
-clickListener();
-
-function DblclickListener() {
+function DbllistColorener() {
   document.addEventListener('dblclick', (action) => {
     if (action.target.classList.contains('completed')) {
       removeTaskComplete(action.target);
@@ -68,4 +70,4 @@ function DblclickListener() {
     }
   });
 }
-DblclickListener();
+DbllistColorener();
