@@ -20,15 +20,7 @@ function createLiText () {
   let listaTarefa = document.getElementById('lista-tarefas')
   listaTarefa.addEventListener("click", selecionarItem)
 
-  function duploclick(event){
-    let itemClicado = document.querySelector('completed');
-    if(itemClicado){
-      itemClicado.classList.remove('completed');
-    }
-    event.target.classList.add('completed');
-  }
-  let a= document.getElementById('lista-tarefas')
-  a.addEventListener("dblclick", duploclick)
+ 
   
       
  
