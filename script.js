@@ -1,24 +1,29 @@
 
 const lista = document.getElementById('lista-tarefas');
 const tarefas = document.getElementById('texto-tarefa');
+const addButton = document.getElementById('criar-tarefa')
 
+addButton.addEventListener('click', function() {
+  const newItem = document.createElement('li');
+  newItem.innerText = tarefas.value;
+  lista.appendChild(newItem);
+  tarefas.value = '';
+})
 
-function createTaskList() {
-  if (tarefas.value) {
-    const itemAdd = document.createElement('li');
-    itemAdd.innerText = tarefas;
-    lista.appendChild(itemAdd);
-  } else {
-    alert('Digite uma tarefa');
-  }
-  tarefas.value = '';  
-}
+// function addItem() {
+  
+//   const newItem = document.createElement('li');
+//   newItem.innerText = tarefas.value;
+//   lista.appendChild(newItem); 
 
-function addItem() {
-  const newItem = document.querySelector('#criar-tarefa');
-  newItem.addEventListener('click', createTaskList);
-}
+//   const checkButton = document.createElement('button');
+//   checkButton.innerHTML = `<i class="fas fa-check"></i>`
+//   newItem.appendChild(checkButton);
 
-createTaskList();
-addItem();
+//   const deleteButton = document.createElement('button');
+//   deleteButton.innerHTML = `<i class="fas fa-trash"></i>`;
+//   newItem.appendChild(deleteButton);
+// }
+
+// addItem();
 
