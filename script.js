@@ -24,5 +24,5 @@ function choose(clickado) {
 listaTarefas.addEventListener('click', choose);
 
 listaTarefas.addEventListener('dblclick', function (riscado) {
-  riscado.target.classList.toggle('done');
+  riscado.target.classList.toggle('completed');
 })

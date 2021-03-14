@@ -6,6 +6,6 @@ body{
   background-color: rgb(128,128,128);
 }
 
-.done {
+.completed {
   text-decoration: line-through;
 }
