@@ -21,6 +21,5 @@ function createLiText () {
   listaTarefa.addEventListener("click", selecionarItem)
 
  
-  
       
  
