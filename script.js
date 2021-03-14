@@ -1,5 +1,6 @@
 const createListButton = document.getElementById('criar-tarefa'); // button Criar Tarefa
 const clearButton = document.getElementById('apaga-tudo'); // button Apagar Lista
+const clearCompletedButton = document.getElementById('remover-finalizados'); // button Remover Finalizados
 
 function createListItem() {
   const listCreate = document.getElementById('lista-tarefas'); // ol gE-ID
@@ -39,8 +40,16 @@ function clearList() {
   }
 }
 
+function clearCompletedList() {
+  const cList = document.querySelectorAll('.completed');
+  for (let i = 0; i < cList.length; i += 1) {
+    cList[i].remove();
+  }
+}
+
 createListButton.addEventListener('click', createListItem);
 clearButton.addEventListener('click', clearList);
+clearCompletedButton.addEventListener('click', clearCompletedList);
 
 function clickListener() {
   const list = document.querySelectorAll('ol'); // ol qSAll
