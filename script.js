@@ -1,4 +1,5 @@
-const createListButton = document.getElementById('criar-tarefa'); // button gE-ID
+const createListButton = document.getElementById('criar-tarefa'); // button Criar Tarefa
+const clearButton = document.getElementById('apaga-tudo'); // button Apagar Lista
 
 function createListItem() {
   const listCreate = document.getElementById('lista-tarefas'); // ol gE-ID
@@ -31,15 +32,22 @@ function removeCompletedTask(task) {
   completedTask.classList.remove('completed');
 }
 
-createListButton.addEventListener('click', createListItem);
-
-function clickListener() {
-  const generalList = document.querySelectorAll('ol'); // ol qSAll
-  for (let index = 0; index < generalList.length; index += 1) {
-    generalList[index].addEventListener('click', createBgColor);
+function clearList() {
+  const list = document.querySelectorAll('li');
+  for (let i = 0; i < list.length; i += 1) {
+    list[i].remove();
   }
 }
 
+createListButton.addEventListener('click', createListItem);
+clearButton.addEventListener('click', clearList);
+
+function clickListener() {
+  const list = document.querySelectorAll('ol'); // ol qSAll
+  for (let index = 0; index < list.length; index += 1) {
+    list[index].addEventListener('click', createBgColor);
+  }
+}
 clickListener();
 
 function DblclickListener() {
@@ -51,5 +59,4 @@ function DblclickListener() {
     }
   }, false);
 }
-
 DblclickListener();
