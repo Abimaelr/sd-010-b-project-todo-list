@@ -23,13 +23,13 @@ function createBgColor(cgColor) {
   aux.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
-function completeTask(task) {
-  const completedTask = task;
+function taskComplete(aux) {
+  const completedTask = aux;
   completedTask.classList.add('completed');
 }
 
-function removeCompletedTask(task) {
-  const completedTask = task;
+function removeTaskComplete(aux) {
+  const completedTask = aux;
   completedTask.classList.remove('completed');
 }
 
@@ -41,9 +41,9 @@ function clearList() {
 }
 
 function clearCompletedList() {
-  const cList = document.querySelectorAll('.completed');
-  for (let i = 0; i < cList.length; i += 1) {
-    cList[i].remove();
+  const completeList = document.querySelectorAll('.completed');
+  for (let i = 0; i < completeList.length; i += 1) {
+    completeList[i].remove();
   }
 }
 
@@ -60,12 +60,12 @@ function clickListener() {
 clickListener();
 
 function DblclickListener() {
-  document.addEventListener('dblclick', (event) => {
-    if (event.target.classList.contains('completed')) {
-      removeCompletedTask(event.target);
+  document.addEventListener('dblclick', (action) => {
+    if (action.target.classList.contains('completed')) {
+      removeTaskComplete(action.target);
     } else {
-      completeTask(event.target);
+      taskComplete(action.target);
     }
-  }, false);
+  });
 }
 DblclickListener();
