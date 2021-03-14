@@ -4,6 +4,8 @@ const caixaTexto = document.getElementById('texto-tarefa');
 const listItem = document.querySelectorAll(".listItem");
 const btnClear = document.getElementById('apaga-tudo');
 const btnResetCompleted = document.getElementById('remover-finalizados');
+const btnSave = document.getElementById('salvar-tarefas');
+btnSave.innerHTML = 'Salvar tarefas';
 btnResetCompleted.innerHTML = 'Remover finalizados';
 btnClear.innerHTML = 'Apagar tudo';
 createBtn.innerHTML = 'Criar tarefa';
@@ -43,3 +45,11 @@ btnResetCompleted.addEventListener('click', () => {
       completed[index].remove();
     }
 });
+btnSave.addEventListener('click', () => {
+  localStorage.setItem('taskSaveList', taskList.innerHTML);
+  alert('dados salvos');
+});
+window.onload = function () {
+  const taskSave = localStorage.getItem('taskSaveList');
+    taskList.innerHTML = taskSave;
+}
