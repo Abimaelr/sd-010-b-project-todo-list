@@ -17,7 +17,8 @@ window.onload = function(){
         
           // essa parte do codigo está certa        
             li.innerText = textInput;
-            li.classList.add("white");
+            
+            
             
             
     }
@@ -30,19 +31,53 @@ window.onload = function(){
 
     // event.target e sua sintaxe!!
     
-    let orderList = document.getElementById('lista-tarefas');
+    const orderList = document.getElementById('lista-tarefas');
     orderList.addEventListener('click', event => {
+
+        //armazenando um constante com id lista e li
         const whiteList = document.querySelectorAll('#lista-tarefas li');
 
+        //rodando a lista para fazer com que todos recebam inherit
         for(let i = 0; i < whiteList.length; i += 1){
 
         whiteList[i].style.backgroundColor = '';
 
         }
-
+// colocando o evento.
         event.target.style.backgroundColor = 'rgb(128,128,128)';
 
     })
+
+    //criar dois clicks criam completed e se der dois clicks novamente removem completed
+    // a ideia basicamente é criar dois eventos um para criar o completed armazenando a lista
+    // a outra parte é criar um evento removendo apenas os completed
+
+    
+    orderList.addEventListener('dblclick', event => {
+  
+        const whiteList = document.querySelectorAll('#lista-tarefas li');
+
+        for(let i = 0; i < whiteList.length; i += 1){
+            if(event.target === whiteList[i]){
+                if (whiteList[i].classList.contains('completed')){
+                    whiteList[i].classList.remove('completed');
+                }
+                else{
+                    whiteList[i].classList.add('completed');
+                }
+
+               
+            }
+            
+        }       
+
+
+    })
+
+
+ 
+
+
 
    
 
