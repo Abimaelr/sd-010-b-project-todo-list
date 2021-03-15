@@ -45,5 +45,12 @@ function LimpaLista(){
 
 let buttonLimpaTudo = document.getElementById('apaga-tudo');
   buttonLimpaTudo.addEventListener('click', LimpaLista);
-      
- 
+
+  function excluirItemLista(){
+    let excluiItem = document.getElementById('lista-tarefas');
+    while(excluiItem.firstChild[0]){
+      excluiItem.removeChild(excluiItem.lastChild[0]);
+  }    
+}
+let buttonExcluir= document.getElementById('remover-finalizados');
+buttonExcluir.addEventListener('click', excluirItemLista);
