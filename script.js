@@ -7,6 +7,7 @@ function createLiText () {
     listaTarefa.appendChild(novaLi); 
     inputTextLi.value = '';  
   }
+
   let butaDicionarLista=  document.getElementById('criar-tarefa');
   butaDicionarLista.addEventListener('click', createLiText);
 
@@ -17,9 +18,18 @@ function createLiText () {
     }
     event.target.classList.add('selected');
   }
+
   let listaTarefa = document.getElementById('lista-tarefas')
   listaTarefa.addEventListener("click", selecionarItem)
+  listaTarefa.addEventListener("dblclick", itemDuploClick);
 
- 
+ function itemDuploClick(event){
+  let duploClick = document.querySelector('.completed');
+  if(duploClick){
+    duploClick.classList.remove('completed');
+ }    
+    event.target.classList.add('completed');
+}
+
       
  
