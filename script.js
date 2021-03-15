@@ -19,17 +19,17 @@ btnListAdd.addEventListener('click', createListItem);
 
 const olParent = document.getElementById('lista-tarefas');
 
-olParent.addEventListener('click', function(event) {
-  const taskList = document.querySelector('.selected')
+olParent.addEventListener('click', function (event) {
+  const taskList = document.querySelector('.selected');
   if (taskList !== null) {
     taskList.classList.remove('selected');
-  }  
+  }
   event.target.classList.toggle('selected');
-})
+});
 
 // Requesito 9
 
-olParent.addEventListener('dblclick', function(event) {
+olParent.addEventListener('dblclick', function (event) {
   event.target.classList.toggle('completed');
 })
 
@@ -37,8 +37,8 @@ olParent.addEventListener('dblclick', function(event) {
 
 function removeAllListItens() {
   while (olParent.firstChild) 
-    olParent.removeChild(olParent.firstChild)
-  }
+  olParent.removeChild(olParent.firstChild);
+}
 
 const btnRemoveAll = document.getElementById('apaga-tudo');
 btnRemoveAll.addEventListener('click', removeAllListItens);
@@ -49,7 +49,7 @@ function removeCompletedItens() {
   for (let i = 0; i < completedList.length; i += 1) {
     olParent.removeChild(completedList[i]);
   }
-};
+}
 
 const btnRemoveCompleted = document.getElementById('remover-finalizados');
 btnRemoveCompleted.addEventListener('click', removeCompletedItens);
