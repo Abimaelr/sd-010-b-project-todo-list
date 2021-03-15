@@ -14,4 +14,6 @@ function adiciona() {
   ol.appendChild(list);
   // valor inserido no campo input, teste de funcionamento
   alert(`Você inseriu ${adicionarTarefa.value}, em sua lista.`);
+  // limpa o campo input
+  adicionarTarefa.value = '';
 }
