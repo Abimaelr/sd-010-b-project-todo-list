@@ -13,7 +13,19 @@ function adiciona() {
   // insere um novo 'list' no 'ol'
   ol.appendChild(list);
   // valor inserido no campo input, teste de funcionamento
-  alert(`Você inseriu ${adicionarTarefa.value}, em sua lista.`);
+  // alert(`Você inseriu ${adicionarTarefa.value}, em sua lista.`);
   // limpa o campo input
   adicionarTarefa.value = '';
+}
+
+// se clicar em um item da lista, ele passa a ter o estilo CSS `background-color: rgb(128, 128, 128)
+ol.addEventListener('click', mudarCorAoclicar);
+function mudarCorAoclicar(event) {
+  const li = document.querySelectorAll('li');
+  for (let index = 0; index < li.length; index += 1) {
+    li[index].style.backgroundColor = '';
+    li[index].style.color = '';
+  }
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  event.target.style.color = 'white';
 }
