@@ -42,3 +42,11 @@ mudaCorItem();
 function toggleClasseCompleted (elemento) {
     elemento.classList.toggle('completed');
 }
+
+function apagaTodosItens () {
+    let elementoPai = document.getElementById('lista-tarefas');
+// referência tirada do site https://qastack.com.br/programming/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
+    while (elementoPai.firstChild) {
+        elementoPai.removeChild(elementoPai.lastChild);
+    }
+}
