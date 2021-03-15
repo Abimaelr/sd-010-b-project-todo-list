@@ -35,18 +35,15 @@ function createLiText () {
   
 }
 
-function LimpaLista(event){
+function LimpaLista(){
   let limpaTudo = document.getElementById('lista-tarefas');
-  if(limpaTudo){
-    limpaTudo.classList.remove('lista-tarefas');
-  }
-  event.target.classList.add('');
+ while(limpaTudo.firstChild){
+   limpaTudo.removeChild(limpaTudo.lastChild);
+ }
 
-}
+  }
 
 let buttonLimpaTudo = document.getElementById('apaga-tudo');
   buttonLimpaTudo.addEventListener('click', LimpaLista);
-  
-
       
  
