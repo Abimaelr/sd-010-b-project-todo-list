@@ -1,31 +1,17 @@
-const ol = document.getElementById('#lista-tarefas');
-let li;
-let itemId;
-let item;
-
-function adicionar() {
-  if (document.getElementById('texto-tarefa').value !== '') {
-    item = document.getElementById('texto-tarefa');
-    itemId = ol.childElementCount;
-    li = createItemElemet(item.value, itemId);
-    li.appendChild(removerItemBtn(itemId));
-    ol.appendChild(li);
-  }
-}
-function remover() {
-
-}
-// cria o elemento dentro de li
-function createItemElemet(itemValue, itemId) {
-  li = document.createElement('li');
-  li.setAttribute('index', itemId);
-  li.appendChild(document.createTextNode(itemValue));
-  return li;
-}
-// cria o botão para remover um item da lista
-function removerItemBtn(itemId) {
-  let btn = document.createElement('button');
-  btn.setAttribute('onclick', 'limpaInput('+itemId+')');
-  btn.innerHTML = 'x';
-  return btn;
+// Variáveis
+const adicionarTarefa = document.getElementById('texto-tarefa');
+const btn = document.getElementById('criar-tarefa');
+const ol = document.getElementById('lista-tarefas');
+// Cria a magica, quando clicado
+btn.addEventListener('click', adiciona);
+// Função
+function adiciona() {
+  // list recebe o li criado
+  const list = document.createElement('li');
+  // retorna todo o texto e o html que existem no elemento 'li'
+  list.innerHTML = adicionarTarefa.value;
+  // insere um novo 'list' no 'ol'
+  ol.appendChild(list);
+  // valor inserido no campo input, teste de funcionamento
+  alert(`Você inseriu ${adicionarTarefa.value}, em sua lista.`);
 }
