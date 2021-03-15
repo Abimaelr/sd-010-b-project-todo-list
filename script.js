@@ -69,3 +69,20 @@ while (toDoList.hasChildNodes()){
     toDoList.removeChild(toDoList.firstChild);
 }
 }
+
+// Adiciona um botão para remover os itens finalizados
+let completedBtn = document.createElement('button')
+completedBtn.id = 'remover-finalizados'
+completedBtn.innerText = 'Remover finalizadas'
+document.body.appendChild(completedBtn)
+
+// Remover itens finalizados
+// Trecho de código inspirado no StackOverFlow
+// https://stackoverflow.com/questions/44984867/javascript-remove-elements-by-class-name/44984940
+
+completedBtn.addEventListener('click', clearItem)
+
+function clearItem() {
+    let itemToDelete = document.querySelectorAll('.completed');
+    itemToDelete.forEach((e) => e.remove());
+  }
