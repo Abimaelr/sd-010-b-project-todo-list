@@ -31,13 +31,14 @@ olParent.addEventListener('click', function (event) {
 
 olParent.addEventListener('dblclick', function (event) {
   event.target.classList.toggle('completed');
-})
+});
 
 // Requesito 10 --> https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/ (referência)
 
 function removeAllListItens() {
-  while (olParent.firstChild) 
-  olParent.removeChild(olParent.firstChild);
+  while (olParent.firstChild) {
+    olParent.removeChild(olParent.firstChild);
+  }
 }
 
 const btnRemoveAll = document.getElementById('apaga-tudo');
