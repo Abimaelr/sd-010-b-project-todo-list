@@ -40,9 +40,9 @@ riscarTexto();
 const apagarTudo = document.getElementById('apaga-tudo');
 function eraseList() {
   const listaLi = document.querySelectorAll('li');
-  for (let index = 0; index < listaLi.length; index += 1){
-  ol.removeChild('ol');
+  for (let index = 0; index < listaLi.length; index += 1) {
+    ol.removeChild(listaLi[index]);
   }
 }
-apagarTudo.addEventListener('click', eraseList);
 eraseList();
+apagarTudo.addEventListener('click', eraseList);
