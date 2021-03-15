@@ -1,7 +1,7 @@
 const buttonAdd = document.getElementById('criar-tarefa');
 let listaTarefas = document.getElementById('lista-tarefas');
-buttonAdd.addEventListener('click', function () {
-  event.preventDefault();
+buttonAdd.addEventListener('click', function (evento) {
+  evento.preventDefault();
   let tarefas = document.querySelector('#tarefas');
   let textUser = tarefas.texto.value;
   let listaLi = document.createElement('li');
@@ -26,3 +26,13 @@ listaTarefas.addEventListener('click', choose);
 listaTarefas.addEventListener('dblclick', function (riscado) {
   riscado.target.classList.toggle('completed');
 })
+const buttonRem = document.getElementById('apaga-tudo')
+
+buttonRem.addEventListener('click', apaga)
+
+function apaga(){
+const apagaLista = document.querySelectorAll('li')
+if (apagaLista.parentnode) {
+  apagaLista.parentNode.removeChild(apagaLista);
+}
+}
