@@ -92,6 +92,11 @@ function recoverSavedTasks() {
   if (localStorage.tasks) tasksFather.innerHTML = localStorage.tasks; // e em parte desta linha.
 }
 
+// 13. Function que permite mover o item selecionado para cima ou para baixo na lista de tarefas:
+// Foi implementada a dica encontrada no link 'https://stackoverflow.com/questions/34913953/move-an-element-one-place-up-or-down-in-the-dom-tree-with-javascript'.
+const upButton = document.querySelector('#mover-cima');
+const downButton = document.querySelector('#mover-baixo')
+
 // 14. Botão que remove a tarefa selecionada:
 const selectedButton = document.querySelector('#remover-selecionado');
 function removeSelected() {

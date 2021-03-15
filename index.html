@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="style.css">
   <title>TO DO LIST</title>
 </head>
@@ -21,9 +22,11 @@
     </div>
     <ol id="lista-tarefas"></ol>
     <div id="container-buttons">
-      <button id="salvar-tarefas">Salvar Lista</button>
+      <button class="fa fa-times" id="remover-selecionado" ></button>
+      <button id="mover-cima" class="fa fa-chevron-circle-up"></button>
+      <button id="mover-baixo" class="fa fa-chevron-circle-down"></button>
       <button id="remover-finalizados">Apagar Finalizadas</button>
-      <button id="remover-selecionado">Remover</button>
+      <button id="salvar-tarefas">Salvar Lista</button>
       <button id="apaga-tudo">Apagar Lista</button>
     </div>
   </main>
