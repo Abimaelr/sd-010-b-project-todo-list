@@ -23,26 +23,24 @@ body.appendChild(listaTarefas);
 const textoInput = document.getElementById('texto-tarefa');
 const btn = document.getElementById('criar-tarefa');
 const list = document.getElementById('lista-tarefas');
-
+//Requisito resolvido com auxilio do site https://www.proa.org.br/artigos/2187/noticias/semana-de-tecnologia---criando-uma-lista-de-tarefas-on-line
 btn.addEventListener('click', adcTarefa);
 function adcTarefa() {
   const li = document.createElement('li');
   li.innerText = textoInput.value;
   list.appendChild(li);
   li.className = 'list-Item';
-  textoInput.value ='';  
+  textoInput.value = '';
 }
-
+// requisito resolvido com pesquisas no stackoverflow, developermozilla, e plantões para entender aplicação de contains, remove e add. 
 list.addEventListener('click', backLi);
 function backLi(event) {
   const itens = document.querySelectorAll('.list-Item');
-  for ( let i = 0; i < itens.length; i += 1){
+  for (let i = 0; i < itens.length; i += 1) {
     if (itens[i].classList.contains('selected')) {
       itens[i].classList.remove('selected');
     }
     event.target.classList.add('selected');
   }
 }
-
-
    
