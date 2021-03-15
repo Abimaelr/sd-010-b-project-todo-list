@@ -44,7 +44,7 @@ function completedTasks(event) {
 
   for (let index = 0; index < tasks.length; index += 1) {
     if (actual.className !== 'completed') {
-      actual.classList.add('completed');
+      actual.className = 'completed';
     } else {
       actual.classList.remove('completed');
     }
@@ -80,10 +80,27 @@ const actualTasksFather = document.getElementById('lista-tarefas');
 function saveTasksStatus() {
   const actualTasks = document.querySelectorAll('li');
   for (let index = 0; index < actualTasks.length; index += 1) {
-    localStorage.setItem('task' + [index + 1], actualTasks[index].innerText);
+    localStorage.setItem('task' + [index + 1], actualTasks[index].innerHTML);
   }
 }
 
+// Recuperar as tarefas no carregamento da página:
+function recoverSavedTasks() {
+  const tasksFather = document.getElementById('lista-tarefas');
+  let recoveredTasks = [];
+
+  for (let index = 0; index < localStorage.length; index += 1) {
+    recoveredTasks.push(localStorage.getItem(('task' + [index + 1])));
+  }
+  localStorage.clear();
+
+  for (let index = 0; index < recoveredTasks.length; index += 1) {
+    const tasks = document.createElement('li');
+    tasks.className = 'tasks';
+    tasks.innerHTML = recoveredTasks[index];
+    tasksFather.appendChild(tasks);
+  }
+}
 
 setSelected();
 button.addEventListener('click', generateTask);
@@ -91,3 +108,4 @@ allElements.addEventListener('dblclick', completedTasks);
 deleteButton.addEventListener('click', deleteAllItems);
 deleteCompletedButton.addEventListener('click', removeCompleted);
 saveTasks.addEventListener('click', saveTasksStatus);
+window.onload = recoverSavedTasks();
