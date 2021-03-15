@@ -7,7 +7,7 @@ let botaoSalvarLista = document.getElementById('salvar-tarefas');
 let botaoRemoverSelecionado = document.getElementById('remover-selecionado');
 let botaoMoverParaCima = document.getElementById('mover-cima');
 let botaoMoverParaBaixo = document.getElementById('mover-baixo');
-let listaItens = document.getElementsByTagName('li');
+
 
 
 function criarListas() {
@@ -81,8 +81,9 @@ function carregarLista() {
 }
 
 carregarLista();
-
+// resolvido com a ajuda do aluno Luiz Paulo
 function moverParaCima() {
+  const listaItens = document.querySelectorAll('li');
   botaoMoverParaCima.addEventListener('click', function () {
     for (let index = 1; index < listaItens.length; index += 1) {
       if (listaItens[index].classList.contains('selected')) {
@@ -96,6 +97,7 @@ function moverParaCima() {
 moverParaCima();
 
 function moverParaBaixo() {
+  const listaItens = document.querySelectorAll('li');
   botaoMoverParaBaixo.addEventListener('click', function () {
     for (let index = 0; index < listaItens.length - 1; index += 1) {
       if (listaItens[index].classList.contains('selected')) {
