@@ -69,3 +69,17 @@ h1 {
   border: none;
   padding: 5px;
 }
+
+#content {
+  background-color: white;
+  padding: 20px;
+  padding-top: 1px;
+  width: 520px;
+  border-radius: 20px;
+  margin-left: 370px;
+}
+
+ol {
+  list-style-position: inside;
+  text-align: justify;
+}
