@@ -30,3 +30,12 @@ function lineThrough () {
 }
 lineThrough();
 
+// Requisito 10 parar tudo ao clicar no botão:
+let buttonClean = document.getElementById('apaga-tudo');
+function clean (){
+    let itenTask = document.getElementById('lista-tarefas').children;
+    for (let index = itenTask.length - 1; index >= 0; index = index - 1) {
+    itenTask[index].remove();
+    }
+}
+buttonClean.addEventListener('click', clean);
