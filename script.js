@@ -59,12 +59,14 @@ function apagarItemLista() {
 apagarItemLista();
 apagarFinalizados.addEventListener('click', apagarItemLista);
 
-// botão com id="salvar-tarefas" que salve o conteúdo da lista. Se fechar e reabrir a página, a lista continua no estado em que estava => https://developer.mozilla.org/pt-BR/docs/Web/API/Window/localStorage
+// botão com id="salvar-tarefas" que salve o conteúdo da lista. Se fechar e reabrir a página, a lista continua no estado em que estava
+// https://developer.mozilla.org/pt-BR/docs/Web/API/Window/localStorage
 const listaSalva = document.querySelector('#lista-tarefas');
 listaSalva.innerHTML = localStorage.getItem('ol');
-// Exibir itens salvos
 function listaSa() {
   localStorage.setItem('ol', listaSalva.innerHTML);
 }
 const salvarItens = document.querySelector('#salvar-tarefas');
 salvarItens.addEventListener('click', listaSa);
+
+// dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
