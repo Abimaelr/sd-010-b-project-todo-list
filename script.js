@@ -1,14 +1,7 @@
-const ol = document.getElementById('lista-tarefas');
-// Exibir itens salvos
-function listaSalva() {
-  if (localStorage.getItem('ol') !== '') {
-    ol.innerHTML = (localStorage.getItem('ol'));
-  }
-}
-window.onload = listaSalva;
 // Variáveis
 const adicionarTarefa = document.getElementById('texto-tarefa');
 const btn = document.getElementById('criar-tarefa');
+const ol = document.getElementById('lista-tarefas');
 // 5 - botão ao clicar, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo
 function adiciona() {
   // list recebe o li criado
@@ -67,9 +60,11 @@ apagarItemLista();
 apagarFinalizados.addEventListener('click', apagarItemLista);
 
 // botão com id="salvar-tarefas" que salve o conteúdo da lista. Se fechar e reabrir a página, a lista continua no estado em que estava => https://developer.mozilla.org/pt-BR/docs/Web/API/Window/localStorage
-const salvarItens = document.getElementById('salvar-tarefas');
-function salvarLista() {
-  localStorage.setItem('ol', ol.innerHTML);
+const listaSalva = document.querySelector('#lista-tarefas');
+listaSalva.innerHTML = localStorage.getItem('ol');
+// Exibir itens salvos
+function listaSa() {
+  localStorage.setItem('ol', listaSalva.innerHTML);
 }
-salvarLista();
-salvarItens.addEventListener('click', salvarLista);
+const salvarItens = document.querySelector('#salvar-tarefas');
+salvarItens.addEventListener('click', listaSa);
