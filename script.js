@@ -9,9 +9,14 @@ btnCriarTarefa.addEventListener('click', () => {
   olListaTarefas.appendChild(liTarefa).innerHTML = valueInput.value;
 
   valueInput.value = '';
-
-  // alterar cor do background da tarefa
-  liTarefa.addEventListener('click', function () {
-    liTarefa.classList.add('selected');
-  });
 });
+
+function bgCinza(e) {
+  const evento = e;
+  const liSelecionado = document.querySelector('.selected');
+  if (liSelecionado !== null) {
+    liSelecionado.classList.remove('selected');
+  }
+  evento.target.classList.add('selected');
+}
+olListaTarefas.addEventListener('click', bgCinza);
