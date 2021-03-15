@@ -31,26 +31,36 @@ function selectItem(selected) {
 
 function completedTask(completed) {
   const completedTask = completed.target;
-  completedTask.classList.add('completed');
-}
-
-function notCompletedTask() {
-  const notCompleted = document.querySelectorAll('.completed');
-  for(let index in notCompleted) {
-    if(notCompleted[index].classList.contains('completed')) {
-      this.classList.remove('completed');
-    }
+  if(completedTask.classList.contains('completed')) {
+    completedTask.classList.remove('completed');
+  } else {
+    completedTask.classList.add('completed');
   }
-  notCompleted.addEventListener('dblclick', notCompletedTask);
 }
 
 function clearAll() {
   const clearTasks = document.getElementsByTagName('li');
-  const taskList = document.getElementsByTagName('ol');
-  for(let index = clearTasks - 1; index < clearTasks.length; index -= 1) {
-    taskList.removeChild(taskList.clearTasks[index]);
+  const taskList = document.getElementById('lista-tarefas');
+  for(let index = clearTasks.length - 1; index < clearTasks.length; index -= 1) {
+    taskList.removeChild(clearTasks[index]);
   }
+}
+
+function removeCompleted() {
+  const alreadyCompleted = document.querySelectorAll('.completed');
+  const taskList = document.getElementById('lista-tarefas');
+  for(let index in alreadyCompleted) {
+    taskList.removeChild(alreadyCompleted[index]);
+  }
+}
+
+function removeSelected() {
+  const selectedItem = document.querySelector('.selected');
+  const taskListItems = document.getElementById('lista-tarefas');
+  taskListItems.removeChild(selectedItem);
 }
 
 document.getElementById('criar-tarefa').addEventListener('click', addItems);
 document.getElementById('apaga-tudo').addEventListener('click', clearAll);
+document.getElementById('remover-finalizados').addEventListener('click', removeCompleted);
+document.getElementById('remover-selecionado').addEventListener('click', removeSelected);
