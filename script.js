@@ -1,10 +1,8 @@
 const tasksList = document.getElementById('lista-tarefas');
 
-let flag = true;
 function riskCompleted(evt) {
   const tgt = evt.target;
-  tgt.className = flag ? 'completed' : '';
-  flag = !flag;
+  tgt.className = tgt.className.includes('completed') ? '' : 'completed';
 }
 function createNewTask() {
   const newTaskBtn = document.getElementById('criar-tarefa');
