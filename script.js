@@ -27,3 +27,13 @@ function changeBackgroundColor () {
 
 changeBackgroundColor();
 
+// Entendimento da função toggle em: https://www.w3schools.com/howto/howto_js_toggle_class.asp
+function lineThrough () {
+    let itenTask = document.getElementById('lista-tarefas');
+        itenTask.addEventListener('dblclick',function (event) {
+        event.target.classList.toggle('completed');
+    }); 
+}
+
+lineThrough();
+
