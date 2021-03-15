@@ -59,32 +59,29 @@ deleteALL();
 function deleteDoneTasks() {
   delDoneButton.addEventListener('click', function () {
     const doneTasks = document.querySelectorAll('.completed');
-    console.log(doneTasks);
     for (let i = 0; i < doneTasks.length; i++) {
       doneTasks[i].remove();
     }
-    console.log(doneTasks);
   });
 }
 
 deleteDoneTasks();
 
+// save the list on localStorage
 function saveList() {
   const saveButton = document.querySelector('#salvar-tarefas');
   saveButton.addEventListener('click', function () {
-    console.log(list.innerHTML);
     localStorage.setItem('list', JSON.stringify(list.innerHTML));
   });
 }
 
 saveList();
 
+// fill the OL with the list in localStorage
 function loadList() {
   const savedList = localStorage.getItem('list');
-  console.log(JSON.parse(savedList));
   list.innerHTML = JSON.parse(savedList);
   const lis = document.querySelectorAll('li');
-  console.log(lis);
   for (let i = 0; i < lis.length; i++) {
     lis[i].addEventListener('click', selectItem);
     lis[i].addEventListener('dblclick', doneNotDone);
@@ -92,3 +89,30 @@ function loadList() {
 }
 
 loadList();
+
+// the next 2 functions I took the idea from https://stackoverflow.com/questions/34913953/move-an-element-one-place-up-or-down-in-the-dom-tree-with-javascript
+// move an item up
+function moveUp() {
+  const up = document.querySelector('#mover-cima');
+  up.addEventListener('click', function () {
+    const selected = document.querySelector('.selectedItem');
+    if (selected && selected.previousElementSibling) {
+      selected.parentNode.insertBefore(selected, selected.previousElementSibling);
+    }
+  });
+}
+
+moveUp();
+
+// move an item down
+function moveDown() {
+  const down = document.querySelector('#mover-baixo');
+  down.addEventListener('click', function () {
+    const selected = document.querySelector('.selectedItem');
+    if (selected && selected.nextElementSibling) {
+      selected.parentNode.insertBefore(selected.nextElementSibling, selected);
+    }
+  });
+}
+
+moveDown();

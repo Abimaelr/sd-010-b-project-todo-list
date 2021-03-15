@@ -17,3 +17,12 @@ ol li::before {
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
 }
+
+button {
+  background-color: dodgerblue;
+  color: white;
+  border-radius: 5px;
+  /* border: thin solid #888; */
+  border: unset;
+  padding: 8px;
+}
