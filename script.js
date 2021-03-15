@@ -2,7 +2,7 @@
 const adicionarTarefa = document.getElementById('texto-tarefa');
 const btn = document.getElementById('criar-tarefa');
 const ol = document.getElementById('lista-tarefas');
-// Cria a magica, quando clicado
+// 5 - botão ao clicar, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo
 btn.addEventListener('click', adiciona);
 // Função
 function adiciona() {
