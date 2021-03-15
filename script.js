@@ -1,7 +1,14 @@
+const ol = document.getElementById('lista-tarefas');
+// Exibir itens salvos
+function listaSalva() {
+  if (localStorage.getItem('ol') !== '') {
+    ol.innerHTML = (localStorage.getItem('ol'));
+  }
+}
+window.onload = listaSalva;
 // Variáveis
 const adicionarTarefa = document.getElementById('texto-tarefa');
 const btn = document.getElementById('criar-tarefa');
-const ol = document.getElementById('lista-tarefas');
 // 5 - botão ao clicar, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo
 function adiciona() {
   // list recebe o li criado
@@ -66,11 +73,3 @@ function salvarLista() {
 }
 salvarLista();
 salvarItens.addEventListener('click', salvarLista);
-
-// Exibir itens salvos
-function listaSalva() {
-  if (localStorage.getItem('ol') !== '') {
-    ol.innerHTML = (localStorage.getItem('ol'));
-  }
-}
-window.onload = listaSalva;
