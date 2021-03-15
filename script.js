@@ -153,7 +153,7 @@ function moveDown() {
 
 		for (let j = 0; j < itensListas.length; j += 1) {
 
-			if (itensListas[j].classList.contains('corCinza') && (itemCinza !== "")) {
+			if (itensListas[j].classList.contains('corCinza') && (itensListas[j].nextElementSibling !== null)) {
 
 				itensListas[j].parentNode.insertBefore(itensListas[j + 1], itensListas[j]);
 			}
@@ -171,7 +171,7 @@ function moveUp() {
 
 		for (let i = 0; i < itensListas.length; i += 1) {
 
-			if (itensListas[i].classList.contains('corCinza') && (itensListas[i-1].nextElementSibling !== null)) {
+			if (itensListas[i].classList.contains('corCinza') && (itensListas[i].previousElementSibling !== null)) {
 
 				itensListas[i].parentNode.insertBefore(itensListas[i], itensListas[i - 1]);
 			}
