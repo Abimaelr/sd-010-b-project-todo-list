@@ -3,8 +3,6 @@ const adicionarTarefa = document.getElementById('texto-tarefa');
 const btn = document.getElementById('criar-tarefa');
 const ol = document.getElementById('lista-tarefas');
 // 5 - botão ao clicar, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo
-btn.addEventListener('click', adiciona);
-// Função
 function adiciona() {
   // list recebe o li criado
   const list = document.createElement('li');
@@ -17,16 +15,17 @@ function adiciona() {
   // limpa o campo input
   adicionarTarefa.value = '';
 }
+btn.addEventListener('click', adiciona);
 
 // se clicar em um item da lista, ele passa a ter o estilo CSS `background-color: rgb(128, 128, 128)
-function mudarCorAoclicar(event) {
+function mudarCorAoclicar(e) {
   const li = document.querySelectorAll('li');
   for (let index = 0; index < li.length; index += 1) {
     li[index].style.backgroundColor = '';
     li[index].style.color = '';
   }
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  event.target.style.color = 'white';
+  e.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  e.target.style.color = 'white';
 }
 ol.addEventListener('click', mudarCorAoclicar);
 
@@ -37,3 +36,13 @@ function riscarTexto() {
   });
 }
 riscarTexto();
+
+const apagarTudo = document.getElementById('apaga-tudo');
+function eraseList() {
+  const listaLi = document.querySelectorAll('li');
+  for (let index = 0; index < listaLi.length; index += 1){
+  ol.removeChild('ol');
+  }
+}
+apagarTudo.addEventListener('click', eraseList);
+eraseList();
