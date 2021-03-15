@@ -70,14 +70,13 @@ const salvarItens = document.querySelector('#salvar-tarefas');
 salvarItens.addEventListener('click', listaSa);
 
 // dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
-function descerItem(e) {
-  const descerLi = document.getElementsByTagName('li');
-  const itensLi = descerLi.length;
-  for (let index = 0; index < itensLi.length; index += 1) {
-    descerLi[index].style.backgroundColor = '';
-    descerLi[index].style.color = '';
+// https://www.w3schools.com/jsref/prop_element_nextelementsibling.asp
+// https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
+const desceItem = document.getElementById('mover-baixo');
+function descerItem() {
+  const descerLi = document.querySelector('.selected');
+  if (descerLi && descerLi.nextElementSibling) {
+    descerLi.parentNode.insertBefore(descerLi.nextElementSibling, descerLi);
   }
-  e.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  e.target.style.color = 'white';
 }
-ol.addEventListener('click', descerItem);
+desceItem.addEventListener('click', descerItem);
