@@ -42,6 +42,18 @@ salvarTarefa.id = 'salvar-tarefas';
 salvarTarefa.innerText = "Salvar";
 writeItem.appendChild(salvarTarefa);
 
+//cria botão mover pra cima
+const criaMoveUp = document.createElement('button');
+criaMoveUp.id = 'move-up';
+criaMoveUp.innerText = "⬆";
+writeItem.appendChild(criaMoveUp);
+
+//cria botão mover pra baixo
+const criaMoveDown = document.createElement('button');
+criaMoveDown.id = 'move-down';
+criaMoveDown.innerText = "⬇";
+writeItem.appendChild(criaMoveDown);
+
 
 function pegarLista() {
 	const list = document.querySelector('ol');
@@ -132,28 +144,39 @@ function salvarLista() {
 }
 salvarLista();
 
-function moveUpDown() {
-	const listaOrdenada = document.querySelector('#lista-tarefas');
-	listaOrdenada.addEventListener('keydown', function (event) {
-console.log('teste');
-	
-		let tecla = event.keyCode;
+function moveDown() {
+	const moveDown = document.querySelector('#move-down');
+	moveDown.addEventListener('click', function () {
+		console.log('teste down');
 		let itensListas = document.querySelectorAll('.item-lista-tarefa');
+		let itemCinza = document.querySelector('.corCinza')
+
+		for (let j = 0; j < itensListas.length; j += 1) {
+
+			if (itensListas[j].classList.contains('corCinza') && (itemCinza !== "")) {
+
+				itensListas[j].parentNode.insertBefore(itensListas[j + 1], itensListas[j]);
+			}
+		}
+	})
+}
+moveDown();
+
+function moveUp() {
+	const moveUp = document.querySelector('#move-up');
+	moveUp.addEventListener('click', function () {
+
+		let itensListas = document.querySelectorAll('.item-lista-tarefa');
+		let itemCinza = document.querySelector('.corCinza')
 
 		for (let i = 0; i < itensListas.length; i += 1) {
 
-			if (tecla === 38) {
+			if (itensListas[i].classList.contains('corCinza') && (itemCinza !== "")) {
 
-				itensListas[i].classList.remove('corCinza');
-				itensListas[i + 1].classList.add('corCinza');
-
-			} else if (tecla === 40) {
-				itensListas[i].classList.remove('corCinza');
-				itensListas[i - 1].classList.add('corCinza');
+				itensListas[i].parentNode.insertBefore(itensListas[i], itensListas[i - 1]);
 			}
 		}
-
-
 	})
-} 
-	moveUpDown();
+}
+moveUp();
+
