@@ -63,7 +63,14 @@ apagarFinalizados.addEventListener('click', apagarItemLista);
 const salvarItens = document.getElementById('salvar-tarefas');
 function salvarLista() {
   localStorage.setItem('ol', ol.innerHTML);
-  return `Itens salvos ${ol}`;
 }
 salvarLista();
 salvarItens.addEventListener('click', salvarLista);
+
+// Exibir itens salvos
+function listaSalva() {
+  if (localStorage.getItem('ol') !== '') {
+    ol.innerHTML = (localStorage.getItem('ol'));
+  }
+}
+window.onload = listaSalva;
