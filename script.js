@@ -44,13 +44,13 @@ writeItem.appendChild(salvarTarefa);
 
 //cria botão mover pra cima
 const criaMoveUp = document.createElement('button');
-criaMoveUp.id = 'move-up';
+criaMoveUp.id = 'mover-cima';
 criaMoveUp.innerText = "⬆";
 writeItem.appendChild(criaMoveUp);
 
 //cria botão mover pra baixo
 const criaMoveDown = document.createElement('button');
-criaMoveDown.id = 'move-down';
+criaMoveDown.id = 'mover-baixo';
 criaMoveDown.innerText = "⬇";
 writeItem.appendChild(criaMoveDown);
 
@@ -145,7 +145,7 @@ function salvarLista() {
 salvarLista();
 
 function moveDown() {
-	const moveDown = document.querySelector('#move-down');
+	const moveDown = document.querySelector('#mover-baixo');
 	moveDown.addEventListener('click', function () {
 		console.log('teste down');
 		let itensListas = document.querySelectorAll('.item-lista-tarefa');
@@ -163,7 +163,7 @@ function moveDown() {
 moveDown();
 
 function moveUp() {
-	const moveUp = document.querySelector('#move-up');
+	const moveUp = document.querySelector('#mover-cima');
 	moveUp.addEventListener('click', function () {
 
 		let itensListas = document.querySelectorAll('.item-lista-tarefa');
