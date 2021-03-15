@@ -15,43 +15,44 @@ function choose(clickado) {
   let listada = document.querySelectorAll('li');
   for (index = 0; index < listada.length; index += 1) {
     if (listada[index].classList.contains('listada')) {
-      listada[index].classList.remove('grayScale');
+      listada[index].classList.remove('graySelector');
     }
   }
-  clickado.target.classList.add('grayScale');
+  clickado.target.classList.add('graySelector');
 }
-
-listaTarefas.addEventListener('click', choose);
 
 listaTarefas.addEventListener('dblclick', function (riscado) {
   riscado.target.classList.toggle('completed');
 })
-const buttonRem = document.getElementById('apaga-tudo')
+listaTarefas.addEventListener('click', choose);
 
-buttonRem.addEventListener('click', eraseAll)
+const buttonRem = document.getElementById('apaga-tudo');
 
-function eraseAll() {
-  const apagaLista = document.querySelectorAll('li')
-  for (let index = 0; index < apagaLista.length; index+=1) {
-    apagaLista[index].remove();    
+function eraseAll(evento) {
+  evento.preventDefault();
+  const apagaLista = document.querySelectorAll('li');
+  for (let index = 0; index < apagaLista.length; index += 1) {
+    apagaLista[index].remove();
   }
 }
-const buttonRemSel = document.getElementById('remover-finalizados')
+buttonRem.addEventListener('click', eraseAll);
+
+const buttonRemSel = document.getElementById('remover-finalizados');
 
 function eraseSel(evento) {
   evento.preventDefault();
   const apagaLista = document.querySelectorAll('.completed');
-  for (let index = 0; index < apagaLista.length; index+=1) {
-  apagaLista[index].remove();
-}
+  for (let index = 0; index < apagaLista.length; index += 1) {
+    apagaLista[index].remove();
+  }
 }
 buttonRemSel.addEventListener('click', eraseSel);
 
-const buttonGraySel = document.getElementById('remover-selecionado')
+const buttonGraySel = document.getElementById('remover-selecionado');
 
 function eraseGraySel(evento) {
   evento.preventDefault();
- const apagaLista = document.querySelector('.grayScale')
- apagaLista.remove();
+  const apagaLista = document.querySelector('.graySelector');
+  apagaLista.remove();
 }
 buttonGraySel.addEventListener('click', eraseGraySel);
