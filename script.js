@@ -147,7 +147,7 @@ salvarLista();
 function moveDown() {
 	const moveDown = document.querySelector('#mover-baixo');
 	moveDown.addEventListener('click', function () {
-		console.log('teste down');
+		
 		let itensListas = document.querySelectorAll('.item-lista-tarefa');
 		let itemCinza = document.querySelector('.corCinza')
 
@@ -171,7 +171,7 @@ function moveUp() {
 
 		for (let i = 0; i < itensListas.length; i += 1) {
 
-			if (itensListas[i].classList.contains('corCinza') && (itemCinza !== "")) {
+			if (itensListas[i].classList.contains('corCinza') && (itensListas[i-1].nextElementSibling !== null)) {
 
 				itensListas[i].parentNode.insertBefore(itensListas[i], itensListas[i - 1]);
 			}
