@@ -43,10 +43,10 @@ function completedTasks(event) {
   const actual = event.target;
 
   for (let index = 0; index < tasks.length; index += 1) {
-    if (actual.className !== 'completed') {
-      actual.className = 'completed';
+    if (actual.className === 'completed') {
+      actual.className = 'task';
     } else {
-      actual.classList.remove('completed');
+      actual.className = 'completed';
     }
   }
 }
@@ -57,6 +57,7 @@ function deleteAllItems() {
   while (allElements.firstChild) {
     allElements.removeChild(allElements.firstChild);
   }
+  localStorage.clear();
 }
 
 // 11. Botão que remove todas as tarefas finalizadas:
@@ -77,29 +78,19 @@ function removeCompleted() {
 const saveTasks = document.querySelector('#salvar-tarefas');
 const actualTasksFather = document.getElementById('lista-tarefas');
 
+// Parte da lógica das funções saveTasksStatus e recoverSavedTasks foram implementadas-refatoradas com apoio do material do colega Thiago Felipe (https://github.com/tryber/sd-010-b-project-todo-list/blob/thiago-felipe-todo-list/script.js):
 function saveTasksStatus() {
   const actualTasks = document.querySelectorAll('li');
-  for (let index = 0; index < actualTasks.length; index += 1) {
-    localStorage.setItem('task' + [index + 1], actualTasks[index].innerHTML);
+  if (actualTasks.length > 0) {
+  localStorage.tasks = actualTasksFather.innerHTML; // nesta linha.
   }
 }
 
 // Recuperar as tarefas no carregamento da página:
 function recoverSavedTasks() {
   const tasksFather = document.getElementById('lista-tarefas');
-  let recoveredTasks = [];
-
-  for (let index = 0; index < localStorage.length; index += 1) {
-    recoveredTasks.push(localStorage.getItem(('task' + [index + 1])));
-  }
-  localStorage.clear();
-
-  for (let index = 0; index < recoveredTasks.length; index += 1) {
-    const tasks = document.createElement('li');
-    tasks.className = 'tasks';
-    tasks.innerHTML = recoveredTasks[index];
-    tasksFather.appendChild(tasks);
-  }
+  if (localStorage.tasks) tasksFather.innerHTML = localStorage.tasks; // e em parte desta linha.
+  
 }
 
 setSelected();
