@@ -1,3 +1,6 @@
+let li = document.getElementsByClassName('lista')
+let lista = document.getElementById('lista-tarefas')
+
 let input = document.createElement('input')
 input.id = 'texto-tarefa'
 input.type = 'text'
@@ -17,6 +20,7 @@ document.body.appendChild(listaOrdenada)
 botao.addEventListener('click', addlist)
 
 
+
 //functions 
 
 function addlist (){
@@ -25,8 +29,24 @@ function addlist (){
     } else {
         let createli = document.createElement('li')
         createli.className = 'lista'
-        createli.innerText = document.getElementById('texto-tarefa').value;
+        createli.innerHTML = document.getElementById('texto-tarefa').value;
         listaOrdenada.appendChild(createli)
         input.value = ''
     }
 }
+
+function selectItem (e){
+    apagarClass()
+    if (e.target.tagName == 'LI'){
+        e.target.classList.add('selected')
+    }
+} 
+
+function apagarClass(){
+    let listaItens = listaOrdenada.childNodes;
+    for (let i = 0; i < listaItens.length; i += 1){
+        listaItens[i].classList.remove('selected')
+    }
+}
+
+listaOrdenada.addEventListener('click', selectItem)
