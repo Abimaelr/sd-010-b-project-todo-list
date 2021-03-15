@@ -1,3 +1,9 @@
+
+// function changeColorItemList(item){
+//   // console.log(item)
+//   item.style.backgroundColor = 'rgb(128, 128, 128)';
+// }
+
 function addTask(){
   // referencia o input
   let input = document.querySelector('#texto-tarefa');
@@ -24,7 +30,17 @@ function addTask(){
 
     // limpa o input
     input.value = '';
-  })
 
+    // lista.onclick = function () {
+    //   changeColorItemList(this);
+    // }
+
+    lista.addEventListener('click', () => {
+      console.log(lista);
+      lista.style.backgroundColor = 'rgb(128, 128, 128)';
+    })
+
+  })
 }
+
 addTask();
