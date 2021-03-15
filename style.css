@@ -6,7 +6,7 @@ body {
     font-size: 18px;
     text-align: center;
     font-family: Raleway, sans-serif;
-    background-color: #039C9C;
+    background-color: #0699998c;
     background-repeat: no-repeat;
     height: 100%;
 }
@@ -18,23 +18,42 @@ h1 {
 }
 
 button {
-    margin: 15px;
+    margin: 10px;
     font-size: 15px;
-    background-color: #126f6f;
+    background-color: #01aaaa;
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px;
     border-style: none;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-button: hover {
-
+button:hover {
+  font-size: 18px;
+  border: solid 1px black;
 }
 
 input {
     padding: 5px;
+    border-radius: 10px;
+    width: 300px;
 }
 
 .completed {
     text-decoration: line-through;
+}
+
+#list {
+  display: flex;
+  justify-content: center;
+  margin-left: -25px;
+  text-align: left;
+  list-style-position: inside;
+}
+
+li {
+  padding: 8px;
+  margin-bottom: 5px;
+  text-align: center;
+  border: solid 1px #01aaaa;
+
 }
