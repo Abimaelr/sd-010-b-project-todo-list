@@ -19,7 +19,6 @@ function adiciona() {
 }
 
 // se clicar em um item da lista, ele passa a ter o estilo CSS `background-color: rgb(128, 128, 128)
-ol.addEventListener('click', mudarCorAoclicar);
 function mudarCorAoclicar(event) {
   const li = document.querySelectorAll('li');
   for (let index = 0; index < li.length; index += 1) {
@@ -29,3 +28,9 @@ function mudarCorAoclicar(event) {
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   event.target.style.color = 'white';
 }
+ol.addEventListener('click', mudarCorAoclicar);
+
+// Clicar duas vezes em um item, faz com que ele seja riscado - https://developer.mozilla.org/en-US/docs/Web/API/Element/dblclick_event
+ol.addEventListener('dblclick', function (e) {
+  ol.classList.toggle('completed');
+});
