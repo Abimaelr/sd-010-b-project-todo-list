@@ -35,8 +35,17 @@ function doubleClick() {
    }
   });
 }
+function reset() {
+  const apagaTudo = document.querySelector('#apaga-tudo');
+  const li = document.querySelector('#lista-tarefas');
+  apagaTudo.addEventListener('click', () => {
+    li.innerHTML = '';
+  });
+}
+
 window.onload = function () {
   adicionar();
   trocarCinza();
   doubleClick();
+  reset();
 };
