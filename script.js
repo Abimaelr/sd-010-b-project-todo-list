@@ -42,12 +42,10 @@ function setSelected() {
 function completedTasks(event) {
   const actual = event.target;
 
-  for (let index = 0; index < tasks.length; index += 1) {
-    if (actual.className === 'completed') {
-      actual.className = 'task';
-    } else {
-      actual.className = 'completed';
-    }
+  if (actual.className === 'completed') {
+    actual.className = 'task';
+  } else {
+    actual.className = 'completed';
   }
 }
 
