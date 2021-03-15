@@ -58,3 +58,15 @@ function apagarItemLista() {
 }
 apagarItemLista();
 apagarFinalizados.addEventListener('click', apagarItemLista);
+
+// botão com id="salvar-tarefas" que salve o conteúdo da lista. Se fechar e reabrir a página, a lista continua no estado em que estava => https://developer.mozilla.org/pt-BR/docs/Web/API/Window/localStorage
+const salvarItens = document.getElementById('salvar-tarefas');
+function salvarLista() {
+  const listaAtual = document.querySelectorAll('li');
+  for (let index = 0; index < listaAtual.length; index += 1) {
+    localStorage.setItem(listaAtual, listaAtual[index]);
+    alert(`Itens salvos ${listaAtual}`);
+  }
+}
+salvarLista();
+salvarItens.addEventListener('click', salvarLista);
