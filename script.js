@@ -20,3 +20,21 @@ function bgCinza(e) {
   evento.target.classList.add('selected');
 }
 olListaTarefas.addEventListener('click', bgCinza);
+
+function addCompleted(parameter) {
+  const addStyleCompleted = parameter;
+  addStyleCompleted.classList.add('completed');
+}
+
+function remCompleted(parameter) {
+  const remStyleCompleted = parameter;
+  remStyleCompleted.classList.remove('completed');
+}
+
+olListaTarefas.addEventListener('dblclick', (e) => {
+  if (e.target.classList.contains('completed')) {
+    remCompleted(e.target);
+  } else {
+    addCompleted(e.target);
+  }
+});
