@@ -28,7 +28,7 @@ function createLiText () {
   let duploClick = document.querySelector('.completed');
   if(duploClick){
     duploClick.classList.remove('completed');
-  
+    event.target.classList.add('completed');
   }
   event.target.classList.add('completed');
   duploClick.classList.remove('completed');
@@ -36,9 +36,9 @@ function createLiText () {
 }
 
 function LimpaLista(event){
-  let limpaTudo = document.getElementById('apaga-tudo');
+  let limpaTudo = document.getElementById('lista-tarefas');
   if(limpaTudo){
-    limpaTudo.target.classList.remove('apaga-tudo');
+    limpaTudo.classList.remove('apaga-tudo');
   }
   event.target.classList.add('apaga-tudo');
 
