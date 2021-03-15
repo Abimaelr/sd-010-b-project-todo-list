@@ -1,11 +1,13 @@
 let textoInput = document.getElementById('texto-tarefa');
 let botao = document.getElementById('criar-tarefa');
 let paiLista = document.querySelector('#lista-tarefas');
-let listaItens = document.getElementsByTagName('li');
 let botaoApagar = document.getElementById('apaga-tudo');
 let botaoRemoverFinalizados = document.getElementById('remover-finalizados');
 let botaoSalvarLista = document.getElementById('salvar-tarefas');
 let botaoRemoverSelecionado = document.getElementById('remover-selecionado');
+let botaoMoverParaCima = document.getElementById('mover-cima');
+let botaoMoverParaBaixo = document.getElementById('mover-baixo');
+let listaItens = document.getElementsByTagName('li');
 
 
 function criarListas() {
@@ -72,7 +74,6 @@ function salvar() {
   alert('Lista salva');
 }
 
-
 function carregarLista() {
   if (localStorage.lista) {
     document.getElementById('lista-tarefas').innerHTML = localStorage.lista;
@@ -80,6 +81,32 @@ function carregarLista() {
 }
 
 carregarLista();
+
+function moverParaCima() {
+  botaoMoverParaCima.addEventListener('click', function () {
+    for (let index = 1; index < listaItens.length; index += 1) {
+      if (listaItens[index].classList.contains('selected')) {
+        const anterior = listaItens[index].previousSibling;
+        listaItens[index].parentNode.insertBefore(listaItens[index], anterior);
+      }
+    }
+  })
+}
+
+moverParaCima();
+
+function moverParaBaixo() {
+  botaoMoverParaBaixo.addEventListener('click', function () {
+    for (let index = 0; index < listaItens.length - 1; index += 1) {
+      if (listaItens[index].classList.contains('selected')) {
+        let proximo = listaItens[index].nextElementSibling.nextSibling;
+        listaItens[index].parentNode.insertBefore(listaItens[index], proximo);
+      }
+    }
+  })
+}
+
+moverParaBaixo();
 
 // Depois da explicação consegui resolver sozinho esta função
 botaoRemoverSelecionado.addEventListener('click', removerSelecionado);
