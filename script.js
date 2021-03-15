@@ -38,9 +38,9 @@ function createLiText () {
 function LimpaLista(event){
   let limpaTudo = document.getElementById('lista-tarefas');
   if(limpaTudo){
-    limpaTudo.classList.remove('apaga-tudo');
+    limpaTudo.classList.remove('lista-tarefas');
   }
-  event.target.classList.add('apaga-tudo');
+  event.target.classList.add('');
 
 }
 
