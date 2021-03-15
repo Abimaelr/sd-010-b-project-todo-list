@@ -1,4 +1,4 @@
-const list = document.querySelector('#lista-tarefas');
+const list = document.querySelector('#lista-tarefas'); // ol lista-tarefas
 const button = document.querySelector('#criar-tarefa');
 const input = document.querySelector('#texto-tarefa');
 const delAllButton = document.querySelector('#apaga-tudo');
@@ -12,7 +12,7 @@ function addTask() {
     const listItem = document.createElement('li');
     listItem.addEventListener('click', selectItem);
     listItem.addEventListener('dblclick', doneNotDone);
-    if (input.value !== '') { 
+    if (input.value !== '') {
       listItem.innerHTML = input.value;
       list.appendChild(listItem);
       input.value = '';
@@ -68,3 +68,27 @@ function deleteDoneTasks() {
 }
 
 deleteDoneTasks();
+
+function saveList() {
+  const saveButton = document.querySelector('#salvar-tarefas');
+  saveButton.addEventListener('click', function () {
+    console.log(list.innerHTML);
+    localStorage.setItem('list', JSON.stringify(list.innerHTML));
+  });
+}
+
+saveList();
+
+function loadList() {
+  const savedList = localStorage.getItem('list');
+  console.log(JSON.parse(savedList));
+  list.innerHTML = JSON.parse(savedList);
+  const lis = document.querySelectorAll('li');
+  console.log(lis);
+  for (let i = 0; i < lis.length; i++) {
+    lis[i].addEventListener('click', selectItem);
+    lis[i].addEventListener('dblclick', doneNotDone);
+  }
+}
+
+loadList();
