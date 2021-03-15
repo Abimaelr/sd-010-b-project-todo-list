@@ -177,3 +177,13 @@ function moveTaskDn() {
 
 buttonMoveTaskUp.addEventListener('click', moveTaskUp);
 buttonMoveTaskDn.addEventListener('click', moveTaskDn);
+
+/* 14 - Criando botão para remover item selecionado */
+
+function removeSelected() {
+  getSelectedItem().remove();
+}
+
+buttonRemoveSelected = document.getElementById('remover-selecionado');
+
+buttonRemoveSelected.addEventListener('click', removeSelected);
