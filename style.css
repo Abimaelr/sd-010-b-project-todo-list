@@ -18,56 +18,56 @@ h1 {
 
 #criar-tarefa {
   background-color: blue;
-  border-radius: 5px;
+  border-radius: 10px;
   color: white;
   border: none;
-  padding: 5px;
+  padding: 10px;
 }
 
 #apaga-tudo {
   background-color: red;
-  border-radius: 5px;
+  border-radius: 10px;
   color: white;
   border: none;
-  padding: 5px;
+  padding: 10px;
 }
 
 #remover-finalizados {
   background-color: green;
-  border-radius: 5px;
+  border-radius: 10px;
   color: white;
   border: none;
-  padding: 5px;
+  padding: 10px;
 }
 
 #remover-selecionado {
   background-color: red;
-  border-radius: 5px;
+  border-radius: 10px;
   color: white;
   border: none;
-  padding: 5px;
+  padding: 10px;
 }
 
 #salvar-tarefas {
   background-color: blue;
-  border-radius: 5px;
+  border-radius: 10px;
   color: white;
   border: none;
-  padding: 5px;
+  padding: 10px;
 }
 
 #mover-cima {
   background-color: yellow;
-  border-radius: 5px;
+  border-radius: 10px;
   border: none;
-  padding: 5px;
+  padding: 10px;
 }
 
 #mover-baixo {
   background-color: yellow;
-  border-radius: 5px;
+  border-radius: 10px;
   border: none;
-  padding: 5px;
+  padding: 10px;
 }
 
 #content {
