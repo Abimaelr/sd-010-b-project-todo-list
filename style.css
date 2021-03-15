@@ -33,5 +33,8 @@ button: hover {
 
 input {
     padding: 5px;
+}
 
+.completed {
+    text-decoration: line-through;
 }

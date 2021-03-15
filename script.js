@@ -12,10 +12,14 @@ function criaTarefa () {
 function criaLi (valor) {
     let ul = document.getElementById('lista-tarefas');
 
-    let cria = document.createElement('li');
-    cria.innerText = valor;
-    cria.className = 'item';
-    ul.append(cria);
+    let elementoLi = document.createElement('li');
+    elementoLi.innerText = valor;
+    elementoLi.className = 'item';
+    ul.append(elementoLi);
+    elementoLi.addEventListener('dblclick', function(evento){
+        toggleClasseCompleted(evento.target);
+    });
+    
 // Com ajuda de uma pessoa desenvolvedora
 //     cria.addEventListener('click', function(evt){
 //         console.log('ooi')
@@ -25,7 +29,7 @@ function criaLi (valor) {
 
 function mudaCorItem () {
     let pegaLi = document.querySelectorAll('.item');
-    console.log(pegaLi)
+
     for (i =0; i < pegaLi.length; i += 1){
         pegaLi[i].addEventListener('click', function(evt){
             evt.target.style.backgroundColor = 'rgb(128, 128, 128)';
@@ -33,3 +37,8 @@ function mudaCorItem () {
     }
 }
 mudaCorItem();
+
+// o toggle verifica se existe um classe específica dentro do classList, se existir ele irá remove-la, senão irá adiciona-la.
+function toggleClasseCompleted (elemento) {
+    elemento.classList.toggle('completed');
+}
