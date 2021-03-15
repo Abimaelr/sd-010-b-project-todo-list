@@ -54,6 +54,12 @@ criaMoveDown.id = 'mover-baixo';
 criaMoveDown.innerText = "⬇";
 writeItem.appendChild(criaMoveDown);
 
+//cria botão remover selecionado
+const removeSelecionado = document.createElement('button');
+removeSelecionado.id = 'remover-selecionado';
+removeSelecionado.innerText = "Remove Selecionado";
+writeItem.appendChild(removeSelecionado);
+
 
 function pegarLista() {
 	const list = document.querySelector('ol');
@@ -147,9 +153,8 @@ salvarLista();
 function moveDown() {
 	const moveDown = document.querySelector('#mover-baixo');
 	moveDown.addEventListener('click', function () {
-		
+
 		let itensListas = document.querySelectorAll('.item-lista-tarefa');
-		let itemCinza = document.querySelector('.corCinza')
 
 		for (let j = 0; j < itensListas.length; j += 1) {
 
@@ -167,7 +172,6 @@ function moveUp() {
 	moveUp.addEventListener('click', function () {
 
 		let itensListas = document.querySelectorAll('.item-lista-tarefa');
-		let itemCinza = document.querySelector('.corCinza')
 
 		for (let i = 0; i < itensListas.length; i += 1) {
 
@@ -180,3 +184,14 @@ function moveUp() {
 }
 moveUp();
 
+function removeCinza() {
+	const idSelecionado = document.querySelector('#remover-selecionado')
+	idSelecionado.addEventListener('click', function () {
+		let idItemList = document.querySelector('.corCinza');
+		if (idItemList){
+		idItemList.parentNode.removeChild(idItemList);
+		}
+	})
+}
+
+removeCinza();
