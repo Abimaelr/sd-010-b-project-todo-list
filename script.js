@@ -15,7 +15,7 @@ function generateTask() {
       listFather.appendChild(listElements);
       dataInserted.focus();
     } else {
-      alert('ERRO: CAMPO DE PREENCHIMENTO VAZIO!');
+      alert('Erro: campo de preenchimento vazio!');
     }
     dataInserted.value = '';
   }
@@ -82,7 +82,9 @@ const actualTasksFather = document.getElementById('lista-tarefas');
 function saveTasksStatus() {
   const actualTasks = document.querySelectorAll('li');
   if (actualTasks.length > 0) {
-  localStorage.tasks = actualTasksFather.innerHTML; // nesta linha.
+    localStorage.tasks = actualTasksFather.innerHTML; // nesta linha.
+  } else {
+    alert('Erro: a lista de tarefas está vazia!');
   }
 }
 
@@ -90,7 +92,6 @@ function saveTasksStatus() {
 function recoverSavedTasks() {
   const tasksFather = document.getElementById('lista-tarefas');
   if (localStorage.tasks) tasksFather.innerHTML = localStorage.tasks; // e em parte desta linha.
-  
 }
 
 setSelected();
