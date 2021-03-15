@@ -10,6 +10,7 @@ function createLiText () {
 
   let butaDicionarLista=  document.getElementById('criar-tarefa');
   butaDicionarLista.addEventListener('click', createLiText);
+   
 
   function selecionarItem(event){
     let itemSelecionado = document.querySelector('.selected');
@@ -27,9 +28,25 @@ function createLiText () {
   let duploClick = document.querySelector('.completed');
   if(duploClick){
     duploClick.classList.remove('completed');
- }    
-    event.target.classList.add('completed');
+  
+  }
+  event.target.classList.add('completed');
+  duploClick.classList.remove('completed');
+  
 }
+
+function LimpaLista(event){
+  let limpaTudo = document.getElementById('apaga-tudo');
+  if(limpaTudo){
+    limpaTudo.target.classList.remove('apaga-tudo');
+  }
+  event.target.classList.add('apaga-tudo');
+
+}
+
+let buttonLimpaTudo = document.getElementById('apaga-tudo');
+  buttonLimpaTudo.addEventListener('click', LimpaLista);
+  
 
       
  
