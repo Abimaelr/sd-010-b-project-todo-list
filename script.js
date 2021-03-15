@@ -8,6 +8,7 @@ function adiciona() {
   const list = document.createElement('li');
   // retorna todo o texto e o html que existem no elemento 'li'
   list.innerHTML = adicionarTarefa.value;
+  localStorage.setItem(list, ol);
   // insere um novo 'list' no 'ol'
   ol.appendChild(list);
   // valor inserido no campo input, teste de funcionamento
@@ -62,11 +63,11 @@ apagarFinalizados.addEventListener('click', apagarItemLista);
 // botão com id="salvar-tarefas" que salve o conteúdo da lista. Se fechar e reabrir a página, a lista continua no estado em que estava => https://developer.mozilla.org/pt-BR/docs/Web/API/Window/localStorage
 const salvarItens = document.getElementById('salvar-tarefas');
 function salvarLista() {
-  const listaAtual = document.querySelectorAll('li');
-  for (let index = 0; index < listaAtual.length; index += 1) {
-    localStorage.setItem(listaAtual, listaAtual[index]);
-    alert(`Itens salvos ${listaAtual}`);
+  const listaAtual = document.querySelectorAll('li').innerHTML;
+  for (let index = 0; index < listaAtual; index += 1) {
+    localStorage.setItem(listaAtual[index]);
   }
+  return `Itens salvos ${listaAtual}`.innerText;
 }
 salvarLista();
 salvarItens.addEventListener('click', salvarLista);
