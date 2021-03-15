@@ -94,10 +94,24 @@ function recoverSavedTasks() {
   if (localStorage.tasks) tasksFather.innerHTML = localStorage.tasks; // e em parte desta linha.
 }
 
+// 14. Botão que remove a tarefa selecionada:
+const selectedButton = document.querySelector('#remover-selecionado');
+function removeSelected() {
+  const listSons = document.querySelectorAll('li');
+  const listFather = document.getElementById('lista-tarefas');
+
+  for (let index = 0; index < listSons.length; index += 1) {
+    if (listSons[index].style.backgroundColor === background) {
+      listFather.removeChild(listSons[index]);
+    }
+  }
+}
+
 setSelected();
 button.addEventListener('click', generateTask);
 allElements.addEventListener('dblclick', completedTasks);
 deleteButton.addEventListener('click', deleteAllItems);
 deleteCompletedButton.addEventListener('click', removeCompleted);
 saveTasks.addEventListener('click', saveTasksStatus);
+selectedButton.addEventListener('click', removeSelected);
 window.onload = recoverSavedTasks();
