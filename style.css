@@ -41,7 +41,7 @@ input {
   margin: 11px 5px;
   float: left;
   height: 20px;
-  min-width: 250px;
+  min-width: 160px;
 }
 
 input:focus {
