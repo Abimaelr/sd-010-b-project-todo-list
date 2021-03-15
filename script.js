@@ -13,6 +13,7 @@ function addItems() {
     list.appendChild(listItem);
     clearInput();
     listItem.addEventListener('click', selectItem);
+    listItem.addEventListener('dblclick', completedTask);
   }
 }
 
@@ -28,4 +29,28 @@ function selectItem(selected) {
   newSelected.classList.add('selected');
 }
 
+function completedTask(completed) {
+  const completedTask = completed.target;
+  completedTask.classList.add('completed');
+}
+
+function notCompletedTask() {
+  const notCompleted = document.querySelectorAll('.completed');
+  for(let index in notCompleted) {
+    if(notCompleted[index].classList.contains('completed')) {
+      this.classList.remove('completed');
+    }
+  }
+  notCompleted.addEventListener('dblclick', notCompletedTask);
+}
+
+function clearAll() {
+  const clearTasks = document.getElementsByTagName('li');
+  const taskList = document.getElementsByTagName('ol');
+  for(let index = clearTasks - 1; index < clearTasks.length; index -= 1) {
+    taskList.removeChild(taskList.clearTasks[index]);
+  }
+}
+
 document.getElementById('criar-tarefa').addEventListener('click', addItems);
+document.getElementById('apaga-tudo').addEventListener('click', clearAll);
