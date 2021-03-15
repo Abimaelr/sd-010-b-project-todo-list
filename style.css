@@ -14,7 +14,6 @@ body {
 h1 {
     font-size: 40px;
     font-family: Libre Baskerville, serif;
-    margin-top: 100px;
 }
 
 button {
@@ -55,5 +54,12 @@ li {
   margin-bottom: 5px;
   text-align: center;
   border: solid 1px #01aaaa;
+  background-color: rgb(201, 245, 245);
+}
 
+.icon {
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  margin-top: 20px;
 }
