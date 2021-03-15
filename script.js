@@ -31,6 +31,9 @@ function mudarCorAoclicar(event) {
 ol.addEventListener('click', mudarCorAoclicar);
 
 // Clicar duas vezes em um item, faz com que ele seja riscado - https://developer.mozilla.org/en-US/docs/Web/API/Element/dblclick_event
-ol.addEventListener('dblclick', function (e) {
-  ol.classList.toggle('completed');
-});
+function riscarTexto() {
+  ol.addEventListener('dblclick', function (e) {
+    e.target.classList.toggle('completed');
+  });
+}
+riscarTexto();
