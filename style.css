@@ -83,3 +83,7 @@ ol {
   list-style-position: inside;
   text-align: justify;
 }
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}

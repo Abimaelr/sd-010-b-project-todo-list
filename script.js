@@ -12,19 +12,20 @@ function addItems() {
     listItem.innerText = inputed.value;
     list.appendChild(listItem);
     clearInput();
+    listItem.addEventListener('click', selectItem);
   }
 }
 
-function selectItem() {
-  let notSelected = document.getElementsByTagName('li');
-  let gray = 'rgb(128, 128, 128)';
-  for(let index = 0; index < notSelected.length; index += 1) {
-    notSelected.target.classList.add('selected');
-  }
-  if(notSelected.classList.contains('selected')) {
-    this.style.backgroundColor = gray;
-  }
+function removeSelect() {
+  const selected = document.querySelector('.selected');
+  if(selected)
+  selected.classList.remove('selected');
+}
+
+function selectItem(selected) {
+  removeSelect();
+  const newSelected = selected.target;
+  newSelected.classList.add('selected');
 }
 
 document.getElementById('criar-tarefa').addEventListener('click', addItems);
-document.getElementsByTagName('li').addEventListener('click', selectItem);
