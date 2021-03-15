@@ -37,12 +37,24 @@ function riscarTexto() {
 }
 riscarTexto();
 
+// botão com id="apaga-tudo" que quando clicado apagar todos os itens da lista
 const apagarTudo = document.getElementById('apaga-tudo');
-function eraseList() {
+function apagarLista() {
   const listaLi = document.querySelectorAll('li');
   for (let index = 0; index < listaLi.length; index += 1) {
     ol.removeChild(listaLi[index]);
   }
 }
-eraseList();
-apagarTudo.addEventListener('click', eraseList);
+apagarLista();
+apagarTudo.addEventListener('click', apagarLista);
+
+// botão com id="apaga-finalizados", para apagar somente os que estão marcados
+const apagarFinalizados = document.getElementById('remover-finalizados');
+function apagarItemLista() {
+  const listaLiSelecionado = document.querySelectorAll('li.completed');
+  for (let index = 0; index < listaLiSelecionado.length; index += 1) {
+    ol.removeChild(listaLiSelecionado[index]);
+  }
+}
+apagarItemLista();
+apagarFinalizados.addEventListener('click', apagarItemLista);
