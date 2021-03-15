@@ -31,7 +31,7 @@ function mudaCorItem () {
     let pegaLi = document.querySelectorAll('.item');
 
     for (i =0; i < pegaLi.length; i += 1){
-        pegaLi[i].addEventListener('click', function(evt){
+        pegaLi[i].addEventListener('click', function(evt) {
             evt.target.style.backgroundColor = 'rgb(128, 128, 128)';
         });
     }
@@ -49,4 +49,15 @@ function apagaTodosItens () {
     while (elementoPai.firstChild) {
         elementoPai.removeChild(elementoPai.lastChild);
     }
+}
+
+function removeFinalizados () {
+  let lista = document.querySelectorAll('li');
+  let elementoPai = document.getElementById('lista-tarefas');
+  
+  for (let index = 0; index < lista.length; index += 1) {
+    if (lista[index].classList.contains('completed') === true) {
+      elementoPai.removeChild(lista[index]);
+    }
+  }
 }
