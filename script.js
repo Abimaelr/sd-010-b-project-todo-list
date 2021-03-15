@@ -1,5 +1,4 @@
-let taskList = document.getElementById('lista-tarefas');
-function localStorageTaskList(tasksObject) {
+/* function localStorageTaskList(tasksObject) {
   for (let key in tasksObject) {
     taskItem = document.createElement('li');
     taskItem.innerText = tasksObject[key][0];
@@ -15,7 +14,7 @@ if(localStorage.getItem('tasks')) {
 
 
 let buttonCriarTarefa = document.getElementById('criar-tarefa');
-const buttonDeleteTasks = document.getElementById('apaga-tudo');
+
 const buttonSaveTasks = document.getElementById('salvar-tarefas');
 const buttonMoveTaskUp = document.getElementById('mover-cima');
 const buttonMoveTaskDn = document.getElementById('mover-baixo');
@@ -63,34 +62,22 @@ function deleteTasks() {
   taskList.innerHTML = '';
 }
 
-const buttonDeleteTasksEnded = document.getElementById('remover-finalizados');
-/* Evento para deletar todas as tarefas */
+/* Evento para deletar todas as tarefas 
 buttonDeleteTasks.addEventListener('click', deleteTasks);
 
 function qtdTasksEnded() {
   let tasks = document.getElementsByClassName('completed');
   return tasks.length;
-}
-
-/* Removendo tarefas finalizadas */
-
+}*/
+const buttonDeleteTasksEnded = document.getElementById('remover-finalizados');
 function deleteTasksEnded() {
   let taskList = document.getElementById('lista-tarefas');
   while(document.getElementsByClassName('completed')[0]) {
     document.getElementsByClassName('completed')[0].remove();
   }
-  saveTasks();
 }
-
-/* function deleteTasksEnded() {
-  let taskList = document.getElementById('lista-tarefas');
-  if(qtdTasksEnded() !== 0) {
-    document.getElementsByClassName('completed')[0].remove();
-    deleteTasksEnded();
-  }
-  saveTasks();
-} */
 buttonDeleteTasksEnded.addEventListener('click', deleteTasksEnded);
+
 /* Exercício 12: */
 function saveTasks() {
   let tasks = document.getElementsByTagName('li');
@@ -113,34 +100,48 @@ function showConsole(values) {
 }
 
 function mountTaskList(tasks) {
-  let tasksInfo = [];
-  for (let task of tasks) {
-    tasksInfo.push([task.innerText, task.className, task.style.backgroundColor])
-  }
-  
   list = document.getElementById('lista-tarefas');
-  list.innerHTML = '';
-  for (let index = 0; index < tasksInfo.length; index += 1) {
-    li = document.createElement('li');
-    li.innerText = tasksInfo[index][0];
-    li.className = tasksInfo[index][1];
-    li.style.backgroundColor = tasksInfo[index][2]
+  console.log(list);
+  for (let index = 1; index <= tasks.length; index += 1) {
+    let li = document.createElement('li');
+    li.innerText = 'ola';//tasks[index].innerText;
     list.appendChild(li);
   }
-  return console.log(tasksInfo);
 }
 
-function moveTaskUp() {
+function getTasksObject() {
   tasks = document.getElementsByTagName('li');
+  console.log(tasks);
+  tasksObj = {};
+  for (let index = 1; index <= tasks.length; index += 1) {
+    tasksObj[index] = tasks[index-1];
+  }
+  return tasksObj;
+}
+
+function getTaskSelected() {
+  let tasks = document.getElementsByTagName('li');
+  let taskSelected = null;
   for (let index = 0; index < tasks.length; index += 1) {
-    if (tasks[index].style.backgroundColor === 'rgb(128, 128, 128)') {
-        tasks[index] = tasks[index].previousSibling
+    if (tasks[index].style.backgroundColor = 'rgb(128, 128, 128)'){
+      taskSelected = tasks[index];
     }
   }
-  mountTaskList(tasks);
+  return taskSelected;
+}
+function moveTaskUp(element) {
+  let tasksObj = {};
+  tasksObj = getTasksObject();
+  console.log(tasksObj);
+  let taskSelected = getTaskSelected();
+  console.log(taskSelected);
+  for (let index = 1; index <= tasksObj.length; index += 1) {
+    if(tasksObj[index] === taskSelected) {
+      tasksObj[index-1] = taskSelected;
+      tasksObj[index] = taskSelected.previousSibling();
+    }
+  }
+  mountTaskList(tasksObj);
 }
 
-buttonMoveTaskUp.addEventListener('click', moveTaskUp)
-
-
-
+buttonMoveTaskUp.addEventListener('click', moveTaskUp);
