@@ -14,7 +14,6 @@ function criarListas() {
   botao.addEventListener('click', function () {
     let novaLista = document.createElement('li');
     paiLista.appendChild(novaLista).innerText = textoInput.value;
-    novaLista.classList.add('lista');
     textoInput.value = '';
   })
 }
@@ -85,7 +84,7 @@ carregarLista();
 // resolvido com a ajuda do aluno Luiz Paulo
 function moverParaCima() {
   botaoMoverParaCima.addEventListener('click', function () {
-    const listaItens = document.querySelectorAll('.lista');
+    const listaItens = document.querySelectorAll('li');
     for (let index = 0; index < listaItens.length; index += 1) {
       let posicao = listaItens[index];
       if (listaItens[index].classList.contains('selected') && posicao.previousElementSibling !== null) {
@@ -99,7 +98,7 @@ moverParaCima();
 
 function moverParaBaixo() {
   botaoMoverParaBaixo.addEventListener('click', function () {
-    const listaItens = document.querySelectorAll('.lista');
+    const listaItens = document.querySelectorAll('li');
     for (let index = 0; index < listaItens.length; index += 1) {
       let posicao = listaItens[index];
       if (listaItens[index].classList.contains('selected') && posicao.nextElementSibling !== null) {
