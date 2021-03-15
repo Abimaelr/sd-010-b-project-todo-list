@@ -85,10 +85,10 @@ carregarLista();
 function moverParaCima() {
   const listaItens = document.querySelectorAll('li');
   botaoMoverParaCima.addEventListener('click', function () {
-    for (let index = 1; index < listaItens.length; index += 1) {
-      if (listaItens[index].classList.contains('selected')) {
-        const anterior = listaItens[index].previousSibling;
-        listaItens[index].parentNode.insertBefore(listaItens[index], anterior);
+    for (let index = 0; index < listaItens.length; index += 1) {
+      let posicao = listaItens[index];
+      if (listaItens[index].classList.contains('selected') && posicao.previousElementSibling !== null) {
+        listaItens[index].parentNode.insertBefore(listaItens[index], listaItens[index - 1]);
       }
     }
   })
@@ -99,10 +99,10 @@ moverParaCima();
 function moverParaBaixo() {
   const listaItens = document.querySelectorAll('li');
   botaoMoverParaBaixo.addEventListener('click', function () {
-    for (let index = 0; index < listaItens.length - 1; index += 1) {
-      if (listaItens[index].classList.contains('selected')) {
-        let proximo = listaItens[index].nextElementSibling.nextSibling;
-        listaItens[index].parentNode.insertBefore(listaItens[index], proximo);
+    for (let index = 0; index < listaItens.length; index += 1) {
+      let posicao = listaItens[index];
+      if (listaItens[index].classList.contains('selected') && posicao.nextElementSibling !== null) {
+        listaItens[index].parentNode.insertBefore(listaItens[index + 1], listaItens[index]);
       }
     }
   })
