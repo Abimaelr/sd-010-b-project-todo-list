@@ -2,5 +2,5 @@
   background-color: gray;
 }
 .completed {
-  text-decoration: liline-through solid rgb(0, 0, 0);
+  text-decoration: line-through;
 }
