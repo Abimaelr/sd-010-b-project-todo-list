@@ -28,11 +28,30 @@ listaTarefas.addEventListener('dblclick', function (riscado) {
 })
 const buttonRem = document.getElementById('apaga-tudo')
 
-buttonRem.addEventListener('click', apaga)
+buttonRem.addEventListener('click', eraseAll)
 
-function apaga(){
-const apagaLista = document.querySelectorAll('li')
-if (apagaLista.parentnode) {
-  apagaLista.parentNode.removeChild(apagaLista);
+function eraseAll() {
+  const apagaLista = document.querySelectorAll('li')
+  for (let index = 0; index < apagaLista.length; index+=1) {
+    apagaLista[index].remove();    
+  }
+}
+const buttonRemSel = document.getElementById('remover-finalizados')
+
+function eraseSel(evento) {
+  evento.preventDefault();
+  const apagaLista = document.querySelectorAll('.completed');
+  for (let index = 0; index < apagaLista.length; index+=1) {
+  apagaLista[index].remove();
 }
 }
+buttonRemSel.addEventListener('click', eraseSel);
+
+const buttonGraySel = document.getElementById('remover-selecionado')
+
+function eraseGraySel(evento) {
+  evento.preventDefault();
+ const apagaLista = document.querySelector('.grayScale')
+ apagaLista.remove();
+}
+buttonGraySel.addEventListener('click', eraseGraySel);
