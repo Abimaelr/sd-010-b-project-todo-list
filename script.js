@@ -13,3 +13,8 @@ let ent = document.getElementById('entrada');
 let input = document.createElement('input');
 input.id = 'texto-tarefa';
 ent.appendChild(input);
+
+let list = document.getElementById('list');
+let item = document.createElement('ol');
+item.id = 'lista-tarefas';
+list.appendChild(item);
