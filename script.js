@@ -13,7 +13,6 @@ addTask.addEventListener('click', function () {
   document.getElementById('texto-tarefa').value = ""
 })
 
-
 let liColor = document.getElementById('lista-tarefas');
 
 liColor.addEventListener('click', function (event) {
@@ -26,11 +25,9 @@ liColor.addEventListener('click', function (event) {
   event.target.classList.add('itemSelected');
 })
 
-
 liColor.addEventListener('dblclick', function (event) {
   event.target.classList.toggle('completed');
 })
-
 
 let clearList = document.getElementById('apaga-tudo');
 
@@ -42,4 +39,14 @@ clearList.addEventListener('click', function () {
     lista.removeChild(lista.firstChild);
   }
 
+})
+
+let clearDone = document.getElementById('remover-finalizados');
+
+clearDone.addEventListener('click', function () {
+
+  let done = document.getElementsByClassName('completed');
+  for (let index = done.length - 1; index >= 0; index--) {
+    done[index].remove();
+  }
 }) 
