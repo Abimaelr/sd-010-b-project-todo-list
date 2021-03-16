@@ -70,24 +70,30 @@ const salvarItens = document.querySelector('#salvar-tarefas');
 salvarItens.addEventListener('click', listaSa);
 
 // dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
-// https://www.w3schools.com/jsref/prop_element_nextelementsibling.asp
-// https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
-// https://developer.mozilla.org/en-US/docs/Web/API/Element/previousElementSibling
-const subirItem = document.querySelector('#mover-cima');
+// https://developer.mozilla.org/pt-BR/docs/Web/API/Element/outerHTML
+const subirItem = document.getElementById('mover-cima');
 function sobeItem() {
-  const sobeLi = document.querySelector('.completed');
-  if (ol.childElementCount > 0) {
-    ol.insertBefore(sobeLi, sobeLi.previousElementSibling);
+  const sobeLi = document.getElementsByTagName('li');
+  for (let index = 0; index < sobeLi.length; index += 1) {
+    if (index !== 0 && sobeLi[index].classList.value.includes('completed')) {
+      const item = sobeLi[index].outerHTML;
+      sobeLi[index].outerHTML = sobeLi[index - 1].outerHTML;
+      sobeLi[index - 1].outerHTML = item;
+    }
   }
 }
 subirItem.addEventListener('click', sobeItem);
 
-const desceItem = document.querySelector('#mover-baixo');
+const desceItem = document.getElementById('mover-baixo');
 function descerItem() {
-  const descerLi = document.querySelector('.completed');
-  if (ol.childElementCount > 0) {
-    // alert('tudo ok!');
-    ol.insertBefore(descerLi.nextElementSibling, descerLi);
+  const descerLi = document.getElementsByTagName('li');
+  for (let index = 0; index < descerLi; index -= 1) {
+    if (index !== (descerLi[index - 1]) && descerLi[index].classList.value.includes('completed')) {
+      // alert('tudo ok!');
+      const item = descerLi[index].outerHTML;
+      descerLi[index].outerHTML = descerLi[index + 1].outerHTML;
+      descerLi[index + 1].outerHTML = item;
+    }
   }
 }
 desceItem.addEventListener('click', descerItem);
