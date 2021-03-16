@@ -3,6 +3,7 @@ let addTask = document.getElementById('criar-tarefa');
 let list = document.getElementById('lista-tarefas');
 let clickItem = document.getElementsByClassName('listItem');
 let clear = document.getElementById('apaga-tudo');
+let remove = document.getElementById('remover-finalizados');
 
 addTask.addEventListener('click', function(){  
   let newTask = document.createElement('li');
@@ -34,4 +35,11 @@ function complet() {
 complet();
 clear.addEventListener('click', function() {
     list.innerHTML = '';
+});
+
+remove.addEventListener('click', function(){
+  let finalized = document.querySelectorAll('li.completed');
+  for(let index =0; index < finalized.length; index += 1) {
+    list.removeChild(finalezed[index]);
+  }
 });
