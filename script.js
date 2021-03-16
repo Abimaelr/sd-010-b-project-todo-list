@@ -45,12 +45,10 @@ function reset() {
 function finalizados() {
   const finalizados = document.querySelector('#remover-finalizados');
   const ol = document.querySelector('#lista-tarefas');
-  const li = ol.children;
   finalizados.addEventListener('click', () => {
-    for (let index = 0; index < li.length; index += 1) {
-      if (li[index].classList.contains('completed')) {
-        ol.removeChild(li[index]);
-      }
+    const completed = document.querySelectorAll('.completed');
+    for (let index = 0; index < completed.length; index += 1) {
+      ol.removeChild(completed[index]);
     }
   });
 }
