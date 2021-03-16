@@ -62,3 +62,21 @@ btnRemoverFinalizadas.addEventListener('click', () => {
     list.removeChild(array[index]);
   }
 });
+
+const storage = localStorage;
+
+btnSalvaLista.addEventListener('click', () => {
+  storage.setItem('lista', list.innerHTML);
+});
+
+window.onload = () => {
+  list.innerHTML = storage.getItem('lista');
+  const listChild = list.children;
+  for (let index = 0; index < listChild.length; index += 1) {
+    const element = listChild[index];
+
+    element.addEventListener('click', selectLi);
+    element.addEventListener('dblclick', mark);
+  }
+};
+
