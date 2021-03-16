@@ -42,10 +42,23 @@ function reset() {
     li.innerHTML = '';
   });
 }
-
+function finalizados() {
+  const finalizados = document.querySelector('#remover-finalizados');
+  const ol = document.querySelector('#lista-tarefas');
+  const li = ol.children;
+  finalizados.addEventListener('click', () => {
+    for (let index = 0; index < li.length; index += 1) {
+      if (li[index].classList.contains('completed')) {
+        li[index].innerHTML = '';
+        console.log('oi');
+      }
+    }
+  });
+}
 window.onload = function () {
   adicionar();
   trocarCinza();
   doubleClick();
   reset();
+  finalizados();
 };
