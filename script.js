@@ -74,9 +74,9 @@ salvarItens.addEventListener('click', listaSa);
 // https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
 const desceItem = document.getElementById('mover-baixo');
 function descerItem() {
-  const descerLi = document.querySelector('.selected');
+  const descerLi = document.querySelector('.completed');
   if (ol.childElementCount > 0 && descerLi !== null && descerLi.nextElementSibling !== null) {
-    alert('tudo ok!');
+    // alert('tudo ok!');
     ol.insertBefore(descerLi.nextElementSibling, descerLi);
   }
 }
