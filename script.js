@@ -76,7 +76,7 @@ function criarTarefa() {
 	const botaoTarefa = document.getElementById('criar-tarefa');
 	const olId = document.getElementById('lista-tarefas');
 
-	botaoTarefa.addEventListener('click', function (event) {
+	botaoTarefa.addEventListener('click', function tarefaCriada(event) {
 		const itemLista = document.querySelector('#texto-tarefa');
 		let itemTarefa = document.createElement('li');
 		itemTarefa.classList.add('item-lista-tarefa');
@@ -92,7 +92,7 @@ criarTarefa();
 
 function alteraCor() {
 	const listaOrdenada = document.querySelector('#lista-tarefas');
-	listaOrdenada.addEventListener('click', function (event) {
+	listaOrdenada.addEventListener('click', function corAlterada(event) {
 		listaOrdenada.focus();
 		let itemCinza = document.querySelector('.corCinza')
 		if (itemCinza) {
@@ -105,7 +105,7 @@ alteraCor()
 
 function riscar() {
 	const listaOrdenada = document.querySelector('#lista-tarefas');
-	listaOrdenada.addEventListener('dblclick', function (event) {
+	listaOrdenada.addEventListener('dblclick', function riscarTarefa(event) {
 
 		if (event.target.classList.contains('completed')) {
 			event.target.classList.remove('completed');
@@ -119,7 +119,7 @@ riscar();
 
 function limparLista() {
 	const botaoLimpar = document.querySelector('#apaga-tudo');
-	botaoLimpar.addEventListener('click', function (event) {
+	botaoLimpar.addEventListener('click', function tarefaLimpadas(event) {
 		localStorage.clear()
 		const task = document.querySelectorAll('li');
 		for (i = 0; i < task.length; i += 1) {
@@ -131,7 +131,7 @@ limparLista();
 
 function limpaFinalizado() {
 	const botaoFinalizado = document.querySelector('#remover-finalizados');
-	botaoFinalizado.addEventListener('click', function (event) {
+	botaoFinalizado.addEventListener('click', function finalizadosRemovidos(event) {
 		const itensRiscados = document.querySelectorAll('.completed');
 		for (j = 0; j < itensRiscados.length; j += 1) {
 			itensRiscados[j].parentNode.removeChild(itensRiscados[j]);
@@ -142,7 +142,7 @@ limpaFinalizado();
 
 function salvarLista() {
 	const salvarTarefa = document.querySelector('#salvar-tarefas');
-	salvarTarefa.addEventListener('click', function (event) {
+	salvarTarefa.addEventListener('click', function listaSalva(event) {
 		const salvar = document.querySelector('ol').innerHTML;
 
 		localStorage.setItem('chave-salvar', salvar);
@@ -152,7 +152,7 @@ salvarLista();
 
 function moveDown() {
 	const moveDown = document.querySelector('#mover-baixo');
-	moveDown.addEventListener('click', function () {
+	moveDown.addEventListener('click', function moverBaixo() {
 
 		let itensListas = document.querySelectorAll('.item-lista-tarefa');
 
@@ -169,7 +169,7 @@ moveDown();
 
 function moveUp() {
 	const moveUp = document.querySelector('#mover-cima');
-	moveUp.addEventListener('click', function () {
+	moveUp.addEventListener('click', function moverCima() {
 
 		let itensListas = document.querySelectorAll('.item-lista-tarefa');
 
@@ -186,10 +186,10 @@ moveUp();
 
 function removeCinza() {
 	const idSelecionado = document.querySelector('#remover-selecionado')
-	idSelecionado.addEventListener('click', function () {
+	idSelecionado.addEventListener('click', function cinzaRemovido() {
 		let idItemList = document.querySelector('.corCinza');
-		if (idItemList){
-		idItemList.parentNode.removeChild(idItemList);
+		if (idItemList) {
+			idItemList.parentNode.removeChild(idItemList);
 		}
 	})
 }
