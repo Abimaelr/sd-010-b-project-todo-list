@@ -19,13 +19,12 @@ btn.addEventListener('click', adiciona);
 
 // se clicar em um item da lista, ele passa a ter o estilo CSS `background-color: rgb(128, 128, 128)
 function mudarCorAoclicar(e) {
-  const li = document.querySelectorAll('li');
-  for (let index = 0; index < li.length; index += 1) {
-    li[index].style.backgroundColor = '';
-    li[index].style.color = '';
+  const li = e;
+  const liSelecionado = document.querySelector('.selecionado');
+  if (liSelecionado !== null) {
+    liSelecionado.classList.remove('selecionado');
   }
-  e.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  e.target.style.color = 'white';
+  li.target.classList.add('selecionado');
 }
 ol.addEventListener('click', mudarCorAoclicar);
 
@@ -38,7 +37,6 @@ function riscarTexto(e) {
     itemRiscado.target.classList.add('completed');
   }
 }
-
 ol.addEventListener('dblclick', riscarTexto);
 
 // botão com id="apaga-tudo" que quando clicado apagar todos os itens da lista
@@ -79,7 +77,7 @@ salvarItens.addEventListener('click', listaSa);
 function sobeItem() {
   const sobeLi = document.getElementsByTagName('li');
   for (let index = 0; index < sobeLi.length; index += 1) {
-    if ((index !== 0) && ((sobeLi[index].classList.value).includes('completed'))) {
+    if ((index !== 0) && ((sobeLi[index].classList.value).includes('selecionado'))) {
       const item = sobeLi[index].outerHTML;
       sobeLi[index].outerHTML = sobeLi[index - 1].outerHTML;
       sobeLi[index - 1].outerHTML = item;
@@ -93,7 +91,7 @@ function descerItem() {
   const descerLi = document.getElementsByTagName('li');
   const li = descerLi.length;
   for (let index = li - 1; index >= 0; index -= 1) {
-    if ((index !== (li - 1)) && ((descerLi[index].classList.value).includes('completed'))) {
+    if ((index !== (li - 1)) && ((descerLi[index].classList.value).includes('selecionado'))) {
       // alert('tudo ok!');
       const item = descerLi[index].outerHTML;
       descerLi[index].outerHTML = descerLi[index + 1].outerHTML;
@@ -106,7 +104,7 @@ desceItem.addEventListener('click', descerItem);
 
 // remove selecionado
 function removeItemSelecionado() {
-  const itemSelect = document.getElementsByClassName('completed');
+  const itemSelect = document.getElementsByClassName('selecionado');
   while (itemSelect[0]) {
     itemSelect[0].parentNode.removeChild(itemSelect[0]);
   }

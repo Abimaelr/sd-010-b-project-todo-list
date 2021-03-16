@@ -67,3 +67,8 @@ footer {
 .completed {
   text-decoration: line-through solid black;
 }
+
+.selecionado {
+  background-color: rgb(128, 128, 128);
+  color: white;
+}
