@@ -3,6 +3,7 @@ const button = document.querySelector('#criar-tarefa');
 const input = document.querySelector('#texto-tarefa');
 const delAllButton = document.querySelector('#apaga-tudo');
 const delDoneButton = document.querySelector('#remover-finalizados');
+const delItemBut = document.querySelector('#remover-selecionado'); // gets Clear Item button
 // const delDonn = document.querySelectorAll('')
 
 // add a task to the Task List
@@ -116,3 +117,14 @@ function moveDown() {
 }
 
 moveDown();
+
+// remove selected item from list
+function delSelected() {
+  delItemBut.addEventListener('click', function () {
+    const selected = document.querySelector('.selectedItem');
+    console.log(selected);
+    selected.remove();
+  });
+}
+
+delSelected();
