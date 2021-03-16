@@ -47,3 +47,11 @@ window.addEventListener('keyup', (event) => {
     criarTarefa();
   }
 });
+
+btnLimpar.addEventListener('click', () => {
+  list.innerHTML = '';
+  // let array = document.querySelectorAll('.tarefa');
+  // for (let i = 0; i < array.length; i += 1) {
+  //   list.removeChild(array[i]);
+  // }
+});
