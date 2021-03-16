@@ -108,10 +108,10 @@ function moveUp() {
 }
 
 function moveDown() {
-  for (let index = 0; index < tasks.length; index += 1) {
+  for (let index = tasks.length - 1; index >= 0; index -= 1) {
     if (tasks[index].style.backgroundColor === background) {
-      if (tasks[index].nextElementSibling) {
-        tasks[index].parentNode.insertBefore(tasks[index].nextElementSibling, tasks[index]);
+      if (tasks[index].nextSibling) {
+        tasks[index].parentNode.insertBefore(tasks[index].nextSibling, tasks[index]);
       }
     }
   }
