@@ -2,3 +2,8 @@
 .itemSelected {
   background-color: rgb(128, 128, 128)
 }
+
+/* // <!-- Requisito 9 --> */
+.completed {
+  text-decoration: line-through;
+}
