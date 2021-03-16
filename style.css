@@ -48,12 +48,12 @@ li {
 }
 
 nav button {
-  background-color:rgba(25, 71, 158, 0.233);
+  background-color: rgba(25 , 71 , 158 , 0.233);
   border-radius: 5px;
 }
 
-nav button i{
-  color:rgb(3, 42, 126);
+nav button i {
+  color:rgb(3 , 42 , 126);
 }
 
 footer {
