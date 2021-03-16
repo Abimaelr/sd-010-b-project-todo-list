@@ -78,7 +78,7 @@ function sobeItem() {
   for (let index = 0; index < sobeLi.length; index += 1) {
     if (index !== 0 && sobeLi[index].classList.value.includes('completed')) {
       const item = sobeLi[index].outerHTML;
-      sobeLi[index].outerHTML = sobeLi[index - 1].outerHTML;
+      sobeLi[index].outerHTML = sobeLi[index + 1].outerHTML;
       sobeLi[index - 1].outerHTML = item;
     }
   }
@@ -93,7 +93,7 @@ function descerItem() {
     if (index !== (li - 1) && descerLi[index].classList.value.includes('completed')) {
       // alert('tudo ok!');
       const item = descerLi[index].outerHTML;
-      descerLi[index].outerHTML = descerLi[index + 1].outerHTML;
+      descerLi[index].outerHTML = descerLi[index - 1].outerHTML;
       descerLi[index + 1].outerHTML = item;
     }
   }
