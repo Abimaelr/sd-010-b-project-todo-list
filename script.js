@@ -1,3 +1,15 @@
+const inputText = document.querySelector('#texto-tarefa');
+const list = document.querySelector('#lista-tarefas');
+function addTask() {
+  const item = document.createElement('li');
+  item.className = 'item';
+  item.innerText = inputText.value;
+  list.appendChild(item);
+  inputText.value = '';
+  item.addEventListener('click', selectedItem);
+  item.addEventListener('dblclick', itemComplete);
+}
+
 function removeSelected() {
   const selection = document.querySelectorAll('.selected');
   for (let index = 0; index < selection.length; index += 1) {
@@ -16,18 +28,6 @@ function itemComplete(event) {
   } else {
     event.target.classList.toggle('completed');
   }
-}
-
-const inputText = document.querySelector('#texto-tarefa');
-const list = document.querySelector('#lista-tarefas');
-function addTask() {
-  const item = document.createElement('li');
-  item.className = 'item';
-  item.innerText = inputText.value;
-  list.appendChild(item);
-  inputText.value = '';
-  item.addEventListener('click', selectedItem);
-  item.addEventListener('dblclick', itemComplete);
 }
 
 function removeSelectedItem() {
