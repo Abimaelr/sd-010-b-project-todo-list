@@ -2,6 +2,7 @@ let task = document.getElementById('texto-tarefa');
 let addTask = document.getElementById('criar-tarefa');
 let list = document.getElementById('lista-tarefas');
 let clickItem = document.getElementsByClassName('listItem');
+let clear = document.getElementById('apaga-tudo');
 
 addTask.addEventListener('click', function(){  
   let newTask = document.createElement('li');
@@ -9,6 +10,7 @@ addTask.addEventListener('click', function(){
   list.appendChild(newTask).innerHTML = task.value;
   task.value = '';  
   changeColor();  
+  complet();
 });
 
 function changeColor() {
@@ -23,3 +25,13 @@ function changeColor() {
     });
   }
 }
+
+function complet() {
+  list.addEventListener('dblclick', function(event) {
+    event.target.classList.toggle('completed');
+  });  
+}
+complet();
+clear.addEventListener('click', function() {
+    list.innerHTML = '';
+});
