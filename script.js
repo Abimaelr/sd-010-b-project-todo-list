@@ -22,16 +22,9 @@ let listaTarefa = document.getElementById('lista-tarefas');
 listaTarefa.addEventListener('click', selecionarItem);
 
 function itemDuploClick(event) {
-  let duploClick = document.querySelector('.completed');
-  if (duploClick !== null) {
-    duploClick.classList.remove('completed');
-    event.target.classList.add('completed');
-  }
-  event.target.classList.add('completed');
-  duploClick.classList.remove('completed');
+ event.target.classList.toggle('completed');
 }
-let listaTa = document.getElementById('lista-tarefas');
-listaTa.addEventListener('dblclick', itemDuploClick);
+listaTarefa.addEventListener('dblclick', itemDuploClick);
 
 function LimpaLista() {
   let limpaTudo = document.getElementById('lista-tarefas');
