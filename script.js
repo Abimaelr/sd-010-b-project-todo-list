@@ -12,7 +12,7 @@ butaDicionarLista.addEventListener('click', createLiText);
 
 function selecionarItem(event) {
   let itemSelecionado = document.querySelector('.selected');
-  if (itemSelecionado) {
+  if (itemSelecionado !== null) {
     itemSelecionado.classList.remove('selected');
   }
   event.target.classList.add('selected');
@@ -23,7 +23,7 @@ listaTarefa.addEventListener('click', selecionarItem);
 
 function itemDuploClick(event) {
   let duploClick = document.querySelector('.completed');
-  if (duploClick) {
+  if (duploClick !== null) {
     duploClick.classList.remove('completed');
     event.target.classList.add('completed');
   }
