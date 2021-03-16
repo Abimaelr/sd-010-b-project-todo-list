@@ -31,3 +31,8 @@ header , p {
   display: flex;
   justify-content: center;
 }
+
+#texto-tarefa {
+  font-size: x-large;
+  min-inline-size: 40%;
+}
