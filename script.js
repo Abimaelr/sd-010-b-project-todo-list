@@ -101,8 +101,11 @@ function descerItem() {
 desceItem.addEventListener('click', descerItem);
 
 // remove selecionado
-const removeItemSel = document.querySelector('#remover-selecionado');
+const removeItemSel = document.getElementById('remover-selecionado');
 function removeItemSelecionado() {
-  document.querySelector('li').remove();
+  const itemSelect = document.getElementsByClassName('completed');
+  while (itemSelect[0]) {
+    itemSelect[0].parentNode.removeChild(itemSelect[0]);
+  }
 }
 removeItemSel.addEventListener('click', removeItemSelecionado);
