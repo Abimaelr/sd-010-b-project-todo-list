@@ -45,7 +45,9 @@ buttonLimpaTudo.addEventListener('click', LimpaLista);
 
 function excluirItemLista(event) {
   let elemento = document.querySelectorAll('li');
+  if(elemento){
   event.target.classList.value = elemento[0].remove('lista-tarefas');
+  }
 }
 
 
