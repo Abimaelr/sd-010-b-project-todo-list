@@ -3,6 +3,7 @@ const valueInput = document.getElementById('texto-tarefa');
 const btnCriarTarefa = document.getElementById('criar-tarefa');
 const olListaTarefas = document.getElementById('lista-tarefas');
 const btnLimpar = document.getElementById('apaga-tudo');
+const btnRemover = document.getElementById('remover-finalizados');
 
 // área das funções
 function alteraFundoParaCinza(e) {
@@ -24,9 +25,16 @@ function remCompleted(parameter) {
   remStyleCompleted.classList.remove('completed');
 }
 
-function apagaLista() {
+function apagaLista() { // --> enquanto olListaTarefa tiver filhos do typo node, ele irá apagar
   while (olListaTarefas.hasChildNodes()) {
     olListaTarefas.removeChild(olListaTarefas.firstChild);
+  }
+}
+
+function removerCompletos() {
+  const li = document.querySelectorAll('.completed');
+  for (let i = 0; i < li.length; i += 1) {
+    li[i].remove();
   }
 }
 
@@ -50,3 +58,5 @@ olListaTarefas.addEventListener('dblclick', (e) => {
 });
 
 btnLimpar.addEventListener('click', apagaLista);
+
+btnRemover.addEventListener('click', removerCompletos);
