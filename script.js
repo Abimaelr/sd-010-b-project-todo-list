@@ -76,7 +76,7 @@ salvarItens.addEventListener('click', listaSa);
 const subirItem = document.querySelector('#mover-cima');
 function sobeItem() {
   const sobeLi = document.querySelector('.completed');
-  if (ol.childElementCount > 0 && sobeLi !== null && sobeLi.previousElementSibling !== null) {
+  if (ol.childElementCount > 0) {
     ol.insertBefore(sobeLi, sobeLi.previousElementSibling);
   }
 }
@@ -85,7 +85,7 @@ subirItem.addEventListener('click', sobeItem);
 const desceItem = document.querySelector('#mover-baixo');
 function descerItem() {
   const descerLi = document.querySelector('.completed');
-  if (ol.childElementCount > 0 && descerLi !== null && descerLi.nextElementSibling !== null) {
+  if (ol.childElementCount > 0) {
     // alert('tudo ok!');
     ol.insertBefore(descerLi.nextElementSibling, descerLi);
   }
