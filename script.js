@@ -9,6 +9,12 @@ if (!task) {
     const task = document.getElementById("texto-tarefa")
     task = task.nodeValue;
     task.value = "";
-
 }
+if (className) {
+    listTask.className = className;
+}
+listTask.innerText = task
+listTask.addEventListener("click", changeSelectedTask);
+listTask.addEventListener("dblclick", changeCompletedTask);
+addTaskList.appendChild(ListTask);
 }
