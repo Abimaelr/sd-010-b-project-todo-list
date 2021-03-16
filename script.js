@@ -25,15 +25,19 @@ liColor.addEventListener('click', function (event) {
 })
 
 // <!-- Requisito 9 -->
-liColor.addEventListener('dblclick', function(event) {
-event.target.classList.toggle('completed');
+liColor.addEventListener('dblclick', function (event) {
+  event.target.classList.toggle('completed');
 })
 
+// <!-- Requisito 10 -->
+let clearList = document.getElementById('apaga-tudo');
 
+clearList.addEventListener('click', function () {
 
+  let lista = document.getElementById('lista-tarefas');
 
+  while (lista.firstChild) {
+    lista.removeChild(lista.firstChild);
+  }
 
-
-
-
-
+})
