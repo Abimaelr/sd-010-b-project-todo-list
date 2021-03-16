@@ -75,8 +75,9 @@ salvarItens.addEventListener('click', listaSa);
 const desceItem = document.getElementById('mover-baixo');
 function descerItem() {
   const descerLi = document.querySelector('.selected');
-  if (descerLi && descerLi.nextElementSibling) {
-    descerLi.parentNode.insertBefore(descerLi.nextElementSibling, descerLi);
+  if (ol.childElementCount > 0 && descerLi !== null && descerLi.nextElementSibling !== null) {
+    alert('tudo ok!');
+    ol.insertBefore(descerLi.nextElementSibling, descerLi);
   }
 }
 desceItem.addEventListener('click', descerItem);
