@@ -41,3 +41,14 @@ clearList.addEventListener('click', function () {
   }
 
 })
+
+// <!-- Requisito 11 -->
+let clearDone = document.getElementById('remover-finalizados');
+
+clearDone.addEventListener('click', function () {
+
+  let done = document.getElementsByClassName('completed');
+  for (let index = done.length - 1; index >= 0; index--) {
+    done[index].remove();
+  }
+})
