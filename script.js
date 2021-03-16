@@ -49,8 +49,7 @@ function finalizados() {
   finalizados.addEventListener('click', () => {
     for (let index = 0; index < li.length; index += 1) {
       if (li[index].classList.contains('completed')) {
-        li[index].innerHTML = '';
-        console.log('oi');
+        ol.removeChild(li[index]);
       }
     }
   });
