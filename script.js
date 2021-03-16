@@ -108,6 +108,7 @@ function moveUp() {
 }
 
 function moveDown() {
+  // Resolvido o problema do loop de repetição com ajuda do Abimael Albuquerque Rocha.
   for (let index = tasks.length - 1; index >= 0; index -= 1) {
     if (tasks[index].style.backgroundColor === background) {
       if (tasks[index].nextSibling) {
