@@ -47,6 +47,15 @@ li {
   list-style: none;
 }
 
+nav button {
+  background-color:rgba(25, 71, 158, 0.233);
+  border-radius: 5px;
+}
+
+nav button i{
+  color:rgb(3, 42, 126);
+}
+
 footer {
   background-color: aliceblue;
   text-align: center;

@@ -91,3 +91,10 @@ function descerItem() {
   }
 }
 desceItem.addEventListener('click', descerItem);
+
+// remove selecionado
+const removeItemSel = document.querySelector('#remover-selecionado');
+function removeItemSelecionado() {
+  document.querySelector('li').remove();
+}
+removeItemSel.addEventListener('click', removeItemSelecionado);
