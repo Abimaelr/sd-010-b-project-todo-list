@@ -4,6 +4,7 @@ const btnCriarTarefa = document.getElementById('criar-tarefa');
 const olListaTarefas = document.getElementById('lista-tarefas');
 const btnLimpar = document.getElementById('apaga-tudo');
 const btnRemover = document.getElementById('remover-finalizados');
+const btnSalvar = document.getElementById('salvar-tarefas');
 
 // área das funções
 function alteraFundoParaCinza(e) {
@@ -38,6 +39,16 @@ function removerCompletos() {
   }
 }
 
+function salvar() {
+  const itensASalvar = olListaTarefas.innerHTML;
+  localStorage.setItem('Salvo', itensASalvar);
+}
+
+function recuperaLista() {
+  const pegaSalva = localStorage.getItem('Salvo');
+  olListaTarefas.innerHTML = pegaSalva;
+}
+
 // eventos de chamada das funções
 btnCriarTarefa.addEventListener('click', () => {
   const liTarefa = document.createElement('li');
@@ -60,3 +71,7 @@ olListaTarefas.addEventListener('dblclick', (e) => {
 btnLimpar.addEventListener('click', apagaLista);
 
 btnRemover.addEventListener('click', removerCompletos);
+
+btnSalvar.addEventListener('click', salvar);
+
+recuperaLista();
