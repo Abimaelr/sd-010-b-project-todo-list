@@ -55,3 +55,10 @@ btnLimpar.addEventListener('click', () => {
   //   list.removeChild(array[i]);
   // }
 });
+
+btnRemoverFinalizadas.addEventListener('click', () => {
+  const array = document.querySelectorAll('.completed');
+  for (let index = 0; index < array.length; index += 1) {
+    list.removeChild(array[index]);
+  }
+});
