@@ -26,23 +26,20 @@ function itemDuploClick(event) {
 }
 listaTarefa.addEventListener('dblclick', itemDuploClick);
 
-function LimpaLista() {
+function limpaLista() {
   let limpaTudo = document.getElementById('lista-tarefas');
   while (limpaTudo.firstChild) {
     limpaTudo.removeChild(limpaTudo.lastChild);
   }
 }
-
 let buttonLimpaTudo = document.getElementById('apaga-tudo');
-buttonLimpaTudo.addEventListener('click', LimpaLista);
+buttonLimpaTudo.addEventListener('click', limpaLista);
 
-function excluirItemLista(event) {
-  let elemento = document.querySelectorAll('li');
-  if(elemento){
-  event.target.classList.value = elemento[0].remove('lista-tarefas');
+function excluirItemCompletados() {
+  while(document.querySelector('.completed')){
+    document.querySelector('.completed').remove();
   }
+  
 }
-
-
 let buttonExcluir = document.getElementById('remover-finalizados');
-buttonExcluir.addEventListener('click', excluirItemLista);
+buttonExcluir.addEventListener('click', excluirItemCompletados);
