@@ -81,3 +81,13 @@ function descerItem() {
   }
 }
 desceItem.addEventListener('click', descerItem);
+
+// https://developer.mozilla.org/en-US/docs/Web/API/Element/previousElementSibling
+const subirItem = document.getElementById('mover-cima');
+function sobeItem() {
+  const sobeLi = document.querySelector('.completed');
+  if (ol.childElementCount > 0 && sobeLi !== null && sobeLi.previousElementSibling !== null) {
+    ol.insertBefore(sobeLi, sobeLi.previousElementSibling);
+  }
+}
+subirItem.addEventListener('click', sobeItem);
