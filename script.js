@@ -76,7 +76,7 @@ const subirItem = document.getElementById('mover-cima');
 function sobeItem() {
   const sobeLi = document.getElementsByTagName('li');
   for (let index = 0; index < sobeLi.length; index += 1) {
-    if ((index !== 0) && ((sobeLi[index].classList.value).includes('completed'))) {
+    if ((index !== 0) && ((sobeLi[index].classList.value).includes('li'))) {
       const item = sobeLi[index].outerHTML;
       sobeLi[index].outerHTML = sobeLi[index - 1].outerHTML;
       sobeLi[index - 1].outerHTML = item;
@@ -90,7 +90,7 @@ function descerItem() {
   const descerLi = document.getElementsByTagName('li');
   const li = descerLi.length;
   for (let index = li - 1; index >= 0; index -= 1) {
-    if ((index !== (li - 1)) && ((descerLi[index].classList.value).includes('completed'))) {
+    if ((index !== (li - 1)) && ((descerLi[index].classList.value).includes('li'))) {
       // alert('tudo ok!');
       const item = descerLi[index].outerHTML;
       descerLi[index].outerHTML = descerLi[index + 1].outerHTML;
@@ -104,7 +104,7 @@ desceItem.addEventListener('click', descerItem);
 const removeItemSel = document.getElementById('remover-selecionado');
 function removeItemSelecionado() {
   const itemSelect = document.getElementsByClassName('completed');
-  while (itemSelect[0]) {
+  if (itemSelect[0]) {
     itemSelect[0].parentNode.removeChild(itemSelect[0]);
   }
 }
