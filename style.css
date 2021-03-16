@@ -1,6 +1,5 @@
 * {
   font-family: 'Handlee';
-  background-color: #B3A394;
 }
 
 header {
@@ -12,4 +11,8 @@ header {
 
 p {
   text-align: center;
+}
+
+.color {
+  background-color: rgb(128, 128, 128);
 }
