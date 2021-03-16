@@ -4,14 +4,14 @@
 }
 
 body {
-  background-color: #4C84B0;
+  background-color: #4c84b0;
 }
 
 main {
-  background-color: #EBECED;
+  background-color: #ebeced;
   border-radius: 10px;
   min-height: 220px;
-  margin: 100px auto 0 auto;
+  margin: 100px auto 0;
   width: 700px;
   padding-top: 40px;
   padding-left: 40px;
@@ -25,7 +25,7 @@ button {
   border-radius: 60px;
   text-align: center;
   font-weight: bold;
-  text-shadow: 2px 0 12px rgb(128, 128, 128);
+  text-shadow: 2px 0 12px rgb(128 , 128 , 128);
 }
 
 button:focus {
@@ -40,17 +40,16 @@ button:hover {
 input {
   display: inline-block;
   margin: 11px 5px;
-  float: left;
   height: 20px;
   min-width: 160px;
 }
 
 input:focus {
-  outline-color: #4C84B0;  
+  outline-color: #4c84b0;
 }
 
 ol {
-  margin: 10px 0 10px 0;
+  margin: 10px 0;
   min-height: 20px;
 
 }
@@ -60,15 +59,15 @@ footer {
   height: 35px;
   position: relative;
   bottom: 0;
-  padding: 30px 0 20px 0;
-  color: #EBECED;
+  padding: 30px 0 20px;
+  color: #ebeced;
   font-weight: bold;
   text-align: center;
   text-shadow: 2px 0 12px rgb(128, 128, 128);
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid rgb(0 , 0 , 0);
 }
 
 .fa {
@@ -79,7 +78,7 @@ footer {
 
 .fa:hover {
   background-color: #f1f1f1;
-  color: rgba(0, 0, 0, 0.774);
+  color: rgba(0 , 0 , 0 , 0.774);
 }
 
 .fa-times {
@@ -87,16 +86,17 @@ footer {
 }
 
 .fa-times:hover {
-  color: rgba(255, 0, 0, 0.596);
+  color: rgba(255 , 0 , 0 , 0.596);
 }
 
 #container-input {
   min-height: 40px;
 }
 
-#container-buttons{
+#container-buttons {
   padding-bottom: 30px;
 }
+
 #criar-tarefa {
   display: inline-block;
 }
@@ -106,13 +106,9 @@ footer {
   margin: 10px 0;
 }
 
-#criar-tarefa {
-  display: inline-block;
-}
-
 #criar-tarefa , #remover-finalizados {
-  background-color: #D3A590;
-  color: #EBECED;
+  background-color: #d3a590;
+  color: #ebeced;
 }
 
 #criar-tarefa:hover , #remover-finalizados:hover {
@@ -120,8 +116,8 @@ footer {
 }
 
 #apaga-tudo {
-  background-color: #C85250;
-  color: #EBECED;
+  background-color: #c85250;
+  color: #ebeced;
 }
 
 #apaga-tudo:hover {
@@ -129,8 +125,8 @@ footer {
 }
 
 #salvar-tarefas {
-  background-color: #4C84B0;
-  color: #EBECED;
+  background-color: #4c84b0;
+  color: #ebeced;
 }
 
 #salvar-tarefas:hover {
