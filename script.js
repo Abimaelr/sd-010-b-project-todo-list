@@ -29,13 +29,17 @@ function mudarCorAoclicar(e) {
 }
 ol.addEventListener('click', mudarCorAoclicar);
 
-// Clicar duas vezes em um item, faz com que ele seja riscado - https://developer.mozilla.org/en-US/docs/Web/API/Element/dblclick_event
-function riscarTexto() {
-  ol.addEventListener('dblclick', function (e) {
-    e.target.classList.toggle('completed');
-  });
+// // Clicar duas vezes em um item, faz com que ele seja riscado - https://developer.mozilla.org/en-US/docs/Web/API/Element/dblclick_event
+function riscarTexto(e) {
+  const itemRiscado = e;
+  if ((itemRiscado.target.classList.value).includes('completed')) {
+    itemRiscado.target.classList.remove('completed');
+  } else {
+    itemRiscado.target.classList.add('completed');
+  }
 }
-riscarTexto();
+
+ol.addEventListener('dblclick', riscarTexto);
 
 // botão com id="apaga-tudo" que quando clicado apagar todos os itens da lista
 const apagarTudo = document.getElementById('apaga-tudo');
