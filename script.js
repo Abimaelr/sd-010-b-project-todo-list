@@ -98,7 +98,7 @@ const upButton = document.querySelector('#mover-cima');
 const downButton = document.querySelector('#mover-baixo');
 
 function moveUp() {
-  for (let index = 0; index < tasks.length; index +=1) {
+  for (let index = 0; index < tasks.length; index += 1) {
     if (tasks[index].style.backgroundColor === background) {
       if (tasks[index].previousElementSibling) {
         tasks[index].parentNode.insertBefore(tasks[index], tasks[index].previousElementSibling);
@@ -116,9 +116,6 @@ function moveDown() {
     }
   }
 }
-
-upButton.addEventListener('click', moveUp);
-downButton.addEventListener('click', moveDown);
 
 // 14. Botão que remove a tarefa selecionada:
 const selectedButton = document.querySelector('#remover-selecionado');
@@ -140,4 +137,6 @@ deleteButton.addEventListener('click', deleteAllItems);
 deleteCompletedButton.addEventListener('click', removeCompleted);
 saveTasks.addEventListener('click', saveTasksStatus);
 selectedButton.addEventListener('click', removeSelected);
+upButton.addEventListener('click', moveUp);
+downButton.addEventListener('click', moveDown);
 window.onload = recoverSavedTasks();
