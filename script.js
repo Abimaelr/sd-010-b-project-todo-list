@@ -3,10 +3,10 @@ const creatTask = document.querySelector('#criar-tarefa');
 creatTask.addEventListener('click', addTask);
 
 function addTask(event, task, className) {
-    const addTaskList = document.getElementById("lista-tarefas");
+    const addTaskList = document.querySelector("#lista-tarefas");
     const listTask = document.createElement("li")
 if (!task) {
-    const task = document.getElementById("texto-tarefa")
+    const task = document.querySelector("#texto-tarefa")
     task = task.nodeValue;
     task.value = "";
 }
