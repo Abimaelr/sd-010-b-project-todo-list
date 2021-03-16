@@ -71,6 +71,7 @@ salvarItens.addEventListener('click', listaSa);
 
 // dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
 // https://developer.mozilla.org/pt-BR/docs/Web/API/Element/outerHTML
+// https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList
 const subirItem = document.getElementById('mover-cima');
 function sobeItem() {
   const sobeLi = document.getElementsByTagName('li');
@@ -87,8 +88,9 @@ subirItem.addEventListener('click', sobeItem);
 const desceItem = document.getElementById('mover-baixo');
 function descerItem() {
   const descerLi = document.getElementsByTagName('li');
-  for (let index = 0; index < descerLi; index -= 1) {
-    if (index !== (descerLi[index - 1]) && descerLi[index].classList.value.includes('completed')) {
+  const li = descerLi.length;
+  for (let index = li - 1; index >= 0; index -= 1) {
+    if (index !== (li - 1) && descerLi[index].classList.value.includes('completed')) {
       // alert('tudo ok!');
       const item = descerLi[index].outerHTML;
       descerLi[index].outerHTML = descerLi[index + 1].outerHTML;
