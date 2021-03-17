@@ -1,7 +1,8 @@
-const createTask = document.querySelector('#criar-tarefa');
+
 const clearTasks = document.querySelector('#apaga-tudo');
 const removeCompletedButton = document.querySelector('#remover-finalizados');
- 
+const createTask = document.querySelector('#criar-tarefa');
+
 createTask.addEventListener('click', addTask);
 clearTasks.addEventListener('click', clearTasks);
 removeCompletedButton.addEventListener('click', removeCompleted);
