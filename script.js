@@ -21,7 +21,6 @@ function changeColor(event) {
 
 function dblClick(event) {
   let eventClick = event.target;
-  let arr = document.getElementsByClassName('item-task');
   if (eventClick) {
     if (eventClick.classList.contains('completed')) {
       eventClick.classList.remove('completed');
@@ -31,9 +30,18 @@ function dblClick(event) {
   }
 }
 
+function clearAll() {
+  let taskListArr = document.getElementById('lista-tarefas');
+  let taskArr = document.getElementsByClassName('item-task');
+
+  for (let i = 0; i < taskArr.length; i++) {
+    taskListArr.removeChild(taskListArr.childNodes[i]);
+  }
+}
 
 window.onload = function() {
 document.getElementById('criar-tarefa').addEventListener('click', newItem);
 document.getElementById('lista-tarefas').addEventListener('click', changeColor);
 document.getElementById('lista-tarefas').addEventListener('dblclick', dblClick);
+document.getElementById('apaga-tudo').addEventListener('click', clearAll);
 }
