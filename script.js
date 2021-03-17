@@ -4,7 +4,7 @@ window.onload = () => {
     for (let i = 0; i < tarefas.length; i += 1) {
       const listaTarefas = document.querySelector('#lista-tarefas');
       const novaTarefa = document.createElement('li');
-      novaTarefa.innerText = tarefas[i][0];
+      [novaTarefa.innerText] = tarefas[i];
       novaTarefa.className = 'tarefa';
       if (tarefas[i][1]) {
         novaTarefa.classList.add('completed');
