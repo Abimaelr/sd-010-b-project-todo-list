@@ -43,14 +43,37 @@ function tarefas(){
 }
 }
 
-list.addEventListener('click', clickedList);
+//list.addEventListener('click', clickedList);
 
-function clickedList(){
-    let liItem = document.getElementsByTagName('li')
-    for(let i = 0; i < liItem.length; i += 1){
-        liItem[i].style.backgroundColor = 'rgb(128, 128, 128)';
-    }
-}  
+// function clickedList(){
+//     let liItem = document.getElementsByTagName('li')
+//     for(let i = 0; i < liItem.length; i += 1){
+//        let t = liItem[i].style.backgroundColor = 'rgb(128, 128, 128)';
+//        if(t.sybackgroundColor == 'rgb(128, 128, 128'){
+//        }
+//     }
+// }
+
+
+function createNewTask() {
+    const newTaskBtn = document.getElementById('criar-tarefa');
+    const tasksList = document.getElementById('lista-tarefas');
+    const taskText = document.getElementById('texto-tarefa');
+    newTaskBtn.addEventListener('click', () => {
+      const newTask = document.createElement('li');
+      newTask.innerText = taskText.value;
+      tasksList.appendChild(newTask);
+      newTask.addEventListener('click', (event) => {
+        const allLis = document.getElementsByTagName('li');
+        for (let i = 0; i < allLis.length; i += 1) {
+          allLis[i].style.backgroundColor = 'white';
+        }
+        event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+      });
+      taskText.value = '';
+    });
+  }
+  createNewTask();
 
 function clear() {
     document.getElementById('texto-tarefa').value = '';
@@ -59,11 +82,10 @@ function clear() {
 btnDel.addEventListener('click', Deletar);
 function Deletar(){
         item.innerHTML = "";
-   }
-
-
-
+}
 tarefas();
 tarBtn();
-clickedList();
+//clickedList();
 Deletar();
+//selection();
+      
