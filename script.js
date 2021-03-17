@@ -3,6 +3,7 @@ const lista = document.getElementById('lista-tarefas');
 const tarefas = document.getElementById('texto-tarefa');
 const addButton = document.getElementById('criar-tarefa');
 const deleteButton = document.getElementById('apaga-tudo');
+const removeButton = document.getElementById('remover-finalizados');
 const PAINT = 'paintSelected';
 //const LINE = 'completed';
 
@@ -25,12 +26,20 @@ addButton.addEventListener('click', function() {
     itemSelected.classList.add(PAINT);    
   })
   lista.addEventListener('dblclick', function(evt) {
-    const completedTask = evt.target;
-    completedTask.classList.toggle('completed');
+    // const completedTask = evt.target;
+    evt.target.classList.toggle('completed');
   })
 });
 
 deleteButton.addEventListener('click', clearAll);
+removeButton.addEventListener('click', removeCompleted)
+
+function removeCompleted() {
+  const completed = document.querySelectorAll('li.completed');
+  for (index = 0; index < completed.length; index += 1) {
+    lista.removeChild(completed[index]);
+  }
+}
 
 function clearAll() {
   lista.innerHTML = '';  
