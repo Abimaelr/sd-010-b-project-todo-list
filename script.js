@@ -1,18 +1,16 @@
-window.onload = () => {
-  const tarefas = JSON.parse(localStorage.getItem('tarefas'));
-  if (tarefas != null) {
-    for (let i = 0; i < tarefas.length; i += 1) {
-      const listaTarefas = document.querySelector('#lista-tarefas');
-      const novaTarefa = document.createElement('li');
-      [novaTarefa.innerText] = tarefas[i];
-      novaTarefa.className = 'tarefa';
-      if (tarefas[i][1]) {
-        novaTarefa.classList.add('completed');
-      }
-      listaTarefas.appendChild(novaTarefa);
+const tarefas = JSON.parse(localStorage.getItem('tarefas'));
+if (tarefas != null) {
+  for (let i = 0; i < tarefas.length; i += 1) {
+    const listaTarefas = document.querySelector('#lista-tarefas');
+    const novaTarefa = document.createElement('li');
+    [novaTarefa.innerText] = tarefas[i];
+    novaTarefa.className = 'tarefa';
+    if (tarefas[i][1]) {
+      novaTarefa.classList.add('completed');
     }
+    listaTarefas.appendChild(novaTarefa);
   }
-};
+}
 
 document.addEventListener('click', (e) => {
   const event = e;

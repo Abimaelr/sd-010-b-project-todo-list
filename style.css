@@ -55,8 +55,8 @@ nav {
 button {
   outline: none;
   border-radius: 2px;
-  background-image: linear-gradient(to bottom right, 
-rgba(255 , 255 , 255 , 0.3) , rgba(255 , 255 , 255 , 0));
+  background-image: linear-gradient(to bottom right , 
+  rgba(255 , 255 , 255 , 0.3) , rgba(255 , 255 , 255 , 0));
   font-family: Quicksand, sans-serif;
   font-size: 16px;
   cursor: pointer;
