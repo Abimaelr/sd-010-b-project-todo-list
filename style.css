@@ -1,7 +1,3 @@
-* {
-  margin: 0;
-}
-
 .center {
   text-align: center;
 }
@@ -12,4 +8,15 @@
 
 .data {
   margin-top: 30px;
+}
+
+ol {
+  width: 30%;
+  margin-left: 46%;
+}
+
+ol li {
+  margin: 0;
+  font-size: 20px;
+  text-align: left;
 }
