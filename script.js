@@ -1,9 +1,8 @@
-const listaTarefas;
 window.onload = () => {
   const tarefas = JSON.parse(localStorage.getItem('tarefas'));
   if (tarefas != null) {
     for (let i = 0; i < tarefas.length; i += 1) {
-      listaTarefas = document.querySelector('#lista-tarefas');
+      const listaTarefas = document.querySelector('#lista-tarefas');
       const novaTarefa = document.createElement('li');
       novaTarefa.innerText = tarefas[i][0];
       novaTarefa.className = 'tarefa';
@@ -16,13 +15,13 @@ window.onload = () => {
 };
 
 document.addEventListener('click', (e) => {
+  let event = e;
   if (event.target.classList.contains('tarefa')) {
     const tarefas = document.querySelectorAll('.tarefa');
     for (let i = 0; i < tarefas.length; i += 1) {
       tarefas[i].classList.remove('selected');
       tarefas[i].style.backgroundColor = null;
     }
-    let event = e;
     event.target.classList.add('selected');
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
@@ -39,7 +38,7 @@ document.addEventListener('dblclick', (event) => {
 });
 
 document.getElementById('criar-tarefa').onclick = () => {
-  listaTarefas = document.querySelector('#lista-tarefas');
+  const listaTarefas = document.querySelector('#lista-tarefas');
   const novaTarefa = document.createElement('li');
   novaTarefa.innerText = document.getElementById('texto-tarefa').value;
   novaTarefa.className = 'tarefa';
@@ -57,7 +56,7 @@ document.getElementById('remover-finalizados').onclick = () => {
 };
 
 document.getElementById('apaga-tudo').onclick = () => {
-  listaTarefas = document.querySelector('#lista-tarefas');
+  const listaTarefas = document.querySelector('#lista-tarefas');
   while (listaTarefas.hasChildNodes()) {
     listaTarefas.removeChild(listaTarefas.firstChild);
   }
@@ -82,7 +81,7 @@ document.getElementById('salvar-tarefas').onclick = () => {
 document.getElementById('mover-cima').onclick = () => {
   const tarefa = document.querySelector('.selected');
   if (tarefa !== null) {
-    listaTarefas = document.querySelector('#lista-tarefas');
+    const listaTarefas = document.querySelector('#lista-tarefas');
     if (tarefa !== listaTarefas.firstChild) {
       listaTarefas.insertBefore(tarefa, tarefa.previousSibling);
     }
@@ -92,7 +91,7 @@ document.getElementById('mover-cima').onclick = () => {
 document.getElementById('mover-baixo').onclick = () => {
   const tarefa = document.querySelector('.selected');
   if (tarefa !== null) {
-    listaTarefas = document.querySelector('#lista-tarefas');
+    const listaTarefas = document.querySelector('#lista-tarefas');
     if (tarefa !== listaTarefas.lastChild) {
       listaTarefas.insertBefore(tarefa, tarefa.nextSibling.nextSibling);
     }
@@ -102,7 +101,7 @@ document.getElementById('mover-baixo').onclick = () => {
 document.getElementById('remover-selecionado').onclick = () => {
   const tarefa = document.querySelector('.selected');
   if (tarefa !== null) {
-    listaTarefas = document.querySelector('#lista-tarefas');
+    const listaTarefas = document.querySelector('#lista-tarefas');
     listaTarefas.removeChild(tarefa);
   }
 };
