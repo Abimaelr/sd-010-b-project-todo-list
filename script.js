@@ -5,9 +5,11 @@ function botao() {
   let listapai = document.querySelector("#lista-tarefas");
   bt.addEventListener("click", function() {
     let lista = document.createElement("li");
+    lista.className = ("tarefas")
     lista.innerHTML = inputtexto.value
     listapai.appendChild(lista)
     inputtexto.value = "";
+
 
   })
 }
@@ -30,3 +32,38 @@ function selecionandocores() {
   })
 }
 selecionandocores()
+
+function completando() {
+  let lista = document.getElementById('lista-tarefas');
+
+
+  function taskcompleta(event) {
+    event.target.classList.toggle('completed');
+  }
+  lista.addEventListener('dblclick', taskcompleta);
+}
+completando();
+
+function btDeletarTudo() {
+  let botaoDeletar = document.getElementById("limpaTudo")
+  let ol = document.getElementById("lista-tarefas")
+  botaoDeletar.addEventListener('click', apagaTudo);
+
+  function apagaTudo() {
+    ol.innerHTML = "";
+  }
+}
+btDeletarTudo()
+
+
+
+function limpandocompletas() {
+  let btLimpaCompleta = document.getElementById("limparCompletas");
+  btLimpaCompleta.addEventListener("click", function() {
+    if (document.querySelector('.completed')) {
+      document.querySelector('.completed').remove();
+    }
+
+  })
+}
+limpandocompletas()
