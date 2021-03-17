@@ -2,8 +2,14 @@
 const inputBox = document.querySelector('#texto-tarefa');
 const addButton = document.querySelector('#criar-tarefa');
 const orderedList = document.querySelector('#lista-tarefas');
+const clearListButton = document.querySelector('#remover-finalizados');
 
 // ----------------------------------------------------------------------------
+
+// Função "Limpa Lista":
+function clearList() {
+  orderedList.innerHTML = '';
+}
 
 // Função "Item Focado": Marca item selecionado com cor GRAY (adiciona ClassName=selected-list-item) e remove do selcionado, se houver.
 function focusedItem(li) {
@@ -38,16 +44,21 @@ function listItemsListening() {
   }
 }
 
-// Função "Insere Item lista": Insere elemento <li>, dentro da <ol>, com conteúdo do inputBox.
+// Função "Insere Item lista": Se campo não vazio, insere elemento <li> dentro da <ol>, com conteúdo do campo <inputBox>.
 function insertListItem() {
-  const newListItem = document.createElement('li');
-  newListItem.innerText = inputBox.value;
-  orderedList.appendChild(newListItem);
-  inputBox.value = '';
-  listItemsListening();
+  if (inputBox.value !== '') {
+    const newListItem = document.createElement('li');
+    newListItem.innerText = inputBox.value;
+    orderedList.appendChild(newListItem);
+    inputBox.value = '';
+    listItemsListening();
+  } else {
+    alert('Olá! Voçê precisa informar um nome para a Tarefa!');
+  }
 }
 
 // ----------------------------------------------------------------------------
 
 // Escuta click no botão Adicionar e chama função "Insere Item Lista"
 addButton.addEventListener('click', insertListItem);
+clearListButton.addEventListener('click', clearList);
