@@ -40,8 +40,8 @@ function tarBtn(){
      let addIt = document.createElement('li');
      item.appendChild(addIt).innerText = tasks;
      clear();    
- }
- }
+    }
+}
 
 list.addEventListener('click', clickedList);
 
@@ -54,6 +54,7 @@ list.addEventListener('click', clickedList);
        event.target.style.backgroundColor = 'rgb(128, 128, 128)';
     })
 };
+    clear();
 
 function clear() {
     document.getElementById('texto-tarefa').value = '';
@@ -63,8 +64,8 @@ btnDel.addEventListener('click', Deletar);
 function Deletar(){
         item.innerHTML = "";
 }
+Deletar();
 tarefas();
 tarBtn();
-Deletar();
-clear();
+
       
