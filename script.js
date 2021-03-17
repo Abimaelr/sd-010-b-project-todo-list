@@ -63,6 +63,35 @@ function changeTaskBackgroundColor(event) {
 }
 
 /*
+   Essa função recebe o evento disparado por um elemento da classe task e obtem esse elemento. Caso esteja riscada (completada), retira a classe completed dela. Caso contrário, acrescenta a classe completed ao elemento que disparou o evento.
+  */
+function taskCompletedOrNot(event) {
+  const task = event.target; // armazena o elemento task que disparou o evento
+
+  // Se task estiver riscada (completada), retira a classe completed dela. Caso contrário, acrescenta a classe completed à task.
+  task.classList.toggle('completed');
+}
+
+/*
+   Essa função executa a configuração relacionada aos eventos, como por exemplo, escutadores de eventos.
+  */
+function setupEvents() {
+  // obtem o elemento de id criar-tarefa e armazena em button
+  const button = document.querySelector('#criar-tarefa');
+
+  // adiciona um escutador de evento click que dispara a function insertTask para elemento de id criar-tarefa
+  button.addEventListener('click', insertTask);
+
+  // obtem o elemento ol e armazena em taskList
+  const taskList = document.querySelector('#lista-tarefas');
+
+  // adiciona um escutador de eventos "click" que dispara a function changeTaskBackgroundColor ao pai dos elementos task (elemento ol)
+  taskList.addEventListener('click', changeTaskBackgroundColor);
+
+  // adiciona um escutador de eventos "dblclick" que dispara a function taskCompletedOrNot ao pai dos elementos task (elemento ol)
+  taskList.addEventListener('dblclick', taskCompletedOrNot);
+}
+/*
    Essa função executa a function init para carregar valores e adicionar escutador de evento click que dispara a function insertTask.
 
    Material consultado sobre o loop forEach
@@ -73,27 +102,6 @@ function changeTaskBackgroundColor(event) {
    https://www.w3schools.com/js/js_arrow_function.asp
   */
 window.onload = function init() {
-  // define uma função init para carregar valores e adicionar escutador de evento click
-
-  // obtem o elemento de id criar-tarefa e armazena em button
-  const button = document.querySelector('#criar-tarefa');
-
-  // adiciona um escutador de evento click que dispara a function insertTask para elemento de id criar-tarefa
-  button.addEventListener('click', insertTask);
-
-  // obtem o elemento ol e armazena em taskList
-  const taskList = document.querySelector('#lista-tarefas');
-
-  // para cada task da lista
-  taskList.addEventListener('click', changeTaskBackgroundColor);
+  // define uma função init para carregar valores e realizar setup relacionado a eventos
+  setupEvents(); // realiza setup relacionado a eventos.
 };
-
-//     // obtem uma lista de elementos 'task' e armazena em elementsList
-// const taskElementsList = document.querySelectorAll('.task');
-
-// // para cada task da lista
-// taskElementsList.forEach((task) => {
-//   const t = task;
-//   // adiciona um escutador de eventos "click" que dispara a function changeTaskBackgroundColor
-//   t.addEventListener('click', changeTaskBackgroundColor);
-// });
