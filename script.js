@@ -21,7 +21,13 @@ list.appendChild(item);
 
 let btn = document.createElement('button');
 btn.id = 'criar-tarefa';
+btn.textContent = 'Clique aqui';
 ent.appendChild(btn); 
+
+let btnDel = document.createElement('button');
+btnDel.id = 'apaga-tudo';
+btnDel.textContent = 'Apagar Itens';
+btn.appendChild(btnDel);
 
 function tarBtn(){
     let btn = document.getElementById('criar-tarefa');
@@ -50,9 +56,14 @@ function clear() {
     document.getElementById('texto-tarefa').value = '';
 }
 
+btnDel.addEventListener('click', Deletar);
+function Deletar(){
+        item.innerHTML = "";
+   }
 
 
 
 tarefas();
 tarBtn();
 clickedList();
+Deletar();
