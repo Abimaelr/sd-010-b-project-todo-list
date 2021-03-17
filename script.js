@@ -38,6 +38,10 @@ function addTask(event, taskName, className) {
   listItem.addEventListener('dblclick', changeCompletedTask);
   taskList.appendChild(listItem);
 }
+
 function clearTasks() {
   const taskList = document.querySelector('#lista-tarefas');
-  while (taskList.firstElementChild)
+  while (taskList.firstElementChild)  {
+    taskList.removeChild(taskList.firstElementChild);
+  }
+}
