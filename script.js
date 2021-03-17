@@ -2,10 +2,18 @@
 const inputBox = document.querySelector('#texto-tarefa');
 const addButton = document.querySelector('#criar-tarefa');
 const orderedList = document.querySelector('#lista-tarefas');
-const clearListButton = document.querySelector('#remover-finalizados');
+const clearListButton = document.querySelector('#apaga-tudo');
+const clearCompletedItemButton = document.querySelector('#remover-finalizados');
 
 // ----------------------------------------------------------------------------
 
+// Referência: https://pt.stackoverflow.com/a/439938
+// Função "Limpa Itens Completados": Remove item por item se className = '.complete'.
+function clearCompletedItems() {
+  document.querySelectorAll('.completed').forEach(e => e.remove());
+}
+
+// Referência: https://stackoverflow.com/a/18795074/14683615
 // Função "Limpa Lista":
 function clearList() {
   orderedList.innerHTML = '';
@@ -62,3 +70,4 @@ function insertListItem() {
 // Escuta click no botão Adicionar e chama função "Insere Item Lista"
 addButton.addEventListener('click', insertListItem);
 clearListButton.addEventListener('click', clearList);
+clearCompletedItemButton.addEventListener('click', clearCompletedItems);
