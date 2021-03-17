@@ -9,7 +9,7 @@ function clicar() {
     list.textContent = texto.value;
     listagem.appendChild(list);
     texto.value = '';
-    catchText.focus();
+    texto.focus();
   } else {
     alert('Digite um item');
     texto.focus();
