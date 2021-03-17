@@ -33,7 +33,8 @@ function tarefas(){
     if (tasks !== '') {
     let addIt = document.createElement('li');
     item.appendChild(addIt).innerText = tasks;
-    }
+    clear();    
+}
 }
 
 list.addEventListener('click', clickedList);
@@ -55,4 +56,3 @@ function clear() {
 tarefas();
 tarBtn();
 clickedList();
-//clear();
