@@ -19,9 +19,8 @@ changeClass.addEventListener('click', function(evt) {
     // https://www.w3schools.com/jsref/prop_element_classlist.asp
     if(selected != null){
         document.querySelector('.selected').classList.remove('selected');
-    } else {
+    } 
         evt.target.classList.add('selected')
-    }
 })
 }
 changeColor()
