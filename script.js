@@ -34,3 +34,14 @@ function completed() {
 }
 completed()
 
+function removeLi() {
+    let getButton = document.querySelector('#apaga-tudo')
+    getButton.addEventListener('click', function(){
+        let getLis = document.querySelectorAll('#lista-tarefas>li')
+        for(let index = 0; index < getLis.length ; index+=1){
+            let li = getLis[index]
+            li.parentNode.removeChild(li)
+        }
+    })
+}
+removeLi()
