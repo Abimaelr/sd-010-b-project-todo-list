@@ -3,10 +3,11 @@ const valueInput = document.getElementById('texto-tarefa');
 const btnCriarTarefa = document.getElementById('criar-tarefa');
 const olListaTarefas = document.getElementById('lista-tarefas');
 const btnLimpar = document.getElementById('apaga-tudo');
-const btnRemover = document.getElementById('remover-finalizados');
+const btnFinalizar = document.getElementById('remover-finalizados');
 const btnSalvar = document.getElementById('salvar-tarefas');
 const btnMoverCima = document.getElementById('mover-cima');
 const btnMoverBaixo = document.getElementById('mover-baixo');
+const btnRemover = document.getElementById('remover-selecionado');
 
 // área das funções
 function alteraFundoParaCinza(e) {
@@ -72,6 +73,15 @@ function moverParaBaixo() {
   }
 }
 
+function removerSelecionado() {
+  const liSelecionado = document.querySelectorAll('.tarefa');
+  for (let index = 0; index < liSelecionado.length; index += 1) {
+    if (liSelecionado[index].classList.contains('selected')) {
+      liSelecionado[index].remove();
+    }
+  }
+}
+
 // eventos de chamada das funções
 btnCriarTarefa.addEventListener('click', () => {
   const liTarefa = document.createElement('li');
@@ -93,7 +103,7 @@ olListaTarefas.addEventListener('dblclick', (e) => {
 
 btnLimpar.addEventListener('click', apagaLista);
 
-btnRemover.addEventListener('click', removerCompletos);
+btnFinalizar.addEventListener('click', removerCompletos);
 
 btnSalvar.addEventListener('click', salvar);
 
@@ -102,3 +112,5 @@ recuperaLista();
 btnMoverCima.addEventListener('click', moverParaCima);
 
 btnMoverBaixo.addEventListener('click', moverParaBaixo);
+
+btnRemover.addEventListener('click', removerSelecionado);
