@@ -10,6 +10,11 @@ body {
   color: black;
 }
 
+p {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
 header {
   padding-top: 2%;
 }
@@ -20,32 +25,32 @@ button {
   padding: 8px;
 }
 
-#adicionar{
-  background: RoyalBlue;
+#criar-tarefa{
+  background-color: RoyalBlue;
 }
 
 #cancelamento {
-  background: DarkRed;
+  background-color: DarkRed;
 }
 
-#subir {
-  background: OrangeRed;
+#mover-cima {
+  background-color: OrangeRed;
 }
 
-#descer {
-  background: OrangeRed;
+#mover-baixo {
+  background-color: OrangeRed;
 }
 
-#limparTodos {
-  background: RoyalBlue;
+#apaga-tudo {
+  background-color: RoyalBlue;
 }
 
-#limparLista {
-  background: DarkRed;
+#limpar-lista {
+  background-color: DarkRed;
 }
 
-#salvarLista {
-  background: SpringGreen;
+#salvar-lista {
+  background-color: SpringGreen;
 }
 
 #botoes-baixos {
