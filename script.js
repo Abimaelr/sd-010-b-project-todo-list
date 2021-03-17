@@ -31,16 +31,28 @@ function tarBtn(){
 function tarefas(){
     let tasks = document.getElementById('texto-tarefa').value;
     if (tasks !== '') {
-    const addIt = document.createElement('li');
+    let addIt = document.createElement('li');
     item.appendChild(addIt).innerText = tasks;
-    clear();
     }
 }
+
+list.addEventListener('click', clickedList);
+
+function clickedList(){
+    let liItem = document.getElementsByTagName('li')
+    for(let i = 0; i < liItem.length; i += 1){
+        liItem[i].style.backgroundColor = 'rgb(128, 128, 128)';
+    }
+}  
 
 function clear() {
     document.getElementById('texto-tarefa').value = '';
 }
 
+
+
+
 tarefas();
 tarBtn();
-clear();
+clickedList();
+//clear();

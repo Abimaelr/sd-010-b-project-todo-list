@@ -5,3 +5,7 @@
   height: 30px;
   position: absolute;
 }
+
+.selected {
+  background-color: rgb (128, 128, 128);
+}
