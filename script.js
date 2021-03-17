@@ -38,9 +38,18 @@ function clearAll() {
   }
 }
 
+function clearCompleted() {
+  let completedArr = document.querySelectorAll('.completed');
+
+  for (let i = 0; i < completedArr.length; i++) {
+    completedArr[i].remove();
+  }
+}
+
 window.onload = function() {
 document.getElementById('criar-tarefa').addEventListener('click', newItem);
 document.getElementById('lista-tarefas').addEventListener('click', changeColor);
 document.getElementById('lista-tarefas').addEventListener('dblclick', dblClick);
 document.getElementById('apaga-tudo').addEventListener('click', clearAll);
+document.getElementById('remover-finalizados').addEventListener('click', clearCompleted);
 }
