@@ -16,7 +16,6 @@ function adiciona() {
   adicionarTarefa.value = '';
 }
 btn.addEventListener('click', adiciona);
-
 // se clicar em um item da lista, ele passa a ter o estilo CSS `background-color: rgb(128, 128, 128)
 function mudarCorAoclicar(e) {
   const li = e;
@@ -27,7 +26,6 @@ function mudarCorAoclicar(e) {
   li.target.classList.add('selecionado');
 }
 ol.addEventListener('click', mudarCorAoclicar);
-
 // // Clicar duas vezes em um item, faz com que ele seja riscado - https://developer.mozilla.org/en-US/docs/Web/API/Element/dblclick_event
 function riscarTexto(e) {
   const itemRiscado = e;
@@ -38,29 +36,24 @@ function riscarTexto(e) {
   }
 }
 ol.addEventListener('dblclick', riscarTexto);
-
 // botão com id="apaga-tudo" que quando clicado apagar todos os itens da lista
-const apagarTudo = document.getElementById('apaga-tudo');
 function apagarLista() {
   const listaLi = document.querySelectorAll('li');
   for (let index = 0; index < listaLi.length; index += 1) {
     ol.removeChild(listaLi[index]);
   }
 }
-apagarLista();
+const apagarTudo = document.getElementById('apaga-tudo');
 apagarTudo.addEventListener('click', apagarLista);
-
 // botão com id="apaga-finalizados", para apagar somente os que estão marcados
-const apagarFinalizados = document.getElementById('remover-finalizados');
 function apagarItemLista() {
   const listaLiSelecionado = document.querySelectorAll('li.completed');
   for (let index = 0; index < listaLiSelecionado.length; index += 1) {
     ol.removeChild(listaLiSelecionado[index]);
   }
 }
-apagarItemLista();
+const apagarFinalizados = document.getElementById('remover-finalizados');
 apagarFinalizados.addEventListener('click', apagarItemLista);
-
 // botão com id="salvar-tarefas" que salve o conteúdo da lista. Se fechar e reabrir a página, a lista continua no estado em que estava
 // https://developer.mozilla.org/pt-BR/docs/Web/API/Window/localStorage
 const listaSalva = document.querySelector('#lista-tarefas');
@@ -70,7 +63,6 @@ function listaSa() {
 }
 const salvarItens = document.querySelector('#salvar-tarefas');
 salvarItens.addEventListener('click', listaSa);
-
 // dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
 // https://developer.mozilla.org/pt-BR/docs/Web/API/Element/outerHTML
 // https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList
@@ -86,7 +78,7 @@ function sobeItem() {
 }
 const subirItem = document.getElementById('mover-cima');
 subirItem.addEventListener('click', sobeItem);
-
+// Descer item
 function descerItem() {
   const descerLi = document.getElementsByTagName('li');
   const li = descerLi.length;
@@ -101,7 +93,6 @@ function descerItem() {
 }
 const desceItem = document.getElementById('mover-baixo');
 desceItem.addEventListener('click', descerItem);
-
 // remove selecionado
 function removeItemSelecionado() {
   const itemSelect = document.getElementsByClassName('selecionado');
