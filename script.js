@@ -3,6 +3,20 @@ function recebeLista() {
   return listaTarefas;
 }
 
+let tarefas = JSON.parse(localStorage.getItem('tarefas'));
+if (tarefas != null) {
+  for (let i = 0; i < tarefas.length; i += 1) {
+    const listaTarefas = recebeLista();
+    const novaTarefa = document.createElement('li');
+    [novaTarefa.innerText] = tarefas[i];
+    novaTarefa.className = 'tarefa';
+    if (tarefas[i][1]) {
+      novaTarefa.classList.add('completed');
+    }
+    listaTarefas.appendChild(novaTarefa);
+  }
+}
+
 document.addEventListener('click', (e) => {
   const event = e;
   if (event.target.classList.contains('tarefa')) {
@@ -94,17 +108,3 @@ document.getElementById('remover-selecionado').onclick = () => {
     listaTarefas.removeChild(tarefa);
   }
 };
-
-let tarefas = JSON.parse(localStorage.getItem('tarefas'));
-if (tarefas != null) {
-  for (let i = 0; i < tarefas.length; i += 1) {
-    const listaTarefas = recebeLista();
-    const novaTarefa = document.createElement('li');
-    [novaTarefa.innerText] = tarefas[i];
-    novaTarefa.className = 'tarefa';
-    if (tarefas[i][1]) {
-      novaTarefa.classList.add('completed');
-    }
-    listaTarefas.appendChild(novaTarefa);
-  }
-}
