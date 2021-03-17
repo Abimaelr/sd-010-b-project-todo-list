@@ -44,6 +44,8 @@ function completando() {
 }
 completando();
 
+/*pesquisei no google e achei essa dica:
+https://pt.stackoverflow.com/questions/435414/como-remover-elementos-de-uma-lista-em-javascript*/
 function btDeletarTudo() {
   let botaoDeletar = document.getElementById("apaga-tudo")
   let ol = document.getElementById("lista-tarefas")
@@ -55,12 +57,15 @@ function btDeletarTudo() {
 }
 btDeletarTudo()
 
-
+/* tive ajuda do meu namorado e pesquisei no google sobre while
+https://www.devmedia.com.br/javascript-while-e-do-while/41015
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/do...while
+*/
 
 function limpandocompletas() {
   let btLimpaCompleta = document.getElementById("remover-finalizados");
   btLimpaCompleta.addEventListener("click", function() {
-    if (document.querySelector('.completed')) {
+    while (document.querySelector('.completed')) {
       document.querySelector('.completed').remove();
     }
 
