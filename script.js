@@ -20,12 +20,12 @@ body.appendChild(button);
 
 const btnClear = document.createElement('button');
 btnClear.id = 'apaga-tudo';
-btnClear.textContent='Limpar'
+btnClear.textContent = 'Limpar';
 body.appendChild(btnClear);
 
 const btnRemove = document.createElement('button');
 btnRemove.id = 'remover-finalizados';
-btnRemove.textContent='Remover Selecionado'
+btnRemove.textContent = 'Remover Selecionado';
 body.appendChild(btnRemove);
 
 const listaTarefas = document.createElement('ol');
@@ -35,31 +35,35 @@ const textoInput = document.getElementById('texto-tarefa');
 const btn = document.getElementById('criar-tarefa');
 const list = document.getElementById('lista-tarefas');
 
-btnClear.addEventListener('click', function () {
+function clear() {
   list.innerText = '';
-});
-btnRemove.addEventListener('click',function () {
-  const concluded = document.getElementsByClassName('completed')
-  for (let i = 0; i < concluded.length; i += 1) {
-    concluded[i].remove()
 }
-})
+btnClear.addEventListener('click', clear);
+
+function removeConcluded() {
+  const concluded = document.querySelectorAll('.completed');
+  for (let i = 0; i < concluded.length; i += 1) {
+    concluded[i].remove();
+  }
+}
+btnRemove.addEventListener('click', removeConcluded)
 
 //Requisito resolvido com auxilio do site https://www.proa.org.br/artigos/2187/noticias/semana-de-tecnologia---criando-uma-lista-de-tarefas-on-line
-btn.addEventListener('click', adcTarefa);
+
 function adcTarefa() {
   const li = document.createElement('li');
   li.innerText = textoInput.value;
   list.appendChild(li);
   li.className = 'list-Item';
   textoInput.value = '';
-    li.addEventListener('dblclick', (e) => {
-      li.classList.toggle('completed')
-   })
- }
- //O exercicio de adicionar a classe completed foi feito utilanzdo a função toggle para alternancia de classe, depois de muita pesquisa. Referencia = https://www.w3schools.com/howto/howto_js_toggle_class.asp
+  li.addEventListener('dblclick', (e) => {
+    li.classList.toggle('completed')
+  })
+ };
+ btn.addEventListener('click', adcTarefa);
+
+//O exercicio de adicionar a classe completed foi feito utilanzdo a função toggle para alternancia de classe, depois de muita pesquisa. Referencia = https://www.w3schools.com/howto/howto_js_toggle_class.asp
 // requisito resolvido com pesquisas no stackoverflow, developermozilla, ajuda dos colegas e plantões para entender aplicação de contains, remove e add. 
-list.addEventListener('click', backLi);
 function backLi(event) {
   const itens = document.querySelectorAll('.list-Item');
   for (let i = 0; i < itens.length; i += 1) {
@@ -68,5 +72,5 @@ function backLi(event) {
     }
     event.target.classList.add('selected');
   }
-}
- 
+};
+list.addEventListener('click', backLi);

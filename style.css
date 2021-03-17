@@ -1,17 +1,18 @@
-*{
+* {
   padding: 10px;
   margin: auto;
-  font-family:'Times New Roman', Times, serif;
+  font-family: 'Times New Roman', Times, serif;
   text-align: center;
 }
-button{
+
+button {
   margin: 5px;
 }
+
 .selected {
   background-color: grey;
-
 }
+
 .completed{
   text-decoration: line-through;
-
 }
