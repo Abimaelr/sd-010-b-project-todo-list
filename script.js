@@ -33,25 +33,26 @@ function tarBtn(){
     let btn = document.getElementById('criar-tarefa');
     btn.addEventListener('click' , tarefas )
 }
-
+tarBtn();
  function tarefas(){
      let tasks = document.getElementById('texto-tarefa').value;
      if (tasks !== '') {
      let addIt = document.createElement('li');
+     addIt.classList.add('selected')
      item.appendChild(addIt).innerText = tasks;
      clear();    
     }
 }
-
+ tarefas();
 list.addEventListener('click', clickedList);
 
  function clickedList(){
      let liItem = document.getElementsByTagName('li')
      for(let i = 0; i < liItem.length; i += 1){
-        liItem[i].style.backgroundColor = 'white';
+        liItem[i].style.backgroundColor = 'rgb(128, 128, 128)';
      }
-        list.addEventListener('click', (event) => {
-       event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+        item.addEventListener('click', (event) => {
+       event.target.style.backgroundColor = 'white';
     })
 };
     clear();
@@ -65,7 +66,7 @@ function Deletar(){
         item.innerHTML = "";
 }
 Deletar();
-tarefas();
-tarBtn();
+//tarefas();
+//tarBtn();
 
       
