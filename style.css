@@ -13,3 +13,7 @@
 #funcionamento {
     
 }
+
+.selected {
+    background-color: green;
+  }
