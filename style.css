@@ -1,3 +1,7 @@
 .selected-list-item {
-  background-color: rgb(128, 128, 128);
+  background-color: gray;
+}
+
+.completed-list-item {
+  text-decoration: line-through;
 }

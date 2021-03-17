@@ -5,21 +5,36 @@ const orderedList = document.querySelector('#lista-tarefas');
 
 // ----------------------------------------------------------------------------
 
-// Função "Item focado": Altera background color do item de lista selcionado
+// Função "Item Focado": Marca item selecionado com cor GRAY (adiciona ClassName=selected-list-item) e remove do selcionado, se houver.
 function focusedItem(li) {
-  const currentlyFocusedIte = document.querySelector('.selected-list-item');
-  if (currentlyFocusedIte != null) {
-    currentlyFocusedIte.className = '';
+  const currentlyFocusedItem = document.querySelector('.selected-list-item');
+
+  if (currentlyFocusedItem != null) {
+    currentlyFocusedItem.classList.remove('selected-list-item');
+    li.target.classList.add('selected-list-item');
+  } else {
+    li.target.classList.add('selected-list-item');
   }
-  const changeBackgroundColor = li.target;
-  changeBackgroundColor.className = 'selected-list-item';
 }
 
-// Função "Item da Lista Ouvindo" Escuta click em cada item da lista de tarefas e chama função "Item focado"
-function listItemListening() {
+// Função "Item Completado": Marca item como completo (adiciona ClassName=completed-list-item) ou remove se já marcado.
+function completedItem(li) {
+  const currentlyItem = li.target;
+  const completed = currentlyItem.classList.contains('completed-list-item');
+
+  if (completed) {
+    currentlyItem.classList.remove('completed-list-item');
+  } else {
+    currentlyItem.classList.add('completed-list-item');
+  }
+}
+
+// Função "Itens da Lista Ouvindo": Escuta "eventos"m cada item da lista de tarefas e chama função: 2"
+function listItemsListening() {
   const listItems = document.querySelectorAll('li');
   for (let index = 0; index < listItems.length; index += 1) {
     listItems[index].addEventListener('click', focusedItem);
+    listItems[index].addEventListener('dblclick', completedItem);
   }
 }
 
@@ -29,7 +44,7 @@ function insertListItem() {
   newListItem.innerText = inputBox.value;
   orderedList.appendChild(newListItem);
   inputBox.value = '';
-  listItemListening();
+  listItemsListening();
 }
 
 // ----------------------------------------------------------------------------
