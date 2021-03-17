@@ -42,3 +42,7 @@ header , p {
   font-size: large;
   border-radius: 20px;
 }
+
+.task {
+  padding: 5px;
+}
