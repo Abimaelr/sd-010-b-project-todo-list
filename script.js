@@ -1,7 +1,6 @@
 const inputText = document.querySelector('#texto-tarefa');
 const list = document.querySelector('#lista-tarefas');
 
-
 function removeSelected() {
   const selection = document.querySelectorAll('.selected');
   for (let index = 0; index < selection.length; index += 1) {
