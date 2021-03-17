@@ -45,7 +45,7 @@ function completando() {
 completando();
 
 function btDeletarTudo() {
-  let botaoDeletar = document.getElementById("limpaTudo")
+  let botaoDeletar = document.getElementById("apaga-tudo")
   let ol = document.getElementById("lista-tarefas")
   botaoDeletar.addEventListener('click', apagaTudo);
 
@@ -58,7 +58,7 @@ btDeletarTudo()
 
 
 function limpandocompletas() {
-  let btLimpaCompleta = document.getElementById("limparCompletas");
+  let btLimpaCompleta = document.getElementById("remover-finalizados");
   btLimpaCompleta.addEventListener("click", function() {
     if (document.querySelector('.completed')) {
       document.querySelector('.completed').remove();
