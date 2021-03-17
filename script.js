@@ -45,3 +45,6 @@ function clearTasks() {
     taskList.removeChild(taskList.firstElementChild);
   }
 }
+
+function removeCompleted() {
+  const taskList = document.querySelector('#lista-tarefas');
