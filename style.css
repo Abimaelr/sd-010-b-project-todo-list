@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: ForestGreen;
+  border-radius: 10px;
+  padding: 25px 25px 25px 25px;
+  color: black;
+}
+
+header {
+  padding-top: 2%;
+}
+
+button {
+  color: white;
+  border-radius: 15px;
+  padding: 8px;
+}
+
+#adicionar{
+  background: RoyalBlue;
+}
+
+#cancelamento {
+  background: DarkRed;
+}
+
+#subir {
+  background: OrangeRed;
+}
+
+#descer {
+  background: OrangeRed;
+}
+
+#limparTodos {
+  background: RoyalBlue;
+}
+
+#limparLista {
+  background: DarkRed;
+}
+
+#salvarLista {
+  background: SpringGreen;
+}
+
+#botoes-baixos {
+  margin-right: 20px;
+  display: inline-block;
+}
