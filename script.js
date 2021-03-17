@@ -44,3 +44,17 @@ function removeLi() {
     })
 }
 removeLi()
+
+function removeComplet() {
+    let getButton = document.querySelector('#remover-finalizados')
+    getButton.addEventListener('click', function(){
+        let getLis = document.querySelectorAll('#lista-tarefas>li')
+        for(let index = 0; index < getLis.length ; index+=1){
+            let li = getLis[index]
+            if(li.className == 'completed selected' || li.className == 'selected completed' || li.className == 'completed'){
+                li.parentNode.removeChild(li)
+            }
+        }
+    })
+}
+removeComplet()

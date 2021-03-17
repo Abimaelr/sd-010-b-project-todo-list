@@ -19,6 +19,15 @@
     vertical-align: bottom;
 }
 
+#remover-finalizados{
+    width: 80px;
+    height: 20px;
+    font-size: 8px;
+    text-align: center;
+    top: 50px;
+    vertical-align: bottom;  
+}
+
 li {
     background-color:white;
     margin-left: 16px;
