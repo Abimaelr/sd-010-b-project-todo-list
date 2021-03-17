@@ -1,8 +1,6 @@
 //Exemplo do site https://stackoverflow.com/questions/26946235/pure-javascript-listen-to-input-value-change
 
-/* event listener */
-document.getElementsByName("texto")[0].addEventListener('change', adicionar);
-/* function */
+document.getElementById("criar-tarefa").addEventListener('click' , adicionar);
 function adicionar(){
   let li = document.createElement("li");
   let ol = document.getElementById("lista-tarefas");
@@ -11,3 +9,4 @@ function adicionar(){
   ol.appendChild(li);
   document.getElementById("texto-tarefa").value = "";
 }
+
