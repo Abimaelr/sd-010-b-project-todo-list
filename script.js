@@ -31,11 +31,10 @@ function dblClick(event) {
 }
 
 function clearAll() {
-  let taskListArr = document.getElementById('lista-tarefas');
-  let taskArr = document.getElementsByClassName('item-task');
+  let taskArr = document.querySelectorAll('li');
 
   for (let i = 0; i < taskArr.length; i++) {
-    taskListArr.removeChild(taskListArr.childNodes[i]);
+    taskArr[i].remove();
   }
 }
 
