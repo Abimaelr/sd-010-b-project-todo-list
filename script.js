@@ -4,16 +4,23 @@ let lista = document.getElementById('lista-tarefas');
 let input = document.getElementById('texto-tarefa');
 let clickList = document.getElementsByClassName('li-style');
 
+
+
 //criação do botão
+function criaTarefa(texto, classes) {
+  let linha = document.createElement('li');
+  linha.className = classes;
+  lista.appendChild(linha);
+  linha.innerText = texto;
+  input.value = '';
+  colorirLinha();
+  riscarEDesriscarALinha();
+}
+
 button.addEventListener('click', function() {
-    let linha = document.createElement('li');
-    linha.classList.add('li-style');
-    lista.appendChild(linha);
-    linha.innerText = input.value;
-    input.value = '';
-    linhaLista();
-    riscarEDesriscarALinha();
-})
+ criaTarefa(input.value, 'li-style')
+});
+
 //colorir a linha que clicar e apagar as outras linhas que estao coloridas
 function mudaCor(event) {
   event.target.classList.add('corDeFundo');
@@ -28,13 +35,12 @@ function removeCor() {
   }
 }
 
-function linhaLista() {
+function colorirLinha() {
   for (let i = 0; i < clickList.length; i += 1) {
     clickList[i].addEventListener('click', removeCor);
     clickList[i].addEventListener('click', mudaCor);
   }
 }
-
 
 //riscar e desriscar a linha
 function riscaALinha(event) {
@@ -70,8 +76,62 @@ bodyPagina.appendChild(buttonRemoverFinalizados);
 
 
 buttonRemoverFinalizados.addEventListener('click', function() {
-  while(document.querySelector('.completed')) {
-    document.querySelector('.completed').remove();
+  let finalizados = document.querySelectorAll('li.completed');
+  for (let i = 0; i < finalizados.length; i += 1) {
+    lista.removeChild(finalizados[i]);
   }
 });
-// não pode por variável no "while", porque?
+
+//adicionar botão de salvar tarefas
+let buttonSalvarTarefas = document.createElement('button');
+buttonSalvarTarefas.id = 'salvar-tarefas';
+buttonSalvarTarefas.innerText = 'Salvar Tarefa';
+bodyPagina.appendChild(buttonSalvarTarefas);
+
+function salvarLocalStorage() {
+  let linhasListas = document.querySelectorAll('li');
+  let array = [];
+  for (let i = 0; i < linhasListas.length; i += 1) {
+    const propriedades = {
+      text: linhasListas[i].innerText, 
+      classe: linhasListas[i].className
+    }
+    array.push(propriedades);
+  }
+  localStorage.setItem('itens', JSON.stringify(array))
+}
+
+buttonSalvarTarefas.addEventListener('click', salvarLocalStorage);
+
+window.onload = function() {
+  const tarefas = JSON.parse(localStorage.getItem('itens'));
+  if(!tarefas) return
+  for (let i = 0; i < tarefas.length; i += 1) {
+    criaTarefa(tarefas[i].text, tarefas[i].classe)
+  }
+}
+
+
+
+//botão move pra cima e pra baixo
+let buttonMovePraCima = document.createElement('button');
+buttonMovePraCima.id = 'mover-cima';
+buttonMovePraCima.innerText = 'mover pra cima';
+bodyPagina.appendChild(buttonMovePraCima);
+
+let buttonMovePraBaixo = document.createElement('button');
+buttonMovePraBaixo.id = 'mover-baixo';
+buttonMovePraBaixo.innerText = 'mover para baixo';
+bodyPagina.appendChild(buttonMovePraBaixo);
+
+let linhasDaLista = document.getElementsByTagName('li');
+buttonMovePraCima.addEventListener('click', function() {
+  for (let i = 0; i < linhasDaLista.length; i += 1) {
+    if (linhasDaLista[i].classList.contains('corDeFundo')) {
+      const selecionada = linhasDaLista[i].innerHTML
+      const linhaTroca = linhasDaLista[i + 1].innerHTML
+      linhasDaLista[i].innerHTML = linhaTroca;
+      linhasDaLista[i + 1].innerHTML = selecionada;
+    }
+  }
+});
