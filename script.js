@@ -128,10 +128,37 @@ let linhasDaLista = document.getElementsByTagName('li');
 buttonMovePraCima.addEventListener('click', function() {
   for (let i = 0; i < linhasDaLista.length; i += 1) {
     if (linhasDaLista[i].classList.contains('corDeFundo')) {
-      const selecionada = linhasDaLista[i].innerHTML
-      const linhaTroca = linhasDaLista[i + 1].innerHTML
-      linhasDaLista[i].innerHTML = linhaTroca;
-      linhasDaLista[i + 1].innerHTML = selecionada;
+      const selecionadaPracima = {
+        text: linhasDaLista[i].innerHTML,
+        classe: linhasDaLista[i].className
+      }
+      const linhaTrocaPraCima = {
+        text: linhasDaLista[i - 1].innerHTML,
+        classe: linhasDaLista[i - 1].className
+      }
+      linhasDaLista[i].innerHTML = linhaTrocaPraCima.text;
+      linhasDaLista[i].className = linhaTrocaPraCima.classe;
+      linhasDaLista[i - 1].innerHTML = selecionadaPracima.text;
+      linhasDaLista[i - 1].className = selecionadaPracima.classe;
+    }
+  }
+});
+
+buttonMovePraBaixo.addEventListener('click', function() {
+  for (let i = linhasDaLista.length - 1; i >= 0; i -= 1) {
+    if (linhasDaLista[i].classList.contains('corDeFundo')) {
+      const selecionadaPraBaixo = {
+        text: linhasDaLista[i].innerHTML,
+        classe: linhasDaLista[i].className
+      }
+      const linhaTrocaPraBaixo = {
+        text: linhasDaLista[i + 1].innerHTML,
+        classe: linhasDaLista[i + 1].className
+      }
+      linhasDaLista[i].innerHTML = linhaTrocaPraBaixo.text;
+      linhasDaLista[i].className = linhaTrocaPraBaixo.classe;
+      linhasDaLista[i + 1].innerHTML = selecionadaPraBaixo.text;
+      linhasDaLista[i + 1].className = selecionadaPraBaixo.classe;
     }
   }
 });
