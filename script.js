@@ -9,4 +9,5 @@ function adicionar(){
   let input = document.getElementById("texto-tarefa").value;
   li.appendChild(document.createTextNode(input));
   ol.appendChild(li);
+  document.getElementById("texto-tarefa").value = "";
 }
