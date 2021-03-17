@@ -36,3 +36,9 @@ header , p {
   font-size: x-large;
   min-inline-size: 40%;
 }
+
+#criar-tarefa {
+  padding: 5px 30px;
+  font-size: large;
+  border-radius: 20px;
+}
