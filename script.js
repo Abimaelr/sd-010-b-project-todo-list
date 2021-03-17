@@ -146,7 +146,9 @@ buttonMovePraCima.addEventListener('click', function() {
 
 buttonMovePraBaixo.addEventListener('click', function() {
   for (let i = linhasDaLista.length - 1; i >= 0; i -= 1) {
-    if (linhasDaLista[i].classList.contains('corDeFundo')) {
+    /*if(!linhasDaLista[i + 1]) {
+      break;
+    } else */ if (linhasDaLista[i].classList.contains('corDeFundo')) {
       const selecionadaPraBaixo = {
         text: linhasDaLista[i].innerHTML,
         classe: linhasDaLista[i].className
@@ -162,3 +164,19 @@ buttonMovePraBaixo.addEventListener('click', function() {
     }
   }
 });
+
+//botão remover item selecionado
+let buttonApagarSelecionado = document.createElement('button');
+buttonApagarSelecionado.id = 'remover-selecionado';
+buttonApagarSelecionado.innerText = 'Remover linha selecionada'
+bodyPagina.appendChild(buttonApagarSelecionado);
+
+function removerLinhaSelecionada() {
+  for (let i = linhasDaLista.length - 1; i >= 0; i -= 1) {
+    if(linhasDaLista[i].classList.contains('corDeFundo')) {
+      lista.removeChild(linhasDaLista[i]);
+    }
+  }
+}
+
+buttonApagarSelecionado.addEventListener('click', removerLinhaSelecionada);
