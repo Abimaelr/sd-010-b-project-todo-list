@@ -1,8 +1,8 @@
+
 const buttonCriarTarefa = document.getElementById('criar-tarefa');
 buttonCriarTarefa.addEventListener('click', function () {
   adicionaTarefa();
 });
-
 function adicionaTarefa() {
   const lista = document.getElementById('lista-tarefas');
   const textoTarefa = document.getElementById('texto-tarefa');
@@ -39,24 +39,25 @@ function doubleClick() {
   let listaTarefas = document.querySelector('#lista-tarefas');
   let items = listaTarefas.children;
   listaTarefas.addEventListener('dblclick', function(event) {
-      if(event.target.classList.contains('completed')) {
-        event.target.classList.remove('completed');
-      }
-      else {
-        event.target.classList.add('completed');
-      }
+    if(event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
     }
+    else {
+      event.target.classList.add('completed');
+    }
+  }
   )
 }
 
-function apagarTudo() { 
-  const elementos  = document.getElementById('lista-tarefas');
-  const listaElementos = elementos.children;
-  if(listaElementos.length !== 0) {
-    elementos.removeChild(li);
-  }
+//document.querySelector('#lista-tarefas').remove('li')
+function apagarTudo () {
+  const botaoLimpar  = document.getElementById('apaga-tudo');
+  const listaTarefas = document.querySelector('#lista-tarefas');
+  
+  botaoLimpar.addEventListener('click', function(){
+    listaTarefas.innerHTML = '';
+  })
 }
 apagarTudo();
-
 doubleClick();
 corBackground();
