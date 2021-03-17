@@ -17,12 +17,10 @@ window.onload = function () {
 document.addEventListener('click', (event) => {
   if (event.target.classList.contains('tarefa')) {
     let tarefas = document.querySelectorAll('.tarefa');
-    // ??? Consigo chamar o elemento procurando pelo atributo style?
     for (let i = 0; i < tarefas.length; i += 1) {
       tarefas[i].classList.remove('selected');
       tarefas[i].style.backgroundColor = null;
     }
-    // ???
     event.target.classList.add('selected');
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
@@ -94,7 +92,6 @@ document.getElementById('mover-baixo').onclick = function () {
   if (tarefa !== null) {
     let listaTarefas = document.querySelector('#lista-tarefas');
     if (tarefa !== listaTarefas.lastChild) {
-      // ??? Existe outra maneira de fazer isto sem ser usando insertBefore e dois nextSibling?
       listaTarefas.insertBefore(tarefa, tarefa.nextSibling.nextSibling);
     }
   }
