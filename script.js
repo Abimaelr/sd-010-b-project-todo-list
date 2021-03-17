@@ -16,7 +16,7 @@ window.onload = () => {
 
 document.addEventListener('click', (event) => {
   if (event.target.classList.contains('tarefa')) {
-    let tarefas = document.querySelectorAll('.tarefa');
+    const tarefas = document.querySelectorAll('.tarefa');
     for (let i = 0; i < tarefas.length; i += 1) {
       tarefas[i].classList.remove('selected');
       tarefas[i].style.backgroundColor = null;
@@ -37,8 +37,8 @@ document.addEventListener('dblclick', (event) => {
 });
 
 document.getElementById('criar-tarefa').onclick = () => {
-  let listaTarefas = document.querySelector('#lista-tarefas');
-  let novaTarefa = document.createElement('li');
+  const listaTarefas = document.querySelector('#lista-tarefas');
+  const novaTarefa = document.createElement('li');
   novaTarefa.innerText = document.getElementById('texto-tarefa').value;
   novaTarefa.className = 'tarefa';
   listaTarefas.appendChild(novaTarefa);
