@@ -1,14 +1,13 @@
 const addButton = document.getElementById('criar-tarefa');
 const task = document.getElementById('texto-tarefa');
 const oL = document.getElementById('lista-tarefas');
-// const taskList = [];
+// const taskList = {};
 
 function creatOL() {
   const taski = document.createElement('li');
   taski.className = 'task';
   taski.innerText = task.value;
   oL.appendChild(taski);
-  // taskList.push(task.value);
   task.value = '';
 }
 addButton.addEventListener('click', creatOL);
@@ -37,6 +36,8 @@ function removeCompleted(parameter) {
   const incompleted = parameter;
   incompleted.classList.remove('completed');
 }
+
+// Até aqui! //
 
 function taskCompleted() {
   document.addEventListener('dblclick', (e) => {
@@ -73,3 +74,23 @@ function removeSelected() {
 }
 
 document.getElementById('remover-selecionado').addEventListener('click', removeSelected);
+
+const list = document.getElementById('lista-tarefas');
+list.innerHTML = localStorage.getItem('savedList');
+
+function saveList() {
+  localStorage.setItem('savedList', list.innerHTML);
+}
+document.getElementById('salvar-tarefas').addEventListener('click', saveList);
+
+// const taskList = document.querySelectorAll('li');
+
+// function moveItemUp () {
+
+// }
+// document.getElementById('mover-cima').addEventListener('click', moveItemUp);
+
+// function moveItemDown () {
+
+// }
+// document.getElementById('mover-cima').addEventListener('click', moveItemDown);
