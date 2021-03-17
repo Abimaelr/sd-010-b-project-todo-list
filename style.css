@@ -12,3 +12,11 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: darkslategray;
 }
+
+.selected {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through;
+}
