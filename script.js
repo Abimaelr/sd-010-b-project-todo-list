@@ -1,9 +1,9 @@
-window.onload = function () {
-  let tarefas = JSON.parse(localStorage.getItem('tarefas'));
+window.onload = () => {
+  const tarefas = JSON.parse(localStorage.getItem('tarefas'));
   if (tarefas != null) {
     for (let i = 0; i < tarefas.length; i += 1) {
-      let listaTarefas = document.querySelector('#lista-tarefas');
-      let novaTarefa = document.createElement('li');
+      const listaTarefas = document.querySelector('#lista-tarefas');
+      const novaTarefa = document.createElement('li');
       novaTarefa.innerText = tarefas[i][0];
       novaTarefa.className = 'tarefa';
       if (tarefas[i][1]) {
@@ -36,7 +36,7 @@ document.addEventListener('dblclick', (event) => {
   }
 });
 
-document.getElementById('criar-tarefa').onclick = function () {
+document.getElementById('criar-tarefa').onclick = () => {
   let listaTarefas = document.querySelector('#lista-tarefas');
   let novaTarefa = document.createElement('li');
   novaTarefa.innerText = document.getElementById('texto-tarefa').value;
@@ -45,8 +45,8 @@ document.getElementById('criar-tarefa').onclick = function () {
   document.getElementById('texto-tarefa').value = null;
 };
 
-document.getElementById('remover-finalizados').onclick = function () {
-  let tarefas = document.querySelectorAll('.tarefa');
+document.getElementById('remover-finalizados').onclick = () => {
+  const tarefas = document.querySelectorAll('.tarefa');
   for (let i = 0; i < tarefas.length; i += 1) {
     if (tarefas[i].classList.contains('completed')) {
       document.querySelector('#lista-tarefas').removeChild(tarefas[i]);
@@ -54,16 +54,16 @@ document.getElementById('remover-finalizados').onclick = function () {
   }
 };
 
-document.getElementById('apaga-tudo').onclick = function () {
-  let listaTarefas = document.querySelector('#lista-tarefas');
+document.getElementById('apaga-tudo').onclick = () => {
+  const listaTarefas = document.querySelector('#lista-tarefas');
   while (listaTarefas.hasChildNodes()) {
     listaTarefas.removeChild(listaTarefas.firstChild);
   }
 };
 
-document.getElementById('salvar-tarefas').onclick = function () {
-  let tarefas = document.querySelectorAll('.tarefa');
-  let tarefasSalvas = [];
+document.getElementById('salvar-tarefas').onclick = () => {
+  const tarefas = document.querySelectorAll('.tarefa');
+  const tarefasSalvas = [];
   let tarefaCompletada;
   for (let i = 0; i < tarefas.length; i += 1) {
     if (tarefas[i].classList.contains('completed')) {
@@ -77,30 +77,30 @@ document.getElementById('salvar-tarefas').onclick = function () {
   alert('Tarefas salvas!');
 };
 
-document.getElementById('mover-cima').onclick = function () {
-  let tarefa = document.querySelector('.selected');
+document.getElementById('mover-cima').onclick = () => {
+  const tarefa = document.querySelector('.selected');
   if (tarefa !== null) {
-    let listaTarefas = document.querySelector('#lista-tarefas');
+    const listaTarefas = document.querySelector('#lista-tarefas');
     if (tarefa !== listaTarefas.firstChild) {
       listaTarefas.insertBefore(tarefa, tarefa.previousSibling);
     }
   }
 };
 
-document.getElementById('mover-baixo').onclick = function () {
-  let tarefa = document.querySelector('.selected');
+document.getElementById('mover-baixo').onclick = () => {
+  const tarefa = document.querySelector('.selected');
   if (tarefa !== null) {
-    let listaTarefas = document.querySelector('#lista-tarefas');
+    const listaTarefas = document.querySelector('#lista-tarefas');
     if (tarefa !== listaTarefas.lastChild) {
       listaTarefas.insertBefore(tarefa, tarefa.nextSibling.nextSibling);
     }
   }
 };
 
-document.getElementById('remover-selecionado').onclick = function () {
-  let tarefa = document.querySelector('.selected');
+document.getElementById('remover-selecionado').onclick = () => {
+  const tarefa = document.querySelector('.selected');
   if (tarefa !== null) {
-    let listaTarefas = document.querySelector('#lista-tarefas');
+    const listaTarefas = document.querySelector('#lista-tarefas');
     listaTarefas.removeChild(tarefa);
   }
 };
