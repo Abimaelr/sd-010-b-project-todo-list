@@ -9,7 +9,7 @@ function clicar() {
     list.textContent = texto.value;
     listagem.appendChild(list);
     texto.value = '';
-    texto.focus();
+    catchText.focus();
   } else {
     alert('Digite um item');
     texto.focus();
@@ -26,5 +26,5 @@ function entrada(event) {
 texto.addEventListener('keydown', entrada);
 botao.addEventListener('click', clicar);
 
-const listagem = listagem.children;
+const selectList = listagem.children;
 
