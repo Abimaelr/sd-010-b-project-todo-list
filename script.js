@@ -33,3 +33,11 @@ listaPai.addEventListener('dblclick', function (e) {
     getClick.add('completed');
   }
 })
+
+const getButton = document.getElementById('apaga-tudo');
+function apagaLista() {
+  listaPai.innerHTML = '';
+  
+  
+}
+getButton.addEventListener('click', apagaLista)
