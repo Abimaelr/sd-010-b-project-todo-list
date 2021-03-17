@@ -38,3 +38,7 @@ function selecionando(e) {
 }
 listagem.addEventListener('click', selecionando);
 
+function limpar() {
+  listagem.innerHTML = '';
+}
+limpa.addEventListener('click', limpar);
