@@ -27,24 +27,24 @@ listenClick();
 
 // Para as funções abaixo eu tive ajuda do colega Robson Cardoso //
 
-function completedTask(parameter) {
-  const completed = parameter;
-  completed.classList.add('completed');
-}
+// function completedTask(parameter) {
+//   const completed = parameter;
+//   completed.classList.add('completed');
+// }
 
-function removeCompleted(parameter) {
-  const incompleted = parameter;
-  incompleted.classList.remove('completed');
-}
+// function removeCompleted(parameter) {
+//   const incompleted = parameter;
+//   incompleted.classList.remove('completed');
+// }
 
 // Até aqui! //
 
 function taskCompleted() {
-  document.addEventListener('dblclick', (e) => {
+  oL.addEventListener('dblclick', (e) => {
     if (e.target.classList.contains('completed')) {
-      removeCompleted(e.target);
+      e.target.classList.remove('completed');
     } else {
-      completedTask(e.target);
+      e.target.classList.add('completed');
     }
   });
 }
@@ -78,17 +78,20 @@ document.getElementById('remover-selecionado').addEventListener('click', removeS
 const list = document.getElementById('lista-tarefas');
 list.innerHTML = localStorage.getItem('savedList');
 
-function saveList() {
+document.getElementById('salvar-tarefas').addEventListener('click', () => {
   localStorage.setItem('savedList', list.innerHTML);
+});
+
+const taskList = document.querySelectorAll('li');
+
+function moveItemUp() {
+  for (let index = 0; index < taskList.length; index += 0) {
+    if (taskList.length > 0 && taskList[index].classList.contains('selected')) {
+      taskList[index].parentElement.replaceChild(taskList[index].parentElement.previousElementSibling, taskList[index]);
+    }
+  }
 }
-document.getElementById('salvar-tarefas').addEventListener('click', saveList);
-
-// const taskList = document.querySelectorAll('li');
-
-// function moveItemUp () {
-
-// }
-// document.getElementById('mover-cima').addEventListener('click', moveItemUp);
+document.getElementById('mover-cima').addEventListener('click', moveItemUp);
 
 // function moveItemDown () {
 
