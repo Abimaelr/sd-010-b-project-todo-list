@@ -55,7 +55,8 @@ function recuperaLista() {
 function moverParaCima() {
   const liTarefa = document.querySelectorAll('.tarefa');
   for (let index = 0; index < liTarefa.length; index += 1) {
-    if (liTarefa[index].classList.contains('selected') && liTarefa[index].previousElementSibling !== null) {
+    if (liTarefa[index].classList.contains('selected')
+    && liTarefa[index].previousElementSibling !== null) {
       const itemSelecionado = liTarefa[index];
       olListaTarefas.insertBefore(itemSelecionado, liTarefa[index].previousSibling);
     }
@@ -65,7 +66,8 @@ function moverParaCima() {
 function moverParaBaixo() {
   const liTarefa = document.querySelectorAll('.tarefa');
   for (let index = 0; index < liTarefa.length; index += 1) {
-    if (liTarefa[index].classList.contains('selected') && liTarefa[index].nextElementSibling !== null) {
+    if (liTarefa[index].classList.contains('selected')
+    && liTarefa[index].nextElementSibling !== null) {
       const itemSelecionado = liTarefa[index];
       olListaTarefas.insertBefore(itemSelecionado.nextSibling, liTarefa[index]);
     }
