@@ -15,7 +15,7 @@ window.onload = () => {
 };
 
 document.addEventListener('click', (e) => {
-  let event = e;
+  const event = e;
   if (event.target.classList.contains('tarefa')) {
     const tarefas = document.querySelectorAll('.tarefa');
     for (let i = 0; i < tarefas.length; i += 1) {
