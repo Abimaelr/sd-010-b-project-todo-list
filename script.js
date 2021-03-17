@@ -4,13 +4,20 @@ const addButton = document.querySelector('#criar-tarefa');
 const orderedList = document.querySelector('#lista-tarefas');
 const clearListButton = document.querySelector('#apaga-tudo');
 const clearCompletedItemButton = document.querySelector('#remover-finalizados');
+const clearSelectedItemButton = document.querySelector('#remover-selecionado');
 
 // ----------------------------------------------------------------------------
+
+// Função "Limpa Itens Selecionado": Remove item className = 'selected-list-item'.
+function clearSelectedItem() {
+  const currentlyFocusedItem = document.querySelector('.selected-list-item');
+  currentlyFocusedItem.remove();
+}
 
 // Referência: https://pt.stackoverflow.com/a/439938
 // Função "Limpa Itens Completados": Remove item por item se className = '.complete'.
 function clearCompletedItems() {
-  document.querySelectorAll('.completed').forEach(e => e.remove());
+  document.querySelectorAll('.completed').forEach((e) => e.remove());
 }
 
 // Referência: https://stackoverflow.com/a/18795074/14683615
@@ -71,3 +78,4 @@ function insertListItem() {
 addButton.addEventListener('click', insertListItem);
 clearListButton.addEventListener('click', clearList);
 clearCompletedItemButton.addEventListener('click', clearCompletedItems);
+clearSelectedItemButton.addEventListener('click', clearSelectedItem);
