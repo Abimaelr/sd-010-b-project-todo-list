@@ -38,6 +38,12 @@ const list = document.getElementById('lista-tarefas');
 btnClear.addEventListener('click', function () {
   list.innerText = '';
 });
+btnRemove.addEventListener('click',function () {
+  const concluded = document.getElementsByClassName('completed')
+  for (let i = 0; i < concluded.length; i += 1) {
+    concluded[i].remove()
+}
+})
 
 //Requisito resolvido com auxilio do site https://www.proa.org.br/artigos/2187/noticias/semana-de-tecnologia---criando-uma-lista-de-tarefas-on-line
 btn.addEventListener('click', adcTarefa);
@@ -48,10 +54,11 @@ function adcTarefa() {
   li.className = 'list-Item';
   textoInput.value = '';
     li.addEventListener('dblclick', (e) => {
-      li.classList.add('completed')
+      li.classList.toggle('completed')
    })
  }
-// requisito resolvido com pesquisas no stackoverflow, developermozilla, e plantões para entender aplicação de contains, remove e add. 
+ //O exercicio de adicionar a classe completed foi feito utilanzdo a função toggle para alternancia de classe, depois de muita pesquisa. Referencia = https://www.w3schools.com/howto/howto_js_toggle_class.asp
+// requisito resolvido com pesquisas no stackoverflow, developermozilla, ajuda dos colegas e plantões para entender aplicação de contains, remove e add. 
 list.addEventListener('click', backLi);
 function backLi(event) {
   const itens = document.querySelectorAll('.list-Item');
@@ -62,4 +69,4 @@ function backLi(event) {
     event.target.classList.add('selected');
   }
 }
-
+ 
