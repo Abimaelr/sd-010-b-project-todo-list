@@ -1,10 +1,12 @@
-// criar tarefa
+// pegando os elemento no DOM
 const valueInput = document.getElementById('texto-tarefa');
 const btnCriarTarefa = document.getElementById('criar-tarefa');
 const olListaTarefas = document.getElementById('lista-tarefas');
 const btnLimpar = document.getElementById('apaga-tudo');
 const btnRemover = document.getElementById('remover-finalizados');
 const btnSalvar = document.getElementById('salvar-tarefas');
+const btnMoverCima = document.getElementById('mover-cima');
+const btnMoverBaixo = document.getElementById('mover-baixo');
 
 // área das funções
 function alteraFundoParaCinza(e) {
@@ -38,7 +40,7 @@ function removerCompletos() {
     li[i].remove();
   }
 }
-
+// função criada com a ajuda do Diegho Moraeas
 function salvar() {
   const itensASalvar = olListaTarefas.innerHTML;
   localStorage.setItem('Salvo', itensASalvar);
@@ -47,6 +49,27 @@ function salvar() {
 function recuperaLista() {
   const pegaSalva = localStorage.getItem('Salvo');
   olListaTarefas.innerHTML = pegaSalva;
+}
+
+function moverParaCima() {
+  const liTarefa = document.querySelectorAll('.tarefa');
+  for (let index = 0; index < liTarefa.length; index += 1) {
+    if (liTarefa[index].classList.contains('selected')) {
+      const itemSelecionado = liTarefa[index];
+      olListaTarefas.insertBefore(itemSelecionado, liTarefa[index].previousSibling);
+    }
+  }
+}
+
+function moverParaBaixo() {
+  const liTarefa = document.querySelectorAll('.tarefa');
+  for (let index = 0; index < liTarefa.length; index += 1) {
+    if (liTarefa[index].classList.contains('selected')) {
+      if (liTarefa[index].nextSibling) {
+        liTarefa[index].parentNode.insertBefore(liTarefa[index].nextSibling, liTarefa[index]);
+      }
+    }
+  }
 }
 
 // eventos de chamada das funções
@@ -75,3 +98,7 @@ btnRemover.addEventListener('click', removerCompletos);
 btnSalvar.addEventListener('click', salvar);
 
 recuperaLista();
+
+btnMoverCima.addEventListener('click', moverParaCima);
+
+btnMoverBaixo.addEventListener('click', moverParaBaixo);
