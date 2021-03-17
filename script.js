@@ -20,16 +20,16 @@ function focusedItem(li) {
 // Função "Item Completado": Marca item como completo (adiciona ClassName=completed-list-item) ou remove se já marcado.
 function completedItem(li) {
   const currentlyItem = li.target;
-  const completed = currentlyItem.classList.contains('completed-list-item');
+  const completed = currentlyItem.classList.contains('completed');
 
   if (completed) {
-    currentlyItem.classList.remove('completed-list-item');
+    currentlyItem.classList.remove('completed');
   } else {
-    currentlyItem.classList.add('completed-list-item');
+    currentlyItem.classList.add('completed');
   }
 }
 
-// Função "Itens da Lista Ouvindo": Escuta "eventos"m cada item da lista de tarefas e chama função: 2"
+// Função "Itens da Lista Ouvindo": Adiciona evento"s" de escuta em cada item da lista de tarefas e chama funções específicas pra cada evento"
 function listItemsListening() {
   const listItems = document.querySelectorAll('li');
   for (let index = 0; index < listItems.length; index += 1) {
@@ -38,7 +38,7 @@ function listItemsListening() {
   }
 }
 
-// Função "Insere Item lista"
+// Função "Insere Item lista": Insere elemento <li>, dentro da <ol>, com conteúdo do inputBox.
 function insertListItem() {
   const newListItem = document.createElement('li');
   newListItem.innerText = inputBox.value;
