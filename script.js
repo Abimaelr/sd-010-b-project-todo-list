@@ -1,4 +1,5 @@
-const button = document.getElementById('criar-tarefa');
+const buttonAdd = document.getElementById('criar-tarefa');
+const buttonClear = document.getElementById('apaga-tudo');
 const list = document.getElementById('lista-tarefas');
 const listmain = document.querySelector('#lista-tarefas');
 
@@ -20,7 +21,7 @@ function finishTask(trigger) {
   moment.className = moment.className === 'item completed' ? 'item' : 'item completed';
 }
 
-button.onclick = () => {
+buttonAdd.onclick = () => {
   const input = document.getElementById('texto-tarefa');
   const valuein = input.value;
 
@@ -32,8 +33,10 @@ button.onclick = () => {
   item.innerHTML = valuein;
 
   input.value = '';
+};
 
-  console.log('teste');
+buttonClear.onclick = () => {
+  while (listmain.firstChild) { listmain.removeChild(listmain.firstChild); }
 };
 
 selectTask();
