@@ -9,16 +9,24 @@ function adicionar() {
   const inputValue = input.value;
   const li = document.createElement("li");
   li.innerText = inputValue;
+
   li.addEventListener('click',(e)=>{
     const li = e.target;
     const classe = 'selecionado';
-    if(li.classList.contains(classe)){
+    if(document.querySelector(".selecionado") == null){
+      li.classList.add(classe);
+    }else{
+      document.querySelector(".selecionado").classList.remove("selecionado");
+      li.classList.add(classe);
+    }
+
+    /*if(li.classList.contains(classe)){
       li.classList.remove(classe);
-      li.style.background = "white";
+      //li.style.background = "white";
     }else{
       li.classList.add(classe);
-      li.style.background = "rgb(128,128,128)";
-    }
+      document.querySelector(".selecionado").classList.remove("selecionado");
+    }*/
   });
   ol.appendChild(li);
   input.value = "";
