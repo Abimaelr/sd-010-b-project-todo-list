@@ -1,5 +1,5 @@
 function clearList() {
-  document.getElementById("lista-tarefas").innerHTML = "";
+  document.getElementById('lista-tarefas').innerHTML = '';
 }
 
 function insertText() {
@@ -7,7 +7,11 @@ function insertText() {
 }
 
 function createElementList() {
-  for (let indexCreate = 0; indexCreate < arrayListItens.length; indexCreate += 1) {
+  for (
+    let indexCreate = 0;
+    indexCreate < arrayListItens.length;
+    indexCreate += 1
+  ) {
     const textItem = arrayListItens[indexCreate];
     const newLI = document.createElement('li');
     newLI.classList.add('li-tarefas');
@@ -32,17 +36,20 @@ function switchBG() {
   }
 }
 
-const btn = document.getElementById('criar-tarefa');
+const btnAdd = document.getElementById('criar-tarefa');
+const btnDeleteAll = document.getElementById('apaga-tudo');
 const arrayListItens = [];
 const ordenedList = document.getElementById('lista-tarefas');
 let aux = -1;
 
-btn.addEventListener('click', function () {
+btnAdd.addEventListener('click', function () {
   clearList();
   insertText();
   createElementList();
 
-  document.querySelector('#texto-tarefa').value = "";
-
-  switchBG();
+  document.querySelector('#texto-tarefa').value = '';
+  btnDeleteAll.addEventListener('click', function () {
+    clearList();
+    arrayListItens.length = 0;
+  });
 });
