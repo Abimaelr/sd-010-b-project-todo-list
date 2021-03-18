@@ -1,3 +1,4 @@
+// criando elementos (Li)
 let toAdd = () => {
     let addLi = document.createElement('li');
     addLi.innerText = inputText.value;
@@ -13,3 +14,14 @@ createTask.addEventListener('click', toAdd);
 let bgColor = () => {
     
 }
+
+// Inserindoo tarefa em lista de tarefas
+function insertTask() {
+    let input = document.getElementById('texto-tarefa');
+    let lista = document.getElementById('lista-tarefas');  
+    if (input.value !== '') { 
+      let task = createTask(input.value); 
+      lista.appendChild(task); 
+      input.value = '';
+    }
+  }
