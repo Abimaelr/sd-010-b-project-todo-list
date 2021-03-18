@@ -5,14 +5,18 @@ const list = document.querySelector('#lista-tarefas');
 function additen() {
   const iten = document.createElement('li');
   iten.innerText = inputtext.value;
+  iten.className = 'task';
   list.appendChild(iten);
   inputtext.value = '';
 }
 
 button.addEventListener('click', additen);
 
-function changeColor(event) {
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+function selectElement (event) {
+  const selecteditens = document.querySelectorAll('.task');
+  for (let i = 0; i < selecteditens.length; i += 1) {
+    selecteditens[i].style.backgroundColor = '';
+  }
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)'
 }
-
-list.addEventListener('click', changeColor);
+list.addEventListener('click', selectElement)
