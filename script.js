@@ -31,6 +31,6 @@ createB.addEventListener('click', function () {
   input.value = '';
 });
 
-createB.addEventListener('click', function (event) {
+order.addEventListener('click', function (event) {
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 });
