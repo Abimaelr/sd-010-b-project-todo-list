@@ -5,23 +5,20 @@ let toAdd = () => {
     document.getElementById('lista-tarefas').appendChild(addLi);
     inputText.value = '';
 }
-
+// Inserindoo tarefa em lista de tarefas
 let createTask = document.getElementById('criar-tarefa');
 let inputText = document.getElementById('texto-tarefa');
 
 createTask.addEventListener('click', toAdd);
 
-let bgColor = () => {
-    
-}
 
-// Inserindoo tarefa em lista de tarefas
-function insertTask() {
-    let input = document.getElementById('texto-tarefa');
-    let lista = document.getElementById('lista-tarefas');  
-    if (input.value !== '') { 
-      let task = createTask(input.value); 
-      lista.appendChild(task); 
-      input.value = '';
+let selectTaskWithBackgroundColor = (color) => {
+    let taskElementsList = document.querySelectorAll('.task');
+    let selectTask = null;
+    taskElementsList.forEach((task) => {
+        if (task.style.backgroundColor === color) {
+          selectTask = task;
     }
-  }
+});
+return selectTask; 
+}
