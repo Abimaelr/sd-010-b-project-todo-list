@@ -1,8 +1,12 @@
-document.getElementById('#lista-tarefa')
 
 
-function addNewTask() {
-  const getInputField = document.querySelector('#texto-tarefa');
+
+
+
+
+
+function addNewTask() { //cria lista de tarefas apertando botao
+  const getInputField = document.querySelector('#texto-tarefa'); 
   const addInputButton = document.querySelector('#criar-tarefa');
   const getTaskList = document.querySelector('#lista-tarefas');
 
@@ -22,3 +26,5 @@ function addNewTask() {
 
 addNewTask();
 
+
+let licolor = document.getElementsByTagName('li')
