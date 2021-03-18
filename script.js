@@ -2,7 +2,16 @@
 Rafael Mathias, Lotar Lucas, Renan Braga, Felippe Correa,
 com colaboração do Gustavo Cerqueira e Matheus Gois.
 */
+window.onload = () => {
+  list.innerHTML = storage.getItem('lista');
+  const listChild = list.children;
+  for (let index = 0; index < listChild.length; index += 1) {
+    const element = listChild[index];
 
+    element.addEventListener('click', selectLi);
+    element.addEventListener('dblclick', mark);
+  }
+};
 const task = document.getElementById('texto-tarefa');
 const btnCriaTarefa = document.getElementById('criar-tarefa');
 const list = document.getElementById('lista-tarefas');
@@ -49,7 +58,7 @@ window.addEventListener('keyup', (event) => {
 });
 
 btnLimpar.addEventListener('click', () => {
-  list.innerHTML = '';
+  list.innerHTML = ''; // forma mais simples de resetar tudo
   // let array = document.querySelectorAll('.tarefa');
   // for (let i = 0; i < array.length; i += 1) {
   //   list.removeChild(array[i]);
@@ -68,36 +77,5 @@ btnSalvaLista.addEventListener('click', () => {
   storage.setItem('lista', list.innerHTML);
 });
 
-window.onload = () => {
-  list.innerHTML = storage.getItem('lista');
-  const listChild = list.children;
-  for (let index = 0; index < listChild.length; index += 1) {
-    const element = listChild[index];
-
-    element.addEventListener('click', selectLi);
-    element.addEventListener('dblclick', mark);
-  }
-};
-
 // btnMoverCima  btnMoverBaixo
 
-btnMoverCima.addEventListener('click', () => {
-  document.querySelector('.selected');
-
-}
-)
-
-
-// const selected = document.querySelector('.selected');
-// const lower = selected.nextElementSibling;
-// taskList.removeChild(lower);
-// selected.insertAdjacentElement('beforebegin', lower); 
-
-// const selected = document.querySelector('.selected');
-// if (selected && selected.previousSibling) {       
-// const upper = selected.previousSibling;
-// taskList.removeChild(upper);
-// selected.insertAdjacentElement('afterend', upper);
-// }
-
-// https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentElement
