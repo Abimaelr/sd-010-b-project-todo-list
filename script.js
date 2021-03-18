@@ -48,6 +48,5 @@ order.addEventListener('dblclick', function (event) {
   if (event.target.classList.contains('completed')) {
   }  else {
     event.target.classList.remove('completed');
-    event.target.style.textDecoration = 'initial';
   }
 });
