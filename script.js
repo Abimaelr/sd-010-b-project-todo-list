@@ -11,5 +11,9 @@ spawn(title);
 
 const p = document.createElement('p');
 p.id = 'funcionamento';
-p.innerText = 'Clique duas vezes em um site para marcá-lo como completo';
+p.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
 spawn(p);
+
+const input = document.createElement('input');
+input.id = 'texto-tarefa';
+spawn(input);
