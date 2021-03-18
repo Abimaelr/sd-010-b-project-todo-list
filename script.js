@@ -28,6 +28,7 @@ spawn(createB);
 createB.addEventListener('click', function () {
   order.appendChild(document.createElement('li'));
   order.lastChild.innerText = input.value;
+  order.lastChild.className = 'list';
   input.value = '';
 });
 
@@ -50,5 +51,16 @@ order.addEventListener('dblclick', function (event) {
   } else {
     event.target.classList.remove('completed');
     event.target.style.textDecoration = 'none';
+  }
+});
+
+const clear = document.createElement('button');
+spawn(clear);
+clear.id = 'apaga-tudo';
+
+clear.addEventListener('click', function () {
+  const todo = document.querySelectorAll('.list');
+  for (let counter = todo.length - 1; counter >= 0; counter -= 1) {
+    document.getElementsByTagName('ol')[0].removeChild((todo[counter]));
   }
 });
