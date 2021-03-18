@@ -17,3 +17,10 @@ spawn(p);
 const input = document.createElement('input');
 input.id = 'texto-tarefa';
 spawn(input);
+
+const order = document.createElement('ol');
+order.id = 'lista-tarefas';
+spawn(order);
+
+const createB = document.createElement('button');
+createB.id = 'criar-tarefa';
