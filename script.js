@@ -124,44 +124,39 @@ buttonMovePraBaixo.id = 'mover-baixo';
 buttonMovePraBaixo.innerText = 'mover para baixo';
 bodyPagina.appendChild(buttonMovePraBaixo);
 
-let linhasDaLista = document.getElementsByTagName('li');
 buttonMovePraCima.addEventListener('click', function() {
-  for (let i = 0; i < linhasDaLista.length; i += 1) {
-    if (linhasDaLista[i].classList.contains('corDeFundo')) {
-      const selecionadaPracima = {
-        text: linhasDaLista[i].innerHTML,
-        classe: linhasDaLista[i].className
-      }
-      const linhaTrocaPraCima = {
-        text: linhasDaLista[i - 1].innerHTML,
-        classe: linhasDaLista[i - 1].className
-      }
-      linhasDaLista[i].innerHTML = linhaTrocaPraCima.text;
-      linhasDaLista[i].className = linhaTrocaPraCima.classe;
-      linhasDaLista[i - 1].innerHTML = selecionadaPracima.text;
-      linhasDaLista[i - 1].className = selecionadaPracima.classe;
+  let corSelecionada = document.getElementsByClassName('corDeFundo')[0]
+  if(corSelecionada.previousElementSibling) {
+    const selecionadaPraBaixo = {
+      text: corSelecionada.innerHTML,
+      classe: corSelecionada.className
     }
+    const linhaTrocaPraBaixo = {
+      text: corSelecionada.previousElementSibling.innerHTML,
+      classe: corSelecionada.previousElementSibling.className
+    }
+    corSelecionada.innerHTML = linhaTrocaPraBaixo.text;
+    corSelecionada.className = linhaTrocaPraBaixo.classe;
+    corSelecionada.previousElementSibling.innerHTML = selecionadaPraBaixo.text;
+    corSelecionada.previousElementSibling.className = selecionadaPraBaixo.classe;
   }
 });
 
 buttonMovePraBaixo.addEventListener('click', function() {
-  for (let i = linhasDaLista.length - 1; i >= 0; i -= 1) {
-    /*if(!linhasDaLista[i + 1]) {
-      break;
-    } else */ if (linhasDaLista[i].classList.contains('corDeFundo')) {
-      const selecionadaPraBaixo = {
-        text: linhasDaLista[i].innerHTML,
-        classe: linhasDaLista[i].className
-      }
-      const linhaTrocaPraBaixo = {
-        text: linhasDaLista[i + 1].innerHTML,
-        classe: linhasDaLista[i + 1].className
-      }
-      linhasDaLista[i].innerHTML = linhaTrocaPraBaixo.text;
-      linhasDaLista[i].className = linhaTrocaPraBaixo.classe;
-      linhasDaLista[i + 1].innerHTML = selecionadaPraBaixo.text;
-      linhasDaLista[i + 1].className = selecionadaPraBaixo.classe;
+  let corSelecionada = document.getElementsByClassName('corDeFundo')[0]
+  if(corSelecionada.nextElementSibling) {
+    const selecionadaPraBaixo = {
+      text: corSelecionada.innerHTML,
+      classe: corSelecionada.className
     }
+    const linhaTrocaPraBaixo = {
+      text: corSelecionada.nextElementSibling.innerHTML,
+      classe: corSelecionada.nextElementSibling.className
+    }
+    corSelecionada.innerHTML = linhaTrocaPraBaixo.text;
+    corSelecionada.className = linhaTrocaPraBaixo.classe;
+    corSelecionada.nextElementSibling.innerHTML = selecionadaPraBaixo.text;
+    corSelecionada.nextElementSibling.className = selecionadaPraBaixo.classe;
   }
 });
 
