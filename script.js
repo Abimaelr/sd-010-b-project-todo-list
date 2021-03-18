@@ -21,17 +21,27 @@ function alteraCor(event) {
 
 listaTarefa.addEventListener('click', alteraCor);
 
-// requisito 8
-const classTarefas = document.getElementsByTagName('li');
-classTarefas.className = 'task'
-function selecionaItem(troca) {
-  const todasTarefas = document.querySelectorAll('.task');
-  for (let i = 0; i < todasTarefas.length; i += 1) {
-    todasTarefas[i].className = 'task';
-  }
-  troca.target.classList.add('selected');
-  classTarefas.querySelector('.selected').classList.remove('selected');
-  this.classList.add('selected');
-}
+// requisito 8 (deu ruim)
+// const classTarefas = document.getElementsByTagName('li');
+// classTarefas.className = 'task'
+// function selecionaItem(troca) {
+//   const todasTarefas = document.querySelectorAll('.task');
+//   for (let i = 0; i < todasTarefas.length; i += 1) {
+//     todasTarefas[i].className = 'task';
+//   }
+//   troca.target.classList.add('selected');
+//   classTarefas.querySelector('.selected').classList.remove('selected');
+//   this.classList.add('selected');
+// }
 
-listaTarefa.addEventListener('click', selecionaItem);
+// listaTarefa.addEventListener('click', selecionaItem);
+
+// requisito 9
+function markCompleted(mark) {
+  if (!mark.target.classList.contains('completed')) {
+    mark.target.classList.add('completed');
+  } else {
+    mark.target.classList.remove('completed');
+  }
+}
+listaTarefa.addEventListener('dblclick', markCompleted);
