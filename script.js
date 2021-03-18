@@ -13,9 +13,8 @@ function addNewTask() {
 
       getTaskList.appendChild(newLi);
       getInputField.value = '';
-    } else {
-      alert('Error: Digite ao menos 1 caractere.');
-    }
+    } 
+    
   })
 
   getInputField.addEventListener('keyup', function(event) {
@@ -30,3 +29,5 @@ function addNewTask() {
 };
 
 addNewTask();
+
+
