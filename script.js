@@ -12,8 +12,20 @@ adicionadoLista();
 
 function listaColorida () {
   let corLista = document.querySelector('#lista-tarefas');
-  corLista.addEventListener("click", function (evento){
+  corLista.addEventListener("click", function (evento) {
       evento.target.style.background = 'rgb(128, 128, 128)';
   })
 }
-listaColorida(); 
+listaColorida();
+
+function mudancaCor(){
+  let corLista = document.querySelector('#lista-tarefas');
+  corLista.addEventListener("click", function (evento) {
+    let elementCor = document.querySelector('.cor');
+    if (elementCor) {
+      elementCor.classList.remove('cor');
+    }
+    evento.target.classList.add('cor');
+  });
+}
+mudancaCor();
