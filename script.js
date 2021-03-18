@@ -55,3 +55,18 @@ function removeAllButtons(rall) {
 }
 
 removeAll.addEventListener('click', removeAllButtons);
+
+// requisito 11
+const removeAllFinalized = document.getElementById('remover-finalizados');
+
+function removeCompleted(rmCompleted) {
+  rmCompleted.preventDefault();
+  const allTasks = document.querySelectorAll('.task');
+  for (let i = allTasks.length - 1; i >= 0; i -= 1) {
+    if (allTasks[i].classList.contains('completed')) {
+      allTasks[i].remove();
+    }
+  }
+}
+
+removeAllFinalized .addEventListener('click', removeCompleted);
