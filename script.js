@@ -17,17 +17,8 @@ function addNewTask() {
     
   })
 
-  getInputField.addEventListener('keyup', function(event) {
-    if (event.keyCode === 13 && getInputField.value.length > 0) {
-      let newLi = document.createElement('li');
-      newLi.innerText = getInputField.value;
-
-      getTaskList.appendChild(newLi);
-      getInputField.value = '';
-    }
-  });
+  
 };
 
 addNewTask();
-
 
