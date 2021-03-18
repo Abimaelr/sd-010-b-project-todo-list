@@ -2,6 +2,8 @@ const listaPai = document.getElementById('lista-tarefas');
 let addSkill = document.getElementById('texto-tarefa');
 let create = document.getElementById('criar-tarefa');
 
+const removeItem = document.getElementById('remover-finalizados');
+
 function addList() {
   const createList = document.createElement('li');
   listaPai.appendChild(createList);
@@ -24,7 +26,6 @@ listaPai.addEventListener('click', function (e) {
 });
 
 listaPai.addEventListener('dblclick', function (e) {
-  const putTrace = document.getElementsByClassName('completed');
   const getClick = e.target.classList;
 
   if (getClick.contains('completed')) {
@@ -36,8 +37,13 @@ listaPai.addEventListener('dblclick', function (e) {
 
 const getButton = document.getElementById('apaga-tudo');
 function apagaLista() {
-  listaPai.innerHTML = '';
-  
-  
+  listaPai.innerHTML = '';    
 }
 getButton.addEventListener('click', apagaLista)
+
+removeItem.addEventListener('click', function(){
+  const putTrace = document.querySelectorAll('.completed');
+  for (let i = 0; i < putTrace.length; i += 1) {
+    putTrace[i].remove();
+    }
+}) 
