@@ -27,4 +27,26 @@ function addNewTask() { //cria lista de tarefas apertando botao
 addNewTask();
 
 
-let licolor = document.getElementsByTagName('li')
+
+let listaBonita = document.querySelector('#lista-tarefas')
+function listMudaCor() {
+  for (let i = 0; i < listaBonita.length; i += 1) {
+
+    listaBonita[i].addEventListener('click', function() {
+      let newColor = 'rgb(128,128,128)';
+      if( listaBonita[i].style.backgroundColor === newColor) {
+          listaBonita[i].style.backgroundColor = backgroundColor;
+
+      }
+      else {listaBonita[i].style.backgroundColor === newColor
+      }
+      
+    })
+  }
+}
+
+//function changeBackground() {
+ // let getListasTarefas = document.querySelector('#listas-tarefas');
+  //let getClassItem = 
+  //let backgroundColor = 'rgb(255, 128, 128)';
+  //let setColor = 'rgb(128, 128, 128';
