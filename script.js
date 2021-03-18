@@ -26,7 +26,11 @@ const createB = document.createElement('button');
 createB.id = 'criar-tarefa';
 spawn(createB);
 createB.addEventListener('click', function () {
-    order.appendChild(document.createElement('li'));
-    order.lastChild.innerText = input.value;
-    input.value = '';
+  order.appendChild(document.createElement('li'));
+  order.lastChild.innerText = input.value;
+  input.value = '';
+});
+
+createB.addEventListener('click', function (event) {
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 });
