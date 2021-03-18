@@ -46,10 +46,16 @@ function clearCompleted() {
   }
 }
 
+function removeSelected() {
+  let selectedItem = document.getElementsByClassName('selected');
+  selectedItem[0].remove();
+}
+
 window.onload = function() {
 document.getElementById('criar-tarefa').addEventListener('click', newItem);
 document.getElementById('lista-tarefas').addEventListener('click', changeColor);
 document.getElementById('lista-tarefas').addEventListener('dblclick', dblClick);
 document.getElementById('apaga-tudo').addEventListener('click', clearAll);
 document.getElementById('remover-finalizados').addEventListener('click', clearCompleted);
+document.getElementById('remover-selecionado').addEventListener('click', removeSelected);
 }
