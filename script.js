@@ -43,6 +43,10 @@ function deleteCompletedTasks() {
 }
 deleteCompletedTasksBtn.addEventListener('click', deleteCompletedTasks);
 
+/**
+ * Crédito ao colega Marcos Mantovani que compartilhou seu código e me ajudou
+ * na criação das funções saveTasks(), loadList(), moveUp() e moveDown()
+ */
 function saveTasks() {
   localStorage.mySavedTasks = toDoList.innerHTML;
 }
