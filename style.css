@@ -1,5 +1,7 @@
 .selected {
   background-color: gray;
+  color: white;
+  font-weight: 500;
 }
 
 .tarefa {
@@ -9,4 +11,20 @@
 
 .completed {
   text-decoration: line-through;
+}
+
+.size-panel {
+  width: 500px;
+  height: 500px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.position-panel {
+  margin-left: 50px;
+}
+
+
+body {
+  background-color: #f1f1f1;
 }
