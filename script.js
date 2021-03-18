@@ -45,7 +45,17 @@ clearAllButton.addEventListener('click', clearAll);
 function clearAll() {
   const taskslist = document.querySelector('#lista-tarefas');
   const tasksItems = document.querySelectorAll(".tasks");
-  console.log(tasksItems.length)
+  for (let index = 0; index < tasksItems.length; index += 1) {
+    taskslist.removeChild(tasksItems[index])
+  }
+}
+
+const removeFinalizados = document.querySelector('#remover-finalizados')
+removeFinalizados.addEventListener('click', removeTasksFinish);
+
+function removeTasksFinish() {
+  const taskslist = document.querySelector('#lista-tarefas');
+  const tasksItems = document.querySelectorAll(".completed");
   for (let index = 0; index < tasksItems.length; index += 1) {
     taskslist.removeChild(tasksItems[index])
   }
