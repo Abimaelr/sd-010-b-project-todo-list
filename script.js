@@ -29,7 +29,7 @@ list.addEventListener("click", function(event){
 })
 
 // Requisito 9
-// Acontece o inverso quando clicado novamente. Tive dificuldade nesta quesão na hora de fazer o inverso, sendo assin eu busquei orientação na PR do meu colega Leandro Reis. Se você olhar ambos os códigos, eles estarão muito diferentes, porque basicamente o que eu peguei do código dele foi o "includes", propriedade que eu não conhecia até entaão. Link: https://github.com/tryber/sd-010-b-project-todo-list/pull/14/commits/94fe2d54724282687324e6ff6d1e8c49607fc7d2
+// Acontece o inverso quando clicado novamente. Tive dificuldade nesta quesão na hora de fazer o inverso, sendo assin eu busquei orientação na PR do meu colega Leandro Reis. Se você olhar ambos os códigos, eles estarão muito diferentes, porque basicamente o que eu peguei do código dele foi o "includes", propriedade que eu não conhecia até então. Link: https://github.com/tryber/sd-010-b-project-todo-list/pull/14/commits/94fe2d54724282687324e6ff6d1e8c49607fc7d2
 
 list.addEventListener("dblclick", riscaNome);
 
@@ -40,7 +40,7 @@ function riscaNome(event){
             event.target.classList.remove('completed');
             event.target.style.textDecoration = "none"
           } else {
-            event.target.classList.add('completed');
+            event.target.className = "completed";
             event.target.style.textDecoration = "line-through solid rgb(0, 0, 0)"
           }
     }
