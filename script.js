@@ -44,9 +44,9 @@ order.addEventListener('click', function (event) {
 });
 
 order.addEventListener('dblclick', function (event) {
-  event.target.classList.toggle('completed');
   if (event.target.classList.contains('completed')) {
-  }  else {
     event.target.classList.remove('completed');
+  } else {
+    event.target.classList.toggle('completed');
   }
 });
