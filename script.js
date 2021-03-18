@@ -10,3 +10,9 @@ function additen() {
 }
 
 button.addEventListener('click', additen);
+
+function changeColor(event) {
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+
+list.addEventListener('click', changeColor);
