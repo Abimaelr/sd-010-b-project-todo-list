@@ -126,7 +126,11 @@ bodyPagina.appendChild(buttonMovePraBaixo);
 
 buttonMovePraCima.addEventListener('click', function() {
   let corSelecionada = document.getElementsByClassName('corDeFundo')[0]
-  if(corSelecionada.previousElementSibling) {
+  let irmaoAntecessor = '';
+  if (corSelecionada) {
+    irmaoAntecessor = corSelecionada.previousElementSibling;
+  }
+  if(irmaoAntecessor) {
     const selecionadaPraBaixo = {
       text: corSelecionada.innerHTML,
       classe: corSelecionada.className
@@ -139,12 +143,16 @@ buttonMovePraCima.addEventListener('click', function() {
     corSelecionada.className = linhaTrocaPraBaixo.classe;
     corSelecionada.previousElementSibling.innerHTML = selecionadaPraBaixo.text;
     corSelecionada.previousElementSibling.className = selecionadaPraBaixo.classe;
-  }
+  } 
 });
 
 buttonMovePraBaixo.addEventListener('click', function() {
-  let corSelecionada = document.getElementsByClassName('corDeFundo')[0]
-  if(corSelecionada.nextElementSibling) {
+  let corSelecionada = document.getElementsByClassName('corDeFundo')[0];
+  let proximoIrmao = '';
+  if (corSelecionada) {
+    proximoIrmao = corSelecionada.nextElementSibling;
+  }
+  if(proximoIrmao) {
     const selecionadaPraBaixo = {
       text: corSelecionada.innerHTML,
       classe: corSelecionada.className
@@ -157,7 +165,7 @@ buttonMovePraBaixo.addEventListener('click', function() {
     corSelecionada.className = linhaTrocaPraBaixo.classe;
     corSelecionada.nextElementSibling.innerHTML = selecionadaPraBaixo.text;
     corSelecionada.nextElementSibling.className = selecionadaPraBaixo.classe;
-  }
+  } 
 });
 
 //botão remover item selecionado
