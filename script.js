@@ -45,3 +45,13 @@ function markCompleted(mark) {
   }
 }
 listaTarefa.addEventListener('dblclick', markCompleted);
+
+// requisito 10
+const removeAll = document.getElementById('apaga-tudo');
+
+function removeAllButtons(rall) {
+  rall.preventDefault();
+  listaTarefa.innerHTML = '';
+}
+
+removeAll.addEventListener('click', removeAllButtons);
