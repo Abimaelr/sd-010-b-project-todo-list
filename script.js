@@ -82,18 +82,34 @@ document.getElementById('salvar-tarefas').addEventListener('click', () => {
   localStorage.setItem('savedList', list.innerHTML);
 });
 
-const taskList = document.querySelectorAll('li');
-
 function moveItemUp() {
-  for (let index = 0; index < taskList.length; index += 0) {
-    if (taskList.length > 0 && taskList[index].classList.contains('selected')) {
-      taskList[index].parentElement.replaceChild(taskList[index].parentElement.previousElementSibling, taskList[index]);
-    }
+  const selectedItem = document.querySelector('.selected');
+  const previousItem = selectedItem.previousSibling;
+  if (selectedItem && previousItem) {
+    const selectedText = selectedItem.innerText;
+    const previousText = selectedItem.previousSibling.innerText;
+    const selected = selectedItem.className;
+    const previous = previousItem.className;
+    selectedItem.textContent = previousText;
+    selectedItem.className = previous;
+    previousItem.textContent = selectedText;
+    previousItem.className = selected;
   }
 }
 document.getElementById('mover-cima').addEventListener('click', moveItemUp);
 
-// function moveItemDown () {
-
-// }
-// document.getElementById('mover-cima').addEventListener('click', moveItemDown);
+function moveItemDown() {
+  const selectedItem = document.querySelector('.selected');
+  const nextItem = selectedItem.nextSibling;
+  if (selectedItem && nextItem) {
+    const selectedText = selectedItem.innerText;
+    const nextText = nextItem.innerText;
+    const selected = selectedItem.className;
+    const next = nextItem.className;
+    selectedItem.textContent = nextText;
+    selectedItem.className = next;
+    nextItem.textContent = selectedText;
+    nextItem.className = selected;
+  }
+}
+document.getElementById('mover-baixo').addEventListener('click', moveItemDown);

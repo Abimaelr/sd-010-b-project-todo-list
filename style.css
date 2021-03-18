@@ -1,24 +1,22 @@
-/* Estilização */
-
 body {
   background-color: burlywood;
-	margin: auto;
+  margin: auto;
 }
 
 h1 {
   margin-top: 5px;
-	margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .selected {
   background-color: gray;
-	font-style: italic;
-	font-family: fantasy;
+  font-style: italic;
+  font-family: fantasy;
 }
 
 #criar-tarefa {
-	background-color: bisque;
-	border-radius: 20px;
+  background-color: bisque;
+  border-radius: 20px;
 }
 
 .completed {
@@ -45,36 +43,35 @@ h1 {
   border-left: 20px;
   padding: 30px;
   min-height: 150px;
-	border: solid brown;
-	margin: auto;
-	vertical-align: middle;
-	margin-top: 200px;
+  border: solid brown;
+  margin: auto;
+  vertical-align: middle;
+  margin-top: 200px;
 }
 
 p {
   font-style: italic;
-	margin-top: 0;
-	margin-bottom: 5px;
+  margin-top: 0;
+  margin-bottom: 5px;
 }
 
 #buttons {
   position: relative;
-	
 }
 
 #texto-tarefa {
-	margin-right: 10px;
-	width: 80%;
-	height: 20px;
+  margin-right: 10px;
+  width: 80%;
+  height: 20px;
 }
 
 #content {
-	margin: 10px;
+  margin: 10px;
 }
 
 button {
-	margin-right: 10px;
-	margin-top: 20px;
-	border-radius: 15px;
-	padding: 0 10px;
+  margin-right: 10px;
+  margin-top: 20px;
+  border-radius: 15px;
+  padding: 0 10px;
 }
