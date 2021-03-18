@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Todo List</title>
 </head>
 <body>
@@ -11,9 +12,13 @@
   <p id="funcionamento">
     Clique duas vezes em um item para marcá-lo como completo.
   </p>
-  <form action="">
-    <input type="text" name="item" id="texto-tarefa">
-    <ol id="lista-tarefas"></ol>
-  </form>
+  <section>
+    <form action="">
+      <input type="text" id="texto-tarefa" placeholder="Digite sua tarefa">
+      <ol id="lista-tarefas"></ol>
+      <button id="criar-tarefa">Adicionar</button>
+    </form>
+  </section>
+  <script src="script.js"></script>  
 </body>
 </html>
