@@ -5,9 +5,14 @@
 
 body {
   background-color: ForestGreen;
-  border-radius: 10px;
-  padding: 25px 25px 25px 25px;
   color: black;
+}
+
+section {
+  background-color: white;
+  padding: 25px 25px 25px 25px;
+  margin: 25px 25px 25px 25px;
+  border-radius: 10px;
 }
 
 p {

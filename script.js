@@ -4,21 +4,24 @@ let itens = [];
 
 document.getElementById("criar-tarefa").addEventListener('click' , adicionar);
 function adicionar() {
-  let ol = document.getElementById("lista-tarefas");
-  let li = document.createElement("li");
-  let input = document.getElementById("texto-tarefa").value;
-  li.appendChild(document.createTextNode(input));
-  ol.appendChild(li);
-  document.getElementById("texto-tarefa").value = "";
-  itens = document.querySelectorAll("#lista-tarefas");
-  selecao = document.getElementById("lista-tarefas").addEventListener('click' , selecionar);
-  function selecionar(){
-    for(let i = 0; i < itens.length; i+=1){
-      if(itens.firstChild = itens[i]){
-        alert("Deu certo");
-      }    
+  const ol = document.getElementById("lista-tarefas");
+  const input = document.getElementById("texto-tarefa");
+  const inputValue = input.value;
+  const li = document.createElement("li");
+  li.innerText = inputValue;
+  li.addEventListener('click',(e)=>{
+    const li = e.target;
+    const classe = 'selecionado';
+    if(li.classList.contains(classe)){
+      li.classList.remove(classe);
+      li.style.background = "white";
+    }else{
+      li.classList.add(classe);
+      li.style.background = "rgb(128,128,128)";
     }
-  }
+  });
+  ol.appendChild(li);
+  input.value = "";
 }
 
 //let array = [];
@@ -33,6 +36,6 @@ for(let i = 0; i < itens.length; i+=1) {
 for(let i = 0; i < itens.length; i+=1) {
   itens[i].onclick = function(){
     index = tab.indexOf(this.innerHTML);
-    console.log(this.innerHTML + " INDEX = " + index);
+    console.log(this.innerHTML + " Nada = " + index);
   };
 }
