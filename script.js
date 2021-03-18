@@ -13,7 +13,7 @@ function createElementList() {
     newLI.classList.add('li-tarefas');
     newLI.innerText = textItem;
     ordenedList.appendChild(newLI);
-  };
+  }
 }
 
 function switchBG() {
@@ -22,13 +22,20 @@ function switchBG() {
   for (let indexBGItens = 0; indexBGItens < bgItens.length; indexBGItens += 1) {
     bgItens[indexBGItens].addEventListener('click', function () {
       bgItens[indexBGItens].style.background = 'rgb(128, 128, 128)';
+      if (aux < 0) {
+        aux = indexBGItens;
+      } else {
+        bgItens[aux].style.background = '';
+        aux = indexBGItens;
+      }
     });
-  };
+  }
 }
 
 const btn = document.getElementById('criar-tarefa');
 const arrayListItens = [];
 const ordenedList = document.getElementById('lista-tarefas');
+let aux = -1;
 
 btn.addEventListener('click', function () {
   clearList();
