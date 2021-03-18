@@ -30,3 +30,13 @@
   color: white;
   background-color: darkorange;
 }
+
+#salvar-tarefas {
+  color: white;
+  background-color: darkslateblue;
+}
+
+#remover-selecionado {
+  color: white;
+  background-color: teal;
+}

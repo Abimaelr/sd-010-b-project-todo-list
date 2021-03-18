@@ -4,11 +4,13 @@ title.innerText = 'Minha Lista de Tarefas';
 header.appendChild(title);
 const p = document.querySelector('#funcionamento');
 p.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
-const catchButton = document.querySelector('#criar-tarefa');
+const btnCreateTask = document.querySelector('#criar-tarefa');
 const catchText = document.querySelector('#texto-tarefa');
 const catchList = document.querySelector('#lista-tarefas');
 const btnClear = document.querySelector('#apaga-tudo');
 const btnClearMarked = document.querySelector('#remover-finalizados');
+const btnSaveTask = document.querySelector('#salvar-tarefas');
+const btnEraserSelected = document.querySelector('#remover-selecionado');
 catchText.focus();
 
 function click() {
@@ -33,7 +35,7 @@ function keyEnter(event) {
 }
 
 catchText.addEventListener('keydown', keyEnter);
-catchButton.addEventListener('click', click);
+btnCreateTask.addEventListener('click', click);
 
 const selectList = catchList.children;
 
@@ -68,3 +70,24 @@ function eraserMarked() {
 }
 
 btnClearMarked.addEventListener('click', eraserMarked);
+
+function saveTask() {
+  localStorage.setItem('task', catchList.innerHTML);
+}
+
+btnSaveTask.addEventListener('click', saveTask);
+
+function catchTask() {
+  const task = localStorage.getItem('task');
+  document.querySelector('#lista-tarefas').innerHTML = task;
+}
+catchTask();
+
+function eraserSelected() {
+  for (let i = 0; i < selectList.length; i += 1) {
+    const elemento = document.querySelector('.selected');
+    elemento.parentNode.removeChild(elemento);
+  }
+}
+
+btnEraserSelected.addEventListener('click', eraserSelected);
