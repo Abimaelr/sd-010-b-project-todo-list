@@ -166,12 +166,10 @@ buttonApagarSelecionado.id = 'remover-selecionado';
 buttonApagarSelecionado.innerText = 'Remover linha selecionada'
 bodyPagina.appendChild(buttonApagarSelecionado);
 
+
 function removerLinhaSelecionada() {
-  for (let i = linhasDaLista.length - 1; i >= 0; i -= 1) {
-    if(linhasDaLista[i].classList.contains('corDeFundo')) {
-      lista.removeChild(linhasDaLista[i]);
-    }
-  }
+  let corSelecionada = document.querySelector('.corDeFundo');
+   lista.removeChild(corSelecionada);
 }
 
 buttonApagarSelecionado.addEventListener('click', removerLinhaSelecionada);
