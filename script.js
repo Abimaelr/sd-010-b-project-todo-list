@@ -19,25 +19,11 @@ function clearInput() {
 
 function tasks() {
   let tasks = document.querySelectorAll(".tasks");
-  for (index = 0; index < tasks.length; index+=1) {
+  for (let index = 0; index < tasks.length; index+=1) {
     tasks[index].addEventListener("click", colorTask); 
     tasks[index].addEventListener("dblclick", textDecoration); 
   }  
 }
-
-/* function colorTask(event) {
-  let selectColor = document.querySelector(".selected")
-  console.log(selectColor)
-  if (selectColor === null) {
-    event.target.classList.add("selected")  
-  } else {
-    selectColor.classList.remove("selected")
-    selectColor.style.backgroundColor = '';
-    event.target.classList.add("selected")
-  }
-  let selectColor2 = document.querySelector(".selected")
-  selectColor2.style.backgroundColor = "rgb(128,128,128)" 
-} */
 
 function colorTask(event) {
   let selectColor = document.querySelector(".colorGray")
@@ -51,8 +37,16 @@ function colorTask(event) {
 
 function textDecoration(event) {  
   event.target.classList.toggle("completed")
+} 
+
+const clearAllButton = document.querySelector( '#apaga-tudo');
+clearAllButton.addEventListener('click', clearAll);
+
+function clearAll() {
+  const taskslist = document.querySelector('#lista-tarefas');
+  const tasksItems = document.querySelectorAll(".tasks");
+  console.log(tasksItems.length)
+  for (let index = 0; index < tasksItems.length; index += 1) {
+    taskslist.removeChild(tasksItems[index])
+  }
 }
-
-
-
-
