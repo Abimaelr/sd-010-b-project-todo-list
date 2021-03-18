@@ -29,3 +29,16 @@ function mudancaCor(){
   });
 }
 mudancaCor();
+
+function riscarLista () {
+  let corLista = document.querySelector('#lista-tarefas');
+  corLista.addEventListener("dblclick", function (evento) {
+      let itemRiscado = document.querySelector('.completed'); 
+      if (itemRiscado) {
+        itemRiscado.classList.remove('completed');
+      } else {
+          evento.target.classList.add('completed'); 
+      }
+  });
+} 
+riscarLista();
