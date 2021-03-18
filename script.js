@@ -1,20 +1,21 @@
 const header = document.querySelector('#titulo');
 const title = document.createElement('h1');
-title.textContent = 'Minha Lista de Tarefas';
+title.innerText = 'Minha Lista de Tarefas';
 header.appendChild(title);
 const p = document.querySelector('#funcionamento');
-p.textContent = 'Clique duas vezes em um item para marcá-lo como completo';
+p.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
 const catchButton = document.querySelector('#criar-tarefa');
 const catchText = document.querySelector('#texto-tarefa');
 const catchList = document.querySelector('#lista-tarefas');
 const btnClear = document.querySelector('#apaga-tudo');
+const btnClearMarked = document.querySelector('#remover-finalizados');
 catchText.focus();
 
 function click() {
   if (catchText.value !== '') {
     const list = document.createElement('li');
     list.className = 'listas';
-    list.textContent = catchText.value;
+    list.innerText = catchText.value;
     catchList.appendChild(list);
     catchText.value = '';
     catchText.focus();
@@ -58,3 +59,12 @@ function clearList() {
 }
 
 btnClear.addEventListener('click', clearList);
+
+function eraserMarked() {
+  for (let i = 0; i < selectList.length; i += 1) {
+    const elemento = document.querySelector('.completed');
+    elemento.parentNode.removeChild(elemento);
+  }
+}
+
+btnClearMarked.addEventListener('click', eraserMarked);
