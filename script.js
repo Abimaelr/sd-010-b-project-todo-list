@@ -26,7 +26,7 @@ const createB = document.createElement('button');
 createB.id = 'criar-tarefa';
 spawn(createB);
 createB.addEventListener('click', () => {
-  createB.appendChild(document.createElement('ol'));
+  createB.appendChild(document.createElement('li'));
   createB.lastChild.innerText = input.value;
   input.value = '';
 });
