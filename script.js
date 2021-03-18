@@ -44,17 +44,22 @@ tarBtn();
     }
 }
  tarefas();
-list.addEventListener('click', clickedList);
-
- function clickedList(){
-     let liItem = document.getElementsByTagName('li')
-     for(let i = 0; i < liItem.length; i += 1){
-        liItem[i].style.backgroundColor = 'rgb(128, 128, 128)';
-     }
-        item.addEventListener('click', (event) => {
-       event.target.style.backgroundColor = 'white';
-    })
-};
+ function changeBackgroundColor(li){
+    li.addEventListener('click', function(event){   
+        let listArray = document.querySelectorAll("li");
+        if(event.target.style.backgroundColor !== 'rgb(128, 128, 128)'){
+            event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+            eventX = event.target;
+        }
+        else{ 
+        }
+        for(let index1 = 0; index1 < listArray.length; index1++){
+            if(listArray[index1] !== event.target){
+                listArray[index1].style.backgroundColor = 'white';
+            }
+        }
+    })   
+}   
     clear();
 
 function clear() {
@@ -68,5 +73,5 @@ function Deletar(){
 Deletar();
 //tarefas();
 //tarBtn();
-
+changeBackgroundColor(item);
       
