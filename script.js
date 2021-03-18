@@ -50,7 +50,10 @@ let createTask = (text) => {
     let taskList = document.querySelector('#lista-tarefas');    
     taskList.addEventListener('click', changeTaskBackgroundColor);   
     taskList.addEventListener('dblclick', taskCompletedOrNot);
-  }    
+  }
+  
     window.onload = function init() {
     setupEvents(); 
   };
+
+  
