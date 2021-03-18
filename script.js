@@ -42,3 +42,13 @@ order.addEventListener('click', function (event) {
   event.target.className = 'highl';
   highlight[0].style.backgroundColor = 'rgb(128, 128, 128)';
 });
+
+order.addEventListener('dblclick', function (event) {
+  event.target.classList.toggle('completed');
+  if (event.target.classList.contains('completed')) {
+    event.target.style.textDecoration = 'line-through solid red';
+  } else {
+    event.target.classList.remove('completed');
+    event.target.style.textDecoration = 'initial';
+  }
+});
