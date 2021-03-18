@@ -29,14 +29,7 @@ list.addEventListener("click", function (event) {
 })
 
 // Requisito 9
-// Acontece o inverso quando clicado novamente. Tive dificuldade nesta quesão na hora de fazer o inverso, sendo assin eu busquei orientação na PR do meu colega Leandro Reis. Se você olhar ambos os códigos, eles estarão muito diferentes, porque basicamente o que eu peguei do código dele foi o "includes", propriedade que eu não conhecia até então. Link: https://github.com/tryber/sd-010-b-project-todo-list/pull/14/commits/94fe2d54724282687324e6ff6d1e8c49607fc7d2
-
-
-
-
-
-
-
+// Acontece o inverso quando clicado novamente. Tive dificuldade nesta quesão na hora de fazer o inverso, procurei orientação com o leandro, como você pode ver no commit antes desse, porém não deu certo daquele jeito, então busquei ajuda no plantão e enfim consegui resolver o requisito, então estou retirando a referência que fiz no commit passado por questão de organização.
 list.addEventListener("dblclick", riscaNome);
 
 function riscaNome(event) {
