@@ -86,7 +86,7 @@ function removerSelecionado() {
 // eventos de chamada das funções
 btnCriarTarefa.addEventListener('click', () => {
   const liTarefa = document.createElement('li');
-  liTarefa.className = 'tarefa';
+  liTarefa.className = 'tarefa list-group-item';
   olListaTarefas.appendChild(liTarefa).innerHTML = valueInput.value;
 
   valueInput.value = '';

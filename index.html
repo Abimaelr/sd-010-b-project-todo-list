@@ -8,9 +8,9 @@
   <link rel="stylesheet" href="/style.css">
   <title>Document</title>
 </head>
-<body>
-  <div class="d-flex p-2 bd-highlight">
-    <div class="d-flex flex-column justify-content-center size-panel position-panel shadow-lg p-3 mb-5 bg-body border">
+<body class="bg-light">
+  <div class="d-flex p-2 bd-highlight ">
+    <div class="d-flex flex-column justify-content-center size-panel position-panel my-3 p-3 bg-body rounded shadow-sm">
       <div class="d-flex flex-column align-items-center p-2 bd-highlight">
         <header>
           <h1 class="text-center">Minha Lista de Tarefas</h1>
@@ -18,24 +18,26 @@
         </header>
       
         <section>
-          <section class="text-center">
-            <input type="text" id="texto-tarefa">
-      
-            <button id="criar-tarefa">criar tarefas</button>
+          <section class="d-flex justify-content-center align-items-start text-center">
+            <div class="me-2">
+              <input type="text" id="texto-tarefa" class="form-control me-2">
+            </div>
+            <div>
+              <button id="criar-tarefa" class="btn btn-success">Criar Tarefas</button>
+            </div>
           </section>
           
-          <section>
-            <ol id="lista-tarefas" class="fw-light lh-lg"></ol>
+          <section class="d-flex justify-content-center">
+            <ol id="lista-tarefas" class="fw-light lh-lg list-group list-group-flush"></ol>
           </section>
       
           <section>
-            
-            <button id="remover-finalizados">Finalizar</button>
-            <button id="salvar-tarefas">Salvar</button>
-            <button id="mover-cima">Cima</button>
-            <button id="mover-baixo">Baixo</button>
-            <button id="remover-selecionado">Remover</button>
-            <button id="apaga-tudo">Limpar</button>
+            <button id="remover-finalizados" class="btn btn-primary">Finalizar</button>
+            <button id="salvar-tarefas" class="btn btn-primary">Salvar</button>
+            <button id="mover-cima" class="btn btn-primary">Cima</button>
+            <button id="mover-baixo" class="btn btn-primary">Baixo</button>
+            <button id="remover-selecionado" class="btn btn-warning">Remover</button>
+            <button id="apaga-tudo" class="btn btn-danger">Limpar</button>
           </section>
             
         </section>

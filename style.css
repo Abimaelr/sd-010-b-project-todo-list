@@ -4,6 +4,11 @@
   font-weight: 500;
 }
 
+#lista-tarefas {
+  width: 350px;
+  padding: 15px;
+}
+
 .tarefa {
   list-style: none;
   cursor: pointer;
@@ -14,17 +19,11 @@
 }
 
 .size-panel {
-  width: 500px;
-  height: 500px;
+  width: 550px;
+  min-height: 500px;
   background-color: white;
-  border-radius: 20px;
 }
 
 .position-panel {
   margin-left: 50px;
-}
-
-
-body {
-  background-color: #f1f1f1;
 }
