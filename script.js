@@ -31,6 +31,14 @@ createB.addEventListener('click', function () {
   input.value = '';
 });
 
+const highlight = document.getElementsByClassName('highl');
 order.addEventListener('click', function (event) {
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  if (highlight.element !== 1) {
+    event.target.className = 'highl';
+    highlight[0].style.backgroundColor = 'rgb(128, 128, 128)';
+  }
+  highlight[0].style.backgroundColor = 'white';
+  highlight[0].className = '';
+  event.target.className = 'highl';
+  highlight[0].style.backgroundColor = 'rgb(128, 128, 128)';
 });
