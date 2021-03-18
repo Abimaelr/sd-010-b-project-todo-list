@@ -46,8 +46,7 @@ order.addEventListener('click', function (event) {
 order.addEventListener('dblclick', function (event) {
   event.target.classList.toggle('completed');
   if (event.target.classList.contains('completed')) {
-    event.target.style.textDecoration = 'line-through solid red';
-  } else {
+  }  else {
     event.target.classList.remove('completed');
     event.target.style.textDecoration = 'initial';
   }
