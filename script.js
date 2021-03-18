@@ -19,14 +19,13 @@ function adicionar() {
       document.querySelector(".selecionado").classList.remove("selecionado");
       li.classList.add(classe);
     }
-
-    /*if(li.classList.contains(classe)){
-      li.classList.remove(classe);
-      //li.style.background = "white";
+  });
+  li.addEventListener('dblclick', (e)=>{
+    if(li.classList.contains("completed") == true){
+      li.classList.remove("completed");
     }else{
-      li.classList.add(classe);
-      document.querySelector(".selecionado").classList.remove("selecionado");
-    }*/
+      li.classList.add("completed");
+    }
   });
   ol.appendChild(li);
   input.value = "";
