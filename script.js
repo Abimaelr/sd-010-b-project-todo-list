@@ -1,7 +1,7 @@
 function spawn(element) {
-  const elementMain = document.querySelector('main');
-  elementMain.appendChild(element);
-  return elementMain;
+  const main = document.querySelector('main');
+  main.appendChild(element);
+  return main;
 }
 
 const title = document.createElement('header');
@@ -24,3 +24,9 @@ spawn(order);
 
 const createB = document.createElement('button');
 createB.id = 'criar-tarefa';
+spawn(createB);
+createB.addEventListener('click', () => {
+  createB.appendChild(document.createElement('ol'));
+  createB.lastChild.innerText = input.value;
+  input.value = '';
+});
