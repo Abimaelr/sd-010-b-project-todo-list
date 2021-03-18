@@ -48,6 +48,8 @@ btnAdd.addEventListener('click', function () {
   createElementList();
 
   document.querySelector('#texto-tarefa').value = '';
+
+  switchBG();
   btnDeleteAll.addEventListener('click', function () {
     clearList();
     arrayListItens.length = 0;
