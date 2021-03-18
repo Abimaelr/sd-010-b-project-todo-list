@@ -44,9 +44,17 @@ function selectedList(e) {
     e.target.classList.add('selected');
   }
 }
+
 catchList.addEventListener('click', selectedList);
+
+function markList(e) {
+  e.target.classList.toggle('completed');
+}
+
+catchList.addEventListener('dblclick', markList);
 
 function clearList() {
   catchList.innerHTML = '';
 }
+
 btnClear.addEventListener('click', clearList);
