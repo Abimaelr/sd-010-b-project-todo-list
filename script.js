@@ -125,15 +125,19 @@ function removeTask() {
 moveDown.addEventListener('click', () => {
   const selected = document.querySelector('.select');
   const lower = selected.nextElementSibling;
-  lower.remove(ordenedList);
-  selected.insertAdjacentElement('beforebegin', lower);
+  if (selected) {
+    lower.remove(ordenedList);
+    selected.insertAdjacentElement('beforebegin', lower);
+  }
 });
 
 moveUp.addEventListener('click', () => {
   const selected = document.querySelector('.select');
   const upper = selected.previousElementSibling;
-  upper.remove(ordenedList);
-  selected.insertAdjacentElement('afterend', upper);
+  if (selected) {
+    upper.remove(ordenedList);
+    selected.insertAdjacentElement('afterend', upper);
+  }
 });
 
 window.onload = () => {

@@ -9,7 +9,7 @@ body {
   border-radius: 10px;
 }
 
-#title, #funcionamento, #texto-tarefa, #lista-tarefas {
+#title , #funcionamento , #texto-tarefa , #lista-tarefas {
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -36,7 +36,7 @@ button {
   color: white;
 }
 
-#texto-tarefa:focus, button:focus {
+#texto-tarefa:focus , button:focus {
   outline: none;
 }
 
@@ -64,16 +64,16 @@ button {
   user-select: none;
 }
 
-#criar-tarefa, #mover-cima, #mover-baixo {
+#mover-cima , #mover-baixo {
+  font-weight: bold;
+}
+
+#criar-tarefa , #mover-cima , #mover-baixo {
   background-color: rgb(111, 190, 255);
 }
 
-#criar-tarefa:active, #mover-cima:active, #mover-baixo:active {
+#criar-tarefa:active , #mover-cima:active, #mover-baixo:active {
   background-color: rgb(88, 147, 196);
-}
-
-#mover-cima, #mover-baixo {
-  font-weight: bold;
 }
 
 #apaga-tudo {
@@ -84,10 +84,10 @@ button {
   background-color: rgb(196, 88, 88);
 }
 
-#remover-finalizados, #remover-selecionado {
+#remover-finalizados , #remover-selecionado {
   background-color: rgb(255, 209, 111);
 }
 
-#remover-finalizados:active, #remover-selecionado:active {
+#remover-finalizados:active , #remover-selecionado:active {
   background-color: rgb(196, 167, 88);
 }
