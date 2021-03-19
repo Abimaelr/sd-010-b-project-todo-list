@@ -1,6 +1,6 @@
 body {
   margin: 2%;
-  background-color: rgb(107 ,210 ,107);
+  background-color: rgb(107, 210, 107);
 }
 
 #main {
@@ -18,13 +18,13 @@ body {
 }
 
 #funcionamento {
-  color: rgb(90 ,90 ,90);
+  color: rgb(90, 90, 90);
 }
 
 #texto-tarefa {
   padding: 10px;
   border-radius: 50px;
-  border: 1px solid rgb(202 ,194 ,194);
+  border: 1px solid rgb(202, 194, 194);
 }
 
 button {
@@ -42,7 +42,7 @@ button {
 
 #lista-tarefas {
   text-align: left;
-  border: 1px solid rgb(107 ,210 ,107);
+  border: 1px solid rgb(107, 210, 107);
   border-radius: 10px;
   padding: 10px 30px;
 }
@@ -59,31 +59,35 @@ button {
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid black;
   font-style: italic;
   user-select: none;
 }
 
-#criar-tarefa {
-  background-color: rgb(111 ,190 ,255);
+#criar-tarefa, #mover-cima, #mover-baixo {
+  background-color: rgb(111, 190, 255);
 }
 
-#criar-tarefa:active {
-  background-color: rgb(88 ,147 ,196);
+#criar-tarefa:active, #mover-cima:active, #mover-baixo:active {
+  background-color: rgb(88, 147, 196);
+}
+
+#mover-cima, #mover-baixo {
+  font-weight: bold;
 }
 
 #apaga-tudo {
-  background-color: rgb(255 ,111 ,111);
+  background-color: rgb(255, 111, 111);
 }
 
 #apaga-tudo:active {
-  background-color: rgb(196 ,88 ,88);
+  background-color: rgb(196, 88, 88);
 }
 
-#remover-finalizados {
-  background-color: rgb(255 ,209 ,111);
+#remover-finalizados, #remover-selecionado {
+  background-color: rgb(255, 209, 111);
 }
 
-#remover-finalizados:active {
-  background-color: rgb(196 ,167 ,88);
+#remover-finalizados:active, #remover-selecionado:active {
+  background-color: rgb(196, 167, 88);
 }

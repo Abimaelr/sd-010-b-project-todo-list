@@ -29,15 +29,30 @@ const ordenedList = createElement('ol');
 ordenedList.id = 'lista-tarefas';
 main.appendChild(ordenedList);
 
-const clearList = createElement('button');
-clearList.id = 'apaga-tudo';
-clearList.innerHTML = 'Limpar lista';
-main.appendChild(clearList);
+const moveUp = createElement('button');
+moveUp.id = 'mover-cima';
+moveUp.innerHTML = '&#8679';
+main.appendChild(moveUp);
+
+const moveDown = createElement('button');
+moveDown.id = 'mover-baixo';
+moveDown.innerHTML = '&#8681';
+main.appendChild(moveDown);
 
 const clearDone = createElement('button');
 clearDone.id = 'remover-finalizados';
 clearDone.innerHTML = 'Remover finalizados';
 main.appendChild(clearDone);
+
+const removeSelected = createElement('button');
+removeSelected.id = 'remover-selecionado';
+removeSelected.innerHTML = 'Remover selecionados';
+main.appendChild(removeSelected);
+
+const clearList = createElement('button');
+clearList.id = 'apaga-tudo';
+clearList.innerHTML = 'Limpar lista';
+main.appendChild(clearList);
 
 // Adcionar:
 function addNewTask() {
@@ -51,7 +66,6 @@ function addNewTask() {
     }
   });
 }
-addNewTask();
 
 // Seleciona tarefa na lista:
 function selectTask() {
@@ -65,7 +79,6 @@ function selectTask() {
     }
   });
 }
-selectTask();
 
 // Marca tarefa concluida:
 function taskDone() {
@@ -77,7 +90,6 @@ function taskDone() {
     }
   });
 }
-taskDone();
 
 // Limpa lista:
 function clearAll() {
@@ -85,22 +97,52 @@ function clearAll() {
     ordenedList.innerHTML = '';
   });
 }
-clearAll();
-const doneItens = document.getElementById('lista-tarefas').childNodes;
+
+const taskList = ordenedList.childNodes;
 
 // Remove finalizados:
 function removeDone() {
   clearDone.addEventListener('click', () => {
-    for (let i = 0; i < doneItens.length; i += 1) {
-      if (doneItens[i].classList.contains('completed')) {
-        doneItens[i].parentNode.removeChild(doneItens[i]);
+    for (let i = 0; i < taskList.length; i += 1) {
+      if (taskList[i].classList.contains('completed')) {
+        taskList[i].remove(taskList);
       }
     }
   });
 }
-removeDone();
+
+// Remove itens selecionados:
+function removeTask() {
+  removeSelected.addEventListener('click', () => {
+    for (let i = 0; i < taskList.length; i += 1) {
+      if (taskList[i].classList.contains('select')) {
+        taskList[i].remove(taskList);
+      }
+    }
+  });
+}
+
+moveDown.addEventListener('click', () => {
+  const selected = document.querySelector('.select');
+  const lower = selected.nextElementSibling;
+  lower.remove(ordenedList);
+  selected.insertAdjacentElement('beforebegin', lower);
+});
+
+moveUp.addEventListener('click', () => {
+  const selected = document.querySelector('.select');
+  const upper = selected.previousElementSibling;
+  upper.remove(ordenedList);
+  selected.insertAdjacentElement('afterend', upper);
+});
 
 window.onload = () => {
+  addNewTask();
+  selectTask();
+  taskDone();
+  clearAll();
+  removeDone();
+  removeTask();
 };
 
 // npm run cypress:open => eveluator job local
